@@ -1,4 +1,6 @@
-﻿using Quiz.Controller;
+﻿using FlatTheme.Code;
+using FlatTheme.ControlStyle;
+using Quiz.Controller;
 using Quiz.View;
 using System;
 using System.Collections.Generic;
@@ -25,9 +27,11 @@ namespace Quiz
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     /// 
-    public partial class MainWindow : Window
+    public partial class MainWindow : FlatWindow
     {
         MainWindowsController ctr = new MainWindowsController();
+        string color = "Material";
+        string theme = "Light";
         public MainWindow()
         {
             InitializeComponent();
@@ -61,6 +65,48 @@ namespace Quiz
                     CreateDataFile cr = new CreateDataFile();
                     cr.Show();
                 //}
+            }
+        }
+
+        private void btnClose_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void cbxTheme_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            switch(cbxTheme.SelectedIndex)
+            {
+                case 0: color = "Material"; ChangeTheme.Change(color + theme); break;
+                case 1: color = "Blue"; ChangeTheme.Change(color + theme); break;
+                case 2: color = "Green"; ChangeTheme.Change(color + theme); break;
+                case 3: color = "Red"; ChangeTheme.Change(color + theme); break;
+                case 4: color = "Pink"; ChangeTheme.Change(color + theme); break;
+                case 5: color = "Purple"; ChangeTheme.Change(color + theme); break;
+                case 6: color = "Orange"; ChangeTheme.Change(color + theme); break;
+                case 7: color = "BlueGrey"; ChangeTheme.Change(color); break;
+            }
+        }
+
+        private void btnDark_Click(object sender, RoutedEventArgs e)
+        {
+            if (color != "BlueGrey")
+            {
+                if (!btnDark.IsChecked.Value)
+                {
+                    theme = "Light";
+                    ChangeTheme.Change(color + theme);
+                }
+                else
+                {
+                    theme = "Dark";
+                    ChangeTheme.Change(color + theme);
+                }
+            }
+            else
+            {
+                theme = "Light";
+                btnDark.IsChecked = false;
             }
         }
         /*public void updateConfigFile(string con)

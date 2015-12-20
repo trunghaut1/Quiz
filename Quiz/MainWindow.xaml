@@ -1,11 +1,39 @@
-﻿<Window
+﻿<flat:FlatWindow
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:View="clr-namespace:Quiz.View" 
-    x:Class="Quiz.MainWindow"
-        Title="Quiz" Height="540" Width="960" MinHeight="540" MinWidth="960"
-    HorizontalContentAlignment="Stretch" Icon="Images/icon.png" WindowStartupLocation="CenterScreen" PreviewKeyDown="Window_PreviewKeyDown">
-    <Grid x:Name="mainGrid" HorizontalAlignment="Stretch">
+        x:Class="Quiz.MainWindow"
+        xmlns:flat="clr-namespace:FlatTheme.ControlStyle;assembly=FlatTheme"
+        Title="QuizApp" Height="595" Width="965" MinHeight="595" MinWidth="965"
+        HorizontalContentAlignment="Stretch" Icon="Images/icon.png" WindowStartupLocation="CenterScreen" PreviewKeyDown="Window_PreviewKeyDown" Style="{DynamicResource FlatWindow}" FontSize="15">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="5*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Column="0" HorizontalAlignment="Left" Orientation="Horizontal" VerticalAlignment="Top">
+                <ComboBox x:Name="cbxTheme" Tag="Select Theme" Width="200" Margin="10 0" SelectionChanged="cbxTheme_SelectionChanged">
+                    <ComboBoxItem Content="Material"/>
+                    <ComboBoxItem Content="Blue"/>
+                    <ComboBoxItem Content="Green"/>
+                    <ComboBoxItem Content="Red"/>
+                    <ComboBoxItem Content="Pink"/>
+                    <ComboBoxItem Content="Purple"/>
+                    <ComboBoxItem Content="Orange"/>
+                    <ComboBoxItem Content="BlueGrey"/>
+                </ComboBox>
+                <ToggleButton x:Name="btnDark" Margin="5 0" Click="btnDark_Click"/>
+                <Label Content="Dark Theme"/>
+            </StackPanel>
+            <Button x:Name="btnClose" Grid.Column="1" Content="Thoát" Width="100" Height="30" VerticalAlignment="Top" Click="btnClose_Click"/>
+            <Border BorderThickness="0 0 0 1" BorderBrush="{DynamicResource MainColor}" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Bottom" Margin="0 0 0 5"/>
+        </Grid>
+        <Grid x:Name="mainGrid" HorizontalAlignment="Stretch" Grid.Row="1">
+        </Grid>
     </Grid>
-
-</Window>
+</flat:FlatWindow>

@@ -526,7 +526,7 @@
             <ColumnDefinition Width="235*"/>
         </Grid.ColumnDefinitions>
         <Grid x:Name="grid" Margin="1,0,0.5,0" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" Grid.Column="1" Grid.RowSpan="2" Grid.ColumnSpan="2">
-            <Button x:Name="MainCircle" Style="{DynamicResource btnCircle}" Width="176" Height="176" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="150.234,150.884,149.766,149.116" IsTabStop="False" Background="{x:Null}" />
+            <Button x:Name="MainCircle" Style="{DynamicResource CircleButton}" Width="176" Height="176" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="150.234,150.884,149.766,149.116" IsTabStop="False"/>
             <ed:Arc x:Name="Arc1" EndAngle="90" HorizontalAlignment="Center" Height="255" Stretch="None" StrokeThickness="20" StrokeMiterLimit="0" StartAngle="0" VerticalAlignment="Center" Width="255" StrokeEndLineCap="Round" StrokeStartLineCap="Round" RenderTransformOrigin="0.5,0.5">
                 <ed:Arc.RenderTransform>
                     <TransformGroup>
@@ -619,7 +619,7 @@
             </ed:Arc>
         </Grid>
         <Grid x:Name="Button1Grid" RenderTransformOrigin="0.5,0.5" Grid.ColumnSpan="2" Margin="0,0,30.572,19.5">
-            <Button x:Name="btnMenu1" Style="{DynamicResource btnMenu}" Content="Do A Test" HorizontalAlignment="Left" VerticalAlignment="Top" Width="216" Height="112" Margin="51.5,58,0,0" Click="btnMenu1_Click" IsTabStop="False"/>
+            <Button x:Name="btnMenu1" Content="Do A Test" HorizontalAlignment="Left" VerticalAlignment="Top" Width="216" Height="112" Margin="51.5,58,0,0" Click="btnMenu1_Click" IsTabStop="False"/>
             <Grid x:Name="grid1" Margin="203,20,0,0" HorizontalAlignment="Left" Width="140.5" Height="43" VerticalAlignment="Top">
                 <Border Style="{DynamicResource PointBorder}" HorizontalAlignment="Left" Height="14" VerticalAlignment="Top" Width="90.8" Margin="27,6.5,0,0"/>
                 <Border Style="{DynamicResource PointBorder}" HorizontalAlignment="Left" Height="9.2" VerticalAlignment="Top" Width="90.8"/>
@@ -658,7 +658,7 @@
             </Grid>
         </Grid>
         <Grid x:Name="Button2Grid" RenderTransformOrigin="0.5,0.5" Margin="0,8,95.509,0" Grid.ColumnSpan="2" Grid.Row="1">
-            <Button x:Name="btnMenu2" Style="{DynamicResource btnMenu}" Content="Update" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="216" Height="112" Margin="44,0,0,42" IsTabStop="False" Click="btnMenu2_Click"/>
+            <Button x:Name="btnMenu2" Content="Update" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="216" Height="112" Margin="44,0,0,42" IsTabStop="False" Click="btnMenu2_Click"/>
             <Grid x:Name="grid13" Margin="175.184,0,0,14.999" Height="19.001" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="141.818">
                 <Border Style="{DynamicResource PointBorder}" HorizontalAlignment="Left" Height="17" Margin="61.818,2.001,0,0" VerticalAlignment="Top" Width="80"/>
                 <Border Style="{DynamicResource PointBorder}" HorizontalAlignment="Left" Height="11" VerticalAlignment="Top" Width="114"/>
@@ -708,7 +708,7 @@
             </Grid>
         </Grid>
         <Grid x:Name="Button3Grid" RenderTransformOrigin="0.5,0.5" Grid.Column="2" Grid.ColumnSpan="2">
-            <Button x:Name="btnMenu3" Style="{DynamicResource btnMenu}" Content="User Infomation" Margin="0,70,45.491,0" Click="btnMenu3_Click" HorizontalAlignment="Right" Width="216" Height="110" VerticalAlignment="Top" IsTabStop="False"/>
+            <Button x:Name="btnMenu3" Content="User Infomation" Margin="0,70,45.491,0" Click="btnMenu3_Click" HorizontalAlignment="Right" Width="216" Height="110" VerticalAlignment="Top" IsTabStop="False"/>
             <Grid x:Name="grid19" Margin="0,189.5,86.6,0" Height="21" VerticalAlignment="Top" HorizontalAlignment="Right" Width="141.391">
                 <Border Style="{DynamicResource PointBorder}" HorizontalAlignment="Left" Height="18.5" Margin="0,2.5,0,0" VerticalAlignment="Top" Width="80"/>
                 <Border Style="{DynamicResource PointBorder}" HorizontalAlignment="Left" Height="12" Margin="34,0,0,0" VerticalAlignment="Top" Width="100.5"/>
@@ -756,7 +756,7 @@
             </Grid>
         </Grid>
         <Grid x:Name="Button4Grid" RenderTransformOrigin="0.5,0.5" Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="1">
-            <Button x:Name="btnMenu4" Style="{DynamicResource btnMenu}" Content="Make a test from datafile" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="228" Height="112" Margin="0,0,38,44" IsTabStop="False" Click="btnMenu4_Click" IsHitTestVisible="True"/>
+            <Button x:Name="btnMenu4" Content="Make a test from datafile" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="228" Height="112" Margin="0,0,38,44" IsTabStop="False" Click="btnMenu4_Click" IsHitTestVisible="True"/>
             <Grid x:Name="grid7" Margin="0,0,37.335,153.5" Height="31.764" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="158.807">
                 <Border Style="{DynamicResource PointBorder}" HorizontalAlignment="Left" Height="10.665" Margin="0,14.004,0,0" VerticalAlignment="Top" Width="57.333"/>
                 <Border Style="{DynamicResource PointBorder}" HorizontalAlignment="Left" Height="20.667" Margin="41.333,0,0,0" VerticalAlignment="Top" Width="86.666"/>
