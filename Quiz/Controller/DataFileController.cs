@@ -94,14 +94,14 @@ namespace Quiz.Controller
                     
                     q.UserAdd = Decrypt(lines[y++]);
                     string temp = Decrypt(lines[y++]).ToString();
-                    q.DateAdd = DateTime.Parse(temp);
+                    q.DateAdd = DateTime.ParseExact(temp.Substring(0,10),"MM/dd/yyyy",null);
                     q.Note = Decrypt(lines[y++]);
                     list.Add(q);
                 }
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                MessageBox.Show("Lỗi file data!", "Error");
+                MessageBox.Show("Lỗi file data! \n" + e.Message, "Error");
             }
             return list;
         }

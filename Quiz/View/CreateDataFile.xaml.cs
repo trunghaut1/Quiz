@@ -172,7 +172,8 @@ namespace Quiz.View
                 d.write2File(url, true, q.Opt4);
                 d.write2File(url, true, q.Answer);
                 d.write2File(url, true, q.UserAdd.ToString());
-                d.write2File(url, true, q.DateAdd.ToString());
+                string dateAdd = q.DateAdd.Month.ToString() + "/" + q.DateAdd.Day.ToString() + "/" + q.DateAdd.Year.ToString();
+                d.write2File(url, true, dateAdd);
                 d.write2File(url, true, q.Note);
             }
         }
