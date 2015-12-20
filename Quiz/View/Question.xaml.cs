@@ -101,9 +101,11 @@ namespace Quiz.View
         {
             for (int i = 0; i < _list.Count; i++)
             {
-                Style style = FindResource("btn") as Style;
+                Style style = FindResource("CircleButton") as Style;
                 Button btn = new Button();
                 btn.Style = style;
+                btn.Width = 32;
+                btn.Height = 32;
                 btn.Content = (i+1).ToString();
                 btn.Name = "Button" + i.ToString();
                 btn.Tag = i;
@@ -144,8 +146,9 @@ namespace Quiz.View
             qs.DateAdd = _list[num].DateAdd;
             qs.UserAdd = _list[num].UserAdd;
             qs.Note = _list[num].Note;
-            txtQuest.Document.Blocks.Clear();
-            txtQuest.Document.Blocks.Add(new Paragraph(new Run("Câu " + (num + 1) + ": --Đóng góp: "+qs.UserAdd+ " -- \n" + qs.Content.Replace("\\n", "\n"))));
+            //txtQuest.Document.Blocks.Clear();
+            //txtQuest.Document.Blocks.Add(new Paragraph(new Run("Câu " + (num + 1) + ": --Đóng góp: "+qs.UserAdd+ " -- \n" + qs.Content.Replace("\\n", "\n"))));
+            txtQuest.Text = "Câu " + (num + 1) + ": --Đóng góp: " + qs.UserAdd + " -- \n" + qs.Content.Replace("\\n", "\n");
             qs.Opt1 = _list[num].Opt1.Insert(0, "A. ");
             qs.Opt2 = _list[num].Opt2.Insert(0, "B. ");
             qs.Opt3 = _list[num].Opt3.Insert(0, "C. ");
@@ -192,11 +195,10 @@ namespace Quiz.View
             rbOpt4.IsChecked = false;
             if(nopbai)
             {
-                Style s = FindResource("radioBBassic") as Style;
-                rbOpt1.Style = s;
-                rbOpt2.Style = s;
-                rbOpt3.Style = s;
-                rbOpt4.Style = s;
+                rbOpt1.Style = FindResource("FlatRadioButton") as Style;
+                rbOpt2.Style = FindResource("FlatRadioButton") as Style;
+                rbOpt3.Style = FindResource("FlatRadioButton") as Style;
+                rbOpt4.Style = FindResource("FlatRadioButton") as Style;
                 setStyleRadioButton();
             }
             else

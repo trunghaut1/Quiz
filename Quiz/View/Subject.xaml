@@ -24,20 +24,22 @@
             <BeginStoryboard Storyboard="{StaticResource Storyboard2}"/>
         </EventTrigger>
     </UserControl.Triggers>
-    <Grid>
+    <Grid Background="{DynamicResource BackgroundColor}">
+        <!--
         <Grid.Background>
             <ImageBrush ImageSource="/Quiz;component/Images/sgu3.jpg"/>
         </Grid.Background>
+        -->
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="610*"/>
-            <ColumnDefinition Width="353*"/>
+            <ColumnDefinition Width="600*"/>
+            <ColumnDefinition Width="280*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="40*"/>
-            <RowDefinition Height="209*"/>
-            <RowDefinition Height="21*"/>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="200*"/>
+            <RowDefinition Height="20*"/>
         </Grid.RowDefinitions>
-        <ScrollViewer x:Name="scrollViewer" Style="{StaticResource scrollViewer}" Grid.Row="1">
+        <ScrollViewer x:Name="scrollViewer" Grid.Row="1">
             <WrapPanel x:Name="btnPanel" Orientation="Horizontal">
             </WrapPanel>
         </ScrollViewer>
@@ -51,8 +53,7 @@
             </Grid.ColumnDefinitions>
             <TextBlock TextWrapping="Wrap" Foreground="{x:Null}"><Run Text="TextBlock"/>
             </TextBlock>
-            <Button x:Name="homebtn" Content="Quay lại" Grid.Row="1" Click="homebtn_Click" IsTabStop="False"/>
+            <Button x:Name="homebtn" Content="Quay lại" Grid.Row="1" Click="homebtn_Click" IsTabStop="False" Margin="10 0" Width="200"/>
         </Grid>
-        <StackPanel Margin="10,20,10,20" Orientation="Horizontal"/>
     </Grid>
 </UserControl>

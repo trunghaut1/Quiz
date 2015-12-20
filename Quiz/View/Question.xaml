@@ -8,7 +8,7 @@
         <Storyboard x:Key="Storyboard1"/>
         <Storyboard x:Key="Storyboard2"/>
     </UserControl.Resources>
-    <Grid Background="White">
+    <Grid Background="{DynamicResource BackgroundColor}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="41*"/>
             <ColumnDefinition Width="891*"/>
@@ -20,7 +20,7 @@
             <RowDefinition Height="307*"/>
             <RowDefinition Height="97*"/>
         </Grid.RowDefinitions>
-        <Label x:Name="lbName" Content="Label" Style="{StaticResource lb_title}" Grid.ColumnSpan="2" Margin="-254,0,638,149" Grid.Row="2" Height="40" VerticalAlignment="Bottom" RenderTransformOrigin="0.5,0.5">
+        <Label x:Name="lbName" Content="Label" Grid.ColumnSpan="2" Margin="-254,0,638,160" Grid.Row="2" Height="40" VerticalAlignment="Bottom" RenderTransformOrigin="0.5,0.5">
             <Label.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -30,40 +30,54 @@
                 </TransformGroup>
             </Label.RenderTransform>
         </Label>
-        <GroupBox Grid.Column="1" Header="Câu hỏi" Grid.Row="1">
+        <GroupBox Grid.Column="1" Header="Câu hỏi" Grid.Row="1" BorderBrush="{DynamicResource MainColorLight}">
             <WrapPanel x:Name="btnPanel" ItemHeight="36" ItemWidth="43" HorizontalAlignment="Center"/>
         </GroupBox>
         <StackPanel Grid.Column="1" Grid.Row="2">
-            <RichTextBox x:Name="txtQuest" Height="100" IsReadOnly="True" FontSize="14">
-                <FlowDocument>
-                    <Paragraph>
-                        <Run Text="RichTextBox"/>
-                    </Paragraph>
-                </FlowDocument>
-            </RichTextBox>
+            <TextBox x:Name="txtQuest" Height="100" IsReadOnly="True" AcceptsReturn="True" TextWrapping="Wrap" Margin="0 10"/>
             <ScrollViewer Height="215" VerticalScrollBarVisibility="Auto">
                 <StackPanel Height="215" Width="807">
-                    <RadioButton x:Name="rbOpt1" Content="{Binding Path=Opt1}" Style="{StaticResource radioBBassic}" Checked="rdButton_Click" IsTabStop="False"/>
-                    <RadioButton x:Name="rbOpt2" Content="{Binding Path=Opt2}" Style="{StaticResource radioBBassic}" Checked="rdButton_Click" IsTabStop="False"/>
-                    <RadioButton x:Name="rbOpt3" Content="{Binding Path=Opt3}" Style="{StaticResource radioBBassic}" Checked="rdButton_Click" IsTabStop="False"/>
-                    <RadioButton x:Name="rbOpt4" Content="{Binding Path=Opt4}" Style="{StaticResource radioBBassic}" Checked="rdButton_Click" IsTabStop="False" />
+                    <RadioButton x:Name="rbOpt1" Content="{Binding Path=Opt1}" Checked="rdButton_Click" IsTabStop="False"/>
+                    <RadioButton x:Name="rbOpt2" Content="{Binding Path=Opt2}" Checked="rdButton_Click" IsTabStop="False"/>
+                    <RadioButton x:Name="rbOpt3" Content="{Binding Path=Opt3}" Checked="rdButton_Click" IsTabStop="False"/>
+                    <RadioButton x:Name="rbOpt4" Content="{Binding Path=Opt4}" Checked="rdButton_Click" IsTabStop="False" />
                 </StackPanel>
             </ScrollViewer>
         </StackPanel>
         <Grid Grid.Column="1" Grid.Row="3">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="312*"/>
-                <ColumnDefinition Width="125*"/>
+                <ColumnDefinition Width="300*"/>
+                <ColumnDefinition Width="135*"/>
             </Grid.ColumnDefinitions>
-            <WrapPanel Grid.Column="1">
-                <Button x:Name="btnPre" Style="{StaticResource btnPre}" ToolTip="Phím tắt Z" IsTabStop="False" Click="btnPre_Click"/>
-                <Button x:Name="btnNext" Style="{StaticResource btnNext}" ToolTip="Phím tắt X" Click="GetNextQuest" IsTabStop="False" />
-                <Button x:Name="btnNote" Style="{StaticResource btnGhichu}" Visibility="Hidden" IsTabStop="False" Click="btnNote_Click"/>
-                <Button x:Name="btnDone" Style="{StaticResource btnNop}" IsTabStop="False" Click="btnDone_Click"/>
+            <WrapPanel Grid.Column="1" Orientation="Horizontal">
+                <Button x:Name="btnNote" ToolTip="Ghi chú"  Visibility="Hidden" IsTabStop="False" Click="btnNote_Click" Style="{DynamicResource CircleButton}" Width="50" Height="50">
+                    <Viewbox Width="22" Height="22">
+                        <Path Data="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM8 14H6v-2h2v2zm0-3H6V9h2v2zm0-3H6V6h2v2zm7 6h-5v-2h5v2zm3-3h-8V9h8v2zm0-3h-8V6h8v2z" Fill="{DynamicResource BackgroundColor}" Stretch="Fill"/>
+                    </Viewbox>
+                </Button>
+                <Button x:Name="btnPre" ToolTip="Câu trước (Z)" IsTabStop="False" Click="btnPre_Click" Style="{DynamicResource CircleButton}" Width="50" Height="50" Margin="5 0">
+                    <Viewbox Width="22" Height="22">
+                        <Path Data="M15.41 16.09l-4.58-4.59 4.58-4.59L14 5.5l-6 6 6 6z" Fill="{DynamicResource BackgroundColor}" Stretch="Fill"/>
+                    </Viewbox>
+                </Button>
+                <Button x:Name="btnDone" ToolTip="Hoàn thành" IsTabStop="False" Click="btnDone_Click" Style="{DynamicResource CircleButton}" Width="80" Height="80">
+                    <Viewbox Width="50" Height="50">
+                        <Path Data="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z" Fill="{DynamicResource BackgroundColor}" Stretch="Fill"/>
+                    </Viewbox>
+                </Button>
+                <Button x:Name="btnNext" ToolTip="Câu sau (X)" Click="GetNextQuest" IsTabStop="False" Style="{DynamicResource CircleButton}" Width="50" Height="50" Margin="5 0">
+                    <Viewbox Width="22" Height="22">
+                        <Path Data="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z" Fill="{DynamicResource BackgroundColor}" Stretch="Fill"/>
+                    </Viewbox>
+                </Button>
             </WrapPanel>
-            <TextBox x:Name="txtNote" TextWrapping="Wrap" Text="{Binding Path=Note}" VerticalScrollBarVisibility="Auto" Visibility="Hidden"/>
+            <TextBox Grid.Column="0" x:Name="txtNote" TextWrapping="Wrap" Text="{Binding Path=Note}" VerticalScrollBarVisibility="Auto" Visibility="Hidden" Margin="10 0" VerticalAlignment="Center"/>
         </Grid>
-        <Label x:Name="lbTime" Content="00:00" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" FontWeight="Bold"/>
-        <Button x:Name="btnBack" Grid.Column="2" Style="{StaticResource btnMenu}"  Content="" FontFamily="/Quiz;component/Fonts/#FontAwesome" Margin="0,5,0,0" IsTabStop="False" Click="btnBack_Click"/>
+        <Label x:Name="lbTime" Content="00:00" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" FontWeight="Bold" Foreground="{DynamicResource MainColor}"/>
+        <Button x:Name="btnBack" Grid.Column="2" ToolTip="Quay lại" Margin="0,5,0,0" IsTabStop="False" Click="btnBack_Click" Style="{DynamicResource CircleButton}" Width="22" Height="22">
+            <Viewbox Width="10" Height="10">
+                <Path Data="M15.41 16.09l-4.58-4.59 4.58-4.59L14 5.5l-6 6 6 6z" Fill="{DynamicResource BackgroundColor}" Stretch="Fill"/>
+            </Viewbox>
+        </Button>
     </Grid>
 </UserControl>
