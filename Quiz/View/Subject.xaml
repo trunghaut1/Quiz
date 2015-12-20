@@ -51,8 +51,8 @@
             </Grid.ColumnDefinitions>
             <TextBlock TextWrapping="Wrap" Foreground="{x:Null}"><Run Text="TextBlock"/>
             </TextBlock>
-            <Button x:Name="homebtn" Content="Quay lại" Style="{StaticResource btn}" Grid.Row="1" Click="homebtn_Click" IsTabStop="False"/>
+            <Button x:Name="homebtn" Content="Quay lại" Grid.Row="1" Click="homebtn_Click" IsTabStop="False"/>
         </Grid>
-        <StackPanel Style="{StaticResource stackNav}"/>
+        <StackPanel Margin="10,20,10,20" Orientation="Horizontal"/>
     </Grid>
 </UserControl>
