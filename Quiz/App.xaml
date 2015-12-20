@@ -35,6 +35,41 @@
                 <Setter Property="Fill" Value="{DynamicResource MainColor}"/>
             </Style>
 
+            <Style x:Key="scrollViewer" TargetType="ScrollViewer">
+                <Setter Property="VerticalScrollBarVisibility" Value="Hidden"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="ScrollViewer">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <ScrollContentPresenter  CanContentScroll="{TemplateBinding ScrollViewer.CanContentScroll}" 
+                                                             Content="{TemplateBinding ScrollViewer.Content}" />
+
+                                <ScrollBar Orientation="Vertical" Width="7" Grid.Row="0" Grid.Column="1" Minimum="0" MinWidth="7"
+                                   Maximum="{TemplateBinding ScrollViewer.ScrollableHeight}" 
+                                   Value="{TemplateBinding ScrollViewer.VerticalOffset}" 
+                                   ViewportSize="{TemplateBinding ScrollViewer.ViewportHeight}" Name="PART_VerticalScrollBar" 
+                                   Visibility="{TemplateBinding ScrollViewer.ComputedVerticalScrollBarVisibility}" />
+
+                                <ScrollBar Orientation="Horizontal" Grid.Row="1" Grid.Column="0" Minimum="0" 
+                                   Maximum="{TemplateBinding ScrollViewer.ScrollableWidth}" 
+                                   Value="{TemplateBinding ScrollViewer.HorizontalOffset}" 
+                                   ViewportSize="{TemplateBinding ScrollViewer.ViewportWidth}" Name="PART_HorizontalScrollBar" 
+                                   Visibility="{TemplateBinding ScrollViewer.ComputedHorizontalScrollBarVisibility}"/>
+
+                            </Grid>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
         </ResourceDictionary>
 
     </Application.Resources>
