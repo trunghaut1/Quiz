@@ -35,10 +35,11 @@ namespace Quiz.View
             for(int i=0;i<_list.Count;i++)
             {
                 Button btn = new Button();
-                //Style style = this.FindResource("btnSub") as Style;
-                //btn.Style = style;
+                Style style = this.FindResource("btnSub") as Style;
+                btn.Style = style;
                 btn.Name = _list[i].ButtonName;
                 btn.IsTabStop = false;
+                btn.Margin = new Thickness(10,10,0,0);
                 btnPanel.Children.Add(btn);
                 btn.Click += btn_Click;
                 btn.DataContext = _list[i] as SubButton;
