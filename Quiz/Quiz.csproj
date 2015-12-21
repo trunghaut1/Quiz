@@ -54,7 +54,7 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>random.ico</ApplicationIcon>
+    <ApplicationIcon>favicon.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <ManifestCertificateThumbprint>37E03E5E9BF4D5E9FE42ED35E01B5F2D63C72A10</ManifestCertificateThumbprint>
@@ -179,7 +179,7 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Style\Style.xaml">
+    <Page Include="ColorStyle\Style.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -297,7 +297,6 @@
     <Resource Include="Images\testing.png" />
     <Resource Include="Images\tinhdiem.jpg" />
     <Resource Include="Images\tinhdiem1.jpg" />
-    <Resource Include="Images\tinhdiem2.jpg" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5">
@@ -332,9 +331,6 @@
     <Resource Include="Images\password.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="random.ico" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Images\logo.png" />
   </ItemGroup>
   <ItemGroup>
@@ -348,6 +344,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\loading.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <SplashScreen Include="Images\QuizAppScreen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="favicon.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

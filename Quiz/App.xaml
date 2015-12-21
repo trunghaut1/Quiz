@@ -15,7 +15,7 @@
                 </ResourceDictionary>
                 <!-- Load tất cả các Control (không cần thay đổi) -->
                 <ResourceDictionary Source="/FlatTheme;component/Theme.xaml"/>
-                <ResourceDictionary Source="/Quiz;component/Style/Style.xaml"/>
+                <ResourceDictionary Source="/Quiz;component/ColorStyle/Style.xaml"/>
             </ResourceDictionary.MergedDictionaries>  
         </ResourceDictionary>
 

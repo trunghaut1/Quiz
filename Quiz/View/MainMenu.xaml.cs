@@ -42,10 +42,10 @@ namespace Quiz.View
 
         private void btnMenu3_Click(object sender, RoutedEventArgs e)
         {
-            ucUser sub = new ucUser();
-            Grid a = ucMainMenu.Parent as Grid;
+            //ucUser sub = new ucUser();
+            //Grid a = ucMainMenu.Parent as Grid;
             //a.Children.Remove(ucMainMenu);
-            a.Children.Add(sub);
+            //a.Children.Add(sub);
         }
 
         private void btnMenu4_Click(object sender, RoutedEventArgs e)

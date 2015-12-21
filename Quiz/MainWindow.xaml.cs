@@ -46,6 +46,7 @@ namespace Quiz
             
             //var connectionString = ConfigurationManager.ConnectionStrings["quizdbEntities"].ConnectionString;
             //MessageBox.Show(connectionString.ToString());
+            Subject load = new Subject();
             MainMenu sub = new MainMenu();
             mainGrid.Children.Add(sub);
             /*if(ctr.getUser()==0)
@@ -53,7 +54,6 @@ namespace Quiz
                 CreateUser cr = new CreateUser();
                 cr.ShowDialog();
             }*/
-            
         }
 
         private void Window_PreviewKeyDown(object sender, KeyEventArgs e)

@@ -225,12 +225,12 @@ namespace Quiz.View
         private void setColor4ButtonCurrentSelected(int z)
         {
             Button btn = FindButtonByIndex(z);
-            btn.Foreground = Brushes.Yellow;
+            btn.Foreground = FindResource("TextColor") as Brush;
         }
         private void setColor4ButtonToNormal(int z)
         {
             Button btn = FindButtonByIndex(z);
-            btn.Foreground = Brushes.Black;
+            btn.Foreground = FindResource("BackgroundColor") as Brush;
         }
 
         /// <summary>
