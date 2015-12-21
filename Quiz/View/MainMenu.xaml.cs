@@ -87,7 +87,17 @@ namespace Quiz.View
 
         private void btnMenu2_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Coming soon!","Thông báo");
+            MessageBox.Show("Đã cập nhật cơ sở dữ liệu mới nhất!","Thông báo");
+        }
+
+        private void MainCircle_MouseEnter(object sender, MouseEventArgs e)
+        {
+            imglogo.Visibility = Visibility.Visible;
+        }
+
+        private void MainCircle_MouseLeave(object sender, MouseEventArgs e)
+        {
+            imglogo.Visibility = Visibility.Hidden;
         }
 
     }

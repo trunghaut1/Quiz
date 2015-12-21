@@ -80,6 +80,7 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Xml" />
@@ -265,6 +266,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Images\tinhdiem3.jpg" />
     <Resource Include="Images\Unranked.png" />
   </ItemGroup>
   <ItemGroup>
@@ -340,6 +342,9 @@
       <Project>{dd9b70ef-db16-449b-91fb-6abb7b0f08dd}</Project>
       <Name>FlatTheme</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\background_subject.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

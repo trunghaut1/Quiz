@@ -15,13 +15,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Quiz.Model;
 using Quiz.Controller;
+using FlatTheme.ControlStyle;
 
 namespace Quiz.View
 {
     /// <summary>
     /// Interaction logic for CreateDataFile.xaml
     /// </summary>
-    public partial class CreateDataFile : Window
+    public partial class CreateDataFile : FlatWindow
     {
 
         DataFileController d = new DataFileController();

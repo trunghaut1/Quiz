@@ -1,11 +1,12 @@
-﻿<Window x:Class="Quiz.View.CreateUser"
+﻿<flat:FlatWindow x:Class="Quiz.View.CreateUser"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="CreateUser" Height="150" Width="300" Closing="Window_Closing">
+        xmlns:flat="clr-namespace:FlatTheme.ControlStyle;assembly=FlatTheme"
+        Title="CreateUser" Height="150" Width="300" Closing="Window_Closing" Style="{DynamicResource FlatWindow}" WindowStartupLocation="CenterScreen" FontSize="15">
     <Grid>
         <Label Content="Bạn là ?" HorizontalAlignment="Left" Margin="36,28,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="txtUser" HorizontalAlignment="Left" Height="23" Margin="36,54,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <Button Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="185,56,0,0" Click="Button_Click"/>
 
     </Grid>
-</Window>
+</flat:FlatWindow>

@@ -1,4 +1,5 @@
-﻿using Quiz.Controller;
+﻿using FlatTheme.ControlStyle;
+using Quiz.Controller;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +18,7 @@ namespace Quiz.View
     /// <summary>
     /// Interaction logic for CreateUser.xaml
     /// </summary>
-    public partial class CreateUser : Window
+    public partial class CreateUser : FlatWindow
     {
         AddUserController cr = new AddUserController();
         public CreateUser()
