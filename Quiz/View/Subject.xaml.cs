@@ -2,6 +2,7 @@
 using Quiz.Model;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,6 +24,7 @@ namespace Quiz.View
     public partial class Subject : UserControl
     {
         SubjectController sc;
+        
         public Subject()
         {
             InitializeComponent();
@@ -31,7 +33,7 @@ namespace Quiz.View
         }
         private void createSubButton()
         {
-            List<SubButton> _list = sc.loadSubjectButton();
+            List<SubButton> _list = new List<SubButton>();
             for(int i=0;i<_list.Count;i++)
             {
                 Button btn = new Button();
