@@ -225,7 +225,7 @@ namespace Quiz.View
         private void setColor4ButtonCurrentSelected(int z)
         {
             Button btn = FindButtonByIndex(z);
-            btn.Foreground = Brushes.AliceBlue;
+            btn.Foreground = Brushes.Yellow;
         }
         private void setColor4ButtonToNormal(int z)
         {
