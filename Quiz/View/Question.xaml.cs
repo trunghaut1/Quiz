@@ -225,7 +225,7 @@ namespace Quiz.View
         private void setColor4ButtonCurrentSelected(int z)
         {
             Button btn = FindButtonByIndex(z);
-            btn.Foreground = Brushes.AliceBlue;
+            btn.Foreground = Brushes.Yellow;
         }
         private void setColor4ButtonToNormal(int z)
         {
@@ -268,20 +268,23 @@ namespace Quiz.View
         }
         private void XZ_PreviewKeyDown(object sender, KeyEventArgs e)
         {
-            int _nextIndex;
-            Button btn = new Button();
-            switch (e.Key)
+            if (!txtNote.IsFocused)
             {
-                case Key.X:
-                    _nextIndex = getValueIndex(index, "+");
-                    btn = FindButtonByIndex(_nextIndex);
-                    btn_Click(btn, e);
-                    break;
-                case Key.Z:
-                    _nextIndex = getValueIndex(index, "-");
-                    btn = FindButtonByIndex(_nextIndex);
-                    btn_Click(btn, e);
-                    break;
+                int _nextIndex;
+                Button btn = new Button();
+                switch (e.Key)
+                {
+                    case Key.X:
+                        _nextIndex = getValueIndex(index, "+");
+                        btn = FindButtonByIndex(_nextIndex);
+                        btn_Click(btn, e);
+                        break;
+                    case Key.Z:
+                        _nextIndex = getValueIndex(index, "-");
+                        btn = FindButtonByIndex(_nextIndex);
+                        btn_Click(btn, e);
+                        break;
+                }
             }
         }
 
