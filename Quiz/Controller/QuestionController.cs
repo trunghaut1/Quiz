@@ -11,14 +11,32 @@ namespace Quiz.Controller
         QuizDbEntities qz = new QuizDbEntities();
         public string getSubName(string sub)
         {
-            string name = qz.Subjects.Where(t => t.SubId == sub).Select(t => t.SubName).FirstOrDefault();
-            return name;
+            try
+            {
+                string name = qz.Subjects.Where(t => t.SubId == sub).Select(t => t.SubName).FirstOrDefault();
+                return name;
+            }
+            catch (Exception)
+            {
+                System.Windows.MessageBox.Show("Lỗi kết nối đến cơ sở dữ liệu","Lỗi");
+            }
+            return null;
+            
         }
         public List<Question> getQuestion(string sub, int number)
         {
-            List<Question> _list = new List<Question>();
-            _list = qz.Questions.OrderBy(t => Guid.NewGuid()).Where(i => i.SubId == sub).Take(number).ToList();
-            return _list;
+            try
+            {
+                List<Question> _list = new List<Question>();
+                _list = qz.Questions.OrderBy(t => Guid.NewGuid()).Where(i => i.SubId == sub).Take(number).ToList();
+                return _list;
+            }
+            catch (Exception)
+            {
+                
+                System.Windows.MessageBox.Show("Lỗi kết nối đến cơ sở dữ liệu","Lỗi");
+            }
+            return null;
         }
     }
 }
