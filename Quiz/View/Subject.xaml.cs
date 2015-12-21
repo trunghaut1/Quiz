@@ -33,7 +33,7 @@ namespace Quiz.View
         }
         private void createSubButton()
         {
-            List<SubButton> _list = new List<SubButton>();
+            List<SubButton> _list = sc.loadSubjectButton();
             for(int i=0;i<_list.Count;i++)
             {
                 Button btn = new Button();
