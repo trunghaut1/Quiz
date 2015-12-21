@@ -1,7 +1,8 @@
-﻿<Window x:Class="Quiz.View.CreateDataFile"
+﻿<flat:FlatWindow x:Class="Quiz.View.CreateDataFile"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="CreateDataFile" Height="425" Width="600">
+        xmlns:flat="clr-namespace:FlatTheme.ControlStyle;assembly=FlatTheme"
+        Title="CreateDataFile" Height="500" Width="650" Style="{DynamicResource FlatWindow}" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="113*"/>
@@ -108,13 +109,13 @@
                     <ColumnDefinition Width="50*"/>
                     <ColumnDefinition Width="24*"/>
                 </Grid.ColumnDefinitions>
-                <Button x:Name="btnThem" Content="Thêm" Grid.Column="1" Click="btnThem_Click"/>
-                <Button x:Name="btnXoa" Content="Xóa" Grid.Column="2" Click="btnXoa_Click"/>
-                <Button x:Name="btnLuu" Content="Lưu" Grid.Column="3" Click="btnLuu_Click"/>
-                <Button x:Name="btnGhi" Content="Tạo DB" Grid.Column="5" Click="btnGhi_Click"/>
+                <Button x:Name="btnThem" Content="Thêm" Grid.Column="1" Click="btnThem_Click" Margin="5 0" />
+                <Button x:Name="btnXoa" Content="Xóa" Grid.Column="2" Click="btnXoa_Click" Margin="5 0"/>
+                <Button x:Name="btnLuu" Content="Lưu" Grid.Column="3" Click="btnLuu_Click" Margin="5 0"/>
+                <Button x:Name="btnGhi" Content="Tạo DB" Grid.Column="5" Click="btnGhi_Click" Margin="5 0"/>
                 <Button x:Name="btnRefresh" Content="Refresh" Grid.Column="4" Click="btnRefresh_Click"/>
             </Grid>
         </Grid>
 
     </Grid>
-</Window>
+</flat:FlatWindow>

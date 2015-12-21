@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             mc:Ignorable="d" d:DesignWidth="960" d:DesignHeight="540" PreviewKeyDown="XZ_PreviewKeyDown" >
+             mc:Ignorable="d" d:DesignWidth="950" d:DesignHeight="510" PreviewKeyDown="XZ_PreviewKeyDown" >
     <UserControl.Resources>
         <Storyboard x:Key="Storyboard1"/>
         <Storyboard x:Key="Storyboard2"/>
@@ -15,12 +15,12 @@
             <ColumnDefinition Width="28*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="31*"/>
-            <RowDefinition Height="105*"/>
-            <RowDefinition Height="307*"/>
-            <RowDefinition Height="97*"/>
+            <RowDefinition Height="55*"/>
+            <RowDefinition Height="112*"/>
+            <RowDefinition Height="300*"/>
+            <RowDefinition Height="100*"/>
         </Grid.RowDefinitions>
-        <Label x:Name="lbName" Content="Label" Grid.ColumnSpan="2" Margin="-254,0,638,160" Grid.Row="2" Height="40" VerticalAlignment="Bottom" RenderTransformOrigin="0.5,0.5">
+        <Label x:Name="lbName" Content="Label" Grid.Column="0" Grid.Row="3" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="0 0 0 -10" Grid.ColumnSpan="3" Foreground="{DynamicResource MainColor}">
             <Label.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -30,13 +30,16 @@
                 </TransformGroup>
             </Label.RenderTransform>
         </Label>
-        <GroupBox Grid.Column="1" Header="Câu hỏi" Grid.Row="1" BorderBrush="{DynamicResource MainColorLight}">
-            <WrapPanel x:Name="btnPanel" ItemHeight="36" ItemWidth="43" HorizontalAlignment="Center"/>
-        </GroupBox>
+        <Grid Grid.Column="1" Grid.Row="1">
+            <Border BorderBrush="{DynamicResource MainColorLight}" BorderThickness="1" CornerRadius="5" Margin="0 10 0 0">
+                <WrapPanel x:Name="btnPanel" ItemHeight="36" ItemWidth="43" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </Border>
+            <Label Content="Câu hỏi" Background="{DynamicResource BackgroundColor}" Margin="10 -9 0 0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        </Grid>
         <StackPanel Grid.Column="1" Grid.Row="2">
             <TextBox x:Name="txtQuest" Height="100" IsReadOnly="True" AcceptsReturn="True" TextWrapping="Wrap" Margin="0 10"/>
-            <ScrollViewer Height="215" VerticalScrollBarVisibility="Auto">
-                <StackPanel Height="215" Width="807">
+            <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="20 0 0 0">
+                <StackPanel>
                     <RadioButton x:Name="rbOpt1" Content="{Binding Path=Opt1}" Checked="rdButton_Click" IsTabStop="False"/>
                     <RadioButton x:Name="rbOpt2" Content="{Binding Path=Opt2}" Checked="rdButton_Click" IsTabStop="False"/>
                     <RadioButton x:Name="rbOpt3" Content="{Binding Path=Opt3}" Checked="rdButton_Click" IsTabStop="False"/>
@@ -71,11 +74,14 @@
                     </Viewbox>
                 </Button>
             </WrapPanel>
-            <TextBox Grid.Column="0" x:Name="txtNote" TextWrapping="Wrap" Text="{Binding Path=Note}" VerticalScrollBarVisibility="Auto" Visibility="Hidden" Margin="10 0" VerticalAlignment="Center"/>
+            <TextBox Grid.Column="0" x:Name="txtNote" TextWrapping="Wrap" Text="{Binding Path=Note}" VerticalScrollBarVisibility="Auto" Visibility="Hidden" Margin="10 0" VerticalAlignment="Center" AcceptsReturn="True"/>
         </Grid>
-        <Label x:Name="lbTime" Content="00:00" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" FontWeight="Bold" Foreground="{DynamicResource MainColor}"/>
-        <Button x:Name="btnBack" Grid.Column="2" ToolTip="Quay lại" Margin="0,5,0,0" IsTabStop="False" Click="btnBack_Click" Style="{DynamicResource CircleButton}" Width="22" Height="22">
-            <Viewbox Width="10" Height="10">
+        <Grid Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Border Background="{DynamicResource MainColor}" Width="120" Height="38" CornerRadius="21"/>
+            <Label x:Name="lbTime" Content="00:00" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="28" Foreground="{DynamicResource BackgroundColor}" Margin="0 -4 0 0"/>
+        </Grid>
+        <Button x:Name="btnBack" Grid.Column="0" ToolTip="Quay lại" Margin="0,5,0,0" IsTabStop="False" Click="btnBack_Click" Style="{DynamicResource CircleButton}" Width="36" Height="36" HorizontalAlignment="Right">
+            <Viewbox Width="15" Height="15" Margin="0 0 3 0">
                 <Path Data="M15.41 16.09l-4.58-4.59 4.58-4.59L14 5.5l-6 6 6 6z" Fill="{DynamicResource BackgroundColor}" Stretch="Fill"/>
             </Viewbox>
         </Button>

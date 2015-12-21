@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FlatTheme.ControlStyle;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,7 +17,7 @@ namespace Quiz.View
     /// <summary>
     /// Interaction logic for InputPassword.xaml
     /// </summary>
-    public partial class InputPassword : Window
+    public partial class InputPassword : FlatWindow
     {
         public InputPassword()
         {

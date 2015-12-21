@@ -4,7 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
-             d:DesignHeight="540" d:DesignWidth="960" Background="#00000000" Margin="0">
+             d:DesignHeight="510" d:DesignWidth="950" Background="{DynamicResource MainColor}">
     <UserControl.Resources>
 
         <Storyboard x:Key="diemAppear">
@@ -60,7 +60,7 @@
             </TransformGroup>
         </Grid.LayoutTransform>
         <Grid.Background>
-            <ImageBrush ImageSource="/Quiz;component/Images/tinhdiem2.jpg"/>
+            <ImageBrush ImageSource="/Quiz;component/Images/tinhdiem3.jpg" Opacity="0.8"/>
         </Grid.Background>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -87,7 +87,7 @@
         </Label>
         <Button x:Name="btnClose" Content="Quay lại" HorizontalAlignment="Right" Height="35" Width="100" Grid.Row="2" VerticalAlignment="Bottom" Margin="0 0 50 0" Click="btnClose_Click"/>
         <Label x:Name="lbChutich" Content="" HorizontalAlignment="Center" Height="46" Grid.Row="2" VerticalAlignment="Center" Width="645" FontSize="22" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="143,55,172,59"/>
-        <Label x:Name="lbTrangthai" Content="" HorizontalAlignment="Left" Height="24" Margin="10,10,0,0" Grid.Row="3" VerticalAlignment="Top" Width="950" FontSize="10"/>
+        <Label x:Name="lbTrangthai" Content="" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="3" VerticalAlignment="Top" FontSize="13"/>
 
     </Grid>
 </UserControl>
