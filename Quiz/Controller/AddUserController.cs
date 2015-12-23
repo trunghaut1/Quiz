@@ -32,7 +32,7 @@ namespace Quiz.Controller
         {
             try
             {
-                var r = qz.Users.Where(t => t.Name == username && t.Matkhau == password);
+                User r = qz.Users.Where(t => t.Name == username && t.Matkhau == password).SingleOrDefault();
                 if (r != null)
                 {
                     Thongtindangnhap.Username = username;
