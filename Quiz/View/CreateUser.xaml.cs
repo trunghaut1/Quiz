@@ -31,67 +31,6 @@ namespace Quiz.View
         {
             panelDangki.Visibility = System.Windows.Visibility.Visible;
         }
-
-        private void txtUsername_GotFocus(object sender, RoutedEventArgs e)
-        {
-            if (txtUsername.Text == "Tên đăng nhập")
-                txtUsername.Text = "";
-        }
-
-        private void txtPassword_GotFocus(object sender, RoutedEventArgs e)
-        {
-            if (txtPassword.Password == "Mật khẩu")
-                txtPassword.Password = "";
-        }
-
-        private void txtName_GotFocus(object sender, RoutedEventArgs e)
-        {
-            if (txtName.Text == "Tên đăng nhập")
-                txtName.Text = "";
-        }
-
-        private void txtPass_GotFocus(object sender, RoutedEventArgs e)
-        {
-            if (txtPass.Password == "Mật khẩu")
-                txtPass.Password = "";
-        }
-
-        private void txtRetypePass_GotFocus(object sender, RoutedEventArgs e)
-        {
-            if (txtRetypePass.Password == "Nhập lại mật khẩu")
-                txtRetypePass.Password = "";
-        }
-
-        private void txtUsername_LostFocus(object sender, RoutedEventArgs e)
-        {
-            if (txtUsername.Text == "")
-                txtUsername.Text = "Tên đăng nhập";
-        }
-
-        private void txtPassword_LostFocus(object sender, RoutedEventArgs e)
-        {
-            if (txtPassword.Password == "")
-                txtPassword.Password = "Mật khẩu";
-        }
-
-        private void txtName_LostFocus(object sender, RoutedEventArgs e)
-        {
-            if (txtName.Text == "")
-                txtName.Text = "Tên đăng nhập";
-        }
-
-        private void txtPass_LostFocus(object sender, RoutedEventArgs e)
-        {
-            if (txtPass.Password == "")
-                txtPass.Password = "Mật khẩu";
-        }
-
-        private void txtRetypePass_LostFocus(object sender, RoutedEventArgs e)
-        {
-            if (txtRetypePass.Password == "")
-                txtRetypePass.Password = "Nhập lại mật khẩu";
-        }
-
         private void btnDangnhap_Click(object sender, RoutedEventArgs e)
         {
             if (txtUsername.Text != "" && txtUsername.Text != "Tên đăng nhập"
@@ -117,15 +56,39 @@ namespace Quiz.View
         }
         private void btnDangki_Click(object sender, RoutedEventArgs e)
         {
-            if (txtUsername.Text != "" && txtUsername.Text != "Tên đăng nhập"
-                && txtPassword.Password != "Mật khẩu" && txtPassword.Password != "")
+            if(Check_Dangki())
             {
                 AddUserController au = new AddUserController();
-                bool check = au.CheckLogin(txtUsername.Text, txtPassword.Password);
-                if (check)
-                    MessageBox.Show("Đăng nhập thành công");
-                else MessageBox.Show("Đăng nhập thất bại");
+                bool b = au.AddUser(txtName.Text, txtPass.Password);
             }
+        }
+        private bool Check_Dangki()
+        {
+            if (txtName.Text != "" && txtName.Text != "Tên đăng kí")
+            {
+                MessageBox.Show("Chưa nhập tên đăng kí");
+                txtName.Focus();
+                return false;
+            }
+            if (txtPass.Password != "" && txtPass.Password != "Mật khẩu")
+            {
+                MessageBox.Show("Chưa nhập mật khẩu");
+                txtPass.Focus();
+                return false;
+            }
+            if (txtRetypePass.Password != "" && txtRetypePass.Password != "Nhập lại mật khẩu")
+            {
+                MessageBox.Show("Chưa nhập lại mật khẩu");
+                txtRetypePass.Focus();
+                return false;
+            }
+            if (txtPass.Password != txtRetypePass.Password)
+            {
+                MessageBox.Show("Mật khẩu không khớp");
+                txtRetypePass.Focus();
+                return false;
+            }
+            return true;
         }
     }
 }
