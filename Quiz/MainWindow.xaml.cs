@@ -1,6 +1,7 @@
 ﻿using FlatTheme.Code;
 using FlatTheme.ControlStyle;
 using Quiz.Controller;
+using Quiz.Model;
 using Quiz.View;
 using System;
 using System.Collections.Generic;
@@ -46,14 +47,8 @@ namespace Quiz
             
             //var connectionString = ConfigurationManager.ConnectionStrings["quizdbEntities"].ConnectionString;
             //MessageBox.Show(connectionString.ToString());
-            Subject load = new Subject();
             MainMenu sub = new MainMenu();
             mainGrid.Children.Add(sub);
-            /*if(ctr.getUser()==0)
-            {
-                CreateUser cr = new CreateUser();
-                cr.ShowDialog();
-            }*/
         }
 
         private void Window_PreviewKeyDown(object sender, KeyEventArgs e)
@@ -67,7 +62,15 @@ namespace Quiz
                 //}
             }
         }
-
+        private void Do_Login()
+        {
+            if(Thongtindangnhap.IsLogin)
+            {
+                menuHeader.Header = Thongtindangnhap.Username;
+                menuDangnhap.Visibility = Visibility.Collapsed;
+                menuDangxuat.Visibility = Visibility.Visible;
+            }
+        }
         private void btnClose_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
@@ -108,6 +111,28 @@ namespace Quiz
                 theme = "Light";
                 btnDark.IsChecked = false;
             }
+        }
+
+        private void menuDangnhap_Click(object sender, RoutedEventArgs e)
+        {
+            if (!Thongtindangnhap.IsLogin)
+            {
+                CreateUser cr = new CreateUser();
+                if(cr.ShowDialog()==true)
+                {
+                    Do_Login();
+                }
+            }
+        }
+
+        private void menuDangxuat_Click(object sender, RoutedEventArgs e)
+        {
+            Thongtindangnhap.IsLogin = false;
+            Thongtindangnhap.Username = "";
+            Thongtindangnhap.Password = "";
+            menuHeader.Header = "Ai đó?";
+            menuDangxuat.Visibility = Visibility.Collapsed;
+            menuDangnhap.Visibility = Visibility.Visible;
         }
         /*public void updateConfigFile(string con)
         {

@@ -526,7 +526,7 @@
             <ColumnDefinition Width="235*"/>
         </Grid.ColumnDefinitions>
         <Grid x:Name="grid" Margin="1,0,0.5,0" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" Grid.Column="1" Grid.RowSpan="2" Grid.ColumnSpan="2">
-            <Button x:Name="MainCircle" Style="{DynamicResource CircleButton}" Width="176" Height="176" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="150.234,150.884,149.766,149.116" IsTabStop="False" MouseEnter="MainCircle_MouseEnter" MouseLeave="MainCircle_MouseLeave"/>
+            <Button x:Name="MainCircle" Style="{DynamicResource CircleButton}" Width="176" Height="176" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="150.234,150.884,149.766,149.116" IsTabStop="False" MouseEnter="MainCircle_MouseEnter" MouseLeave="MainCircle_MouseLeave" Click="MainCircle_Click"/>
             <Image x:Name="imglogo" Source="/Quiz;component/Images/logo.png" Width="185" Height="185" Margin="0 5 0 0" IsHitTestVisible="False" Visibility="Hidden"/>
             <ed:Arc x:Name="Arc1" EndAngle="90" HorizontalAlignment="Center" Height="255" Stretch="None" StrokeThickness="20" StrokeMiterLimit="0" StartAngle="0" VerticalAlignment="Center" Width="255" StrokeEndLineCap="Round" StrokeStartLineCap="Round" RenderTransformOrigin="0.5,0.5">
                 <ed:Arc.RenderTransform>
