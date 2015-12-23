@@ -10,7 +10,7 @@ namespace Quiz.Controller
     class AddUserController
     {
         QuizDbEntities qz = new QuizDbEntities();
-        public void AddUser(string username, string password)
+        public bool AddUser(string username, string password)
         {
             try
             {
@@ -19,10 +19,12 @@ namespace Quiz.Controller
                 user.Matkhau = password;
                 qz.Users.Add(user);
                 qz.SaveChanges();
+                return true;
             }
             catch(Exception e)
             {
                 Console.WriteLine("Adduser: " + e.Message);
+                return false;
             }
 
         }
