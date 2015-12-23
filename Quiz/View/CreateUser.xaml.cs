@@ -48,7 +48,7 @@ namespace Quiz.View
                 else
                 {
                     MessageBox.Show("Đăng nhập thất bại");
-                    DialogResult = false;
+                    //DialogResult = false;
                 }
             }
             else
