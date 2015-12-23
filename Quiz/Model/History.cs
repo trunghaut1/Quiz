@@ -14,12 +14,13 @@ namespace Quiz.Model
     
     public partial class History
     {
+        public int Id { get; set; }
         public Nullable<int> UserId { get; set; }
         public string SubId { get; set; }
         public Nullable<int> NumberQuest { get; set; }
         public Nullable<int> NumberAns { get; set; }
         public Nullable<int> NumberCorrect { get; set; }
-        public System.DateTime Date { get; set; }
+        public System.DateTime DateTime { get; set; }
     
         public virtual User User { get; set; }
     }

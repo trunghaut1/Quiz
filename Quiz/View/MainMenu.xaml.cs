@@ -1,5 +1,6 @@
 ﻿using Microsoft.Win32;
 using Quiz.Controller;
+using Quiz.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,18 +35,24 @@ namespace Quiz.View
 
         private void btnMenu1_Click(object sender, RoutedEventArgs e)
         {
-            Subject sub = new Subject();
-            Grid a = ucMainMenu.Parent as Grid;
-            //a.Children.Remove(ucMainMenu);
-            a.Children.Add(sub);
+            if (Thongtindangnhap.IsLogin)
+            {
+                Subject sub = new Subject();
+                Grid a = ucMainMenu.Parent as Grid;
+                a.Children.Add(sub);
+            }
+            else MessageBox.Show("Chưa đăng nhập", "Thông báo");
         }
 
         private void btnMenu3_Click(object sender, RoutedEventArgs e)
         {
-            //ucUser sub = new ucUser();
-            //Grid a = ucMainMenu.Parent as Grid;
-            //a.Children.Remove(ucMainMenu);
-            //a.Children.Add(sub);
+            if (Thongtindangnhap.IsLogin)
+            {
+                ucUser sub = new ucUser();
+                Grid a = ucMainMenu.Parent as Grid;
+                a.Children.Add(sub);
+            }
+            else MessageBox.Show("Chưa đăng nhập", "Thông báo");
         }
 
         private void btnMenu4_Click(object sender, RoutedEventArgs e)
@@ -98,6 +105,11 @@ namespace Quiz.View
         private void MainCircle_MouseLeave(object sender, MouseEventArgs e)
         {
             imglogo.Visibility = Visibility.Hidden;
+        }
+
+        private void MainCircle_Click(object sender, RoutedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://www.facebook.com/groups/NGUYENNGOCMINH/");
         }
 
     }

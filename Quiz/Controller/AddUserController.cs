@@ -10,44 +10,67 @@ namespace Quiz.Controller
     class AddUserController
     {
         QuizDbEntities qz = new QuizDbEntities();
-        public void AddUser(string username)
+        public void AddUser(string username, string password)
         {
             try
             {
                 User user = new User();
                 user.Name = username;
+                user.Matkhau = password;
                 qz.Users.Add(user);
-                //qz.SaveChanges();
-                createInfo();
-                
+                qz.SaveChanges();
             }
             catch(Exception e)
             {
-                MessageBox.Show("Adduser: " + e.Message);
+                Console.WriteLine("Adduser: " + e.Message);
             }
 
         }
-        private void createInfo()
+        public bool CheckLogin(string username, string password)
         {
             try
             {
-                List<string> listSub = qz.Subjects.Select(t => t.SubId).ToList();
-                var uid = qz.Users.Select(t => t.Id).FirstOrDefault();
-                for(int i=0;i<listSub.Count;i++)
+                var r = qz.Users.Where(t => t.Name == username && t.Matkhau == password);
+                if (r != null)
                 {
-                    Info inf = new Info();
-                    inf.SubId = listSub[i];
-                    inf.UserId = uid;
-                    inf.NumAnswer = 0;
-                    inf.NumAnswerTrue = 0;
-                    inf.TimeUse = 0;
-                    qz.Infoes.Add(inf);
+                    Thongtindangnhap.Username = username;
+                    Thongtindangnhap.Password = password;
+                    Thongtindangnhap.IsLogin = true;
+                    return true;
                 }
-                qz.SaveChanges();
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Lỗi kiểm tra đăng nhập");
+                return false;
+            }
+            return false;
+        }
+        public bool Logout()
+        {
+            try
+            {
+                Thongtindangnhap.Username = "";
+                Thongtindangnhap.Password = "";
+                Thongtindangnhap.IsLogin = false;
+                return true;
             }
             catch (Exception e)
             {
-                MessageBox.Show("createInfo: "+e.Message);
+                Console.WriteLine(e.Message);
+                return false;
+            }
+            
+        }
+        public User FindUserByUsername(string username)
+        {
+            try
+            {
+                return qz.Users.Where(t => t.Name == username).SingleOrDefault();
+            }
+            catch (Exception)
+            {
+                return null;
             }
         }
     }

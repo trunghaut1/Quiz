@@ -140,6 +140,7 @@
     <Compile Include="Model\Subject.cs">
       <DependentUpon>QuizModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\Thongtindangnhap.cs" />
     <Compile Include="Model\User.cs">
       <DependentUpon>QuizModel.tt</DependentUpon>
     </Compile>
