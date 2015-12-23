@@ -4,17 +4,18 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="QuizDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="QuizDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="History">
           <Key>
-            <PropertyRef Name="Date" />
+            <PropertyRef Name="Id" />
           </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="UserId" Type="int" />
           <Property Name="SubId" Type="nvarchar" MaxLength="5" />
           <Property Name="NumberQuest" Type="int" />
           <Property Name="NumberAns" Type="int" />
           <Property Name="NumberCorrect" Type="int" />
-          <Property Name="Date" Type="date" Nullable="false" />
+          <Property Name="DateTime" Type="datetime" Nullable="false" />
         </EntityType>
         <EntityType Name="Info">
           <Key>
@@ -82,7 +83,9 @@
           <Property Name="Matkhau" Type="nchar" MaxLength="10" Nullable="false" />
         </EntityType>
         <Association Name="FK__History__UserId__286302EC">
-          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="User" Type="Self.User" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="History" Type="Self.History" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="User">
@@ -94,7 +97,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Info__SubId__24927208">
-          <End Role="Subject" Type="Self.Subject" Multiplicity="1" />
+          <End Role="Subject" Type="Self.Subject" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Info" Type="Self.Info" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Subject">
@@ -120,9 +125,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Question__SubId__4222D4EF">
-          <End Role="Subject" Type="Self.Subject" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
+          <End Role="Subject" Type="Self.Subject" Multiplicity="1" />
           <End Role="Question" Type="Self.Question" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Subject">
@@ -180,18 +183,6 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="QuizDbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="History">
-          <Key>
-            <PropertyRef Name="Date" />
-          </Key>
-          <Property Name="UserId" Type="Int32" />
-          <Property Name="SubId" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
-          <Property Name="NumberQuest" Type="Int32" />
-          <Property Name="NumberAns" Type="Int32" />
-          <Property Name="NumberCorrect" Type="Int32" />
-          <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
-          <NavigationProperty Name="User" Relationship="Self.FK__History__UserId__286302EC" FromRole="History" ToRole="User" />
-        </EntityType>
         <EntityType Name="Info">
           <Key>
             <PropertyRef Name="SubId" />
@@ -246,21 +237,9 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Matkhau" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Histories" Relationship="Self.FK__History__UserId__286302EC" FromRole="User" ToRole="History" />
           <NavigationProperty Name="Infoes" Relationship="Self.FK__Info__UserId__25869641" FromRole="User" ToRole="Info" />
+          <NavigationProperty Name="Histories" Relationship="QuizDbModel.FK__History__UserId__286302EC" FromRole="User" ToRole="History" />
         </EntityType>
-        <Association Name="FK__History__UserId__286302EC">
-          <End Role="User" Type="Self.User" Multiplicity="0..1" />
-          <End Role="History" Type="Self.History" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="User">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="History">
-              <PropertyRef Name="UserId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK__Info__SubId__24927208">
           <End Role="Subject" Type="Self.Subject" Multiplicity="1" />
           <End Role="Info" Type="Self.Info" Multiplicity="*" />
@@ -302,16 +281,11 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="QuizDbEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Histories" EntityType="Self.History" />
           <EntitySet Name="Infoes" EntityType="Self.Info" />
           <EntitySet Name="Programs" EntityType="Self.Program" />
           <EntitySet Name="SubButtons" EntityType="Self.SubButton" />
           <EntitySet Name="Subjects" EntityType="Self.Subject" />
           <EntitySet Name="Users" EntityType="Self.User" />
-          <AssociationSet Name="FK__History__UserId__286302EC" Association="Self.FK__History__UserId__286302EC">
-            <End Role="User" EntitySet="Users" />
-            <End Role="History" EntitySet="Histories" />
-          </AssociationSet>
           <AssociationSet Name="FK__Info__SubId__24927208" Association="Self.FK__Info__SubId__24927208">
             <End Role="Subject" EntitySet="Subjects" />
             <End Role="Info" EntitySet="Infoes" />
@@ -328,6 +302,11 @@
           <AssociationSet Name="FK__Question__SubId__4222D4EF" Association="QuizDbModel.FK__Question__SubId__4222D4EF">
             <End Role="Subject" EntitySet="Subjects" />
             <End Role="Question" EntitySet="Questions" />
+          </AssociationSet>
+          <EntitySet Name="Histories" EntityType="QuizDbModel.History" />
+          <AssociationSet Name="FK__History__UserId__286302EC" Association="QuizDbModel.FK__History__UserId__286302EC">
+            <End Role="User" EntitySet="Users" />
+            <End Role="History" EntitySet="Histories" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="Question">
@@ -361,24 +340,39 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="History">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int32" />
+          <Property Name="SubId" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="NumberQuest" Type="Int32" />
+          <Property Name="NumberAns" Type="Int32" />
+          <Property Name="NumberCorrect" Type="Int32" />
+          <Property Name="DateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="User" Relationship="QuizDbModel.FK__History__UserId__286302EC" FromRole="History" ToRole="User" />
+        </EntityType>
+        <Association Name="FK__History__UserId__286302EC">
+          <End Type="QuizDbModel.User" Role="User" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="QuizDbModel.History" Role="History" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="History">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="QuizDbModelStoreContainer" CdmEntityContainer="QuizDbEntities">
-          <EntitySetMapping Name="Histories">
-            <EntityTypeMapping TypeName="QuizDbModel.History">
-              <MappingFragment StoreEntitySet="History">
-                <ScalarProperty Name="UserId" ColumnName="UserId" />
-                <ScalarProperty Name="SubId" ColumnName="SubId" />
-                <ScalarProperty Name="NumberQuest" ColumnName="NumberQuest" />
-                <ScalarProperty Name="NumberAns" ColumnName="NumberAns" />
-                <ScalarProperty Name="NumberCorrect" ColumnName="NumberCorrect" />
-                <ScalarProperty Name="Date" ColumnName="Date" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Infoes">
             <EntityTypeMapping TypeName="QuizDbModel.Info">
               <MappingFragment StoreEntitySet="Info">
@@ -445,6 +439,19 @@
                 <ScalarProperty Name="Opt1" ColumnName="Opt1" />
                 <ScalarProperty Name="Content" ColumnName="Content" />
                 <ScalarProperty Name="SubId" ColumnName="SubId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Histories">
+            <EntityTypeMapping TypeName="QuizDbModel.History">
+              <MappingFragment StoreEntitySet="History">
+                <ScalarProperty Name="DateTime" ColumnName="DateTime" />
+                <ScalarProperty Name="NumberCorrect" ColumnName="NumberCorrect" />
+                <ScalarProperty Name="NumberAns" ColumnName="NumberAns" />
+                <ScalarProperty Name="NumberQuest" ColumnName="NumberQuest" />
+                <ScalarProperty Name="SubId" ColumnName="SubId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

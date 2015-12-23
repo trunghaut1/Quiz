@@ -25,12 +25,12 @@ namespace Quiz.Model
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<History> Histories { get; set; }
         public virtual DbSet<Info> Infoes { get; set; }
         public virtual DbSet<Program> Programs { get; set; }
         public virtual DbSet<SubButton> SubButtons { get; set; }
         public virtual DbSet<Subject> Subjects { get; set; }
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<Question> Questions { get; set; }
+        public virtual DbSet<History> Histories { get; set; }
     }
 }

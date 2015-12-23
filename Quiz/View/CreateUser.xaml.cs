@@ -27,18 +27,105 @@ namespace Quiz.View
             this.Focus();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Label_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            if(txtUser.Text!="")
-            {
-                cr.AddUser(txtUser.Text);
-                this.Close();
-            }
+            panelDangki.Visibility = System.Windows.Visibility.Visible;
         }
 
-        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        private void txtUsername_GotFocus(object sender, RoutedEventArgs e)
         {
-            if (txtUser.Text == "") Application.Current.Shutdown();
+            if (txtUsername.Text == "Tên đăng nhập")
+                txtUsername.Text = "";
+        }
+
+        private void txtPassword_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (txtPassword.Password == "Mật khẩu")
+                txtPassword.Password = "";
+        }
+
+        private void txtName_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (txtName.Text == "Tên đăng nhập")
+                txtName.Text = "";
+        }
+
+        private void txtPass_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (txtPass.Password == "Mật khẩu")
+                txtPass.Password = "";
+        }
+
+        private void txtRetypePass_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (txtRetypePass.Password == "Nhập lại mật khẩu")
+                txtRetypePass.Password = "";
+        }
+
+        private void txtUsername_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (txtUsername.Text == "")
+                txtUsername.Text = "Tên đăng nhập";
+        }
+
+        private void txtPassword_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (txtPassword.Password == "")
+                txtPassword.Password = "Mật khẩu";
+        }
+
+        private void txtName_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (txtName.Text == "")
+                txtName.Text = "Tên đăng nhập";
+        }
+
+        private void txtPass_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (txtPass.Password == "")
+                txtPass.Password = "Mật khẩu";
+        }
+
+        private void txtRetypePass_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (txtRetypePass.Password == "")
+                txtRetypePass.Password = "Nhập lại mật khẩu";
+        }
+
+        private void btnDangnhap_Click(object sender, RoutedEventArgs e)
+        {
+            if (txtUsername.Text != "" && txtUsername.Text != "Tên đăng nhập"
+                && txtPassword.Password != "Mật khẩu" && txtPassword.Password != "")
+            {
+                AddUserController au = new AddUserController();
+                bool check = au.CheckLogin(txtUsername.Text, txtPassword.Password);
+                if (check)
+                {
+                    MessageBox.Show("Đăng nhập thành công");
+                    DialogResult = true;
+                    this.Close();
+                }
+
+                else
+                {
+                    MessageBox.Show("Đăng nhập thất bại");
+                    DialogResult = false;
+                }
+            }
+            else
+                MessageBox.Show("Lỗi nhập liệu");
+        }
+        private void btnDangki_Click(object sender, RoutedEventArgs e)
+        {
+            if (txtUsername.Text != "" && txtUsername.Text != "Tên đăng nhập"
+                && txtPassword.Password != "Mật khẩu" && txtPassword.Password != "")
+            {
+                AddUserController au = new AddUserController();
+                bool check = au.CheckLogin(txtUsername.Text, txtPassword.Password);
+                if (check)
+                    MessageBox.Show("Đăng nhập thành công");
+                else MessageBox.Show("Đăng nhập thất bại");
+            }
         }
     }
 }

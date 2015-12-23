@@ -126,7 +126,7 @@ namespace Quiz
                 h.NumberQuest = listQuestion.Count;
                 h.NumberAns = numAns;
                 h.NumberCorrect = socaudung;
-                h.Date = DateTime.Now;
+                h.DateTime = DateTime.Now;
                 td.AddHistory(h);
             }
             catch (Exception e)
