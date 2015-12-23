@@ -5,16 +5,16 @@
     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
         <StackPanel x:Name="panelDangnhap" Width="150" Margin="10">
             <Label Content="Đăng nhập" HorizontalContentAlignment="Center" Foreground="{DynamicResource MainColor}"/>
-            <TextBox x:Name="txtUsername" TextWrapping="Wrap" Text="Tên đăng nhập" Grid.Column="1" GotFocus="txtUsername_GotFocus" LostFocus="txtUsername_LostFocus"/>
-            <PasswordBox x:Name="txtPassword" Password="Mật khẩu" GotFocus="txtPassword_GotFocus" LostFocus="txtPassword_LostFocus"/>
+            <TextBox Style="{DynamicResource FloatingHintTextBox}" x:Name="txtUsername" TextWrapping="Wrap" Tag="Tên đăng nhập"/>
+            <PasswordBox x:Name="txtPassword" Tag="Mật khẩu"/>
             <Button x:Name="btnDangnhap" Content="Đăng nhập" HorizontalAlignment="Center" VerticalAlignment="Top" Click="btnDangnhap_Click" Margin="0,10,0,0" Height="40"/>
             <Label Content="Đăng kí" FontSize="8" HorizontalAlignment="Right" Margin="0,30,0,0" MouseDown="Label_MouseDown"/>
         </StackPanel>
         <StackPanel x:Name="panelDangki" Width="150" Visibility="Collapsed" Margin="10">
             <Label Content="Đăng kí" HorizontalContentAlignment="Center" Foreground="{DynamicResource MainColor}"/>
-            <TextBox x:Name="txtName" TextWrapping="Wrap" Text="Tên đăng nhập" GotFocus="txtName_GotFocus" LostFocus="txtName_LostFocus"/>
-            <PasswordBox x:Name="txtPass" Password="Mật khẩu" GotFocus="txtPass_GotFocus" LostFocus="txtPass_LostFocus"/>
-            <PasswordBox x:Name="txtRetypePass" Password="Mật khẩu" GotFocus="txtRetypePass_GotFocus" LostFocus="txtRetypePass_LostFocus"/>
+            <TextBox Style="{DynamicResource FloatingHintTextBox}" x:Name="txtName" TextWrapping="Wrap" Tag="Tên đăng kí"/>
+            <PasswordBox x:Name="txtPass" Tag="Mật khẩu"/>
+            <PasswordBox x:Name="txtRetypePass" Tag="Nhập lại mật khẩu"/>
             <Button x:Name="btnDangki" Content="Đăng kí" HorizontalAlignment="Center" VerticalAlignment="Top" Click="btnDangki_Click" Margin="0,10,0,0" Height="40"/>
         </StackPanel>
     </StackPanel>
