@@ -67,23 +67,28 @@ namespace Quiz.View
             {
                 AddUserController au = new AddUserController();
                 bool b = au.AddUser(txtName.Text, txtPass.Password);
+                if(b==true)
+                {
+                    MessageBox.Show("Đăng kí thành công", "Thông báo");
+                    panelDangki.Visibility = Visibility.Collapsed;
+                }
             }
         }
         private bool Check_Dangki()
         {
-            if (txtName.Text != "" && txtName.Text != "Tên đăng kí")
+            if (txtName.Text == "" && txtName.Text == "Tên đăng kí")
             {
                 MessageBox.Show("Chưa nhập tên đăng kí");
                 txtName.Focus();
                 return false;
             }
-            if (txtPass.Password != "" && txtPass.Password != "Mật khẩu")
+            if (txtPass.Password == "" && txtPass.Password == "Mật khẩu")
             {
                 MessageBox.Show("Chưa nhập mật khẩu");
                 txtPass.Focus();
                 return false;
             }
-            if (txtRetypePass.Password != "" && txtRetypePass.Password != "Nhập lại mật khẩu")
+            if (txtRetypePass.Password == "" && txtRetypePass.Password == "Nhập lại mật khẩu")
             {
                 MessageBox.Show("Chưa nhập lại mật khẩu");
                 txtRetypePass.Focus();
