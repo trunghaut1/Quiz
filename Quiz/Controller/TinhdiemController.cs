@@ -9,19 +9,42 @@ namespace Quiz.Controller
     class TinhdiemController
     {
         QuizDbEntities qz = new QuizDbEntities();
-        public void AddInfo(Info inf)
+        public bool AddInfo(Info inf)
         {
-            var ori = qz.Infoes.Find(inf.SubId,inf.UserId);
-            if(ori!=null)
+            try
             {
-                qz.Entry(ori).CurrentValues.SetValues(inf);
-                qz.SaveChanges();
+                var ori = qz.Infoes.Find(inf.SubId, inf.UserId);
+                if (ori != null)
+                {
+                    ori.NumAnswer += inf.NumAnswer;
+                    ori.NumAnswerTrue += inf.NumAnswerTrue;
+                    ori.TimeUse += inf.TimeUse;
+                    qz.SaveChanges();
+                    return true;
+                }
+                return false;
             }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return false;
+            }
+            
         }
-        public void AddHistory(History his)
+        public bool AddHistory(History his)
         {
-            qz.Histories.Add(his);
-            qz.SaveChanges();
+            try
+            {
+                qz.Histories.Add(his);
+                qz.SaveChanges();
+                return true;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return false;
+            }
+            
         }
     }
 }

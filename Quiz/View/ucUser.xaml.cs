@@ -66,7 +66,14 @@ namespace Quiz.View
             rankAnsCorrect.Source = new BitmapImage(new Uri(@"" + rank[getRank(numAnsCorrect, traloidung)], UriKind.Relative));
             lbNumAnsCorrect.Content = traloidung.ToString();
             rankTimeUse.Source = new BitmapImage(new Uri(@"" + rank[getRank(Time, time)], UriKind.Relative));
-            lbTimeUse.Content = time.ToString();
+            lbTimeUse.Content = convert_int2time(Convert.ToInt32(time));
+        }
+        private string convert_int2time(int n)
+        {
+            string minute = (n / 60).ToString();
+            string second = (n % 60).ToString();
+            if (int.Parse(second) < 10) second = "0" + second;
+            return "" + minute + ":" + second;
         }
         private void doJob2()
         {
@@ -119,7 +126,7 @@ namespace Quiz.View
             txtChitiet.Text = "Môn kiểm tra : " + h.SubId + System.Environment.NewLine;
             txtChitiet.Text += "Số câu hỏi : " + h.NumberQuest + System.Environment.NewLine;
             txtChitiet.Text += "Số câu trả lời : " + h.NumberAns + System.Environment.NewLine;
-            txtChitiet.Text += "Số câu trả lời đúng : " + h.NumberQuest;
+            txtChitiet.Text += "Số câu trả lời đúng : " + h.NumberCorrect;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

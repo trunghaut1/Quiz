@@ -27,6 +27,13 @@ namespace Quiz.View
             this.Focus();
         }
 
+        private void txtPassword_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                btnDangnhap_Click(sender, e);
+            }
+        }
         private void Label_MouseDown(object sender, MouseButtonEventArgs e)
         {
             panelDangki.Visibility = System.Windows.Visibility.Visible;

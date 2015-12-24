@@ -6,9 +6,9 @@
         <StackPanel x:Name="panelDangnhap" Width="150" Margin="10">
             <Label Content="Đăng nhập" HorizontalContentAlignment="Center" Foreground="{DynamicResource MainColor}"/>
             <TextBox Style="{DynamicResource FloatingHintTextBox}" x:Name="txtUsername" TextWrapping="Wrap" Tag="Tên đăng nhập"/>
-            <PasswordBox x:Name="txtPassword" Tag="Mật khẩu"/>
+            <PasswordBox x:Name="txtPassword" Tag="Mật khẩu" KeyDown="txtPassword_KeyDown"/>
             <Button x:Name="btnDangnhap" Content="Đăng nhập" HorizontalAlignment="Center" VerticalAlignment="Top" Click="btnDangnhap_Click" Margin="0,10,0,0" Height="40"/>
-            <Label Content="Đăng kí" FontSize="8" HorizontalAlignment="Right" Margin="0,30,0,0" MouseDown="Label_MouseDown"/>
+            <Label Content="Đăng kí" FontSize="8" HorizontalAlignment="Right" Margin="0,10,0,0" MouseDown="Label_MouseDown"/>
         </StackPanel>
         <StackPanel x:Name="panelDangki" Width="150" Visibility="Collapsed" Margin="10">
             <Label Content="Đăng kí" HorizontalContentAlignment="Center" Foreground="{DynamicResource MainColor}"/>

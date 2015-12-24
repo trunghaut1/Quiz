@@ -46,7 +46,7 @@ namespace Quiz
         {
             for(int i=0;i<listQuestion.Count;i++)
             {
-                if (listQuestion[i].Traloi != "") numAns++;
+                if (listQuestion[i].Traloi != null) numAns++;
                 if (listQuestion[i].Traloi == listQuestion[i].Answer)
                     socaudung++;
             }
@@ -103,12 +103,15 @@ namespace Quiz
                 if(nap==false)
                 {
                     Info i = new Info();
+                    AddUserController au = new AddUserController();
+                    User u = au.FindUserByUsername(Thongtindangnhap.Username);
                     i.SubId = sub;
-                    i.UserId = m.getUser();
+                    i.UserId = u.Id;
                     i.NumAnswer = numAns;
                     i.NumAnswerTrue = socaudung;
                     i.TimeUse = time;
                     td.AddInfo(i);
+                    
                 }
             }
             catch (Exception e)
@@ -121,13 +124,16 @@ namespace Quiz
             try
             {
                 History h = new History();
-                h.UserId = m.getUser();
+                AddUserController au = new AddUserController();
+                User u = au.FindUserByUsername(Thongtindangnhap.Username);
+                h.UserId = u.Id;
                 h.SubId = sub;
                 h.NumberQuest = listQuestion.Count;
                 h.NumberAns = numAns;
                 h.NumberCorrect = socaudung;
                 h.DateTime = DateTime.Now;
                 td.AddHistory(h);
+                lbTrangthai.Content = "Cập nhật cơ sở dữ liệu thành công";
             }
             catch (Exception e)
             {
@@ -139,10 +145,14 @@ namespace Quiz
         {
             getInfoFromList();
             loadAnswerCorrectIntoPanel();
-            lbTrangthai.Content = "Đã cập nhật cơ sở dữ liệu thành tích thành công!";
+            lbTrangthai.Content = "";
             lbChutich.Content = "Chúc các bạn có kì thi thành công!";
-            //InsertInfo();
-            //InsertHistory();
+            if(Thongtindangnhap.IsLogin && nap == false)
+            {
+                InsertInfo();
+                InsertHistory();
+            }
+            
         }
         private void btnClose_Click(object sender, RoutedEventArgs e)
         {

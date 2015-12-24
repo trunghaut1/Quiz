@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" x:Name="ucGrid"
              d:DesignHeight="510" d:DesignWidth="950">
-    <Grid>
+    <Grid Background="White">
 
         <TabControl>
             <TabItem Header="Thông tin người dùng">
@@ -56,9 +56,9 @@
                         <Image x:Name="rankAnsCorrect" Grid.Column="2" Height="152" VerticalAlignment="Bottom" Margin="0,-18,0,0" ToolTip="Số câu trả lời đúng"/>
                         <Image x:Name="rankAns" Grid.Row="2" Grid.Column="1" Height="116" VerticalAlignment="Bottom" ToolTip="Số câu đã trả lời"/>
                         <Image x:Name="rankTimeUse" Grid.Column="3" Grid.Row="2" Height="116" VerticalAlignment="Bottom" ToolTip="Thời gian làm bài"/>
-                        <Label x:Name="lbNumAns" Content="Label" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Row="3" Grid.Column="1"/>
-                        <Label x:Name="lbTimeUse" Content="Label" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Column="3" Grid.Row="3"/>
-                        <Label x:Name="lbNumAnsCorrect" Content="Label" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Column="2" Grid.Row="1"/>
+                        <Label x:Name="lbNumAns" Content="Label" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Row="3" Grid.Column="1" ToolTip="Số câu đã trả lời"/>
+                        <Label x:Name="lbTimeUse" Content="Label" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Column="3" Grid.Row="3" ToolTip="Thời gian đã làm bài"/>
+                        <Label x:Name="lbNumAnsCorrect" Content="Label" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Column="2" Grid.Row="1" ToolTip="Số câu trả lời đúng"/>
                     </Grid>
                 </Grid>
             </TabItem>
@@ -93,7 +93,7 @@
                                     <Label Content="{Binding Path=SubId}" FontSize="22" FontWeight="ExtraLight" Grid.RowSpan="3"/>
                                     <Label Content="{Binding Path=Diem}" Foreground="{Binding Path=Color}" Grid.Column="1" VerticalContentAlignment="Center"/>
                                     <Label Content="{Binding Path=Danhgia}" Grid.Column="1" Grid.Row="1" VerticalContentAlignment="Center"/>
-                                    <Label Content="{Binding Path=Date}" Grid.Column="1" Grid.Row="2" VerticalContentAlignment="Center"/>
+                                    <Label Content="{Binding Path=Date}" Grid.Column="1" Grid.Row="2" VerticalContentAlignment="Center" Width="300"/>
                                 </Grid>
                             </DataTemplate>
                         </ListBox.ItemTemplate>
@@ -103,7 +103,7 @@
                 </Grid>
             </TabItem>
         </TabControl>
-        <Button Foreground="Black" VerticalAlignment="Top" HorizontalAlignment="Right" Width="22" Height="22" Click="Button_Click"/>
+        <Button Content="&#xf00d;" FontFamily="/Quiz;component/Fonts/#FontAwesome" Foreground="White" VerticalAlignment="Top" HorizontalAlignment="Right" Width="22" Height="22" Click="Button_Click"/>
 
     </Grid>
 </UserControl>

@@ -310,7 +310,7 @@ namespace Quiz.View
         }
         private void demgio()
         {
-            timer = new Timer(1000);
+            timer = new Timer(950);
             timer.Elapsed += timer_Elapsed;
             timer.Enabled = true;
             timer.Start();
