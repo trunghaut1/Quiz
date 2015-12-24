@@ -67,11 +67,13 @@ namespace Quiz.View
             {
                 AddUserController au = new AddUserController();
                 bool b = au.AddUser(txtName.Text, txtPass.Password);
-                if(b==true)
+                if (b == true)
                 {
                     MessageBox.Show("Đăng kí thành công", "Thông báo");
                     panelDangki.Visibility = Visibility.Collapsed;
                 }
+                else
+                    MessageBox.Show("Tên đăng nhập đã có người sử dụng");
             }
         }
         private bool Check_Dangki()
