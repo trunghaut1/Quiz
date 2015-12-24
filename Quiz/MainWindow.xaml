@@ -5,7 +5,7 @@
         x:Class="Quiz.MainWindow"
         xmlns:flat="clr-namespace:FlatTheme.ControlStyle;assembly=FlatTheme"
         Title="QuizApp" Height="596" Width="966" MinHeight="596" MinWidth="966"
-        HorizontalContentAlignment="Stretch" WindowStartupLocation="CenterScreen" PreviewKeyDown="Window_PreviewKeyDown" Style="{DynamicResource FlatWindow}" FontSize="15">
+        HorizontalContentAlignment="Stretch" WindowStartupLocation="CenterScreen" PreviewKeyDown="Window_PreviewKeyDown" Style="{DynamicResource FlatWindow}" FontSize="15" Closing="FlatWindow_Closing">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="40"/>
