@@ -135,6 +135,15 @@ namespace Quiz
             menuDangxuat.Visibility = Visibility.Collapsed;
             menuDangnhap.Visibility = Visibility.Visible;
         }
+
+        private void FlatWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (MessageBox.Show("Chắc không ?", "Thoát", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+                e.Cancel = false;
+            else
+                e.Cancel = true;
+
+        }
         /*public void updateConfigFile(string con)
         {
             //updating config file
