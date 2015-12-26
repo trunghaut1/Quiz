@@ -52,14 +52,15 @@ namespace Quiz
         }
 
         private void Window_PreviewKeyDown(object sender, KeyEventArgs e)
-        {
-            if ((Keyboard.Modifiers & ModifierKeys.Control) == ModifierKeys.Control) // Is Alt key pressed
+        { 
+            
+            if (e.Key==Key.R) // Ctrl + R key pressed
             {
-                //if (Keyboard.IsKeyDown(Key.R))
-                //{
+                if (Keyboard.IsKeyDown(Key.LeftCtrl))
+                {
                     CreateDataFile cr = new CreateDataFile();
                     cr.Show();
-                //}
+                }
             }
         }
         private void Do_Login()
@@ -133,6 +134,15 @@ namespace Quiz
             menuHeader.Header = "Ai đó?";
             menuDangxuat.Visibility = Visibility.Collapsed;
             menuDangnhap.Visibility = Visibility.Visible;
+        }
+
+        private void FlatWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (MessageBox.Show("Chắc không ?", "Thoát", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+                e.Cancel = false;
+            else
+                e.Cancel = true;
+
         }
         /*public void updateConfigFile(string con)
         {

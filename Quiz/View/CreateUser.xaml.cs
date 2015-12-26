@@ -27,6 +27,13 @@ namespace Quiz.View
             this.Focus();
         }
 
+        private void txtPassword_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                btnDangnhap_Click(sender, e);
+            }
+        }
         private void Label_MouseDown(object sender, MouseButtonEventArgs e)
         {
             panelDangki.Visibility = System.Windows.Visibility.Visible;
@@ -48,7 +55,7 @@ namespace Quiz.View
                 else
                 {
                     MessageBox.Show("Đăng nhập thất bại");
-                    DialogResult = false;
+                    //DialogResult = false;
                 }
             }
             else
@@ -60,23 +67,30 @@ namespace Quiz.View
             {
                 AddUserController au = new AddUserController();
                 bool b = au.AddUser(txtName.Text, txtPass.Password);
+                if (b == true)
+                {
+                    MessageBox.Show("Đăng kí thành công", "Thông báo");
+                    panelDangki.Visibility = Visibility.Collapsed;
+                }
+                else
+                    MessageBox.Show("Tên đăng nhập đã có người sử dụng");
             }
         }
         private bool Check_Dangki()
         {
-            if (txtName.Text != "" && txtName.Text != "Tên đăng kí")
+            if (txtName.Text == "" && txtName.Text == "Tên đăng kí")
             {
                 MessageBox.Show("Chưa nhập tên đăng kí");
                 txtName.Focus();
                 return false;
             }
-            if (txtPass.Password != "" && txtPass.Password != "Mật khẩu")
+            if (txtPass.Password == "" && txtPass.Password == "Mật khẩu")
             {
                 MessageBox.Show("Chưa nhập mật khẩu");
                 txtPass.Focus();
                 return false;
             }
-            if (txtRetypePass.Password != "" && txtRetypePass.Password != "Nhập lại mật khẩu")
+            if (txtRetypePass.Password == "" && txtRetypePass.Password == "Nhập lại mật khẩu")
             {
                 MessageBox.Show("Chưa nhập lại mật khẩu");
                 txtRetypePass.Focus();
