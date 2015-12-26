@@ -47,6 +47,7 @@ namespace Quiz
             
             //var connectionString = ConfigurationManager.ConnectionStrings["quizdbEntities"].ConnectionString;
             //MessageBox.Show(connectionString.ToString());
+            Quiz.View.Subject load = new Quiz.View.Subject();
             MainMenu sub = new MainMenu();
             mainGrid.Children.Add(sub);
         }
