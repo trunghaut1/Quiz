@@ -47,7 +47,10 @@ namespace Quiz
             
             //var connectionString = ConfigurationManager.ConnectionStrings["quizdbEntities"].ConnectionString;
             //MessageBox.Show(connectionString.ToString());
-            Quiz.View.Subject load = new Quiz.View.Subject();
+            using(var db = new QuizDbEntities())
+            {
+                var temp = db.Users.FirstOrDefault();
+            }
             MainMenu sub = new MainMenu();
             mainGrid.Children.Add(sub);
         }
@@ -132,14 +135,14 @@ namespace Quiz
             Thongtindangnhap.IsLogin = false;
             Thongtindangnhap.Username = "";
             Thongtindangnhap.Password = "";
-            menuHeader.Header = "Ai đó?";
+            menuHeader.Header = "Tài khoản";
             menuDangxuat.Visibility = Visibility.Collapsed;
             menuDangnhap.Visibility = Visibility.Visible;
         }
 
         private void FlatWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            if (MessageBox.Show("Chắc không ?", "Thoát", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+            if (MessageBox.Show("Bạn có muốn thoát ứng dụng?", "Thoát", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
                 e.Cancel = false;
             else
                 e.Cancel = true;
