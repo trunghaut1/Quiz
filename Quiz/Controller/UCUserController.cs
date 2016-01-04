@@ -22,7 +22,7 @@ namespace Quiz.Controller
         public List<History> getHistory()
         {
             List<History> list = new List<History>();
-            list = qz.Histories.Take(10).ToList();
+            list = qz.Histories.OrderByDescending(t=>t.DateTime).Take(10).ToList();
             return list;
         }
     }

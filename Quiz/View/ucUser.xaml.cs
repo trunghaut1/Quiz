@@ -87,7 +87,7 @@ namespace Quiz.View
                 infH.Danhgia = "Đánh giá: " + danhgia[getRank(danhgiaDiem, (long)diem)];
                 if (diem > 6) infH.Color = "Green";
                 else infH.Color = "Red";
-                infH.Date = "Ngày làm bài: " + his.DateTime.Day.ToString() + "/" + his.DateTime.Month.ToString() + "/" + his.DateTime.Year.ToString();
+                infH.Date = "Ngày làm bài: " + his.DateTime.Day.ToString() + "/" + his.DateTime.Month.ToString() + "/" + his.DateTime.Year.ToString() +" " + his.DateTime.Hour+":"+his.DateTime.Minute;
                 _li.Add(infH);
             }
             listBox.ItemsSource = _li;

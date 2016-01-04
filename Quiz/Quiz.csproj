@@ -335,6 +335,10 @@
     <Resource Include="Images\logo.png" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\AutoUpdater\AutoUpdater.csproj">
+      <Project>{4ba4719c-c6ab-49ba-9754-848ca24c1fd6}</Project>
+      <Name>AutoUpdater</Name>
+    </ProjectReference>
     <ProjectReference Include="..\FlatTheme\FlatTheme.csproj">
       <Project>{dd9b70ef-db16-449b-91fb-6abb7b0f08dd}</Project>
       <Name>FlatTheme</Name>
@@ -354,6 +358,13 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\opensouce.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\anninhmang.jpg" />
+    <Resource Include="Images\ecommerce.jpg" />
+    <Resource Include="Images\maclennin.jpg" />
+    <Resource Include="Images\nhapmonmaytinh.jpg" />
+    <Resource Include="Images\no-image-available.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

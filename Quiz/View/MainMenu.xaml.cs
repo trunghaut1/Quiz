@@ -16,6 +16,7 @@ using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using KnightsWarriorAutoupdater;
 
 namespace Quiz.View
 {
@@ -94,6 +95,8 @@ namespace Quiz.View
 
         private void btnMenu2_Click(object sender, RoutedEventArgs e)
         {
+            AutoUpdater au = new AutoUpdater();
+            if(!au.Update())
             MessageBox.Show("Đã cập nhật cơ sở dữ liệu mới nhất!","Thông báo");
         }
 
