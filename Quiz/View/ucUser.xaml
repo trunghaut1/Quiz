@@ -88,7 +88,7 @@
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="64*"/>
                                         <ColumnDefinition Width="144*"/>
-                                        <ColumnDefinition Width="93*"/>
+                                        <ColumnDefinition Width="10*"/>
                                     </Grid.ColumnDefinitions>
                                     <Label Content="{Binding Path=SubId}" FontSize="22" FontWeight="ExtraLight" Grid.RowSpan="3"/>
                                     <Label Content="{Binding Path=Diem}" Foreground="{Binding Path=Color}" Grid.Column="1" VerticalContentAlignment="Center"/>
