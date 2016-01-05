@@ -148,6 +148,20 @@ namespace Quiz
                 e.Cancel = true;
 
         }
+
+        private void ChangeTheme_Click(object sender, RoutedEventArgs e)
+        {
+            var btn = (Button)sender;
+            color = btn.Tag.ToString();
+            if(btn.Tag.ToString() != "BlueGrey")
+            {
+                ChangeTheme.Change(color + theme);
+            }
+            else
+            {
+                ChangeTheme.Change(color);
+            }
+        }
         /*public void updateConfigFile(string con)
         {
             //updating config file

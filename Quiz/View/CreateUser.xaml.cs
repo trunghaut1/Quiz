@@ -34,14 +34,9 @@ namespace Quiz.View
                 btnDangnhap_Click(sender, e);
             }
         }
-        private void Label_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            panelDangki.Visibility = System.Windows.Visibility.Visible;
-        }
         private void btnDangnhap_Click(object sender, RoutedEventArgs e)
         {
-            if (txtUsername.Text != "" && txtUsername.Text != "Tên đăng nhập"
-                && txtPassword.Password != "Mật khẩu" && txtPassword.Password != "")
+            if (!String.IsNullOrEmpty(txtUsername.Text) && !String.IsNullOrEmpty(txtPassword.Password))
             {
                 AddUserController au = new AddUserController();
                 bool check = au.CheckLogin(txtUsername.Text, txtPassword.Password);
@@ -71,6 +66,9 @@ namespace Quiz.View
                 {
                     MessageBox.Show("Đăng kí thành công", "Thông báo");
                     panelDangki.Visibility = Visibility.Collapsed;
+                    btnShowDangKy.Visibility = System.Windows.Visibility.Visible;
+                    panelDangnhap.Width = 220;
+                    CenterBorder.Visibility = System.Windows.Visibility.Collapsed;
                 }
                 else
                     MessageBox.Show("Tên đăng nhập đã có người sử dụng");
@@ -78,19 +76,19 @@ namespace Quiz.View
         }
         private bool Check_Dangki()
         {
-            if (txtName.Text == "" && txtName.Text == "Tên đăng kí")
+            if (String.IsNullOrEmpty(txtName.Text))
             {
                 MessageBox.Show("Chưa nhập tên đăng kí");
                 txtName.Focus();
                 return false;
             }
-            if (txtPass.Password == "" && txtPass.Password == "Mật khẩu")
+            if (String.IsNullOrEmpty(txtPass.Password))
             {
                 MessageBox.Show("Chưa nhập mật khẩu");
                 txtPass.Focus();
                 return false;
             }
-            if (txtRetypePass.Password == "" && txtRetypePass.Password == "Nhập lại mật khẩu")
+            if (String.IsNullOrEmpty(txtRetypePass.Password))
             {
                 MessageBox.Show("Chưa nhập lại mật khẩu");
                 txtRetypePass.Focus();
@@ -103,6 +101,14 @@ namespace Quiz.View
                 return false;
             }
             return true;
+        }
+
+        private void btnShowDangKy_Click(object sender, RoutedEventArgs e)
+        {
+            panelDangki.Visibility = System.Windows.Visibility.Visible;
+            btnShowDangKy.Visibility = System.Windows.Visibility.Collapsed;
+            panelDangnhap.Width = 160;
+            CenterBorder.Visibility = System.Windows.Visibility.Visible;
         }
     }
 }

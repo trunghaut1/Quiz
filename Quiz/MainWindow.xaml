@@ -14,10 +14,19 @@
         <Grid Grid.Row="0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="2*"/>
             </Grid.ColumnDefinitions>
             <StackPanel Grid.Column="1" HorizontalAlignment="Right" Orientation="Horizontal" VerticalAlignment="Top" Margin="10 0">
-                <ComboBox x:Name="cbxTheme" Tag="Select Theme" Width="200" Margin="10 0" SelectionChanged="cbxTheme_SelectionChanged">
+                <Label Content="Select Theme:"/>
+                <Button Width="22" Height="22" Background="#009688" Margin="5 0" Tag="Material" Click="ChangeTheme_Click"/>
+                <Button Width="22" Height="22" Background="#2196F3" Margin="5 0" Tag="Blue" Click="ChangeTheme_Click"/>
+                <Button Width="22" Height="22" Background="#4CAF50" Margin="5 0" Tag="Green" Click="ChangeTheme_Click"/>
+                <Button Width="22" Height="22" Background="#F44336" Margin="5 0" Tag="Red" Click="ChangeTheme_Click"/>
+                <Button Width="22" Height="22" Background="#E91E63" Margin="5 0" Tag="Pink" Click="ChangeTheme_Click"/>
+                <Button Width="22" Height="22" Background="#9C27B0" Margin="5 0" Tag="Purple" Click="ChangeTheme_Click"/>
+                <Button Width="22" Height="22" Background="#FF9800" Margin="5 0" Tag="Orange" Click="ChangeTheme_Click"/>
+                <Button Width="22" Height="22" Background="#607D8B" Margin="5 0" Tag="BlueGrey" Click="ChangeTheme_Click"/>
+                <ComboBox x:Name="cbxTheme" Tag="Select Theme" Width="200" Margin="10 0" SelectionChanged="cbxTheme_SelectionChanged" Visibility="Collapsed">
                     <ComboBoxItem Content="Material"/>
                     <ComboBoxItem Content="Blue"/>
                     <ComboBoxItem Content="Green"/>
