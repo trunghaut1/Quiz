@@ -162,6 +162,12 @@ namespace Quiz
                 ChangeTheme.Change(color);
             }
         }
+
+        private void btnAbout_Click(object sender, RoutedEventArgs e)
+        {
+            AboutView ab = new AboutView();
+            ab.ShowDialog();
+        }
         /*public void updateConfigFile(string con)
         {
             //updating config file

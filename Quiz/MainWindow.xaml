@@ -38,6 +38,7 @@
                 </ComboBox>
                 <ToggleButton x:Name="btnDark" Margin="5 0" Click="btnDark_Click"/>
                 <Label Content="Dark Theme"/>
+                <Button Name="btnAbout" Style="{DynamicResource CircleButton}" Width="25" Height="25" ToolTip="Thông tin phần mềm" Content="i" Margin="10 0" Click="btnAbout_Click"/>
             </StackPanel>
             <Border BorderThickness="0 0 0 1" BorderBrush="{DynamicResource MainColor}" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Bottom" Margin="0 0 0 5" Height="1"/>
             <Grid Grid.Column="0" Margin="10 0 0 10">
