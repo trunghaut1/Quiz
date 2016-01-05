@@ -13,12 +13,20 @@
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="309*"/>
-                <ColumnDefinition Width="80*"/>
-                <ColumnDefinition Width="78*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="2*"/>
             </Grid.ColumnDefinitions>
-            <StackPanel Grid.Column="0" HorizontalAlignment="Left" Orientation="Horizontal" VerticalAlignment="Top">
-                <ComboBox x:Name="cbxTheme" Tag="Select Theme" Width="200" Margin="10 0" SelectionChanged="cbxTheme_SelectionChanged">
+            <StackPanel Grid.Column="1" HorizontalAlignment="Right" Orientation="Horizontal" VerticalAlignment="Top" Margin="10 0">
+                <Label Content="Select Theme:"/>
+                <Button Width="22" Height="22" Background="#009688" Margin="5 0" Tag="Material" Click="ChangeTheme_Click"/>
+                <Button Width="22" Height="22" Background="#2196F3" Margin="5 0" Tag="Blue" Click="ChangeTheme_Click"/>
+                <Button Width="22" Height="22" Background="#4CAF50" Margin="5 0" Tag="Green" Click="ChangeTheme_Click"/>
+                <Button Width="22" Height="22" Background="#F44336" Margin="5 0" Tag="Red" Click="ChangeTheme_Click"/>
+                <Button Width="22" Height="22" Background="#E91E63" Margin="5 0" Tag="Pink" Click="ChangeTheme_Click"/>
+                <Button Width="22" Height="22" Background="#9C27B0" Margin="5 0" Tag="Purple" Click="ChangeTheme_Click"/>
+                <Button Width="22" Height="22" Background="#FF9800" Margin="5 0" Tag="Orange" Click="ChangeTheme_Click"/>
+                <Button Width="22" Height="22" Background="#607D8B" Margin="5 0" Tag="BlueGrey" Click="ChangeTheme_Click"/>
+                <ComboBox x:Name="cbxTheme" Tag="Select Theme" Width="200" Margin="10 0" SelectionChanged="cbxTheme_SelectionChanged" Visibility="Collapsed">
                     <ComboBoxItem Content="Material"/>
                     <ComboBoxItem Content="Blue"/>
                     <ComboBoxItem Content="Green"/>
@@ -30,14 +38,20 @@
                 </ComboBox>
                 <ToggleButton x:Name="btnDark" Margin="5 0" Click="btnDark_Click"/>
                 <Label Content="Dark Theme"/>
+                <Button Name="btnAbout" Style="{DynamicResource CircleButton}" Width="25" Height="25" ToolTip="Thông tin phần mềm" Content="i" Margin="10 0" Click="btnAbout_Click"/>
             </StackPanel>
-            <Button x:Name="btnClose" Grid.Column="2" Content="Thoát" Width="100" Height="30" VerticalAlignment="Top" Click="btnClose_Click" Margin="28,0" Visibility="Collapsed"/>
-            <Border BorderThickness="0 0 0 1" BorderBrush="{DynamicResource MainColor}" Grid.Column="0" Grid.ColumnSpan="3" VerticalAlignment="Bottom" Margin="0 0 0 5"/>
-            <Grid Grid.Column="1" Margin="0,0,0,7">
-                <Menu Height="36" VerticalAlignment="Top">
-                    <MenuItem x:Name="menuHeader" Header="Ai đó?" Height="35" Width="180">
-                        <MenuItem x:Name="menuDangnhap" Header="Đăng nhập" Click="menuDangnhap_Click"></MenuItem>
-                        <MenuItem x:Name="menuDangxuat" Header="Đăng xuất" Visibility="Collapsed" Click="menuDangxuat_Click"></MenuItem>
+            <Border BorderThickness="0 0 0 1" BorderBrush="{DynamicResource MainColor}" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Bottom" Margin="0 0 0 5" Height="1"/>
+            <Grid Grid.Column="0" Margin="10 0 0 10">
+                <Menu>
+                    <MenuItem x:Name="menuHeader" Header="Tài khoản" Height="30">
+                        <MenuItem.Icon>
+                            <Viewbox>
+                                <Path Data="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z" Stretch="Fill" Fill="{DynamicResource MainColor}"/>
+                            </Viewbox>
+                        </MenuItem.Icon>
+                        <MenuItem x:Name="menuDangnhap" Header="Đăng nhập" Click="menuDangnhap_Click"/>
+                        <MenuItem x:Name="menuDangxuat" Header="Đăng xuất" Visibility="Collapsed" Click="menuDangxuat_Click"/>
+                        <MenuItem x:Name="menuThoat" Header="Thoát" Click="btnClose_Click"/>
                     </MenuItem>
                 </Menu>
             </Grid>

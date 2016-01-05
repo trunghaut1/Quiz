@@ -40,34 +40,10 @@
             <TextBox x:Name="txtQuest" Height="100" IsReadOnly="True" AcceptsReturn="True" TextWrapping="Wrap" Margin="0 10"/>
             <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="20 0 0 0">
                 <StackPanel>
-                    <RadioButton x:Name="rbOpt1" Content="{Binding Path=Opt1}" Checked="rdButton_Click" IsTabStop="False">
-                        <RadioButton.ContentTemplate>
-                            <DataTemplate>
-                                <TextBlock Text="{Binding}" TextWrapping="Wrap" />
-                            </DataTemplate>
-                        </RadioButton.ContentTemplate>
-                    </RadioButton>
-                    <RadioButton x:Name="rbOpt2" Content="{Binding Path=Opt2}" Checked="rdButton_Click" IsTabStop="False">
-                        <RadioButton.ContentTemplate>
-                            <DataTemplate>
-                                <TextBlock Text="{Binding}" TextWrapping="Wrap" />
-                            </DataTemplate>
-                        </RadioButton.ContentTemplate>
-                    </RadioButton>
-                    <RadioButton x:Name="rbOpt3" Content="{Binding Path=Opt3}" Checked="rdButton_Click" IsTabStop="False">
-                        <RadioButton.ContentTemplate>
-                            <DataTemplate>
-                                <TextBlock Text="{Binding}" TextWrapping="Wrap" />
-                            </DataTemplate>
-                        </RadioButton.ContentTemplate>
-                    </RadioButton>
-                    <RadioButton x:Name="rbOpt4" Content="{Binding Path=Opt4}" Checked="rdButton_Click" IsTabStop="False">
-                        <RadioButton.ContentTemplate>
-                            <DataTemplate>
-                                <TextBlock Text="{Binding}" TextWrapping="Wrap" />
-                            </DataTemplate>
-                        </RadioButton.ContentTemplate>
-                    </RadioButton>
+                    <RadioButton x:Name="rbOpt1" Content="{Binding Path=Opt1}" Checked="rdButton_Click" IsTabStop="False"/>
+                    <RadioButton x:Name="rbOpt2" Content="{Binding Path=Opt2}" Checked="rdButton_Click" IsTabStop="False"/>
+                    <RadioButton x:Name="rbOpt3" Content="{Binding Path=Opt3}" Checked="rdButton_Click" IsTabStop="False"/>
+                    <RadioButton x:Name="rbOpt4" Content="{Binding Path=Opt4}" Checked="rdButton_Click" IsTabStop="False" />
                 </StackPanel>
             </ScrollViewer>
         </StackPanel>
