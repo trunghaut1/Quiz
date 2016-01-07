@@ -1,7 +1,7 @@
 ﻿<Window x:Class="Quiz.View.AboutView"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="AboutView" Height="387" Width="748" AllowsTransparency="True" WindowStartupLocation="CenterScreen" WindowStyle="None" Background="Transparent">
+        Title="AboutView" Height="368" Width="728" AllowsTransparency="True" WindowStartupLocation="CenterScreen" WindowStyle="None" Background="Transparent">
     <Window.Triggers>
         <EventTrigger RoutedEvent="Window.Loaded">
             <BeginStoryboard>
@@ -13,8 +13,8 @@
     </Window.Triggers>
     <Grid Name="MainGrid" MouseDown="MainGrid_MouseDown">
         <Grid.Background>
-            <ImageBrush ImageSource="/Quiz;component/Images/QuizAppScreen.png"/>
+            <ImageBrush ImageSource="/Quiz;component/Images/QuizAppScreen.png" Stretch="None"/>
         </Grid.Background>
-        <Label Content="v.2" Foreground="White" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0 0 25 17" FontSize="15"/>
+        <Label Content="v.1.0" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="15 0 25 17" FontSize="16" />
     </Grid>
 </Window>
