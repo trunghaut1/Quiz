@@ -3,11 +3,11 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:flat="clr-namespace:FlatTheme.ControlStyle;assembly=FlatTheme" Height="280" Width="450" Style="{DynamicResource FlatWindow}" WindowStartupLocation="CenterScreen" FontSize="15" Title="Đăng nhập" ResizeMode="NoResize" ShowInTaskbar="False">
     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-        <StackPanel x:Name="panelDangnhap" Width="220" Margin="10">
+        <StackPanel x:Name="panelDangnhap" Width="220" Margin="10" FocusManager.FocusedElement="{Binding ElementName=txtUsername}">
             <Label Content="Đăng nhập" HorizontalContentAlignment="Center" Foreground="{DynamicResource MainColor}" FontSize="20"/>
             <TextBox Style="{DynamicResource FloatingHintTextBox}" x:Name="txtUsername" TextWrapping="Wrap" Tag="Tên đăng nhập"/>
             <PasswordBox x:Name="txtPassword" Tag="Mật khẩu" KeyDown="txtPassword_KeyDown" Margin="0 5"/>
-            <StackPanel Orientation="Horizontal">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" >
                 <Button x:Name="btnDangnhap" Content="Đăng nhập" HorizontalAlignment="Center" VerticalAlignment="Top" Click="btnDangnhap_Click" Margin="0,10,0,0" Height="35" Width="100"/>
                 <Button x:Name="btnShowDangKy" Content="Đăng ký" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10,10,0,0" Height="35" Width="100" Click="btnShowDangKy_Click" />
             </StackPanel>

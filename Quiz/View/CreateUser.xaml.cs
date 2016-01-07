@@ -1,17 +1,8 @@
 ﻿using FlatTheme.ControlStyle;
 using Quiz.Controller;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace Quiz.View
 {
@@ -24,7 +15,6 @@ namespace Quiz.View
         public CreateUser()
         {
             InitializeComponent();
-            this.Focus();
         }
 
         private void txtPassword_KeyDown(object sender, KeyEventArgs e)
@@ -66,9 +56,9 @@ namespace Quiz.View
                 {
                     MessageBox.Show("Đăng kí thành công", "Thông báo");
                     panelDangki.Visibility = Visibility.Collapsed;
-                    btnShowDangKy.Visibility = System.Windows.Visibility.Visible;
+                    btnShowDangKy.Visibility = Visibility.Visible;
                     panelDangnhap.Width = 220;
-                    CenterBorder.Visibility = System.Windows.Visibility.Collapsed;
+                    CenterBorder.Visibility = Visibility.Collapsed;
                 }
                 else
                     MessageBox.Show("Tên đăng nhập đã có người sử dụng");
@@ -105,10 +95,10 @@ namespace Quiz.View
 
         private void btnShowDangKy_Click(object sender, RoutedEventArgs e)
         {
-            panelDangki.Visibility = System.Windows.Visibility.Visible;
-            btnShowDangKy.Visibility = System.Windows.Visibility.Collapsed;
+            panelDangki.Visibility = Visibility.Visible;
+            btnShowDangKy.Visibility = Visibility.Collapsed;
             panelDangnhap.Width = 160;
-            CenterBorder.Visibility = System.Windows.Visibility.Visible;
+            CenterBorder.Visibility = Visibility.Visible;
         }
     }
 }

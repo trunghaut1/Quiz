@@ -24,16 +24,13 @@
                             <RowDefinition Height="47*"/>
                             <RowDefinition Height="25*"/>
                         </Grid.RowDefinitions>
-                        <Grid.Background>
-                            <ImageBrush ImageSource="/Quiz;component/Images/bgr.jpg" Stretch="UniformToFill"/>
-                        </Grid.Background>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="163*"/>
                             <ColumnDefinition Width="174*"/>
                             <ColumnDefinition Width="617*"/>
                         </Grid.ColumnDefinitions>
                         <Image Source="/Quiz;component/Images/sgu1.jpg" Grid.RowSpan="2"/>
-                        <Label x:Name="lbName" Content="Label" Grid.Column="1" FontSize="23" FontWeight="Bold" Foreground="White" Grid.Row="1"/>
+                        <Label x:Name="lbName" Content="Label" Grid.Column="1" FontSize="23" FontWeight="Bold" Grid.Row="1"/>
                     </Grid>
                     <Grid Grid.Row="2"/>
                     <Grid Grid.Column="1" Grid.Row="2">
