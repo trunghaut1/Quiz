@@ -620,12 +620,12 @@
             </ed:Arc>
         </Grid>
         <Grid x:Name="Button1Grid" RenderTransformOrigin="0.5,0.5" Grid.ColumnSpan="2" Margin="0,0,30.572,19.5">
-            <Button x:Name="btnMenu1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="216" Height="112" Margin="51.5,58,0,0" Click="btnMenu1_Click" IsTabStop="False" ToolTip="Làm bài kiểm tra">
+            <Button x:Name="btnMenu1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="216" Height="112" Margin="51.5,58,0,0" Click="btnMenu1_Click" IsTabStop="False">
                 <Grid>
                     <Viewbox Width="60" Height="60" Margin="0 0 0 20">
                         <Path Data="M19 3h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm-2 14l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z" Fill="{DynamicResource BackgroundColor}" VerticalAlignment="Top" Stretch="Fill"/>
                     </Viewbox>
-                    <TextBlock Text="LÀM BÀI KIỂM TRA" Margin="0 0 0 -7" VerticalAlignment="Bottom"/>
+                    <TextBlock Text="LÀM BÀI KIỂM TRA" Margin="0 0 0 -7" VerticalAlignment="Bottom" FontWeight="Normal"/>
                 </Grid>
             </Button>
             <Grid x:Name="grid1" Margin="203,20,0,0" HorizontalAlignment="Left" Width="140.5" Height="43" VerticalAlignment="Top">
@@ -666,12 +666,12 @@
             </Grid>
         </Grid>
         <Grid x:Name="Button2Grid" RenderTransformOrigin="0.5,0.5" Margin="0,8,95.509,0" Grid.ColumnSpan="2" Grid.Row="1">
-            <Button x:Name="btnMenu2" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="216" Height="112" Margin="44,0,0,42" IsTabStop="False" Click="btnMenu2_Click" ToolTip="Cập nhật">
+            <Button x:Name="btnMenu2" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="216" Height="112" Margin="44,0,0,42" IsTabStop="False" Click="btnMenu2_Click">
                 <Grid>
                     <Viewbox Width="60" Height="60" Margin="0 0 0 20">
                         <Path Data="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM17 13l-5 5-5-5h3V9h4v4h3z" Fill="{DynamicResource BackgroundColor}" Stretch="Fill"/>
                     </Viewbox>
-                    <TextBlock Text="CẬP NHẬT" Margin="0 0 0 -7" VerticalAlignment="Bottom"/>
+                    <TextBlock Text="CẬP NHẬT" Margin="0 0 0 -7" VerticalAlignment="Bottom" FontWeight="Normal"/>
                 </Grid>
             </Button>
             <Grid x:Name="grid13" Margin="175.184,0,0,14.999" Height="19.001" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="141.818">
@@ -723,12 +723,12 @@
             </Grid>
         </Grid>
         <Grid x:Name="Button3Grid" RenderTransformOrigin="0.5,0.5" Grid.Column="2" Grid.ColumnSpan="2">
-            <Button x:Name="btnMenu3" Margin="0,70,45.491,0" Click="btnMenu3_Click" HorizontalAlignment="Right" Width="216" Height="110" VerticalAlignment="Top" IsTabStop="False" ToolTip="Thông tin người dùng">
+            <Button x:Name="btnMenu3" Margin="0,70,45.491,0" Click="btnMenu3_Click" HorizontalAlignment="Right" Width="216" Height="110" VerticalAlignment="Top" IsTabStop="False">
                 <Grid>
                     <Viewbox Width="60" Height="60" Margin="0 0 0 20">
                         <Path Data="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z" Fill="{DynamicResource BackgroundColor}" Stretch="Fill"/>
                     </Viewbox>
-                    <TextBlock Text="THÔNG TIN NGƯỜI DÙNG" Margin="0 0 0 -7" VerticalAlignment="Bottom"/>
+                    <TextBlock Text="THÔNG TIN NGƯỜI DÙNG" Margin="0 0 0 -7" VerticalAlignment="Bottom" FontWeight="Normal"/>
                 </Grid>
             </Button>
             <Grid x:Name="grid19" Margin="0,189.5,86.6,0" Height="21" VerticalAlignment="Top" HorizontalAlignment="Right" Width="141.391">
@@ -778,12 +778,12 @@
             </Grid>
         </Grid>
         <Grid x:Name="Button4Grid" RenderTransformOrigin="0.5,0.5" Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="1">
-            <Button x:Name="btnMenu4" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="228" Height="112" Margin="0,0,38,44" IsTabStop="False" Click="btnMenu4_Click" IsHitTestVisible="True" ToolTip="Tạo CSDL từ file">
+            <Button x:Name="btnMenu4" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="228" Height="112" Margin="0,0,38,44" IsTabStop="False" Click="btnMenu4_Click" IsHitTestVisible="True">
                 <Grid>
                     <Viewbox Width="60" Height="60" Margin="0 0 0 20">
                         <Path Data="M9 16h6v-6h4l-7-7-7 7h4zm-4 2h14v2H5z" Fill="{DynamicResource BackgroundColor}" Stretch="Fill"/>
                     </Viewbox>
-                    <TextBlock Text="LOAD DATABASE TỪ FILE" VerticalAlignment="Bottom" Margin="0 0 0 -7"/>
+                    <TextBlock Text="LOAD DATABASE TỪ FILE" VerticalAlignment="Bottom" Margin="0 0 0 -7" FontWeight="Normal"/>
                 </Grid>              
             </Button>
             <Grid x:Name="grid7" Margin="0,0,37.335,153.5" Height="31.764" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="158.807">
