@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             mc:Ignorable="d" d:DesignWidth="985" d:DesignHeight="510" x:Name="subUC" Background="{DynamicResource MainColor}">
+             mc:Ignorable="d" d:DesignWidth="985" d:DesignHeight="510" x:Name="subUC" Background="{DynamicResource BackgroundColor}">
     <UserControl.Resources>
         <Storyboard x:Key="Storyboard1">
             <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(ScrollViewer.VerticalScrollBarVisibility)" Storyboard.TargetName="scrollViewer">
@@ -25,33 +25,51 @@
         </EventTrigger>
     </UserControl.Triggers>
     <Grid>
-        <Grid.Background>
-            <ImageBrush ImageSource="/Quiz;component/Images/background_subject.jpg" Opacity="0.85"/>
-        </Grid.Background>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="600*"/>
             <ColumnDefinition Width="280*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="20*"/>
-            <RowDefinition Height="200*"/>
-            <RowDefinition Height="20*"/>
+            <RowDefinition Height="48*"/>
+            <RowDefinition Height="414*"/>
+            <RowDefinition Height="43*"/>
         </Grid.RowDefinitions>
-        <ScrollViewer x:Name="scrollViewer" Grid.Row="1">
+        <Button Style="{DynamicResource BackButton}" x:Name="homebtn" ToolTip="Quay lại" Grid.Row="0" Grid.Column="0" Click="homebtn_Click" IsTabStop="False" HorizontalAlignment="Left" Margin="5 0 0 0">
+        </Button>
+        <ScrollViewer x:Name="scrollViewer" Grid.Row="1" Margin="5">
             <WrapPanel x:Name="btnPanel" Orientation="Horizontal">
             </WrapPanel>
         </ScrollViewer>
+        <Border Grid.Column="1" Grid.Row="1" BorderBrush="{DynamicResource MainColorLight}" Margin="5" BorderThickness="1"/>
         <Grid Grid.Column="1" Grid.Row="1">
             <Grid.RowDefinitions>
-                <RowDefinition Height="189*"/>
-                <RowDefinition Height="20*"/>
+                <RowDefinition Height="182*"/>
+                <RowDefinition Height="25*"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <TextBlock TextWrapping="Wrap" Foreground="{x:Null}"><Run Text="TextBlock"/>
-            </TextBlock>
-            <Button x:Name="homebtn" Content="Quay lại" Grid.Row="1" Click="homebtn_Click" IsTabStop="False" Margin="10 0" Width="150"/>
+            <Grid Grid.Row="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="5*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <Label x:Name="lblSubject" Content="Subject" Grid.Row="0" Grid.ColumnSpan="2" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontSize="17"/>
+                <Label Content="Tổng số câu hỏi:" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
+                <Label x:Name="lblNumQuest" Content="(number)" Grid.Column="1" Grid.Row="1" VerticalAlignment="Bottom"/>
+                <Label Content="Tổng số lượt làm bài:" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
+                <Label x:Name="lblNumTest" Content="(number)" Grid.Column="1" Grid.Row="2" VerticalAlignment="Bottom"/>
+                <Label Content="Kết quả tốt nhất:" Grid.Column="0" Grid.Row="3" HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
+                <Label x:Name="lblBest" Content="(username)" Grid.Column="1" Grid.Row="3" VerticalAlignment="Bottom"/>
+            </Grid>
+            <Button x:Name="btnTest" Content="Làm bài" Grid.Row="1" Height="37" Width="100" VerticalAlignment="Top" Click="btnTest_Click"/>
         </Grid>
     </Grid>
 </UserControl>
