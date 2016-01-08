@@ -102,6 +102,7 @@
     </ApplicationDefinition>
     <Compile Include="Controller\AddUserController.cs" />
     <Compile Include="Controller\DataFileController.cs" />
+    <Compile Include="Controller\FeedbackController.cs" />
     <Compile Include="Controller\MainWindowsController.cs" />
     <Compile Include="Controller\QuestionController.cs" />
     <Compile Include="Controller\SubjectController.cs" />
