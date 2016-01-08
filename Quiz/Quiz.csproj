@@ -107,6 +107,15 @@
     <Compile Include="Controller\SubjectController.cs" />
     <Compile Include="Controller\TinhdiemController.cs" />
     <Compile Include="Controller\UCUserController.cs" />
+    <Compile Include="Model\EventStatus.cs">
+      <DependentUpon>QuizModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\EventStyle.cs">
+      <DependentUpon>QuizModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Feedback.cs">
+      <DependentUpon>QuizModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Model\History.cs">
       <DependentUpon>QuizModel.tt</DependentUpon>
     </Compile>
@@ -323,9 +332,6 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\sgu1.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Images\challenger.png" />
   </ItemGroup>
   <ItemGroup>
@@ -355,6 +361,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\QuizAppScreen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\LogoSGU.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

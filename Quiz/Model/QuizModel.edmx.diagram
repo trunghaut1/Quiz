@@ -17,6 +17,10 @@
         <AssociationConnector Association="QuizDbModel.FK__Question__SubId__4222D4EF" />
         <EntityTypeShape EntityType="QuizDbModel.History" Width="1.5" PointX="5.625" PointY="5.25" />
         <AssociationConnector Association="QuizDbModel.FK__History__UserId__286302EC" />
+        <EntityTypeShape EntityType="QuizDbModel.EventStatus" Width="1.5" PointX="10.625" PointY="1.25" />
+        <EntityTypeShape EntityType="QuizDbModel.EventStyle" Width="1.5" PointX="8.375" PointY="0.875" />
+        <EntityTypeShape EntityType="QuizDbModel.Feedback" Width="1.5" PointX="3.375" PointY="8.75" />
+        <AssociationConnector Association="QuizDbModel.FK_EventStatus_EventStyle" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

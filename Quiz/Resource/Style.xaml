@@ -6,6 +6,14 @@
         <Setter Property="Foreground" Value="{DynamicResource TextColor}"/>
     </Style>
 
+    <Style TargetType="{x:Type TabControl}">
+        <Setter Property="BorderBrush" Value="{DynamicResource MainColorLight}"/>
+    </Style>
+
+    <Style TargetType="{x:Type TabItem}">
+        <Setter Property="BorderBrush" Value="{DynamicResource MainColorLight}"/>
+    </Style>
+
     <Style TargetType="{x:Type ed:Arc}">
         <Setter Property="Stroke" Value="{DynamicResource MainColor}"/>
     </Style>

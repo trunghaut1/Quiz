@@ -4,41 +4,42 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" x:Name="ucGrid"
-             d:DesignHeight="510" d:DesignWidth="985">
-    <Grid Background="White">
+             d:DesignHeight="510" d:DesignWidth="985" Background="{DynamicResource BackgroundColor}">
+    <Grid>
 
         <TabControl>
-            <TabItem Header="Thông tin người dùng">
+            <TabItem Header="Thông tin người dùng" Margin="45,0,-45,0">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="35*"/>
-                        <RowDefinition Height="144*"/>
+                        <RowDefinition Height="25*"/>
+                        <RowDefinition Height="100*"/>
                         <RowDefinition Height="333*"/>
                     </Grid.RowDefinitions>
                     <Grid Grid.Row="1" Grid.ColumnSpan="2">
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="47*"/>
-                            <RowDefinition Height="25*"/>
+                            <RowDefinition Height="63*"/>
+                            <RowDefinition Height="43*"/>
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="163*"/>
-                            <ColumnDefinition Width="174*"/>
-                            <ColumnDefinition Width="617*"/>
+                            <ColumnDefinition Width="141*"/>
+                            <ColumnDefinition Width="205*"/>
+                            <ColumnDefinition Width="633*"/>
                         </Grid.ColumnDefinitions>
-                        <Image Source="/Quiz;component/Images/sgu1.jpg" Grid.RowSpan="2"/>
-                        <Label x:Name="lbName" Content="Label" Grid.Column="1" FontSize="23" FontWeight="Bold" Grid.Row="1"/>
+                        <Border Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Grid.RowSpan="2" Background="{DynamicResource MainColor}"/>
+                        <Image Source="/Quiz;component/Images/LogoSGU.png" Grid.RowSpan="2" Grid.Column="0" Margin="0,5,5,5" HorizontalAlignment="Right" Width="94"/>
+                        <Label x:Name="lbName" Content="Label" Grid.Column="1" FontSize="23" FontWeight="Bold" Grid.Row="1" Foreground="{DynamicResource BackgroundColor}" VerticalAlignment="Top" Height="38"/>
                     </Grid>
                     <Grid Grid.Row="2"/>
                     <Grid Grid.Column="1" Grid.Row="2">
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="134*"/>
-                            <RowDefinition Height="26*"/>
-                            <RowDefinition Height="136*"/>
-                            <RowDefinition Height="37*"/>
+                            <RowDefinition Height="135*"/>
+                            <RowDefinition Height="35*"/>
+                            <RowDefinition Height="135*"/>
+                            <RowDefinition Height="35*"/>
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="16*"/>
@@ -50,7 +51,7 @@
                         <Grid.Background>
                             <ImageBrush/>
                         </Grid.Background>
-                        <Image x:Name="rankAnsCorrect" Grid.Column="2" Height="152" VerticalAlignment="Bottom" Margin="0,-18,0,0" ToolTip="Số câu trả lời đúng"/>
+                        <Image x:Name="rankAnsCorrect" Grid.Column="2" Height="150" VerticalAlignment="Bottom" Margin="0,-18,0,0" ToolTip="Số câu trả lời đúng"/>
                         <Image x:Name="rankAns" Grid.Row="2" Grid.Column="1" Height="116" VerticalAlignment="Bottom" ToolTip="Số câu đã trả lời"/>
                         <Image x:Name="rankTimeUse" Grid.Column="3" Grid.Row="2" Height="116" VerticalAlignment="Bottom" ToolTip="Thời gian làm bài"/>
                         <Label x:Name="lbNumAns" Content="Label" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Row="3" Grid.Column="1" ToolTip="Số câu đã trả lời"/>
@@ -59,19 +60,19 @@
                     </Grid>
                 </Grid>
             </TabItem>
-            <TabItem Header="Lịch sử">
-                <Grid Background="#FFE5E5E5">
+            <TabItem Header="Lịch sử" Margin="45 0 -45 0">
+                <Grid>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="53*"/>
+                        <ColumnDefinition Width="45*"/>
                         <ColumnDefinition Width="476*"/>
                         <ColumnDefinition Width="24*"/>
                         <ColumnDefinition Width="378*"/>
                         <ColumnDefinition Width="23*"/>
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="33*"/>
+                        <RowDefinition Height="20*"/>
                         <RowDefinition Height="442*"/>
-                        <RowDefinition Height="37*"/>
+                        <RowDefinition Height="20*"/>
                     </Grid.RowDefinitions>
                     <ListBox Name="listBox" HorizontalContentAlignment="Stretch" Grid.Row="1" Grid.Column="1" SelectionChanged="listBox_SelectionChanged">
                         <ListBox.ItemTemplate>
@@ -100,7 +101,6 @@
                 </Grid>
             </TabItem>
         </TabControl>
-        <Button Content="&#xf00d;" FontFamily="/Quiz;component/Fonts/#FontAwesome" Foreground="White" VerticalAlignment="Top" HorizontalAlignment="Right" Width="22" Height="22" Click="Button_Click"/>
-
+        <Button Style="{DynamicResource BackButton}" VerticalAlignment="Top" HorizontalAlignment="Left" Click="Button_Click" Margin="5" ToolTip="Quay lại"/>
     </Grid>
 </UserControl>
