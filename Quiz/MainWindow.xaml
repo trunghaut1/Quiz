@@ -6,6 +6,15 @@
         xmlns:flat="clr-namespace:FlatTheme.ControlStyle;assembly=FlatTheme"
         Title="QuizApp" Height="601" Width="1001" MinHeight="601" MinWidth="1001"
         HorizontalContentAlignment="Stretch" WindowStartupLocation="CenterScreen" PreviewKeyDown="Window_PreviewKeyDown" Style="{DynamicResource FlatWindow}" FontSize="15" Closing="FlatWindow_Closing">
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="Window.Loaded">
+            <BeginStoryboard>
+                <Storyboard>
+                    <DoubleAnimation Duration="00:00:0.2" Storyboard.TargetProperty="Opacity" From="0" To="1"/>
+                </Storyboard>
+            </BeginStoryboard>
+        </EventTrigger>
+    </Window.Triggers>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="40"/>
@@ -42,7 +51,7 @@
                         <MenuItem x:Name="menuDangxuat" Header="Đăng xuất" Visibility="Collapsed" Click="menuDangxuat_Click"/>
                         <MenuItem x:Name="menuThoat" Header="Thoát" Click="btnClose_Click"/>
                     </MenuItem>
-                    <MenuItem Name="menuFeedback" Header="Góp ý" Height="34">
+                    <MenuItem Name="menuFeedback" Header="Góp ý" Height="34" Click="menuFeedback_Click">
                         <MenuItem.Icon>
                             <Viewbox>
                                 <Path Data="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-7 12h-2v-2h2v2zm0-4h-2V6h2v4z" Stretch="Fill" Fill="{DynamicResource MainColor}"/>
