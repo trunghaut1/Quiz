@@ -32,5 +32,8 @@ namespace Quiz.Model
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<Question> Questions { get; set; }
         public virtual DbSet<History> Histories { get; set; }
+        public virtual DbSet<EventStatus> EventStatus { get; set; }
+        public virtual DbSet<EventStyle> EventStyle { get; set; }
+        public virtual DbSet<Feedback> Feedback { get; set; }
     }
 }

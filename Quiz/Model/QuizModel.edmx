@@ -4,7 +4,36 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="QuizDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="QuizDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="EventStatus">
+          <Key>
+            <PropertyRef Name="Active" />
+          </Key>
+          <Property Name="Active" Type="bit" Nullable="false" />
+          <Property Name="EventName" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="EventStyle">
+          <Key>
+            <PropertyRef Name="EventName" />
+          </Key>
+          <Property Name="EventName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="FirstPath" Type="nvarchar" MaxLength="2000" />
+          <Property Name="SecondPath" Type="nvarchar" MaxLength="2000" />
+          <Property Name="ThirdPath" Type="nvarchar" MaxLength="2000" />
+          <Property Name="FourthPath" Type="nvarchar" MaxLength="2000" />
+        </EntityType>
+        <EntityType Name="Feedback">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="100" />
+          <Property Name="SentDate" Type="datetime" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="150" />
+          <Property Name="Content" Type="nvarchar" MaxLength="3000" />
+          <Property Name="Status" Type="int" Nullable="false" />
+        </EntityType>
         <EntityType Name="History">
           <Key>
             <PropertyRef Name="Id" />
@@ -150,7 +179,22 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_EventStatus_EventStyle">
+          <End Role="EventStyle" Type="Self.EventStyle" Multiplicity="0..1" />
+          <End Role="EventStatus" Type="Self.EventStatus" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EventStyle">
+              <PropertyRef Name="EventName" />
+            </Principal>
+            <Dependent Role="EventStatus">
+              <PropertyRef Name="EventName" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="QuizDbModelStoreContainer">
+          <EntitySet Name="EventStatus" EntityType="Self.EventStatus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EventStyle" EntityType="Self.EventStyle" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Feedback" EntityType="Self.Feedback" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="History" EntityType="Self.History" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Info" EntityType="Self.Info" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Program" EntityType="Self.Program" Schema="dbo" store:Type="Tables" />
@@ -177,6 +221,10 @@
           <AssociationSet Name="FK__SubButton__SubId__30F848ED" Association="Self.FK__SubButton__SubId__30F848ED">
             <End Role="Subject" EntitySet="Subject" />
             <End Role="SubButton" EntitySet="SubButton" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EventStatus_EventStyle" Association="Self.FK_EventStatus_EventStyle">
+            <End Role="EventStyle" EntitySet="EventStyle" />
+            <End Role="EventStatus" EntitySet="EventStatus" />
           </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -308,6 +356,13 @@
             <End Role="User" EntitySet="Users" />
             <End Role="History" EntitySet="Histories" />
           </AssociationSet>
+          <EntitySet Name="EventStatus" EntityType="QuizDbModel.EventStatus" />
+          <EntitySet Name="EventStyle" EntityType="QuizDbModel.EventStyle" />
+          <EntitySet Name="Feedback" EntityType="QuizDbModel.Feedback" />
+          <AssociationSet Name="FK_EventStatus_EventStyle" Association="QuizDbModel.FK_EventStatus_EventStyle">
+            <End Role="EventStyle" EntitySet="EventStyle" />
+            <End Role="EventStatus" EntitySet="EventStatus" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Question">
           <Key>
@@ -364,6 +419,49 @@
             </Principal>
             <Dependent Role="History">
               <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="EventStatus">
+          <Key>
+            <PropertyRef Name="Active" />
+          </Key>
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <Property Name="EventName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="EventStyle" Relationship="QuizDbModel.FK_EventStatus_EventStyle" FromRole="EventStatus" ToRole="EventStyle" />
+        </EntityType>
+        <EntityType Name="EventStyle">
+          <Key>
+            <PropertyRef Name="EventName" />
+          </Key>
+          <Property Name="EventName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FirstPath" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="SecondPath" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="ThirdPath" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="FourthPath" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="EventStatus" Relationship="QuizDbModel.FK_EventStatus_EventStyle" FromRole="EventStyle" ToRole="EventStatus" />
+        </EntityType>
+        <EntityType Name="Feedback">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="SentDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Title" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Content" Type="String" MaxLength="3000" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_EventStatus_EventStyle">
+          <End Type="QuizDbModel.EventStyle" Role="EventStyle" Multiplicity="0..1" />
+          <End Type="QuizDbModel.EventStatus" Role="EventStatus" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EventStyle">
+              <PropertyRef Name="EventName" />
+            </Principal>
+            <Dependent Role="EventStatus">
+              <PropertyRef Name="EventName" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -456,6 +554,38 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="EventStatus">
+            <EntityTypeMapping TypeName="QuizDbModel.EventStatus">
+              <MappingFragment StoreEntitySet="EventStatus">
+                <ScalarProperty Name="EventName" ColumnName="EventName" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EventStyle">
+            <EntityTypeMapping TypeName="QuizDbModel.EventStyle">
+              <MappingFragment StoreEntitySet="EventStyle">
+                <ScalarProperty Name="FourthPath" ColumnName="FourthPath" />
+                <ScalarProperty Name="ThirdPath" ColumnName="ThirdPath" />
+                <ScalarProperty Name="SecondPath" ColumnName="SecondPath" />
+                <ScalarProperty Name="FirstPath" ColumnName="FirstPath" />
+                <ScalarProperty Name="EventName" ColumnName="EventName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Feedback">
+            <EntityTypeMapping TypeName="QuizDbModel.Feedback">
+              <MappingFragment StoreEntitySet="Feedback">
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="SentDate" ColumnName="SentDate" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -470,7 +600,7 @@
     <Options>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
-        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
         <DesignerProperty Name="UseLegacyProvider" Value="false" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
