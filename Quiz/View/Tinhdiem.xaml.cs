@@ -1,5 +1,5 @@
-﻿using Quiz.Controller;
-using Quiz.Model;
+﻿using Core.Controller;
+using Core.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -47,7 +47,7 @@ namespace Quiz
             for(int i=0;i<listQuestion.Count;i++)
             {
                 if (listQuestion[i].Traloi != null) numAns++;
-                if (listQuestion[i].Traloi == listQuestion[i].Answer)
+                if (listQuestion[i].IsCorrect)
                     socaudung++;
             }
             diem = (float)socaudung / listQuestion.Count * 10;
@@ -104,7 +104,7 @@ namespace Quiz
                 {
                     Info i = new Info();
                     AddUserController au = new AddUserController();
-                    User u = au.FindUserByUsername(Thongtindangnhap.Username);
+                    AspNetUser u = au.FindUserByUsername(Thongtindangnhap.Username);
                     i.SubId = sub;
                     i.UserId = u.Id;
                     i.NumAnswer = numAns;
@@ -125,7 +125,7 @@ namespace Quiz
             {
                 History h = new History();
                 AddUserController au = new AddUserController();
-                User u = au.FindUserByUsername(Thongtindangnhap.Username);
+                AspNetUser u = au.FindUserByUsername(Thongtindangnhap.Username);
                 h.UserId = u.Id;
                 h.SubId = sub;
                 h.NumberQuest = listQuestion.Count;

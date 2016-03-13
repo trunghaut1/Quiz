@@ -1,6 +1,6 @@
 ﻿using Microsoft.Win32;
-using Quiz.Controller;
-using Quiz.Model;
+using Core.Controller;
+using Core.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -63,8 +63,8 @@ namespace Quiz.View
             o.InitialDirectory = System.AppDomain.CurrentDomain.BaseDirectory;
             if (o.ShowDialog() == true)
             {
-                List<Model.Question> list = new List<Model.Question>();
-                list = (List<Model.Question>)d.readListFromFile(o.FileName);
+                List<Core.Model.Question> list = new List<Core.Model.Question>();
+                list = (List<Core.Model.Question>)d.readListFromFile(o.FileName);
                 string pass = d.readPassFromFile(o.FileName);
                 if(pass!="")
                 {

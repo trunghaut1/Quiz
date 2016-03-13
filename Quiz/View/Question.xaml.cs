@@ -1,4 +1,4 @@
-﻿using Quiz.Controller;
+﻿using Core.Controller;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,7 +22,7 @@ namespace Quiz.View
     /// </summary>
     public partial class Question : UserControl
     {
-        List<Quiz.Model.Question> _list; //danh sach cau hoi
+        List<Core.Model.Question> _list; //danh sach cau hoi
         QuestionController qc;
         string NameSub;
         int numOfQuestion;
@@ -35,10 +35,10 @@ namespace Quiz.View
         /// Đọc câu hỏi từ file .df
         /// </summary>
         /// <param name="list"></param>
-        public Question(List<Model.Question> list)
+        public Question(List<Core.Model.Question> list)
         {
             InitializeComponent();
-            _list = new List<Quiz.Model.Question>();
+            _list = new List<Core.Model.Question>();
             //_ans = new List<string>();
             qc = new QuestionController();
             _list = list;
@@ -62,7 +62,7 @@ namespace Quiz.View
         public Question(string btnName)
         {
             InitializeComponent();
-            _list = new List<Quiz.Model.Question>();
+            _list = new List<Core.Model.Question>();
             //_ans = new List<string>();
             qc = new QuestionController();
             NameSub = btnName;
@@ -134,7 +134,7 @@ namespace Quiz.View
         /// <param name="num"></param>
         private void loadCauhoi(int num)
         {
-            Model.Question qs = new Model.Question();
+            Core.Model.Question qs = new Core.Model.Question();
             qs.Id = _list[num].Id;
             qs.SubId = _list[num].SubId;
             qs.Content = _list[num].Content;

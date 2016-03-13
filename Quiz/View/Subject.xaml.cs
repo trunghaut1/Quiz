@@ -1,5 +1,5 @@
-﻿using Quiz.Controller;
-using Quiz.Model;
+﻿using Core.Controller;
+using Core.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

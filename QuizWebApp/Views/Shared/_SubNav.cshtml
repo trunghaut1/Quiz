@@ -1,0 +1,31 @@
+﻿<div class="navbar-header navbar-header-sub">
+
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#submenu">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+    </button>
+    @if (Request.Url.PathAndQuery == "/" || Request.Url.PathAndQuery == "/Home/Index")
+    { <div class="widget-bar-button"> <i class="fa fa-angle-up fa-3x"></i> </div>}
+
+</div>   
+
+<div id="submenu" class="collapse navbar-collapse">
+
+    <ul id="menu-sub" class="nav navbar-nav">
+        <li id="menu-item-6" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-6"><a title="Tin tức" href="http://www.marchettidesign.net/fullby/demo/?cat=1">Tin tức</a></li>
+        <li id="menu-item-42" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-42"><a title="Tải về" href="http://www.marchettidesign.net/fullby/demo/?cat=4">Tải về</a></li>
+    </ul>
+    <div class="col-sm-3 col-md-3 pull-right search-cont">
+        <form class="navbar-form" role="search" method="get" action="http://www.marchettidesign.net/fullby/demo">
+
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Tìm kiếm..." name="s" id="srch-term">
+                <div class="input-group-btn">
+                    <button class="btn btn-default" type="submit"></button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+</div><!--/.nav-collapse -->

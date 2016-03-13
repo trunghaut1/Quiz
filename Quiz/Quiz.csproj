@@ -100,50 +100,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Controller\AddUserController.cs" />
-    <Compile Include="Controller\DataFileController.cs" />
-    <Compile Include="Controller\MainWindowsController.cs" />
-    <Compile Include="Controller\QuestionController.cs" />
-    <Compile Include="Controller\SubjectController.cs" />
-    <Compile Include="Controller\TinhdiemController.cs" />
-    <Compile Include="Controller\UCUserController.cs" />
-    <Compile Include="Model\History.cs">
-      <DependentUpon>QuizModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\Info.cs">
-      <DependentUpon>QuizModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\Program.cs">
-      <DependentUpon>QuizModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\Question.cs">
-      <DependentUpon>QuizModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\QuizModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>QuizModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\QuizModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>QuizModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\QuizModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>QuizModel.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Model\SubButton.cs">
-      <DependentUpon>QuizModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\Subject.cs">
-      <DependentUpon>QuizModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\Thongtindangnhap.cs" />
-    <Compile Include="Model\User.cs">
-      <DependentUpon>QuizModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="View\AboutView.xaml.cs">
       <DependentUpon>AboutView.xaml</DependentUpon>
     </Compile>
@@ -250,23 +206,6 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="Eula.rtf" />
-    <EntityDeploy Include="Model\QuizModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>QuizModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="Model\QuizModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>QuizModel.edmx</DependentUpon>
-      <LastGenOutput>QuizModel.Context.cs</LastGenOutput>
-    </None>
-    <None Include="Model\QuizModel.edmx.diagram">
-      <DependentUpon>QuizModel.edmx</DependentUpon>
-    </None>
-    <None Include="Model\QuizModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>QuizModel.edmx</DependentUpon>
-      <LastGenOutput>QuizModel.cs</LastGenOutput>
-    </None>
     <Resource Include="Fonts\FontAwesome.otf" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -353,6 +292,10 @@
       <Project>{4ba4719c-c6ab-49ba-9754-848ca24c1fd6}</Project>
       <Name>AutoUpdater</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Core\Core.csproj">
+      <Project>{2d20c42a-5a8a-4fd4-9670-9b72076063d2}</Project>
+      <Name>Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\FlatTheme\FlatTheme.csproj">
       <Project>{dd9b70ef-db16-449b-91fb-6abb7b0f08dd}</Project>
       <Name>FlatTheme</Name>
@@ -380,6 +323,7 @@
     <Resource Include="Images\nhapmonmaytinh.jpg" />
     <Resource Include="Images\no-image-available.jpg" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

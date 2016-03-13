@@ -1,0 +1,54 @@
+﻿
+<div class="social">
+    <a target="_blank" rel="nofollow" href="https://www.facebook.com/groups/NGUYENNGOCMINH/"><i class="fa fa-facebook fa-2x"></i></a>
+    <a target="_blank" rel="nofollow" href=""><i class="fa fa-twitter fa-2x"></i></a>
+    <a target="_blank" rel="nofollow" href=""><i class="fa fa-google-plus fa-2x"></i></a>
+    <a target="_blank" rel="nofollow" href=""><i class="fa fa-youtube fa-2x"></i></a>
+
+
+</div>
+
+<div class="tab-spacer">
+
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs" id="myTab">
+
+        <li class="active"><a href="#home" data-toggle="tab"> <i class="fa fa-bolt"></i> Xem nhiều</a></li>
+        <li><a href="#profile" data-toggle="tab"> <i class="fa fa-clock-o"></i> Mới nhất</a></li>
+
+    </ul>
+
+    <!-- Tab panes -->
+    <div class="tab-content">
+
+        <div class="tab-pane fade in active" id="home">
+
+            @Html.Action("LatestNews", "Home")
+
+        </div>
+
+        <div class="tab-pane fade" id="profile">
+
+            @Html.Action("TopNews", "Home")
+
+
+        </div>
+
+    </div>
+
+</div>
+@if (User.IsInRole("Admin"))
+{
+    <div id="archives-2" class="widget widget_archive">
+        <h3>Quản trị</h3>
+        <ul>
+            <li>@Html.ActionLink("Quyền", "Index", "Roles")</li>
+            <li>@Html.ActionLink("Featured","Index","Featured")</li>
+            <li>@Html.ActionLink("Tin tức", "Index", "News")</li>
+            <li>@Html.ActionLink("Bản tải về", "Index", "Release")</li>
+        </ul>
+        
+       
+    </div>
+}
+

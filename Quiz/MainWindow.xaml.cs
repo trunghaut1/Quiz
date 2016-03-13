@@ -1,7 +1,7 @@
 ﻿using FlatTheme.Code;
 using FlatTheme.ControlStyle;
-using Quiz.Controller;
-using Quiz.Model;
+using Core.Controller;
+using Core.Model;
 using Quiz.View;
 using System;
 using System.Collections.Generic;
@@ -47,10 +47,6 @@ namespace Quiz
             
             //var connectionString = ConfigurationManager.ConnectionStrings["quizdbEntities"].ConnectionString;
             //MessageBox.Show(connectionString.ToString());
-            using(var db = new QuizDbEntities())
-            {
-                var temp = db.Users.FirstOrDefault();
-            }
             MainMenu sub = new MainMenu();
             mainGrid.Children.Add(sub);
         }
