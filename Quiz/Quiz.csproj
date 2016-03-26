@@ -66,7 +66,7 @@
     <GenerateManifests>true</GenerateManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <SignManifests>false</SignManifests>
+    <SignManifests>true</SignManifests>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework">
@@ -100,60 +100,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Controller\AddUserController.cs" />
-    <Compile Include="Controller\DataFileController.cs" />
-    <Compile Include="Controller\FeedbackController.cs" />
-    <Compile Include="Controller\MainWindowsController.cs" />
-    <Compile Include="Controller\QuestionController.cs" />
-    <Compile Include="Controller\SubjectController.cs" />
-    <Compile Include="Controller\TinhdiemController.cs" />
-    <Compile Include="Controller\UCUserController.cs" />
-    <Compile Include="Model\EventStatus.cs">
-      <DependentUpon>QuizModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\EventStyle.cs">
-      <DependentUpon>QuizModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\Feedback.cs">
-      <DependentUpon>QuizModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\History.cs">
-      <DependentUpon>QuizModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\Info.cs">
-      <DependentUpon>QuizModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\Program.cs">
-      <DependentUpon>QuizModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\Question.cs">
-      <DependentUpon>QuizModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\QuizModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>QuizModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\QuizModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>QuizModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\QuizModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>QuizModel.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Model\SubButton.cs">
-      <DependentUpon>QuizModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\Subject.cs">
-      <DependentUpon>QuizModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\Thongtindangnhap.cs" />
-    <Compile Include="Model\User.cs">
-      <DependentUpon>QuizModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="View\AboutView.xaml.cs">
       <DependentUpon>AboutView.xaml</DependentUpon>
     </Compile>
@@ -174,9 +120,6 @@
     </Compile>
     <Compile Include="View\Question.xaml.cs">
       <DependentUpon>Question.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\SplashScreenView.xaml.cs">
-      <DependentUpon>SplashScreenView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Subject.xaml.cs">
       <DependentUpon>Subject.xaml</DependentUpon>
@@ -199,7 +142,7 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Resource\Style.xaml">
+    <Page Include="ColorStyle\Style.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -230,10 +173,6 @@
     <Page Include="View\Question.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
-    </Page>
-    <Page Include="View\SplashScreenView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Subject.xaml">
       <SubType>Designer</SubType>
@@ -267,23 +206,6 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="Eula.rtf" />
-    <EntityDeploy Include="Model\QuizModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>QuizModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="Model\QuizModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>QuizModel.edmx</DependentUpon>
-      <LastGenOutput>QuizModel.Context.cs</LastGenOutput>
-    </None>
-    <None Include="Model\QuizModel.edmx.diagram">
-      <DependentUpon>QuizModel.edmx</DependentUpon>
-    </None>
-    <None Include="Model\QuizModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>QuizModel.edmx</DependentUpon>
-      <LastGenOutput>QuizModel.cs</LastGenOutput>
-    </None>
     <Resource Include="Fonts\FontAwesome.otf" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -298,19 +220,37 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Images\tinhdiem3.jpg" />
     <Resource Include="Images\Unranked.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Images\account.jpg" />
+    <Resource Include="Images\background.jpg" />
+    <Resource Include="Images\bookmark.png" />
     <Resource Include="Images\bronze.png" />
+    <Resource Include="Images\choice.jpg" />
     <Resource Include="Images\cnpm.jpg" />
+    <Resource Include="Images\credits.gif" />
     <Resource Include="Images\diamond.png" />
+    <Resource Include="Images\edit.png" />
     <Resource Include="Images\gold.png" />
     <Resource Include="Images\icon.png" />
+    <Resource Include="Images\import.jpg" />
+    <Resource Include="Images\info.png" />
+    <Resource Include="Images\mail.png" />
     <Resource Include="Images\master.png" />
+    <Resource Include="Images\menu.png" />
+    <Resource Include="Images\next.png" />
     <Resource Include="Images\platium.png" />
+    <Resource Include="Images\previous.png" />
     <Resource Include="Images\qtm.jpg" />
+    <Resource Include="Images\sgu.jpg" />
+    <Resource Include="Images\sgu3.jpg" />
     <Resource Include="Images\sliver.png" />
+    <Resource Include="Images\start.png" />
     <Resource Include="Images\testing.png" />
+    <Resource Include="Images\tinhdiem.jpg" />
+    <Resource Include="Images\tinhdiem1.jpg" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5">
@@ -333,6 +273,12 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Images\bgr.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\sgu1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
     <Resource Include="Images\challenger.png" />
   </ItemGroup>
   <ItemGroup>
@@ -346,10 +292,23 @@
       <Project>{4ba4719c-c6ab-49ba-9754-848ca24c1fd6}</Project>
       <Name>AutoUpdater</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Core\Core.csproj">
+      <Project>{2d20c42a-5a8a-4fd4-9670-9b72076063d2}</Project>
+      <Name>Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\FlatTheme\FlatTheme.csproj">
       <Project>{dd9b70ef-db16-449b-91fb-6abb7b0f08dd}</Project>
       <Name>FlatTheme</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\background_subject.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\loading.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <SplashScreen Include="Images\QuizAppScreen.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="favicon.ico" />
@@ -359,13 +318,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\anninhmang.jpg" />
+    <Resource Include="Images\ecommerce.jpg" />
+    <Resource Include="Images\maclennin.jpg" />
+    <Resource Include="Images\nhapmonmaytinh.jpg" />
+    <Resource Include="Images\no-image-available.jpg" />
   </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\QuizAppScreen.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\LogoSGU.png" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
