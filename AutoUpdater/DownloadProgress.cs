@@ -265,6 +265,7 @@ namespace KnightsWarriorAutoupdater
                 catch (Exception ex)
                 {
                     //log the error message,you can use the application's log code
+                    Console.WriteLine(ex.Message);
                 }
 
             }

@@ -42,7 +42,7 @@ namespace Quiz.View
                 Grid a = ucMainMenu.Parent as Grid;
                 a.Children.Add(sub);
             }
-            else MessageBox.Show("Chưa đăng nhập", "Thông báo");
+            else MessageBox.Show("Chưa đăng nhập!", "Thông báo");
         }
 
         private void btnMenu3_Click(object sender, RoutedEventArgs e)
@@ -53,7 +53,7 @@ namespace Quiz.View
                 Grid a = ucMainMenu.Parent as Grid;
                 a.Children.Add(sub);
             }
-            else MessageBox.Show("Chưa đăng nhập", "Thông báo");
+            else MessageBox.Show("Chưa đăng nhập!", "Thông báo");
         }
 
         private void btnMenu4_Click(object sender, RoutedEventArgs e)

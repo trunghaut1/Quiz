@@ -172,6 +172,15 @@
                             <Setter TargetName="Hint" Property="Foreground" Value="{DynamicResource MainColor}" />
                         </MultiTrigger>
 
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="wpf:TextFieldAssist.IsNullOrEmpty" Value="False" />
+                                <Condition Property="IsKeyboardFocused" Value="True" />
+                                <Condition Property="Opacity" Value="0.999"/>
+                            </MultiTrigger.Conditions>
+                            <Setter TargetName="Hint" Property="Foreground" Value="{DynamicResource MainColorExtraLight}" />
+                        </MultiTrigger>
+
                         <Trigger Property="IsEnabled" Value="false">
                             <Setter Property="Opacity" TargetName="border" Value="0.56"/>
                             <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource DisableColorDark}"/>

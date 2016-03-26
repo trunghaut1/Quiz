@@ -4,8 +4,17 @@
         xmlns:View="clr-namespace:Quiz.View" 
         x:Class="Quiz.MainWindow"
         xmlns:flat="clr-namespace:FlatTheme.ControlStyle;assembly=FlatTheme"
-        Title="QuizApp" Height="596" Width="966" MinHeight="596" MinWidth="966"
+        Title="QuizApp" Height="601" Width="1001" MinHeight="601" MinWidth="1001"
         HorizontalContentAlignment="Stretch" WindowStartupLocation="CenterScreen" PreviewKeyDown="Window_PreviewKeyDown" Style="{DynamicResource FlatWindow}" FontSize="15" Closing="FlatWindow_Closing">
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="Window.Loaded">
+            <BeginStoryboard>
+                <Storyboard>
+                    <DoubleAnimation Duration="00:00:0.2" Storyboard.TargetProperty="Opacity" From="0" To="1"/>
+                </Storyboard>
+            </BeginStoryboard>
+        </EventTrigger>
+    </Window.Triggers>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="40"/>
@@ -14,36 +23,25 @@
         <Grid Grid.Row="0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <StackPanel Grid.Column="1" HorizontalAlignment="Right" Orientation="Horizontal" VerticalAlignment="Top" Margin="10 0">
-                <Label Content="Select Theme:"/>
-                <Button Width="22" Height="22" Background="#009688" Margin="5 0" Tag="Material" Click="ChangeTheme_Click"/>
-                <Button Width="22" Height="22" Background="#2196F3" Margin="5 0" Tag="Blue" Click="ChangeTheme_Click"/>
-                <Button Width="22" Height="22" Background="#4CAF50" Margin="5 0" Tag="Green" Click="ChangeTheme_Click"/>
-                <Button Width="22" Height="22" Background="#F44336" Margin="5 0" Tag="Red" Click="ChangeTheme_Click"/>
-                <Button Width="22" Height="22" Background="#E91E63" Margin="5 0" Tag="Pink" Click="ChangeTheme_Click"/>
-                <Button Width="22" Height="22" Background="#9C27B0" Margin="5 0" Tag="Purple" Click="ChangeTheme_Click"/>
-                <Button Width="22" Height="22" Background="#FF9800" Margin="5 0" Tag="Orange" Click="ChangeTheme_Click"/>
-                <Button Width="22" Height="22" Background="#607D8B" Margin="5 0" Tag="BlueGrey" Click="ChangeTheme_Click"/>
-                <ComboBox x:Name="cbxTheme" Tag="Select Theme" Width="200" Margin="10 0" SelectionChanged="cbxTheme_SelectionChanged" Visibility="Collapsed">
-                    <ComboBoxItem Content="Material"/>
-                    <ComboBoxItem Content="Blue"/>
-                    <ComboBoxItem Content="Green"/>
-                    <ComboBoxItem Content="Red"/>
-                    <ComboBoxItem Content="Pink"/>
-                    <ComboBoxItem Content="Purple"/>
-                    <ComboBoxItem Content="Orange"/>
-                    <ComboBoxItem Content="BlueGrey"/>
-                </ComboBox>
+            <StackPanel Grid.Column="1" HorizontalAlignment="Right" Orientation="Horizontal" VerticalAlignment="Center">
+                <Label Content="Màu nền:"/>
+                <Button Width="25" Height="25" Background="#009688" Margin="5 0" Tag="Material" Click="ChangeTheme_Click"/>
+                <Button Width="25" Height="25" Background="#2196F3" Margin="5 0" Tag="Blue" Click="ChangeTheme_Click"/>
+                <Button Width="25" Height="25" Background="#4CAF50" Margin="5 0" Tag="Green" Click="ChangeTheme_Click"/>
+                <Button Width="25" Height="25" Background="#F44336" Margin="5 0" Tag="Red" Click="ChangeTheme_Click"/>
+                <Button Width="25" Height="25" Background="#E91E63" Margin="5 0" Tag="Pink" Click="ChangeTheme_Click"/>
+                <Button Width="25" Height="25" Background="#9C27B0" Margin="5 0" Tag="Purple" Click="ChangeTheme_Click"/>
+                <Button Width="25" Height="25" Background="#FF9800" Margin="5 0" Tag="Orange" Click="ChangeTheme_Click"/>
+                <Button Width="25" Height="25" Background="#607D8B" Margin="5 0" Tag="BlueGrey" Click="ChangeTheme_Click"/>
                 <ToggleButton x:Name="btnDark" Margin="5 0" Click="btnDark_Click"/>
-                <Label Content="Dark Theme"/>
-                <Button Name="btnAbout" Style="{DynamicResource CircleButton}" Width="25" Height="25" ToolTip="Thông tin phần mềm" Content="i" Margin="10 0" Click="btnAbout_Click"/>
+                <Label Content="Nền tối"/>
             </StackPanel>
-            <Border BorderThickness="0 0 0 1" BorderBrush="{DynamicResource MainColor}" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Bottom" Margin="0 0 0 5" Height="1"/>
-            <Grid Grid.Column="0" Margin="10 0 0 10">
+            <Border BorderThickness="0 0 0 1" BorderBrush="{DynamicResource MainColor}" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Bottom" Grid.Row="0"/>
+            <Grid Grid.Column="0" Margin="0 0 0 1">
                 <Menu>
-                    <MenuItem x:Name="menuHeader" Header="Tài khoản" Height="30">
+                    <MenuItem x:Name="menuHeader" Header="Tài khoản" Height="34">
                         <MenuItem.Icon>
                             <Viewbox>
                                 <Path Data="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z" Stretch="Fill" Fill="{DynamicResource MainColor}"/>
@@ -53,10 +51,24 @@
                         <MenuItem x:Name="menuDangxuat" Header="Đăng xuất" Visibility="Collapsed" Click="menuDangxuat_Click"/>
                         <MenuItem x:Name="menuThoat" Header="Thoát" Click="btnClose_Click"/>
                     </MenuItem>
+                    <MenuItem Name="menuFeedback" Header="Góp ý" Height="34" Click="menuFeedback_Click">
+                        <MenuItem.Icon>
+                            <Viewbox>
+                                <Path Data="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-7 12h-2v-2h2v2zm0-4h-2V6h2v4z" Stretch="Fill" Fill="{DynamicResource MainColor}"/>
+                            </Viewbox>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Name="menuAbout" Header="Thông tin" Height="34" Click="menuAbout_Click">
+                        <MenuItem.Icon>
+                            <Viewbox>
+                                <Path Data="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z" Stretch="Fill" Fill="{DynamicResource MainColor}"/>
+                            </Viewbox>
+                        </MenuItem.Icon>
+                    </MenuItem>
                 </Menu>
             </Grid>
         </Grid>
-        <Grid x:Name="mainGrid" HorizontalAlignment="Stretch" Grid.Row="1">
+        <Grid x:Name="mainGrid" HorizontalAlignment="Stretch" Grid.Row="1" Margin="0 5 0 0">
         </Grid>
     </Grid>
 </flat:FlatWindow>

@@ -1,0 +1,15 @@
+﻿<Window x:Class="Quiz.View.SplashScreenView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Quiz.View"
+        mc:Ignorable="d"
+        Title="SplashScreenView" Height="368" Width="728" WindowStyle="None" AllowsTransparency="True" Background="Transparent" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/Quiz;component/Images/QuizAppScreen.png" Stretch="None"/>
+        </Grid.Background>
+        <Label Content="Đang kết nối đến Server ..." Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="8 0 0 15" FontSize="23" FontWeight="UltraLight"/>
+    </Grid>
+</Window>

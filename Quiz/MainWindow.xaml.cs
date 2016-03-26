@@ -77,21 +77,6 @@ namespace Quiz
             this.Close();
         }
 
-        private void cbxTheme_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            switch(cbxTheme.SelectedIndex)
-            {
-                case 0: color = "Material"; ChangeTheme.Change(color + theme); break;
-                case 1: color = "Blue"; ChangeTheme.Change(color + theme); break;
-                case 2: color = "Green"; ChangeTheme.Change(color + theme); break;
-                case 3: color = "Red"; ChangeTheme.Change(color + theme); break;
-                case 4: color = "Pink"; ChangeTheme.Change(color + theme); break;
-                case 5: color = "Purple"; ChangeTheme.Change(color + theme); break;
-                case 6: color = "Orange"; ChangeTheme.Change(color + theme); break;
-                case 7: color = "BlueGrey"; ChangeTheme.Change(color); break;
-            }
-        }
-
         private void btnDark_Click(object sender, RoutedEventArgs e)
         {
             if (color != "BlueGrey")
@@ -159,27 +144,33 @@ namespace Quiz
             }
         }
 
-        private void btnAbout_Click(object sender, RoutedEventArgs e)
+        private void menuAbout_Click(object sender, RoutedEventArgs e)
         {
             AboutView ab = new AboutView();
             ab.ShowDialog();
         }
-        /*public void updateConfigFile(string con)
+
+        private void menuFeedback_Click(object sender, RoutedEventArgs e)
         {
-            //updating config file
-            XmlDocument XmlDoc = new XmlDocument();
-            //Loading the Config file
-            XmlDoc.Load(AppDomain.CurrentDomain.SetupInformation.ConfigurationFile);
-            foreach (XmlElement xElement in XmlDoc.DocumentElement)
-            {
-                if (xElement.Name == "connectionStrings")
-                {
-                    //setting the coonection string
-                    xElement.FirstChild.Attributes[0].Value = con;
-                }
-            }
-            //writing the connection string in config file
-            XmlDoc.Save(AppDomain.CurrentDomain.SetupInformation.ConfigurationFile);
-        }*/
+            FeedbackView fb = new FeedbackView();
+            fb.ShowDialog();
+        }
+        /*public void updateConfigFile(string con)
+{
+//updating config file
+XmlDocument XmlDoc = new XmlDocument();
+//Loading the Config file
+XmlDoc.Load(AppDomain.CurrentDomain.SetupInformation.ConfigurationFile);
+foreach (XmlElement xElement in XmlDoc.DocumentElement)
+{
+if (xElement.Name == "connectionStrings")
+{
+  //setting the coonection string
+  xElement.FirstChild.Attributes[0].Value = con;
+}
+}
+//writing the connection string in config file
+XmlDoc.Save(AppDomain.CurrentDomain.SetupInformation.ConfigurationFile);
+}*/
     }
 }

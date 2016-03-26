@@ -24,6 +24,7 @@ namespace Quiz.View
     public partial class Subject : UserControl
     {
         SubjectController sc;
+        string subid;
         
         public Subject()
         {
@@ -51,15 +52,28 @@ namespace Quiz.View
         void btn_Click(object sender, RoutedEventArgs e)
         {
             Button _temp = sender as Button;
-            Question q = new Question(_temp.Name.Substring(3));
-            Grid a = subUC.Parent as Grid;
-            a.Children.Add(q);
+            subid = _temp.Name.Substring(3);
+            lblSubject.Content = subid;
         }
 
         private void homebtn_Click(object sender, RoutedEventArgs e)
         {
             Grid a = subUC.Parent as Grid;
             a.Children.Remove(subUC);
+        }
+
+        private void btnTest_Click(object sender, RoutedEventArgs e)
+        {
+            if(!String.IsNullOrEmpty(subid))
+            {
+                Question q = new Question(subid);
+                Grid a = subUC.Parent as Grid;
+                a.Children.Add(q);
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn môn học!","Thông báo");
+            }
         }
     }
 }
