@@ -55,6 +55,8 @@
     <Compile Include="Controller\DataFileController.cs" />
     <Compile Include="Controller\MainWindowsController.cs" />
     <Compile Include="Controller\NewsController.cs" />
+    <Compile Include="Controller\ReleaseController.cs" />
+    <Compile Include="Controller\StaffController.cs" />
     <Compile Include="Model\AspNetRole.cs">
       <DependentUpon>QuizDataModel.tt</DependentUpon>
     </Compile>
@@ -79,7 +81,7 @@
     <Compile Include="Model\NewsType.cs">
       <DependentUpon>QuizDataModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\Program.cs">
+    <Compile Include="Model\PlatformApp.cs">
       <DependentUpon>QuizDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Question.cs">
@@ -104,6 +106,9 @@
       <DependentUpon>QuizDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\ReleaseType.cs">
+      <DependentUpon>QuizDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Staff.cs">
       <DependentUpon>QuizDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\SubButton.cs">

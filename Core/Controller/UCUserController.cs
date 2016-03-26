@@ -9,9 +9,9 @@ namespace Core.Controller
     public class UCUserController
     {
         Entities qz = new Entities();
-        public AspNetUser getUser()
+        public AspNetUser getUser(string id)
         {
-            return qz.AspNetUsers.FirstOrDefault();
+            return qz.AspNetUsers.Where(t=>t.Id.Equals(id)).FirstOrDefault();
         }
         public List<Info> getInfo(string UID)
         {
@@ -19,10 +19,10 @@ namespace Core.Controller
             list = qz.Infoes.Where(t => t.UserId == UID).ToList();
             return list;
         }
-        public List<History> getHistory()
+        public List<History> getHistory(string id)
         {
             List<History> list = new List<History>();
-            list = qz.Histories.OrderByDescending(t=>t.DateTime).Take(10).ToList();
+            list = qz.Histories.Where(t=>t.UserId.Equals(id)).OrderByDescending(t=>t.DateTime).Take(10).ToList();
             return list;
         }
     }

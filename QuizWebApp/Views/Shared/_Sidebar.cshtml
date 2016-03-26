@@ -23,13 +23,12 @@
 
         <div class="tab-pane fade in active" id="home">
 
-            @Html.Action("LatestNews", "Home")
+           @Html.Action("TopNews", "Home")
 
         </div>
 
         <div class="tab-pane fade" id="profile">
-
-            @Html.Action("TopNews", "Home")
+            @Html.Action("LatestNews", "Home")
 
 
         </div>
@@ -42,10 +41,12 @@
     <div id="archives-2" class="widget widget_archive">
         <h3>Quản trị</h3>
         <ul>
-            <li>@Html.ActionLink("Quyền", "Index", "Roles")</li>
-            <li>@Html.ActionLink("Featured","Index","Featured")</li>
-            <li>@Html.ActionLink("Tin tức", "Index", "News")</li>
-            <li>@Html.ActionLink("Bản tải về", "Index", "Release")</li>
+            <li>@Html.ActionLink("Quyền", "index", "roles")</li>
+            <li>@Html.ActionLink("Featured","index","featured")</li>
+            <li>@Html.ActionLink("Tin tức", "index", "news")</li>
+            <li>@Html.ActionLink("Bản tải về", "index", "releases")</li>
+            <li>@Html.ActionLink("Hiện thị staff", "index", "staff")</li>
+            <li>@Html.ActionLink("Platform", "index", "platformapps")</li>
         </ul>
         
        

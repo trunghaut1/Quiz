@@ -12,13 +12,11 @@ namespace Core.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class Program
+    public partial class PlatformApp
     {
-        public string Version { get; set; }
-        public string Coder { get; set; }
-        public string Designer { get; set; }
-        public string Analysis { get; set; }
-        public string Tester { get; set; }
-        public string DBBuilding { get; set; }
+        public int Id { get; set; }
+        public string title { get; set; }
+        public string name { get; set; }
+        public string img_link { get; set; }
     }
 }

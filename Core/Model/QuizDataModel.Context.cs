@@ -33,11 +33,12 @@ namespace Core.Model
         public virtual DbSet<Info> Infoes { get; set; }
         public virtual DbSet<News> News { get; set; }
         public virtual DbSet<NewsType> NewsTypes { get; set; }
-        public virtual DbSet<Program> Programs { get; set; }
         public virtual DbSet<Question> Questions { get; set; }
         public virtual DbSet<Release> Releases { get; set; }
         public virtual DbSet<ReleaseType> ReleaseTypes { get; set; }
         public virtual DbSet<SubButton> SubButtons { get; set; }
         public virtual DbSet<Subject> Subjects { get; set; }
+        public virtual DbSet<Staff> Staffs { get; set; }
+        public virtual DbSet<PlatformApp> PlatformApps { get; set; }
     }
 }

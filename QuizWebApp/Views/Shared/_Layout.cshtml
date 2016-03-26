@@ -1,10 +1,21 @@
-﻿<!DOCTYPE html>
+﻿@{
+    string Request_Url = Request.Url.PathAndQuery.ToLower();
+    if(Request_Url.Length>1)
+    { 
+        if (Request_Url.EndsWith("/"))
+        {
+            Request_Url = Request_Url.Substring(0, Request_Url.Length - 1);
+        }
+    }
+}
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - Quiz Application</title>
     @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/jquery")
     @*Scripts.Render("~/bundles/modernizr")*@
     
 </head>
@@ -19,7 +30,8 @@
     
     @RenderSection("featured",required:false)
 
-    @if (Request.Url.PathAndQuery != "/" && Request.Url.PathAndQuery != "/Home/Index") {<div class="row spacer"></div>}
+    @if (Request_Url != "/" && Request_Url != "/home/index" && Request_Url != "/home")
+    {<div class="row spacer"></div>}
     <div class="navbar navbar-inverse navbar-sub">
 
        @Html.Partial("_SubNav")
@@ -45,7 +57,7 @@
     </div>
 
 
-    @Scripts.Render("~/bundles/jquery")
+    
     @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/bundles/fullby")
     @RenderSection("scripts", required: false)

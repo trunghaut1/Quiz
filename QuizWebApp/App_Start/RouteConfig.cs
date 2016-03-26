@@ -18,6 +18,16 @@ namespace QuizWebApp
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
+            routes.MapRoute(
+                name: "PagingType",
+                url: "{controller}/{action}/{id}/{type}",
+                defaults: new { controller = "Home", action = "Cat", id = UrlParameter.Optional, type = UrlParameter.Optional }
+            );
+            routes.MapRoute(
+                name: "PagingSearch",
+                url: "{controller}/{action}/{id}/{keyword}",
+                defaults: new { controller = "Home", action = "Search", id = UrlParameter.Optional, type = UrlParameter.Optional }
+            );
         }
     }
 }

@@ -9,7 +9,11 @@ namespace QuizWebApp
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-                        "~/Scripts/jquery-{version}.js"));
+                        "~/Scripts/jquery-{version}.js",//jquery
+                        "~/Scripts/jquery.unobtrusive-ajax.min.js",
+                        "~/Scripts/jquery-migrate.min.js"));//ajax
+            bundles.Add(new ScriptBundle("~/bundles/sharrre").Include(
+                "~/Scripts/jquery.sharrre.min.js"));//share social network
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));

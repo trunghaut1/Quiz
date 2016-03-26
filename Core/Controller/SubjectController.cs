@@ -25,5 +25,9 @@ namespace Core.Controller
             }
             return null;
         }
+        public List<Subject> getAllSubject()
+        {
+            return qz.Subjects.ToList();
+        }
     }
 }

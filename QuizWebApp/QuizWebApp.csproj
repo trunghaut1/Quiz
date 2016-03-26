@@ -161,12 +161,14 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\FeaturedController.cs" />
     <Compile Include="Controllers\NewsController.cs" />
-    <Compile Include="Controllers\ReleaseController.cs" />
+    <Compile Include="Controllers\PlatformAppsController.cs" />
+    <Compile Include="Controllers\ReleasesController.cs" />
     <Compile Include="Controllers\RolesController.cs" />
     <Compile Include="Controllers\DesktopController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MobileController.cs" />
+    <Compile Include="Controllers\StaffController.cs" />
     <Compile Include="Controllers\TestingController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -210,7 +212,11 @@
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery-migrate.min.js" />
     <Content Include="Scripts\jquery.magnific-popup.min.js" />
+    <Content Include="Scripts\jquery.sharrre.min.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -219,7 +225,9 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -258,7 +266,7 @@
     <Content Include="Views\Shared\_Header.cshtml" />
     <Content Include="Views\Shared\_Sidebar.cshtml" />
     <Content Include="Views\Shared\_SubNav.cshtml" />
-    <Content Include="Views\Testing\Index.cshtml" />
+    <Content Include="Views\Testing\Loading.cshtml" />
     <Content Include="Views\Mobile\Index.cshtml" />
     <Content Include="Views\Desktop\Index.cshtml" />
     <Content Include="Views\Roles\Index.cshtml" />
@@ -266,10 +274,35 @@
     <Content Include="Views\Roles\Edit.cshtml" />
     <Content Include="Views\Roles\ManageUserRoles.cshtml" />
     <Content Include="Views\Featured\Index.cshtml" />
-    <Content Include="Views\News\Index.cshtml" />
     <Content Include="Views\Release\Index.cshtml" />
     <Content Include="Views\Shared\_LatestNews.cshtml" />
     <Content Include="Views\Shared\_TopNews.cshtml" />
+    <Content Include="Views\Shared\_LayoutAdmin.cshtml" />
+    <Content Include="Views\Home\RenderNews.cshtml" />
+    <Content Include="Views\Home\Newsid.cshtml" />
+    <Content Include="Views\News\Index.cshtml" />
+    <Content Include="Views\News\Create.cshtml" />
+    <Content Include="Views\News\Edit.cshtml" />
+    <Content Include="Views\News\Delete.cshtml" />
+    <Content Include="Views\News\Details.cshtml" />
+    <Content Include="Views\Staff\Create.cshtml" />
+    <Content Include="Views\Staff\Delete.cshtml" />
+    <Content Include="Views\Staff\Details.cshtml" />
+    <Content Include="Views\Staff\Edit.cshtml" />
+    <Content Include="Views\Staff\Index.cshtml" />
+    <Content Include="Views\Releases\Create.cshtml" />
+    <Content Include="Views\Releases\Delete.cshtml" />
+    <Content Include="Views\Releases\Details.cshtml" />
+    <Content Include="Views\Releases\Edit.cshtml" />
+    <Content Include="Views\Releases\Index.cshtml" />
+    <Content Include="Views\Home\ReleaseId.cshtml" />
+    <Content Include="Views\PlatformApps\Create.cshtml" />
+    <Content Include="Views\PlatformApps\Delete.cshtml" />
+    <Content Include="Views\PlatformApps\Details.cshtml" />
+    <Content Include="Views\PlatformApps\Edit.cshtml" />
+    <Content Include="Views\PlatformApps\Index.cshtml" />
+    <Content Include="Views\Testing\Index.cshtml" />
+    <Content Include="Views\Manage\History.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

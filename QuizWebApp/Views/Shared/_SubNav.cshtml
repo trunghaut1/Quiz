@@ -13,14 +13,17 @@
 <div id="submenu" class="collapse navbar-collapse">
 
     <ul id="menu-sub" class="nav navbar-nav">
-        <li id="menu-item-6" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-6"><a title="Tin tức" href="http://www.marchettidesign.net/fullby/demo/?cat=1">Tin tức</a></li>
-        <li id="menu-item-42" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-42"><a title="Tải về" href="http://www.marchettidesign.net/fullby/demo/?cat=4">Tải về</a></li>
+        <li id="menu-item-6" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-6"><a title="Tin tức" href="@Url.Action("rendernews","home")">Tin tức</a></li>
+        <li id="menu-item-42" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-42"><a title="Tải về" href="@Url.Action("renderrelease","home")">Tải về</a></li>
     </ul>
     <div class="col-sm-3 col-md-3 pull-right search-cont">
-        <form class="navbar-form" role="search" method="get" action="http://www.marchettidesign.net/fullby/demo">
+        @using(Html.BeginForm("search","home",FormMethod.Get,new {@class="navbar-form", @role="search"}))
+        { }
+        <form class="navbar-form" role="search" method="get" action="/home/search">
 
             <div class="input-group">
-                <input type="text" class="form-control" placeholder="Tìm kiếm..." name="s" id="srch-term">
+                <input type="text" class="form-control" placeholder="Tìm kiếm..." name="keyword" id="srch-term">
+                <input type="hidden" name="id" value="1"/>
                 <div class="input-group-btn">
                     <button class="btn btn-default" type="submit"></button>
                 </div>

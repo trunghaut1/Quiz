@@ -88,7 +88,7 @@
           <Property Name="type" Type="int" Nullable="false" />
           <Property Name="video_link" Type="nvarchar" MaxLength="500" />
           <Property Name="img_link" Type="nvarchar" MaxLength="500" />
-          <Property Name="text" Type="nvarchar" MaxLength="1500" />
+          <Property Name="text" Type="nvarchar(max)" />
           <Property Name="date" Type="datetime" Nullable="false" />
           <Property Name="view_count" Type="bigint" Nullable="false" />
         </EntityType>
@@ -99,16 +99,14 @@
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
-        <EntityType Name="Program">
+        <EntityType Name="PlatformApp">
           <Key>
-            <PropertyRef Name="Version" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Version" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="Coder" Type="nvarchar" MaxLength="50" />
-          <Property Name="Designer" Type="nvarchar" MaxLength="50" />
-          <Property Name="Analysis" Type="nvarchar" MaxLength="50" />
-          <Property Name="Tester" Type="nvarchar" MaxLength="50" />
-          <Property Name="DBBuilding" Type="nvarchar" MaxLength="50" />
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="title" Type="nvarchar" MaxLength="50" />
+          <Property Name="name" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="img_link" Type="nvarchar" MaxLength="1000" />
         </EntityType>
         <EntityType Name="Question">
           <Key>
@@ -135,7 +133,7 @@
           <Property Name="type" Type="int" Nullable="false" />
           <Property Name="version" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="linkDownload" Type="nvarchar" MaxLength="500" Nullable="false" />
-          <Property Name="text" Type="nvarchar" MaxLength="1500" />
+          <Property Name="text" Type="nvarchar(max)" />
           <Property Name="date" Type="datetime" Nullable="false" />
         </EntityType>
         <EntityType Name="ReleaseType">
@@ -144,6 +142,15 @@
           </Key>
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Staff">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="title" Type="nvarchar" MaxLength="100" />
+          <Property Name="name" Type="nvarchar" MaxLength="100" />
+          <Property Name="img_link" Type="nvarchar" MaxLength="500" />
         </EntityType>
         <EntityType Name="SubButton">
           <Key>
@@ -261,7 +268,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_History_AspNetUsers">
-          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="History" Type="Self.History" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="AspNetUsers">
@@ -273,7 +282,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Info_AspNetUsers">
-          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Info" Type="Self.Info" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="AspNetUsers">
@@ -318,10 +329,11 @@
           <EntitySet Name="Info" EntityType="Self.Info" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="News" EntityType="Self.News" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="NewsType" EntityType="Self.NewsType" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Program" EntityType="Self.Program" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PlatformApp" EntityType="Self.PlatformApp" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Question" EntityType="Self.Question" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Release" EntityType="Self.Release" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ReleaseType" EntityType="Self.ReleaseType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Staff" EntityType="Self.Staff" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SubButton" EntityType="Self.SubButton" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Subject" EntityType="Self.Subject" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK__Info__SubId__24927208" Association="Self.FK__Info__SubId__24927208">
@@ -459,7 +471,7 @@
           <Property Name="type" Type="Int32" Nullable="false" />
           <Property Name="video_link" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Name="img_link" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="text" Type="String" MaxLength="1500" FixedLength="false" Unicode="true" />
+          <Property Name="text" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="date" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="view_count" Type="Int64" Nullable="false" />
           <NavigationProperty Name="NewsType" Relationship="Self.FK_News_NewsType" FromRole="News" ToRole="NewsType" />
@@ -471,17 +483,6 @@
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="News" Relationship="Self.FK_News_NewsType" FromRole="NewsType" ToRole="News" />
-        </EntityType>
-        <EntityType Name="Program">
-          <Key>
-            <PropertyRef Name="Version" />
-          </Key>
-          <Property Name="Version" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Coder" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Designer" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Analysis" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Tester" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="DBBuilding" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Question">
           <Key>
@@ -509,7 +510,7 @@
           <Property Name="type" Type="Int32" Nullable="false" />
           <Property Name="version" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="linkDownload" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="text" Type="String" MaxLength="1500" FixedLength="false" Unicode="true" />
+          <Property Name="text" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="date" Type="DateTime" Nullable="false" Precision="3" />
           <NavigationProperty Name="ReleaseType" Relationship="Self.FK_Release_ReleaseType" FromRole="Release" ToRole="ReleaseType" />
         </EntityType>
@@ -673,7 +674,6 @@
           <EntitySet Name="Infoes" EntityType="Self.Info" />
           <EntitySet Name="News" EntityType="Self.News" />
           <EntitySet Name="NewsTypes" EntityType="Self.NewsType" />
-          <EntitySet Name="Programs" EntityType="Self.Program" />
           <EntitySet Name="Questions" EntityType="Self.Question" />
           <EntitySet Name="Releases" EntityType="Self.Release" />
           <EntitySet Name="ReleaseTypes" EntityType="Self.ReleaseType" />
@@ -719,7 +719,27 @@
             <End Role="AspNetRoles" EntitySet="AspNetRoles" />
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
           </AssociationSet>
+          <EntitySet Name="Staffs" EntityType="QuizDbModel1.Staff" />
+          <EntitySet Name="PlatformApps" EntityType="QuizDbModel1.PlatformApp" />
         </EntityContainer>
+        <EntityType Name="Staff">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="title" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="img_link" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="PlatformApp">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="img_link" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -817,18 +837,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Programs">
-            <EntityTypeMapping TypeName="QuizDbModel1.Program">
-              <MappingFragment StoreEntitySet="Program">
-                <ScalarProperty Name="Version" ColumnName="Version" />
-                <ScalarProperty Name="Coder" ColumnName="Coder" />
-                <ScalarProperty Name="Designer" ColumnName="Designer" />
-                <ScalarProperty Name="Analysis" ColumnName="Analysis" />
-                <ScalarProperty Name="Tester" ColumnName="Tester" />
-                <ScalarProperty Name="DBBuilding" ColumnName="DBBuilding" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Questions">
             <EntityTypeMapping TypeName="QuizDbModel1.Question">
               <MappingFragment StoreEntitySet="Question">
@@ -896,6 +904,26 @@
               <ScalarProperty Name="Id" ColumnName="UserId" />
             </EndProperty>
           </AssociationSetMapping>
+          <EntitySetMapping Name="Staffs">
+            <EntityTypeMapping TypeName="QuizDbModel1.Staff">
+              <MappingFragment StoreEntitySet="Staff">
+                <ScalarProperty Name="img_link" ColumnName="img_link" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PlatformApps">
+            <EntityTypeMapping TypeName="QuizDbModel1.PlatformApp">
+              <MappingFragment StoreEntitySet="PlatformApp">
+                <ScalarProperty Name="img_link" ColumnName="img_link" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

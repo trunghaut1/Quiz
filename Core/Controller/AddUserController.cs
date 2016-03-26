@@ -23,6 +23,7 @@ namespace Core.Controller
                 user.Id = g.ToString();
                 user.Email = username;
                 user.EmailConfirmed = false;
+                user.SecurityStamp = Guid.NewGuid().ToString();
                 user.PhoneNumberConfirmed = false;
                 user.TwoFactorEnabled = false;
                 user.LockoutEnabled = true;

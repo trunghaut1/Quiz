@@ -1,3 +1,22 @@
 ﻿@{
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    string[] admin = { "/roles", "/featured", "/news", "/release", "/staff", "/platformapps" };
+    string a = Request.Url.PathAndQuery.ToLower();
+    bool b=false;
+    foreach(string s in admin)
+    {
+        if(a.StartsWith(s))
+        {
+            b = true;
+            break;
+        }
+    }
+    if (!b)
+    {
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    }
+    
 }

@@ -7,6 +7,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using QuizWebApp.Models;
+using System.Collections.Generic;
 
 namespace QuizWebApp.Controllers
 {
@@ -318,6 +319,15 @@ namespace QuizWebApp.Controllers
             }
             var result = await UserManager.AddLoginAsync(User.Identity.GetUserId(), loginInfo.Login);
             return result.Succeeded ? RedirectToAction("ManageLogins") : RedirectToAction("ManageLogins", new { Message = ManageMessageId.Error });
+        }
+
+        [Authorize]
+        public ActionResult History()
+        {
+            List<Core.Model.History> _list = new List<Core.Model.History>();
+            Core.Controller.UCUserController ctr = new Core.Controller.UCUserController();
+            _list = ctr.getHistory(System.Web.HttpContext.Current.User.Identity.GetUserId());
+            return View(_list);
         }
 
         protected override void Dispose(bool disposing)

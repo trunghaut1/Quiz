@@ -38,5 +38,9 @@ namespace Core.Controller
             }
             return null;
         }
+        public Question getQuestionbyId(int id)
+        {
+            return qz.Questions.Find(id);
+        }
     }
 }
