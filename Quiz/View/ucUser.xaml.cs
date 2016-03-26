@@ -1,5 +1,5 @@
-﻿using Quiz.Controller;
-using Quiz.Model;
+﻿using Core.Controller;
+using Core.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -47,7 +47,7 @@ namespace Quiz.View
         UCUserController uc = new UCUserController();
         List<Info> list = new List<Info>();
         List<History> history = new List<History>();
-        User user = new User();
+        AspNetUser user = new AspNetUser();
         public ucUser()
         {
             InitializeComponent();
@@ -60,7 +60,7 @@ namespace Quiz.View
         }
         private void doJob()
         {
-            lbName.Content = user.Name;
+            lbName.Content = user.Email;
             rankAns.Source = new BitmapImage(new Uri(@""+rank[getRank(numAns, traloi)], UriKind.Relative));
             lbNumAns.Content = traloi.ToString();
             rankAnsCorrect.Source = new BitmapImage(new Uri(@"" + rank[getRank(numAnsCorrect, traloidung)], UriKind.Relative));

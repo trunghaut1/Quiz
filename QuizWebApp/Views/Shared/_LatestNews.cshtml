@@ -1,0 +1,30 @@
+﻿@model List<Core.Model.News>
+@{if (Model.Count > 0)
+{
+    foreach (Core.Model.News news in Model)
+    {
+        string src = "";
+        if (news.img_link != null)
+        {
+            src = news.img_link;
+        }
+        else
+            if (news.video_link != null)
+            {
+                string id_video = news.video_link.Substring(news.video_link.IndexOf("=") + 1);
+                string url_thumbnail = "http://img.youtube.com/vi/" + id_video + "/hqdefault.jpg";
+                src = url_thumbnail;
+            }
+        <a href="@Url.Action("newsid/"+news.id,"home")">
+            <img width="150" height="150" src="@src" class="thumbnail wp-post-image" alt="@news.title">
+
+            <h2 class="title">@news.title</h2>
+
+            <div class="date">
+                <i class="fa fa-clock-o"></i> @news.date &nbsp;
+                <i class="fa fa-eye"></i> @news.view_count &nbsp;
+            </div>
+        </a>
+    }
+}
+}

@@ -1,0 +1,11 @@
+﻿@{
+    var items = (IEnumerable<SelectListItem>) ViewData["items"];
+}
+@{
+    @Html.BeginForm("","testing",FormMethod.Post)
+    {
+        @Html.DropDownList("sub", items);
+        <input type="submit" value="Load câu hỏi" />
+    }
+}
+

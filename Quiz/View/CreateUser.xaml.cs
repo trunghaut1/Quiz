@@ -1,5 +1,5 @@
 ﻿using FlatTheme.ControlStyle;
-using Quiz.Controller;
+using Core.Controller;
 using System;
 using System.Windows;
 using System.Windows.Input;

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="5ca85220ea164bf590dce6277ce2f1bf" Name="Diagram1">
+        <EntityTypeShape EntityType="QuizDbModel1.AspNetRole" Width="1.5" PointX="0.75" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuizDbModel1.AspNetUserClaim" Width="1.5" PointX="5.25" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuizDbModel1.AspNetUserLogin" Width="1.5" PointX="5.25" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuizDbModel1.AspNetUser" Width="1.5" PointX="3" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuizDbModel1.History" Width="1.5" PointX="5.25" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuizDbModel1.Info" Width="1.5" PointX="8.25" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuizDbModel1.News" Width="1.5" PointX="13" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuizDbModel1.NewsType" Width="1.5" PointX="10.75" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuizDbModel1.Question" Width="1.5" PointX="8.25" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuizDbModel1.Release" Width="1.5" PointX="11" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuizDbModel1.ReleaseType" Width="1.5" PointX="8.75" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuizDbModel1.SubButton" Width="1.5" PointX="8.25" PointY="13.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuizDbModel1.Subject" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="QuizDbModel1.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="QuizDbModel1.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="QuizDbModel1.FK_History_AspNetUsers" ManuallyRouted="false" />
+        <AssociationConnector Association="QuizDbModel1.FK_Info_AspNetUsers" ManuallyRouted="false" />
+        <AssociationConnector Association="QuizDbModel1.FK__Info__SubId__24927208" ManuallyRouted="false" />
+        <AssociationConnector Association="QuizDbModel1.FK_News_NewsType" ManuallyRouted="false" />
+        <AssociationConnector Association="QuizDbModel1.FK__Question__SubId__4222D4EF" ManuallyRouted="false" />
+        <AssociationConnector Association="QuizDbModel1.FK_Release_ReleaseType" ManuallyRouted="false" />
+        <AssociationConnector Association="QuizDbModel1.FK__SubButton__SubId__30F848ED" ManuallyRouted="false" />
+        <AssociationConnector Association="QuizDbModel1.AspNetUserRoles" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="QuizDbModel1.Staff" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="QuizDbModel1.PlatformApp" Width="1.5" PointX="0.75" PointY="10.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
