@@ -3,17 +3,10 @@ using Core.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
 using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Quiz.View
 {
@@ -51,7 +44,7 @@ namespace Quiz.View
         {
             InitializeComponent();
             list = achivementHandle.GetInfoOfUser(Thongtindangnhap.UserId);
-            history = achivementHandle.GetHistoryOfUser(Thongtindangnhap.UserId).OrderByDescending(t=>t.DateTime).ToList();
+            history = achivementHandle.GetHistoryOfUser(Thongtindangnhap.UserId).OrderByDescending(t => t.DateTime).ToList();
             setValueRank();
             doJob();
             doJob2();
@@ -59,7 +52,7 @@ namespace Quiz.View
         private void doJob()
         {
             lbName.Content = Thongtindangnhap.Username;
-            rankAns.Source = new BitmapImage(new Uri(@""+rank[getRank(numAns, traloi)], UriKind.Relative));
+            rankAns.Source = new BitmapImage(new Uri(@"" + rank[getRank(numAns, traloi)], UriKind.Relative));
             lbNumAns.Content = traloi.ToString();
             rankAnsCorrect.Source = new BitmapImage(new Uri(@"" + rank[getRank(numAnsCorrect, traloidung)], UriKind.Relative));
             lbNumAnsCorrect.Content = traloidung.ToString();
@@ -76,23 +69,23 @@ namespace Quiz.View
         private void doJob2()
         {
             List<InfoHistory> _li = new List<InfoHistory>();
-            foreach(History his in history)
+            foreach (History his in history)
             {
                 InfoHistory infH = new InfoHistory();
                 infH.SubId = his.SubId;
-                float diem = ((float)his.NumberCorrect / his.NumberQuest * 10)??0;
+                float diem = ((float)his.NumberCorrect / his.NumberQuest * 10) ?? 0;
                 infH.Diem = "Điểm số: " + diem.ToString();
                 infH.Danhgia = "Đánh giá: " + danhgia[getRank(danhgiaDiem, (long)diem)];
                 if (diem > 6) infH.Color = "Green";
                 else infH.Color = "Red";
-                infH.Date = "Ngày làm bài: " + his.DateTime.Day.ToString() + "/" + his.DateTime.Month.ToString() + "/" + his.DateTime.Year.ToString() +" " + his.DateTime.Hour+":"+his.DateTime.Minute;
+                infH.Date = "Ngày làm bài: " + his.DateTime.Day.ToString() + "/" + his.DateTime.Month.ToString() + "/" + his.DateTime.Year.ToString() + " " + his.DateTime.Hour + ":" + his.DateTime.Minute;
                 _li.Add(infH);
             }
             listBox.ItemsSource = _li;
         }
         private int getRank(long[] a, long b)
         {
-            for(int i =0; i<a.Length;i++)
+            for (int i = 0; i < a.Length; i++)
             {
                 if (b < a[i]) return i;
             }
@@ -100,7 +93,7 @@ namespace Quiz.View
         }
         private void setValueRank()
         {
-            for(int i = 0; i<list.Count;i++)
+            for (int i = 0; i < list.Count; i++)
             {
                 Info inf = list[i] as Info;
                 traloi += inf.NumAnswer;
@@ -110,7 +103,7 @@ namespace Quiz.View
         }
         private class InfoHistory
         {
-            public string SubId {set;get;}
+            public string SubId { set; get; }
             public string Diem { set; get; }
             public string Danhgia { set; get; }
             public string Date { set; get; }
@@ -133,5 +126,5 @@ namespace Quiz.View
             a.Children.Remove(ucGrid);
         }
     }
-    
+
 }

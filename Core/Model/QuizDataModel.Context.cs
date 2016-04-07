@@ -40,5 +40,6 @@ namespace Core.Model
         public virtual DbSet<Subject> Subjects { get; set; }
         public virtual DbSet<Staff> Staffs { get; set; }
         public virtual DbSet<PlatformApp> PlatformApps { get; set; }
+        public virtual DbSet<Feedback> Feedbacks { get; set; }
     }
 }

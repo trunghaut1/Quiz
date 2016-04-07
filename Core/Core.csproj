@@ -55,9 +55,9 @@
     <Compile Include="Controller\AchievementHandle.cs" />
     <Compile Include="Controller\DataFileController.cs" />
     <Compile Include="Controller\DataHelper.cs" />
+    <Compile Include="Controller\FeedbackHandle.cs" />
     <Compile Include="Controller\NewsHandle.cs" />
     <Compile Include="Controller\QuestionHandle.cs" />
-    <Compile Include="Controller\ReleaseController.cs" />
     <Compile Include="Controller\ReleaseHandle.cs" />
     <Compile Include="Controller\SubjectHandle.cs" />
     <Compile Include="Controller\StaffHandle.cs" />
@@ -79,6 +79,9 @@
       <DependentUpon>QuizDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\AspNetUserLogin.cs">
+      <DependentUpon>QuizDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Feedback.cs">
       <DependentUpon>QuizDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\History.cs">

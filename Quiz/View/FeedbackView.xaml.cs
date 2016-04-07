@@ -1,19 +1,8 @@
-﻿using Quiz.Controller;
-using Quiz.Model;
+﻿using Core.Model;
+using Quiz.Controller;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace Quiz.View
 {
@@ -56,7 +45,7 @@ namespace Quiz.View
             }
             if (String.IsNullOrEmpty(txtTitle.Text))
             {
-                MessageBox.Show("Vui lòng nhập tiêu đề!","Thông báo");
+                MessageBox.Show("Vui lòng nhập tiêu đề!", "Thông báo");
                 return false;
             }
             if (String.IsNullOrEmpty(txtContent.Text))
@@ -74,7 +63,7 @@ namespace Quiz.View
 
         private void btnSend_Click(object sender, RoutedEventArgs e)
         {
-            if(CheckNull())
+            if (CheckNull())
             {
                 var now = DateTime.Now;
                 var record = new Feedback()
@@ -86,7 +75,7 @@ namespace Quiz.View
                     Status = 0,
                     SentDate = now
                 };
-                if(db.Add(record))
+                if (db.Add(record))
                 {
                     if (MessageBox.Show("Gửi phản hồi thành công, cảm ơn bạn đã đóng góp!\nBạn có muốn đóng hộp thoại phản hồi?", "Thông báo", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
                     {

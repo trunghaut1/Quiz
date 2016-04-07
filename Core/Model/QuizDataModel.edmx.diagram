@@ -30,6 +30,7 @@
         <AssociationConnector Association="QuizDbModel1.AspNetUserRoles" ManuallyRouted="false" />
         <EntityTypeShape EntityType="QuizDbModel1.Staff" Width="1.5" PointX="0.75" PointY="0.75" />
         <EntityTypeShape EntityType="QuizDbModel1.PlatformApp" Width="1.5" PointX="0.75" PointY="10.75" />
+        <EntityTypeShape EntityType="QuizDbModel1.Feedback" Width="1.5" PointX="10.375" PointY="9.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

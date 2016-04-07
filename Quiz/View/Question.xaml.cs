@@ -1,19 +1,11 @@
 ﻿using Core.Controller;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Timers;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Quiz.View
 {
@@ -67,7 +59,7 @@ namespace Quiz.View
             numOfQuestion = 40;
             index = 0;
             time = 0;
-            
+
             setLableValue();
             populateQuestion();
             createQuestionButton(numOfQuestion);
@@ -85,7 +77,7 @@ namespace Quiz.View
             {
                 _list = questionHandle.GetQuestionBySubjectNameAndQuantity(NameSub, numOfQuestion);
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 MessageBox.Show("Populating Question Failed /n" + e.Message, "Error");
             }
@@ -103,7 +95,7 @@ namespace Quiz.View
                 btn.Style = style;
                 btn.Width = 32;
                 btn.Height = 32;
-                btn.Content = (i+1).ToString();
+                btn.Content = (i + 1).ToString();
                 btn.Name = "Button" + i.ToString();
                 btn.Tag = i;
                 btn.Click += btn_Click;
@@ -117,7 +109,7 @@ namespace Quiz.View
         void btn_Click(object sender, RoutedEventArgs e)
         {
             Button bt = (Button)sender as Button;
-            if(bt.Tag.ToString()!=index.ToString())
+            if (bt.Tag.ToString() != index.ToString())
             {
                 setColor4ButtonToNormal(index);
                 setColor4ButtonCurrentSelected(int.Parse(bt.Tag.ToString()));
@@ -164,14 +156,14 @@ namespace Quiz.View
         {
             lbName.Content = abc;
         }
-        
+
         private void changeStyleButton(int z, string style)
         {
             Style sbans = FindResource(style) as Style;
             Button btn = FindButtonByIndex(z);
             btn.Style = sbans;
         }
-        
+
         private void rdButton_Click(object sender, RoutedEventArgs e)
         {
             if (!nopbai)
@@ -190,7 +182,7 @@ namespace Quiz.View
             rbOpt2.IsChecked = false;
             rbOpt3.IsChecked = false;
             rbOpt4.IsChecked = false;
-            if(nopbai)
+            if (nopbai)
             {
                 rbOpt1.Style = FindResource("FlatRadioButton") as Style;
                 rbOpt2.Style = FindResource("FlatRadioButton") as Style;
@@ -212,8 +204,8 @@ namespace Quiz.View
                         rbOpt4.IsChecked = true;
                 }
             }
-            
-            
+
+
         }
         /// <summary>
         /// Gắn màu trắng cho câu hỏi đang chọn
@@ -240,7 +232,7 @@ namespace Quiz.View
             int _nextIndex = getValueIndex(index, "+");
             Button btn = FindButtonByIndex(_nextIndex);
             btn_Click(btn, e);
-            
+
         }
         private void btnPre_Click(object sender, RoutedEventArgs e)
         {
@@ -250,7 +242,7 @@ namespace Quiz.View
         }
         private int getValueIndex(int i, string command)
         {
-            int value=0;
+            int value = 0;
             switch (command)
             {
                 case "+":
@@ -328,8 +320,8 @@ namespace Quiz.View
         /// <param name="e"></param>
         private void btnBack_Click(object sender, RoutedEventArgs e)
         {
-            MessageBoxResult messageBoxResult = 
-                System.Windows.MessageBox.Show("Quay lại, dữ liệu bài tập sẽ mất hết! \n Tiếp tục?", 
+            MessageBoxResult messageBoxResult =
+                System.Windows.MessageBox.Show("Quay lại, dữ liệu bài tập sẽ mất hết! \n Tiếp tục?",
                 "Quay lại", System.Windows.MessageBoxButton.YesNo);
             if (messageBoxResult == MessageBoxResult.Yes)
             {
@@ -364,14 +356,14 @@ namespace Quiz.View
         {
             Style sbanswr = FindResource("btnAnswerWrong") as Style;
             Style sbanscor = FindResource("btnAnswerCorrect") as Style;
-            for(int i = 0; i<_list.Count;i++)
+            for (int i = 0; i < _list.Count; i++)
             {
                 if (_list[i].Traloi != "")
                 {
                     Button btn = FindButtonByIndex(i);
                     btn.Foreground = Brushes.Black;
                     if (_list[i].IsCorrect)
-                       btn.Style = sbanscor;
+                        btn.Style = sbanscor;
                     else btn.Style = sbanswr;
                 }
             }
@@ -389,7 +381,7 @@ namespace Quiz.View
             else if (_list[index].Answer == opt2) rbOpt2.Style = srCor;
             else if (_list[index].Answer == opt3) rbOpt3.Style = srCor;
             else if (_list[index].Answer == opt4) rbOpt4.Style = srCor;
-            if(!_list[index].IsCorrect && _list[index].Traloi!="")
+            if (!_list[index].IsCorrect && _list[index].Traloi != "")
             {
                 if (_list[index].Traloi == opt1) rbOpt1.Style = srWr;
                 else if (_list[index].Traloi == opt2) rbOpt2.Style = srWr;

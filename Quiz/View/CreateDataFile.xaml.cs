@@ -1,19 +1,8 @@
 ﻿using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Security.Cryptography;
-using System.Text;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using Core.Model;
 using Core.Controller;
 using FlatTheme.ControlStyle;
 
@@ -35,7 +24,7 @@ namespace Quiz.View
 
         private bool checkQuestion()
         {
-            if(txtMonhoc.Text=="")
+            if (txtMonhoc.Text == "")
             {
                 txtMonhoc.Focus();
                 return false;
@@ -73,8 +62,8 @@ namespace Quiz.View
                     return false;
                 }
             }
-            if (rA.IsChecked==true)
-            return true;
+            if (rA.IsChecked == true)
+                return true;
             if (rB.IsChecked == true)
                 return true;
             if (rC.IsChecked == true)
@@ -126,7 +115,7 @@ namespace Quiz.View
 
         private void btnLuu_Click(object sender, RoutedEventArgs e)
         {
-            if(checkQuestion())
+            if (checkQuestion())
             {
                 Core.Model.Question q = lvQuest.SelectedItem as Core.Model.Question;
                 q.Content = txtCauhoi.Text;
@@ -188,10 +177,10 @@ namespace Quiz.View
             if (o.ShowDialog() == true)
             {
                 list = (List<Core.Model.Question>)d.readListFromFile(o.FileName);
-                
+
                 lvQuest.ItemsSource = list;
                 string pass = d.readPassFromFile(o.FileName);
-                if(pass!="")
+                if (pass != "")
                 {
                     isUsePass.IsChecked = true;
                     txtPass.Password = pass;
@@ -226,7 +215,7 @@ namespace Quiz.View
             btnXoa.IsEnabled = true;
             btnLuu.IsEnabled = true;
             Core.Model.Question s = lvQuest.SelectedItem as Core.Model.Question;
-            if(s!=null)
+            if (s != null)
             {
                 gridChitiet.DataContext = s;
                 if (s.UserAdd != null) txtNguoilap.IsEnabled = false;
@@ -257,6 +246,6 @@ namespace Quiz.View
             refreshChitiet();
         }
 
-        
+
     }
 }

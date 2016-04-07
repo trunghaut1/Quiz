@@ -122,6 +122,9 @@
     <Compile Include="View\Question.xaml.cs">
       <DependentUpon>Question.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\SplashScreenView.xaml.cs">
+      <DependentUpon>SplashScreenView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Subject.xaml.cs">
       <DependentUpon>Subject.xaml</DependentUpon>
     </Compile>
@@ -143,9 +146,9 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="ColorStyle\Style.xaml">
-      <SubType>Designer</SubType>
+    <Page Include="Resource\Style.xaml">
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="View\AboutView.xaml">
       <SubType>Designer</SubType>
@@ -160,8 +163,8 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\FeedbackView.xaml">
-      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="View\InputPassword.xaml">
       <SubType>Designer</SubType>
@@ -172,6 +175,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="View\Question.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\SplashScreenView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -221,7 +228,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\tinhdiem3.jpg" />
     <Resource Include="Images\Unranked.png" />
   </ItemGroup>
   <ItemGroup>
@@ -303,12 +309,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\background_subject.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\loading.gif" />
-  </ItemGroup>
-  <ItemGroup>
     <SplashScreen Include="Images\QuizAppScreen.png" />
   </ItemGroup>
   <ItemGroup>
@@ -319,12 +319,22 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\anninhmang.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\background_subject.jpg" />
     <Resource Include="Images\ecommerce.jpg" />
+    <Resource Include="Images\loading.gif" />
     <Resource Include="Images\maclennin.jpg" />
     <Resource Include="Images\nhapmonmaytinh.jpg" />
     <Resource Include="Images\no-image-available.jpg" />
+    <Resource Include="Images\tinhdiem3.jpg" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Images\tinhdiem2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\LogoSGU.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

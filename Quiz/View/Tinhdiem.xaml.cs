@@ -2,20 +2,12 @@
 using Core.Model;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Quiz
 {
@@ -43,7 +35,7 @@ namespace Quiz
         }
         private void getInfoFromList()
         {
-            for(int i=0;i<listQuestion.Count;i++)
+            for (int i = 0; i < listQuestion.Count; i++)
             {
                 if (listQuestion[i].Traloi != null) numAns++;
                 if (listQuestion[i].IsCorrect)
@@ -68,7 +60,7 @@ namespace Quiz
                 {
                     Application.Current.Dispatcher.Invoke(new Action(() => loadDiemIntoPanel()));
                 });
-                
+
             });
             putMask.Start();
         }
@@ -99,7 +91,7 @@ namespace Quiz
         {
             try
             {
-                if(nap==false)
+                if (nap == false)
                 {
                     Info i = new Info();
                     i.SubId = sub;
@@ -112,7 +104,7 @@ namespace Quiz
             }
             catch (Exception e)
             {
-                lbTrangthai.Content = "Lỗi cập nhật dữ liệu: "+e.Message;
+                lbTrangthai.Content = "Lỗi cập nhật dữ liệu: " + e.Message;
             }
         }
         private void InsertHistory()
@@ -141,12 +133,12 @@ namespace Quiz
             loadAnswerCorrectIntoPanel();
             lbTrangthai.Content = "";
             lbChutich.Content = "Chúc các bạn có kì thi thành công!";
-            if(Thongtindangnhap.IsLogin && nap == false)
+            if (Thongtindangnhap.IsLogin && nap == false)
             {
                 InsertInfo();
                 InsertHistory();
             }
-            
+
         }
         private void btnClose_Click(object sender, RoutedEventArgs e)
         {
@@ -156,8 +148,8 @@ namespace Quiz
         private void Close_Completed(object sender, EventArgs e)
         {
             this.Visibility = Visibility.Collapsed;
-            
+
         }
-        
+
     }
 }

@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Data.Entity;
-using Core.Model;
 
 namespace Core.Controller
 {
@@ -55,6 +52,6 @@ namespace Core.Controller
             IQueryable<TEntity> query = _context.Set<TEntity>().Where(predicate);
             return query;
         }
-        
+
     }
 }

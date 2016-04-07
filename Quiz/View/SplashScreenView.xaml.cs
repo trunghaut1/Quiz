@@ -1,16 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using System.Windows.Threading;
 
 namespace Quiz.View
@@ -31,7 +20,7 @@ namespace Quiz.View
             IAsyncResult result = null;
 
             // This is an anonymous delegate that will be called when the initialization has COMPLETED
-            AsyncCallback initCompleted = delegate (IAsyncResult ar)
+            AsyncCallback initCompleted = delegate(IAsyncResult ar)
             {
                 App.Current.ApplicationInitialize.EndInvoke(result);
 

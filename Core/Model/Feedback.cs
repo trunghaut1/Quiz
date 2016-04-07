@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Quiz.Model
+namespace Core.Model
 {
     using System;
     using System.Collections.Generic;
@@ -17,9 +17,9 @@ namespace Quiz.Model
         public int ID { get; set; }
         public string Name { get; set; }
         public string Email { get; set; }
-        public System.DateTime SentDate { get; set; }
+        public Nullable<System.DateTime> SentDate { get; set; }
         public string Title { get; set; }
         public string Content { get; set; }
-        public int Status { get; set; }
+        public Nullable<int> Status { get; set; }
     }
 }

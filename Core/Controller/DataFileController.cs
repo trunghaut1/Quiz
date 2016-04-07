@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
-using System.Windows;
 
 namespace Core.Controller
 {
@@ -91,10 +89,10 @@ namespace Core.Controller
                     q.Opt3 = Decrypt(lines[y++]);
                     q.Opt4 = Decrypt(lines[y++]);
                     q.Answer = Decrypt(lines[y++]);
-                    
+
                     q.UserAdd = Decrypt(lines[y++]);
                     string temp = Decrypt(lines[y++]).ToString();
-                    q.DateAdd = DateTime.ParseExact(temp.Substring(0,10),"MM/dd/yyyy",null);
+                    q.DateAdd = DateTime.ParseExact(temp.Substring(0, 10), "MM/dd/yyyy", null);
                     q.Note = Decrypt(lines[y++]);
                     list.Add(q);
                 }

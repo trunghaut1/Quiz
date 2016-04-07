@@ -47,7 +47,7 @@ namespace Quiz.View
         }
         private void btnDangki_Click(object sender, RoutedEventArgs e)
         {
-            if(Check_Dangki())
+            if (Check_Dangki())
             {
                 UserHandle userHandle = new UserHandle();
                 bool b = userHandle.Add(txtName.Text, txtPass.Password);

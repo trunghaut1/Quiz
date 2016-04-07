@@ -7,16 +7,16 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Quiz.Model
+namespace Core.Model
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class EventStatus
+    public partial class Staff
     {
-        public bool Active { get; set; }
-        public string EventName { get; set; }
-    
-        public virtual EventStyle EventStyle { get; set; }
+        public int id { get; set; }
+        public string title { get; set; }
+        public string name { get; set; }
+        public string img_link { get; set; }
     }
 }
