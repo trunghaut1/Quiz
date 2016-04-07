@@ -1,4 +1,5 @@
 ﻿using Core.Model;
+using Core.Controller;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,11 +13,11 @@ namespace QuizWebApp.Controllers
         public ActionResult Index()
         {
             Core.Controller.StaffHandle ctr = new Core.Controller.StaffHandle();
-            Core.Controller.ReleaseController cr = new Core.Controller.ReleaseController();
+            Core.Controller.ReleaseHandle cr = new Core.Controller.ReleaseHandle();
             List<Core.Model.Staff> s = new List<Core.Model.Staff>();
             Entities db = new Entities();
-            ViewData["id_desktop"] = cr.getLastestReleaseByType(4);
-            ViewData["id_android"] = cr.getLastestReleaseByType(1);
+            ViewData["id_desktop"] = cr.GetIdLastestReleaseByType(4);
+            ViewData["id_android"] = cr.GetIdLastestReleaseByType(1);
             ViewData["Platform"] = db.PlatformApps.ToList();
             s = ctr.getAllStaff();
             return View(s);
@@ -45,10 +46,10 @@ namespace QuizWebApp.Controllers
         }
         public ActionResult ReleaseId(int id)
         {
-            Core.Model.Release r = new Core.Model.Release();
-            Core.Controller.ReleaseController ctr = new Core.Controller.ReleaseController();
-            r = ctr.getReleaseById(id);
-            ViewData["Release"] = ctr.get4LastedRelease();
+            Release r = new Release();
+            ReleaseHandle ctr = new ReleaseHandle();
+            r = ctr.GetReleaseById(id);
+            ViewData["Release"] = ctr.Get4LastedRelease();
             return View(r);
         }
         public PartialViewResult RenderNews()
@@ -75,11 +76,11 @@ namespace QuizWebApp.Controllers
 
         public ActionResult RenderRelease()
         {
-            Core.Controller.ReleaseController ctr = new Core.Controller.ReleaseController();
-            Core.Model.Release r = ctr.getReleaseById(ctr.getLastestRelease());
-            ViewBag.SumPage = (ctr.getSumReleases() / 10) + 1;
+            ReleaseHandle ctr = new ReleaseHandle();
+            Release r = ctr.GetReleaseById(ctr.GetIdLastestRelease());
+            ViewBag.SumPage = (ctr.GetSumReleases() / 10) + 1;
             ViewBag.Title = "Tải về";
-            ViewData["Release"] = ctr.get4LastedRelease();
+            ViewData["Release"] = ctr.Get4LastedRelease();
             return View("releaseid", r);
         }
 
@@ -92,7 +93,7 @@ namespace QuizWebApp.Controllers
             ViewBag.CurrentPage = id;
             ViewBag.Page = "cat";
             return View("RenderNews", _list);
-        
+
         }
 
         public ActionResult Search(int id, string keyword)
@@ -112,7 +113,7 @@ namespace QuizWebApp.Controllers
             List<Core.Model.News> _list = new List<Core.Model.News>();
             Core.Controller.NewsHandle ctl = new Core.Controller.NewsHandle();
             _list = ctl.Get4LastestNews();
-            return PartialView("_LatestNews",_list);
+            return PartialView("_LatestNews", _list);
         }
         [ChildActionOnly]
         public PartialViewResult TopNews()
