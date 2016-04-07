@@ -1,8 +1,51 @@
 ﻿<Window x:Class="Quiz.View.FeedbackView"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="FeedbackView" Height="300" Width="700">
-    <Grid>
-        
+        Title="FeedbackView" Height="530" Width="900"  WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="None" AllowsTransparency="True" FontSize="15" Background="Transparent" Closing="Window_Closing">
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="Window.Loaded">
+            <BeginStoryboard>
+                <Storyboard>
+                    <DoubleAnimation Duration="00:00:0.2" Storyboard.TargetProperty="Opacity" From="0" To="1"/>
+                </Storyboard>
+            </BeginStoryboard>
+        </EventTrigger>
+    </Window.Triggers>
+    <Grid x:Name="MainGrid" Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1.5*"/>
+            <RowDefinition Height="3*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="6*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+            <Border Grid.Row="0" Grid.RowSpan="2" Background="{DynamicResource BackgroundColor}" Effect="{DynamicResource MaterialDesignShadowDepth2}" BorderBrush="{DynamicResource MainColor}" BorderThickness="1"/>
+            <TextBox x:Name="txtContent" Tag="Nội dung" Style="{DynamicResource FloatingHintTextBox}" Grid.Row="0" Margin="20 20 20 10" AcceptsReturn="True" AllowDrop="True" Foreground="{DynamicResource TextColor}" ScrollViewer.VerticalScrollBarVisibility="Auto"/>
+            <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top">
+                <Button x:Name="btnSend" Content="Gửi" Height="35" Width="100" Margin="10 0" Click="btnSend_Click"/>
+                <Button x:Name="btnClose" Content="Thoát" Height="35" Width="100" Margin="10 0" Click="btnClose_Click"/>
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Row="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1.2*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1.5*"/>
+            </Grid.RowDefinitions>
+            <Border Background="{DynamicResource MainColor}" Grid.RowSpan="3" Effect="{DynamicResource MaterialDesignShadowDepth2}" Margin="0 0 0 -1"/>
+            <TextBlock TextWrapping="WrapWithOverflow" Grid.Row="0" Text="Những thắc mắc, góp ý của các bạn là nguồn cảm hứng, động lực để chúng tôi phát triển và hoàn thiện ứng dụng ngày một tốt hơn. Các bạn cũng có thể liên hệ với chúng tôi qua email: info@quizapp.tk" Foreground="{DynamicResource BackgroundColor}" Margin="10 0" VerticalAlignment="Center"/>
+            <Grid Grid.Row="1" VerticalAlignment="Center">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <!-- Sử dụng Opacity="0.999" cho FloatingHintTextBox khi áp dụng với nền màu tối, để kích hoạt Trigger làm cho Hint sáng hơn nền -->
+                <TextBox x:Name="txtName" Style="{DynamicResource FloatingHintTextBox}" Tag="Họ tên (tùy chọn)" Margin="15 0 10 0" Foreground="{DynamicResource BackgroundColor}" Grid.Column="0" BorderBrush="{DynamicResource BackgroundColor}" Opacity="0.999"/>
+                <TextBox x:Name="txtEmail" Style="{DynamicResource FloatingHintTextBox}" Tag="Email (tùy chọn)" Margin="10 0 15 0" Foreground="{DynamicResource BackgroundColor}" Grid.Column="1" BorderBrush="{DynamicResource BackgroundColor}" Opacity="0.999"/>
+            </Grid>
+            <TextBox x:Name="txtTitle" Style="{DynamicResource FloatingHintTextBox}" Grid.Row="2" Tag="Tiêu đề" Margin="15 0" Foreground="{DynamicResource BackgroundColor}" Grid.Column="1" BorderBrush="{DynamicResource BackgroundColor}" Opacity="0.999" VerticalAlignment="Center" FontSize="20"/>
+        </Grid>
     </Grid>
 </Window>
