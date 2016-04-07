@@ -44,23 +44,21 @@ namespace Quiz.View
         long traloi = 0;
         long time = 0;
 
-        UCUserController uc = new UCUserController();
+        AchievementHandle achivementHandle = new AchievementHandle();
         List<Info> list = new List<Info>();
         List<History> history = new List<History>();
-        AspNetUser user = new AspNetUser();
         public ucUser()
         {
             InitializeComponent();
-            user = uc.getUser();
-            list = uc.getInfo(user.Id);
-            history = uc.getHistory();
+            list = achivementHandle.GetInfoOfUser(Thongtindangnhap.UserId);
+            history = achivementHandle.GetHistoryOfUser(Thongtindangnhap.UserId).OrderByDescending(t=>t.DateTime).ToList();
             setValueRank();
             doJob();
             doJob2();
         }
         private void doJob()
         {
-            lbName.Content = user.Email;
+            lbName.Content = Thongtindangnhap.Username;
             rankAns.Source = new BitmapImage(new Uri(@""+rank[getRank(numAns, traloi)], UriKind.Relative));
             lbNumAns.Content = traloi.ToString();
             rankAnsCorrect.Source = new BitmapImage(new Uri(@"" + rank[getRank(numAnsCorrect, traloidung)], UriKind.Relative));

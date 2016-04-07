@@ -23,17 +23,17 @@ namespace Quiz.View
     /// </summary>
     public partial class Subject : UserControl
     {
-        SubjectController sc;
+        SubjectHandle subjectHandle;
         
         public Subject()
         {
             InitializeComponent();
-            sc = new SubjectController();
+            subjectHandle = new SubjectHandle();
             createSubButton();
         }
         private void createSubButton()
         {
-            List<SubButton> _list = sc.loadSubjectButton();
+            List<SubButton> _list = subjectHandle.GetAllSubjectButton();
             for(int i=0;i<_list.Count;i++)
             {
                 Button btn = new Button();

@@ -325,8 +325,8 @@ namespace QuizWebApp.Controllers
         public ActionResult History()
         {
             List<Core.Model.History> _list = new List<Core.Model.History>();
-            Core.Controller.UCUserController ctr = new Core.Controller.UCUserController();
-            _list = ctr.getHistory(System.Web.HttpContext.Current.User.Identity.GetUserId());
+            Core.Controller.AchievementHandle ctr = new Core.Controller.AchievementHandle();
+            _list = ctr.GetHistoryOfUser(System.Web.HttpContext.Current.User.Identity.GetUserId());
             return View(_list);
         }
 

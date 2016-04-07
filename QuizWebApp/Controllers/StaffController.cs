@@ -12,7 +12,7 @@ namespace QuizWebApp.Controllers
 {
     public class StaffController : Controller
     {
-        private Core.Controller.StaffController ctrl = new Core.Controller.StaffController();
+        private Core.Controller.StaffHandle ctrl = new Core.Controller.StaffHandle();
 
         // GET: Staff
         public ActionResult Index()
@@ -27,7 +27,7 @@ namespace QuizWebApp.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Staff staff = ctrl.getStaffById(id??0);
+            Staff staff = ctrl.GetStaffById(id??0);
             if (staff == null)
             {
                 return HttpNotFound();
@@ -50,7 +50,7 @@ namespace QuizWebApp.Controllers
         {
             if (ModelState.IsValid)
             {
-                ctrl.saveStaff(staff);
+                ctrl.Add(staff);
                 return RedirectToAction("Index");
             }
 
@@ -64,7 +64,7 @@ namespace QuizWebApp.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Staff staff = ctrl.getStaffById(id??0);
+            Staff staff = ctrl.GetStaffById(id??0);
             if (staff == null)
             {
                 return HttpNotFound();
@@ -81,7 +81,7 @@ namespace QuizWebApp.Controllers
         {
             if (ModelState.IsValid)
             {
-                ctrl.saveEditStaff(staff);
+                ctrl.Edit(staff);
                 return RedirectToAction("Index");
             }
             return View(staff);
@@ -94,7 +94,7 @@ namespace QuizWebApp.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Staff staff =  ctrl.getStaffById(id??0);
+            Staff staff =  ctrl.GetStaffById(id??0);
             if (staff == null)
             {
                 return HttpNotFound();
@@ -107,7 +107,7 @@ namespace QuizWebApp.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            ctrl.deleteStaff(id);
+            ctrl.Delete(id);
             return RedirectToAction("Index");
         }
     }

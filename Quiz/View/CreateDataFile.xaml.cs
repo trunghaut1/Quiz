@@ -26,7 +26,6 @@ namespace Quiz.View
     {
 
         DataFileController d = new DataFileController();
-        UCUserController m = new UCUserController();
         List<Core.Model.Question> list = new List<Core.Model.Question>();
         public CreateDataFile()
         {
@@ -89,7 +88,6 @@ namespace Quiz.View
         {
             if (checkQuestion())
             {
-                AspNetUser u = m.getUser();
                 Core.Model.Question q = new Core.Model.Question();
                 q.Id = (int)lvQuest.Items.Count;
                 q.SubId = txtMonhoc.Text;

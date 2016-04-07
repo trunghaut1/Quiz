@@ -23,7 +23,7 @@ namespace Quiz.View
     public partial class Question : UserControl
     {
         List<Core.Model.Question> _list; //danh sach cau hoi
-        QuestionController qc;
+        QuestionHandle questionHandle;
         string NameSub;
         int numOfQuestion;
         int index;//cau hoi dang duoc chon
@@ -39,8 +39,7 @@ namespace Quiz.View
         {
             InitializeComponent();
             _list = new List<Core.Model.Question>();
-            //_ans = new List<string>();
-            qc = new QuestionController();
+            questionHandle = new QuestionHandle();
             _list = list;
             NameSub = _list[0].SubId;
             numOfQuestion = _list.Count;
@@ -63,8 +62,7 @@ namespace Quiz.View
         {
             InitializeComponent();
             _list = new List<Core.Model.Question>();
-            //_ans = new List<string>();
-            qc = new QuestionController();
+            questionHandle = new QuestionHandle();
             NameSub = btnName;
             numOfQuestion = 40;
             index = 0;
@@ -72,7 +70,6 @@ namespace Quiz.View
             
             setLableValue();
             populateQuestion();
-            //populateAnswer();
             createQuestionButton(numOfQuestion);
             setColor4ButtonCurrentSelected(index);
             loadCauhoi(index);
@@ -86,7 +83,7 @@ namespace Quiz.View
         {
             try
             {
-                _list = qc.getQuestion(NameSub, numOfQuestion);
+                _list = questionHandle.GetQuestionBySubjectNameAndQuantity(NameSub, numOfQuestion);
             }
             catch(Exception e)
             {
@@ -161,7 +158,7 @@ namespace Quiz.View
         /// </summary>
         private void setLableValue()
         {
-            lbName.Content = qc.getSubName(NameSub);
+            lbName.Content = questionHandle.GetSubjectName(NameSub);
         }
         private void setLableValue(string abc)
         {

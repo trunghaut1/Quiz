@@ -24,8 +24,7 @@ namespace Quiz
     /// </summary>
     public partial class Tinhdiem : UserControl
     {
-        MainWindowsController m = new MainWindowsController();
-        TinhdiemController td = new TinhdiemController();
+        AchievementHandle achievementHandle = new AchievementHandle();
         private List<Question> listQuestion;
         int socaudung = 0;
         int current = 0;
@@ -103,15 +102,12 @@ namespace Quiz
                 if(nap==false)
                 {
                     Info i = new Info();
-                    AddUserController au = new AddUserController();
-                    AspNetUser u = au.FindUserByUsername(Thongtindangnhap.Username);
                     i.SubId = sub;
-                    i.UserId = u.Id;
+                    i.UserId = Thongtindangnhap.UserId;
                     i.NumAnswer = numAns;
                     i.NumAnswerTrue = socaudung;
                     i.TimeUse = time;
-                    td.AddInfo(i);
-                    
+                    var a = achievementHandle.AddInfo(i);
                 }
             }
             catch (Exception e)
@@ -124,15 +120,13 @@ namespace Quiz
             try
             {
                 History h = new History();
-                AddUserController au = new AddUserController();
-                AspNetUser u = au.FindUserByUsername(Thongtindangnhap.Username);
-                h.UserId = u.Id;
+                h.UserId = Thongtindangnhap.UserId;
                 h.SubId = sub;
                 h.NumberQuest = listQuestion.Count;
                 h.NumberAns = numAns;
                 h.NumberCorrect = socaudung;
                 h.DateTime = DateTime.Now;
-                td.AddHistory(h);
+                var a = achievementHandle.AddHistory(h);
                 lbTrangthai.Content = "Cập nhật cơ sở dữ liệu thành công";
             }
             catch (Exception e)

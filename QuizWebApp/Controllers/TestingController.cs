@@ -13,8 +13,8 @@ namespace QuizWebApp.Controllers
         [Authorize]
         public ActionResult Index()
         {
-            Core.Controller.SubjectController ctr = new Core.Controller.SubjectController();
-            List<Core.Model.Subject> _list = ctr.getAllSubject();
+            Core.Controller.SubjectHandle ctr = new Core.Controller.SubjectHandle();
+            List<Core.Model.Subject> _list = ctr.GetAllSubject();
             IEnumerable<SelectListItem> items = from c in _list
                                                 select new SelectListItem
                                                 {
@@ -29,15 +29,15 @@ namespace QuizWebApp.Controllers
         public ActionResult Index(FormCollection fc)
         {
             string sub = fc["sub"];
-            Core.Controller.QuestionController ctr = new Core.Controller.QuestionController();
-            List<Core.Model.Question> _list = ctr.getQuestion(sub, 40);
+            Core.Controller.QuestionHandle ctr = new Core.Controller.QuestionHandle();
+            List<Core.Model.Question> _list = ctr.GetQuestionBySubjectNameAndQuantity(sub, 40);
             return View("Loading",_list);
         }
         [Authorize]
         public JsonResult DoMark(List<Core.Model.Question> _list, string timer)
         {
-            Core.Controller.TinhdiemController tdctr = new Core.Controller.TinhdiemController();
-            Core.Controller.QuestionController ctr = new Core.Controller.QuestionController();
+            Core.Controller.AchievementHandle tdctr = new Core.Controller.AchievementHandle();
+            Core.Controller.QuestionHandle ctr = new Core.Controller.QuestionHandle();
             Core.Model.History h = new Core.Model.History();
             Core.Model.Info info = new Core.Model.Info();
 
@@ -48,7 +48,7 @@ namespace QuizWebApp.Controllers
             string subId = _list[0].SubId;
             for(int i=0;i<_list.Count;i++)
             {
-                Core.Model.Question q = ctr.getQuestionbyId(_list[i].Id);
+                Core.Model.Question q = ctr.GetSubjectById(_list[i].Id);
                 _list[i].Answer = q.Answer;
                 if (_list[i].Traloi != null) _numanswer++;
                 if (_list[i].IsCorrect) _numcorrect++;
@@ -73,8 +73,8 @@ namespace QuizWebApp.Controllers
         [Authorize]
         public ActionResult Loading()
         {
-            Core.Controller.SubjectController ctr = new Core.Controller.SubjectController();
-            List<Core.Model.Subject> _list = ctr.getAllSubject();
+            Core.Controller.SubjectHandle ctr = new Core.Controller.SubjectHandle();
+            List<Core.Model.Subject> _list = ctr.GetAllSubject();
             IEnumerable<SelectListItem> items = from c in _list
                                          select new SelectListItem
                                          {

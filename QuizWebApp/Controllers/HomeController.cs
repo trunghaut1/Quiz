@@ -11,7 +11,7 @@ namespace QuizWebApp.Controllers
     {
         public ActionResult Index()
         {
-            Core.Controller.StaffController ctr = new Core.Controller.StaffController();
+            Core.Controller.StaffHandle ctr = new Core.Controller.StaffHandle();
             Core.Controller.ReleaseController cr = new Core.Controller.ReleaseController();
             List<Core.Model.Staff> s = new List<Core.Model.Staff>();
             Entities db = new Entities();
@@ -38,9 +38,9 @@ namespace QuizWebApp.Controllers
         public ActionResult NewsId(int id)
         {
             Core.Model.News news = new Core.Model.News();
-            Core.Controller.NewsController ctr = new Core.Controller.NewsController();
-            news = ctr.getNewsById(id);
-            ctr.increaseViewCount(id);
+            Core.Controller.NewsHandle ctr = new Core.Controller.NewsHandle();
+            news = ctr.GetNewsById(id);
+            ctr.IncreaseViewCountNews(id);
             return View(news);
         }
         public ActionResult ReleaseId(int id)
@@ -54,9 +54,9 @@ namespace QuizWebApp.Controllers
         public PartialViewResult RenderNews()
         {
             List<Core.Model.News> _list = new List<Core.Model.News>();
-            Core.Controller.NewsController ctr = new Core.Controller.NewsController();
-            _list = ctr.get10NewsByIndex(1);
-            ViewBag.SumPage = (ctr.getSumNews() / 10) + 1;
+            Core.Controller.NewsHandle ctr = new Core.Controller.NewsHandle();
+            _list = ctr.Get10NewsByPageIndex(1);
+            ViewBag.SumPage = (ctr.GetSumNews() / 10) + 1;
             ViewBag.CurrentPage = 1;
             ViewBag.Page = "rendernewspage";
             return PartialView("RenderNews", _list);
@@ -65,9 +65,9 @@ namespace QuizWebApp.Controllers
         public PartialViewResult RenderNewsPage(int id)
         {
             List<Core.Model.News> _list = new List<Core.Model.News>();
-            Core.Controller.NewsController ctr = new Core.Controller.NewsController();
-            _list = ctr.get10NewsByIndex(id);
-            ViewBag.SumPage = (ctr.getSumNews() / 10) + 1;
+            Core.Controller.NewsHandle ctr = new Core.Controller.NewsHandle();
+            _list = ctr.Get10NewsByPageIndex(id);
+            ViewBag.SumPage = (ctr.GetSumNews() / 10) + 1;
             ViewBag.CurrentPage = id;
             ViewBag.Page = "rendernewspage";
             return PartialView("RenderNews", _list);
@@ -86,9 +86,9 @@ namespace QuizWebApp.Controllers
         public ActionResult Cat(int id, int type)
         {
             List<Core.Model.News> _list = new List<Core.Model.News>();
-            Core.Controller.NewsController ctr = new Core.Controller.NewsController();
-            _list = ctr.get10NewsTypeByIndex(id, type);
-            ViewBag.SumPage = (ctr.getTotalNewsByCat(id) / 10) + 1;
+            Core.Controller.NewsHandle ctr = new Core.Controller.NewsHandle();
+            _list = ctr.Get10NewsByTypeAndPageIndex(id, type);
+            ViewBag.SumPage = (ctr.GetSumNewsByCatalogue(id) / 10) + 1;
             ViewBag.CurrentPage = id;
             ViewBag.Page = "cat";
             return View("RenderNews", _list);
@@ -98,9 +98,9 @@ namespace QuizWebApp.Controllers
         public ActionResult Search(int id, string keyword)
         {
             List<Core.Model.News> _list = new List<Core.Model.News>();
-            Core.Controller.NewsController ctr = new Core.Controller.NewsController();
-            _list = ctr.get10NewsSearchByIndex(id, keyword);
-            ViewBag.SumPage = (ctr.getTotalNewsBySearch(keyword) / 10) + 1;
+            Core.Controller.NewsHandle ctr = new Core.Controller.NewsHandle();
+            _list = ctr.Get10NewsBySearchAndPageIndex(keyword, id);
+            ViewBag.SumPage = (ctr.GetSumNewsBySearch(keyword) / 10) + 1;
             ViewBag.CurrentPage = id;
             ViewBag.Page = "search";
             return View("RenderNews", _list);
@@ -110,16 +110,16 @@ namespace QuizWebApp.Controllers
         public PartialViewResult LatestNews()
         {
             List<Core.Model.News> _list = new List<Core.Model.News>();
-            Core.Controller.NewsController ctl = new Core.Controller.NewsController();
-            _list = ctl.get4LatestNews();
+            Core.Controller.NewsHandle ctl = new Core.Controller.NewsHandle();
+            _list = ctl.Get4LastestNews();
             return PartialView("_LatestNews",_list);
         }
         [ChildActionOnly]
         public PartialViewResult TopNews()
         {
             List<Core.Model.News> _list = new List<Core.Model.News>();
-            Core.Controller.NewsController ctl = new Core.Controller.NewsController();
-            _list = ctl.get4TopNews();
+            Core.Controller.NewsHandle ctl = new Core.Controller.NewsHandle();
+            _list = ctl.Get4TopNews();
             return PartialView("_TopNews", _list);
         }
     }

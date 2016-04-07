@@ -29,7 +29,6 @@ namespace Quiz
     /// 
     public partial class MainWindow : FlatWindow
     {
-        MainWindowsController ctr = new MainWindowsController();
         string color = "Material";
         string theme = "Light";
         public MainWindow()
