@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Data.Entity;
+using System.Data.Entity.Migrations;
 
 namespace Core.Controller
 {
@@ -12,10 +13,6 @@ namespace Core.Controller
 
         static Context _context = new Context();
 
-        public static List<TEntity> GetData(Func<IEnumerable<TEntity>, IEnumerable<TEntity>> query)
-        {
-            return query(_context.Set<TEntity>().Local).ToList();
-        }
         public static List<TEntity> GetAll()
         {
             return _context.Set<TEntity>().ToList();
@@ -52,6 +49,9 @@ namespace Core.Controller
             IQueryable<TEntity> query = _context.Set<TEntity>().Where(predicate);
             return query;
         }
-
+        public static void AddOrUpdate(TEntity entity)
+        {
+            _context.Set<TEntity>().AddOrUpdate(entity);
+        }
     }
 }

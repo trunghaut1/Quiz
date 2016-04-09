@@ -11,11 +11,6 @@
 </div>   
 
 <div id="submenu" class="collapse navbar-collapse">
-
-    <ul id="menu-sub" class="nav navbar-nav">
-        <li id="menu-item-6" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-6"><a title="Tin tức" href="@Url.Action("rendernews","home")">Tin tức</a></li>
-        <li id="menu-item-42" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-42"><a title="Tải về" href="@Url.Action("renderrelease","home")">Tải về</a></li>
-    </ul>
     <div class="col-sm-3 col-md-3 pull-right search-cont">
         @using(Html.BeginForm("search","home",FormMethod.Get,new {@class="navbar-form", @role="search"}))
         { }

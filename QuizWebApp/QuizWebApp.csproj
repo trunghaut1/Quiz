@@ -205,6 +205,7 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="fonts\fontawesome-webfont.ttf" />
     <Content Include="fonts\fontawesome-webfont.woff" />
+    <None Include="Properties\PublishProfiles\QuizWebApp.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\fullby-grid.js" />
     <Content Include="Scripts\fullby-parallax.js" />

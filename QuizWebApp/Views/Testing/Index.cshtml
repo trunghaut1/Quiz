@@ -2,8 +2,9 @@
     var items = (IEnumerable<SelectListItem>) ViewData["items"];
 }
 @{
-    @Html.BeginForm("","testing",FormMethod.Post)
+    using(Html.BeginForm("","testing",FormMethod.Post))
     {
+        <label>Chọn môn: </label>
         @Html.DropDownList("sub", items);
         <input type="submit" value="Load câu hỏi" />
     }

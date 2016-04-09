@@ -70,7 +70,7 @@
                         @Html.HiddenFor(t => t[i].SubId, new { @Value = "" + Model[i].SubId})
                     </div>
                 }
-                @Html.Hidden("timer", "5")
+                @Html.Hidden("timer", 0, new { @id="timer" })
                 <input type="submit" value="Nộp" />
             </div>
         }
@@ -80,9 +80,9 @@
         <ul id="pagination" class="pagination-sm pagination"></ul>
         <script>
             var sum = parseInt($('.item-question').length/5);
-            for(var i = 1; i <= sum; i++)
+            for(var i = 0; i < sum; i++)
             {
-                $("#pagination").append("<li class='page' id='nav'"+i+"><a href='#'>"+i+"</a></li>");
+                $("#pagination").append("<li class='page' id='nav'" + i + "><a href='#'>" + (i+1) + "</a></li>");
             }
         </script>
         
@@ -160,40 +160,51 @@
             //alert(this.parentElement.parentElement.id)
         });
         $('.page').click(function a() {
-            $currentPage = this.textContent;
+            currentPage = this.textContent;
             $('.page').removeClass('active');
             $(this).addClass("active");
             $(".item-question").css("display", "none");
-            $(".item-question").slice($currentPage * 5 - 5, $currentPage * 5).css("display", "block");
+            $(".item-question").slice(currentPage * 5 - 5, currentPage * 5).css("display", "block");
             $('html, body').animate({
-                scrollTop: $("#"+($currentPage * 5 - 5)).offset().top -50 
+                scrollTop: $("#"+(currentPage * 5 - 5)).offset().top -50 
             }, 1000);
         });
         $(".button-item").click(function () {
             //alert(this.textContent);
-            $currentPage = parseInt(this.textContent/5)+1;
+            var id_currentBtn = this.textContent - 1;
+            currentPage = parseInt(id_currentBtn / 5) + 1;
+            $('.page').removeClass('active');
+            $('.page').eq(currentPage-1).addClass('active');
             $(".item-question").css("display", "none");
-            $(".item-question").slice($currentPage * 5 - 5, $currentPage * 5).css("display", "block");
+            $(".item-question").slice(currentPage * 5 - 5, currentPage * 5).css("display", "block");
             $('html, body').animate({
                 scrollTop: $(this.id.replace("btn","#")).offset().top - 50
             }, 1000);
         });
         //var itemcount = $('.item-question').child;
         $(document).ready(function () {
-            $currentPage = 1;
+            currentPage = 1;
             $(".item-question").css("display", "none");
             $('.page:first').addClass('active');
-            $(".item-question").slice($currentPage * 5 - 5, $currentPage * 5).css("display", "block");
+            $(".item-question").slice(currentPage * 5 - 5, currentPage * 5).css("display", "block");
             var timer_count = 0;
             //timecounter = parseInt(timecounter);
             var timeout = null;
+            function convert2Time(data)
+            {
+                var giay = data % 60;
+                var gio = Math.floor(data / 3600);
+                var phut = (data - (gio * 3600) - giay) / 60;
+                return "" + gio + " : " + phut + " : " + giay;
+            }
             function start()
             {
                 timer_count++;
                 timeout = setTimeout(function () {
                     start()
                 }, 1000);
-                $("#timecounter").text(timer_count);
+                $("#timecounter").text(convert2Time(timer_count));
+                $('#timer').val(timer_count);
             }
             function stop()
             {
