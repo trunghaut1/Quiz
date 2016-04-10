@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -31,12 +32,27 @@ namespace QuizWebApp.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult Create(Core.Model.News news)
+        public ActionResult Create(Core.Model.News news, HttpPostedFileBase file)
         {
-            Core.Controller.NewsHandle ctr = new Core.Controller.NewsHandle();
-            news.date = DateTime.Now;
-            ctr.AddNews(news);
-            return RedirectToAction("Index");
+            if(ModelState.IsValid)
+            {
+                if(file != null)
+                {
+                    FileInfo fileInfo = new FileInfo(file.FileName);
+                    string renderfilename = Guid.NewGuid().ToString("N") + fileInfo.Extension;
+                    file.SaveAs(Server.MapPath("~/Resources/NewsImages/") + renderfilename);
+                    news.img_link = renderfilename;
+                }
+                Core.Controller.NewsHandle ctr = new Core.Controller.NewsHandle();
+                news.date = DateTime.Now;
+                ctr.AddNews(news);
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return View(news);
+            }
+            
         }
         public ActionResult Edit(int id)
         {

@@ -52,6 +52,7 @@ namespace Core.Controller
         public static void AddOrUpdate(TEntity entity)
         {
             _context.Set<TEntity>().AddOrUpdate(entity);
+            _context.SaveChanges();
         }
     }
 }
