@@ -1,0 +1,216 @@
+﻿@model List<Core.Model.Question>
+<style>
+    .question{
+        padding: 0 0 0 15px;
+        border: 1px solid blue;
+    }
+    .button button{
+        width:30px;
+        height:26px;
+    }
+    .button-item{
+
+    }
+    .info{
+        text-align:center;
+        padding:15px 15px 15px 15px;
+        border: 1px solid red;
+    }
+    .time{
+    }
+    .question span{
+        display:block;
+        text-align:center;
+        text-transform:uppercase;
+    }
+    .item-question label{
+        display:block;
+        font-weight:normal;
+        
+    }
+    .item-question{
+        padding:10px 10px 10px 10px;
+        border-bottom:dashed 1px red;
+        display:none;
+    }
+</style>
+
+<div class="col-md-3">
+    <div class="info">
+        <div class="time">
+            <span id="timecounter">0:00:00</span>
+        </div>
+        <div class="button">
+            @for (int i = 0; i < Model.Count; i++)
+            {
+                string btnid = "btn" + i;
+                <button id="@btnid" class="button-item">@(i+1)</button>
+            }
+        </div>
+    </div>
+    
+</div>
+<div class="col-md-9">
+    <div class="">
+        <div class="question">
+            <span>@Model[0].Subject.SubName.ToUpper()</span>
+        </div>
+        @using (Ajax.BeginForm("domark", "testing", new AjaxOptions { HttpMethod="POST", OnSuccess = "sucess", OnFailure="failure" }, new { @id="submit" }))
+        {
+            <div class="content-question">
+                @for (int i = 0; i < Model.Count; i++)
+                {
+                    <div class="item-question" id="@i">
+                        <p><strong>Câu @(i + 1):</strong>@Html.DisplayFor(t => t[i].Content)</p>
+                        <label>@Html.RadioButtonFor(t => t[i].Traloi, @Model[i].Opt1)Câu A. @Html.DisplayFor(t => t[i].Opt1)</label>
+                        <label>@Html.RadioButtonFor(t => t[i].Traloi, @Model[i].Opt2)Câu B. @Html.DisplayFor(t => t[i].Opt2)</label>
+                        <label>@Html.RadioButtonFor(t => t[i].Traloi, @Model[i].Opt3)Câu C. @Html.DisplayFor(t => t[i].Opt3)</label>
+                        <label>@Html.RadioButtonFor(t => t[i].Traloi, @Model[i].Opt4)Câu D. @Html.DisplayFor(t => t[i].Opt4)</label>
+                        @Html.HiddenFor(t => t[i].Id, new { @Value = "" + Model[i].Id })
+                        @Html.HiddenFor(t => t[i].SubId, new { @Value = "" + Model[i].SubId})
+                    </div>
+                }
+                @Html.Hidden("timer", 0, new { @id="timer" })
+                <input type="submit" value="Nộp" />
+            </div>
+        }
+        
+    </div>
+    <div class="pagination">
+        <ul id="pagination" class="pagination-sm pagination"></ul>
+        <script>
+            var sum = parseInt($('.item-question').length/5);
+            for(var i = 0; i < sum; i++)
+            {
+                $("#pagination").append("<li class='page' id='nav'" + i + "><a href='#'>" + (i+1) + "</a></li>");
+            }
+        </script>
+        
+    </div>
+    <div id="page-content"></div>
+
+    
+    
+
+    <!-- Modal -->
+    
+
+    <script>
+        function sucess(data) {
+            var diem = 0;
+            var count = 0;
+            var myRadio = $('input[type=radio]');
+            var checkedRadio = myRadio.filter(':checked');
+            for (var i = 0; i < checkedRadio.length; i++)
+            {
+                var id = checkedRadio[i].parentNode.parentNode.id;
+                if (data[id].IsCorrect) {
+                    count++;
+                    checkedRadio[i].parentNode.style.color = "green";
+                    $('#btn' + id).css("background", "green");
+                }
+                else
+                {
+                    checkedRadio[i].parentNode.style.color = "red";
+                    $('#btn' + id).css("background", "red");
+                }
+            }
+            for(var i = 0; i< data.length;i++)
+            {
+                if(!data[i].IsCorrect)
+                {
+                    var b = $('input[name="[' + i + '].Traloi"]');
+                    for (var j = 0; j < b.length; j++) {
+                        if (b[j].value == (data[i].Answer)) {
+                            b[j].parentNode.style.color = "green";
+                        }
+                    }
+                    $('#btn' + i).css("background", "red");
+                }
+            }
+            diem = (parseInt(count) / parseInt(data.length))*10;
+
+            $("input[type=submit]").prop("disabled", true);
+            $("input[type=radio]").prop("disabled", true);
+            @*Trigger the modal with a button*@
+            $("#page-content").append('<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>');
+            $("#page-content").append('<div id="myModal" class="modal fade" role="dialog">'+
+                                        '<div class="modal-dialog">'+
+                                            '<div class="modal-content">'+
+                                                '<div class="modal-header">'+
+                                                    '<button type="button" class="close" data-dismiss="modal">&times;</button>'+
+                                                    '<h4 class="modal-title">Điểm</h4>'+
+                                                '</div>'+
+                                                '<div class="modal-body">'+
+                                                    '<p>Bạn đạt được '+diem+' điểm </p>'+
+                                                '</div>'+
+                                                '<div class="modal-footer">'+
+                                                    '<button type="button" class="btn btn-default" data-dismiss="modal">Đóng lại</button>'+
+                                                '</div>'+
+                                            '</div>'+
+                                        '</div>'+
+                                    '</div>');
+        }
+        function failure() {
+            alert("lỗi rồi");
+        }
+
+        $("input[type='radio']").click(function () {
+            var items = $('.item-question');
+            //alert(this.parentElement.parentElement.id)
+        });
+        $('.page').click(function a() {
+            currentPage = this.textContent;
+            $('.page').removeClass('active');
+            $(this).addClass("active");
+            $(".item-question").css("display", "none");
+            $(".item-question").slice(currentPage * 5 - 5, currentPage * 5).css("display", "block");
+            $('html, body').animate({
+                scrollTop: $("#"+(currentPage * 5 - 5)).offset().top -50 
+            }, 1000);
+        });
+        $(".button-item").click(function () {
+            //alert(this.textContent);
+            var id_currentBtn = this.textContent - 1;
+            currentPage = parseInt(id_currentBtn / 5) + 1;
+            $('.page').removeClass('active');
+            $('.page').eq(currentPage-1).addClass('active');
+            $(".item-question").css("display", "none");
+            $(".item-question").slice(currentPage * 5 - 5, currentPage * 5).css("display", "block");
+            $('html, body').animate({
+                scrollTop: $(this.id.replace("btn","#")).offset().top - 50
+            }, 1000);
+        });
+        //var itemcount = $('.item-question').child;
+        $(document).ready(function () {
+            currentPage = 1;
+            $(".item-question").css("display", "none");
+            $('.page:first').addClass('active');
+            $(".item-question").slice(currentPage * 5 - 5, currentPage * 5).css("display", "block");
+            var timer_count = 0;
+            //timecounter = parseInt(timecounter);
+            var timeout = null;
+            function convert2Time(data)
+            {
+                var giay = data % 60;
+                var gio = Math.floor(data / 3600);
+                var phut = (data - (gio * 3600) - giay) / 60;
+                return "" + gio + " : " + phut + " : " + giay;
+            }
+            function start()
+            {
+                timer_count++;
+                timeout = setTimeout(function () {
+                    start()
+                }, 1000);
+                $("#timecounter").text(convert2Time(timer_count));
+                $('#timer').val(timer_count);
+            }
+            function stop()
+            {
+                clearTimeout(timeout);
+            }
+            start();
+        });
+    </script>
+</div>

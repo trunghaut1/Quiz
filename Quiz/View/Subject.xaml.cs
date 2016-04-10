@@ -1,20 +1,10 @@
-﻿using Quiz.Controller;
-using Quiz.Model;
+﻿using Core.Controller;
+using Core.Model;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
 using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Quiz.View
 {
@@ -23,26 +13,25 @@ namespace Quiz.View
     /// </summary>
     public partial class Subject : UserControl
     {
-        SubjectController sc;
+        SubjectHandle subjectHandle;
         string subid;
-        
         public Subject()
         {
             InitializeComponent();
-            sc = new SubjectController();
+            subjectHandle = new SubjectHandle();
             createSubButton();
         }
         private void createSubButton()
         {
-            List<SubButton> _list = sc.loadSubjectButton();
-            for(int i=0;i<_list.Count;i++)
+            List<SubButton> _list = subjectHandle.GetAllSubjectButton();
+            for (int i = 0; i < _list.Count; i++)
             {
                 Button btn = new Button();
                 Style style = this.FindResource("btnSub") as Style;
                 btn.Style = style;
                 btn.Name = _list[i].ButtonName;
                 btn.IsTabStop = false;
-                btn.Margin = new Thickness(10,10,0,0);
+                btn.Margin = new Thickness(10, 10, 0, 0);
                 btnPanel.Children.Add(btn);
                 btn.Click += btn_Click;
                 btn.DataContext = _list[i] as SubButton;
@@ -53,7 +42,7 @@ namespace Quiz.View
         {
             Button _temp = sender as Button;
             subid = _temp.Name.Substring(3);
-            lblSubject.Content = subid;
+            lblSubject.Content = subid;            
         }
 
         private void homebtn_Click(object sender, RoutedEventArgs e)
@@ -64,7 +53,7 @@ namespace Quiz.View
 
         private void btnTest_Click(object sender, RoutedEventArgs e)
         {
-            if(!String.IsNullOrEmpty(subid))
+            if (!String.IsNullOrEmpty(subid))
             {
                 Question q = new Question(subid);
                 Grid a = subUC.Parent as Grid;
@@ -72,7 +61,7 @@ namespace Quiz.View
             }
             else
             {
-                MessageBox.Show("Vui lòng chọn môn học!","Thông báo");
+                MessageBox.Show("Vui lòng chọn môn học!", "Thông báo");
             }
         }
     }

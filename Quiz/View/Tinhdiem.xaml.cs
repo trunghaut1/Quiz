@@ -1,21 +1,13 @@
-﻿using Quiz.Controller;
-using Quiz.Model;
+﻿using Core.Controller;
+using Core.Model;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Quiz
 {
@@ -24,8 +16,7 @@ namespace Quiz
     /// </summary>
     public partial class Tinhdiem : UserControl
     {
-        MainWindowsController m = new MainWindowsController();
-        TinhdiemController td = new TinhdiemController();
+        AchievementHandle achievementHandle = new AchievementHandle();
         private List<Question> listQuestion;
         int socaudung = 0;
         int current = 0;
@@ -44,10 +35,10 @@ namespace Quiz
         }
         private void getInfoFromList()
         {
-            for(int i=0;i<listQuestion.Count;i++)
+            for (int i = 0; i < listQuestion.Count; i++)
             {
                 if (listQuestion[i].Traloi != null) numAns++;
-                if (listQuestion[i].Traloi == listQuestion[i].Answer)
+                if (listQuestion[i].IsCorrect)
                     socaudung++;
             }
             diem = (float)socaudung / listQuestion.Count * 10;
@@ -69,7 +60,7 @@ namespace Quiz
                 {
                     Application.Current.Dispatcher.Invoke(new Action(() => loadDiemIntoPanel()));
                 });
-                
+
             });
             putMask.Start();
         }
@@ -100,23 +91,20 @@ namespace Quiz
         {
             try
             {
-                if(nap==false)
+                if (nap == false)
                 {
                     Info i = new Info();
-                    AddUserController au = new AddUserController();
-                    User u = au.FindUserByUsername(Thongtindangnhap.Username);
                     i.SubId = sub;
-                    i.UserId = u.Id;
+                    i.UserId = Thongtindangnhap.UserId;
                     i.NumAnswer = numAns;
                     i.NumAnswerTrue = socaudung;
                     i.TimeUse = time;
-                    td.AddInfo(i);
-                    
+                    var a = achievementHandle.AddInfo(i);
                 }
             }
             catch (Exception e)
             {
-                lbTrangthai.Content = "Lỗi cập nhật dữ liệu: "+e.Message;
+                lbTrangthai.Content = "Lỗi cập nhật dữ liệu: " + e.Message;
             }
         }
         private void InsertHistory()
@@ -124,15 +112,13 @@ namespace Quiz
             try
             {
                 History h = new History();
-                AddUserController au = new AddUserController();
-                User u = au.FindUserByUsername(Thongtindangnhap.Username);
-                h.UserId = u.Id;
+                h.UserId = Thongtindangnhap.UserId;
                 h.SubId = sub;
                 h.NumberQuest = listQuestion.Count;
                 h.NumberAns = numAns;
                 h.NumberCorrect = socaudung;
                 h.DateTime = DateTime.Now;
-                td.AddHistory(h);
+                var a = achievementHandle.AddHistory(h);
                 lbTrangthai.Content = "Cập nhật cơ sở dữ liệu thành công";
             }
             catch (Exception e)
@@ -147,12 +133,12 @@ namespace Quiz
             loadAnswerCorrectIntoPanel();
             lbTrangthai.Content = "";
             lbChutich.Content = "Chúc các bạn có kì thi thành công!";
-            if(Thongtindangnhap.IsLogin && nap == false)
+            if (Thongtindangnhap.IsLogin && nap == false)
             {
                 InsertInfo();
                 InsertHistory();
             }
-            
+
         }
         private void btnClose_Click(object sender, RoutedEventArgs e)
         {
@@ -162,8 +148,8 @@ namespace Quiz
         private void Close_Completed(object sender, EventArgs e)
         {
             this.Visibility = Visibility.Collapsed;
-            
+
         }
-        
+
     }
 }

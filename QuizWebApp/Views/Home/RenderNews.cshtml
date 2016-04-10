@@ -1,0 +1,142 @@
+﻿@model List<Core.Model.News>
+           @if (Model.Count > 0)
+           {
+            <div class="grid isotope" style="position: relative; overflow: hidden; height: 2510px;">
+                @{
+
+               foreach (Core.Model.News news in Model)
+               {
+                <div class="item isotope-item" style="width: 363px; position: absolute; left: 0px; top: 0px; transform: translate3d(0px, 0px, 0px);">
+
+                    <div id="post-30" class="post-30 post type-post status-publish format-standard hentry category-lifestyle tag-example-tag">
+
+                        <p class="grid-cat">
+                            @Html.ActionLink(@news.NewsType.name, "cat", "home", new { id = 1, type = news.type }, null) <!--id mean paging current-->
+
+                        <h2 class="grid-tit">@Html.ActionLink(@news.title, "newsid/" + news.id, "home")</h2>
+                    <p class="meta">
+                        <i class="fa fa-clock-o"></i> @news.date &nbsp;
+
+                    </p>
+                    @if (news.video_link != null)
+                    {
+                        string id_video = news.video_link.Substring(news.video_link.IndexOf("=") + 1);
+                        string url_thumbnail = "http://img.youtube.com/vi/" + id_video + "/hqdefault.jpg";
+                        <a href="@Url.Action("newsid/"+news.id,"home")" class="link-video">
+                            <img src="@url_thumbnail" class="grid-cop" style="display: inline;">
+                            <i class="fa fa-play-circle fa-4x"></i>
+                        </a>
+                    }
+                    else
+                        if (news.img_link != null)
+                        {
+                            <a href="@Url.Action("newsid/"+news.id,"home")" class="link-video">
+
+                                <img width="300" height="199" src="@news.img_link" class="grid-cop wp-post-image" alt="@news.title" style="display: inline;">
+                            </a>
+                        }
+                    <div class="grid-text">
+                        @{
+                    string display = "";
+                    if (news.text != null)
+                    {
+                        if (news.text.Count() > 50)
+                        {
+                            display = news.text.Substring(0, 49);
+                            display = display + "...";
+                        }
+                        else
+                        {
+                            display = news.text;
+                        }
+                    }
+                        }
+                        <p>@display</p>
+
+                    </div>
+                </div>
+            </div>
+               }
+                }
+            </div>
+            <div class="pagination">
+                @{
+               int totalpage = ViewBag.SumPage;
+               int currentpage = ViewBag.CurrentPage;
+               int range = 9;
+               int mid = 5;
+               int startpage, endpage;
+               if (totalpage < mid)
+               {
+                   startpage = 1;
+                   endpage = totalpage;
+               }
+               else
+               {
+                   startpage = currentpage - mid + 1;
+                   endpage = currentpage + mid - 1;
+                   if (startpage < 1)
+                   {
+                       startpage = 1;
+                       endpage = range;
+                   }
+                   else if (endpage > totalpage)
+                   {
+                       endpage = totalpage;
+                       startpage = totalpage - range + 1;
+                   }
+               }
+
+               if (startpage > 1)
+               {
+                   if (ViewBag.Type != null)
+                   {
+                    @Html.ActionLink("Đầu", (string)@ViewBag.Page, "home", new { id = 1, type = ViewBag.Type }, new { @class = "page-numbers" })
+                   }
+                   else
+                   {
+                    <a class="next page-numbers" href="@Url.Action(@ViewBag.Page+"/1", "home")">« Đầu</a>
+                   }
+               }
+
+               for (int i = startpage; i <= endpage; i++)
+               {
+                   if (i == currentpage)
+                   {
+                    <span class="page-numbers current">@i</span>
+                   }
+                   else
+                   {
+                       if (ViewBag.Type != null)
+                       {
+                        @Html.ActionLink(i.ToString(), (string)@ViewBag.Page, "home", new { id = i, type = ViewBag.Type }, new { @class = "page-numbers" })
+                       }
+                       else
+                       {
+                        @Html.ActionLink(i.ToString(), (string)@ViewBag.Page + "/" + i, null, new { @class = "page-numbers" })
+                       }
+                   }
+               }
+               if (endpage < totalpage)
+               {
+                   if (ViewBag.Type != null)
+                   {
+                    @Html.ActionLink((endpage + 1).ToString(), (string)@ViewBag.Page, "home", new { id = (endpage + 1), type = ViewBag.Type }, new { @class = "page-numbers" })
+
+                   }
+                   else
+                   {
+                    <a class="next page-numbers" href="@Url.Action(@ViewBag.Page + "rendernewspage/" + @endpage + 1, "home")">Tới »</a>
+                   }
+               }
+
+
+                }
+            </div>
+           }
+           else
+           {
+               <p>Không tìm thấy yêu cầu truy vấn</p>
+           }
+
+

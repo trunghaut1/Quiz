@@ -1,0 +1,29 @@
+﻿<div class="navbar-header navbar-header-sub">
+
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#submenu">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+    </button>
+    @if (Request.Url.PathAndQuery == "/" || Request.Url.PathAndQuery == "/Home/Index")
+    { <div class="widget-bar-button"> <i class="fa fa-angle-up fa-3x"></i> </div>}
+
+</div>   
+
+<div id="submenu" class="collapse navbar-collapse">
+    <div class="col-sm-3 col-md-3 pull-right search-cont">
+        @using(Html.BeginForm("search","home",FormMethod.Get,new {@class="navbar-form", @role="search"}))
+        { }
+        <form class="navbar-form" role="search" method="get" action="/home/search">
+
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Tìm kiếm..." name="keyword" id="srch-term">
+                <input type="hidden" name="id" value="1"/>
+                <div class="input-group-btn">
+                    <button class="btn btn-default" type="submit"></button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+</div><!--/.nav-collapse -->

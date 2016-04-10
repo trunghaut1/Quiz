@@ -1,5 +1,5 @@
 ﻿using FlatTheme.ControlStyle;
-using Quiz.Controller;
+using Core.Controller;
 using System;
 using System.Windows;
 using System.Windows.Input;
@@ -11,7 +11,6 @@ namespace Quiz.View
     /// </summary>
     public partial class CreateUser : FlatWindow
     {
-        AddUserController cr = new AddUserController();
         public CreateUser()
         {
             InitializeComponent();
@@ -28,8 +27,8 @@ namespace Quiz.View
         {
             if (!String.IsNullOrEmpty(txtUsername.Text) && !String.IsNullOrEmpty(txtPassword.Password))
             {
-                AddUserController au = new AddUserController();
-                bool check = au.CheckLogin(txtUsername.Text, txtPassword.Password);
+                UserHandle userHandle = new UserHandle();
+                bool check = userHandle.AuthenticateLogin(txtUsername.Text, txtPassword.Password);
                 if (check)
                 {
                     MessageBox.Show("Đăng nhập thành công");
@@ -48,10 +47,10 @@ namespace Quiz.View
         }
         private void btnDangki_Click(object sender, RoutedEventArgs e)
         {
-            if(Check_Dangki())
+            if (Check_Dangki())
             {
-                AddUserController au = new AddUserController();
-                bool b = au.AddUser(txtName.Text, txtPass.Password);
+                UserHandle userHandle = new UserHandle();
+                bool b = userHandle.Add(txtName.Text, txtPass.Password);
                 if (b == true)
                 {
                     MessageBox.Show("Đăng kí thành công", "Thông báo");

@@ -1,20 +1,9 @@
 ﻿using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Security.Cryptography;
-using System.Text;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using Quiz.Model;
-using Quiz.Controller;
+using Core.Controller;
 using FlatTheme.ControlStyle;
 
 namespace Quiz.View
@@ -26,8 +15,7 @@ namespace Quiz.View
     {
 
         DataFileController d = new DataFileController();
-        UCUserController m = new UCUserController();
-        List<Model.Question> list = new List<Model.Question>();
+        List<Core.Model.Question> list = new List<Core.Model.Question>();
         public CreateDataFile()
         {
             InitializeComponent();
@@ -36,7 +24,7 @@ namespace Quiz.View
 
         private bool checkQuestion()
         {
-            if(txtMonhoc.Text=="")
+            if (txtMonhoc.Text == "")
             {
                 txtMonhoc.Focus();
                 return false;
@@ -74,8 +62,8 @@ namespace Quiz.View
                     return false;
                 }
             }
-            if (rA.IsChecked==true)
-            return true;
+            if (rA.IsChecked == true)
+                return true;
             if (rB.IsChecked == true)
                 return true;
             if (rC.IsChecked == true)
@@ -89,8 +77,7 @@ namespace Quiz.View
         {
             if (checkQuestion())
             {
-                User u = m.getUser();
-                Model.Question q = new Model.Question();
+                Core.Model.Question q = new Core.Model.Question();
                 q.Id = (int)lvQuest.Items.Count;
                 q.SubId = txtMonhoc.Text;
                 q.Content = txtCauhoi.Text;
@@ -128,9 +115,9 @@ namespace Quiz.View
 
         private void btnLuu_Click(object sender, RoutedEventArgs e)
         {
-            if(checkQuestion())
+            if (checkQuestion())
             {
-                Model.Question q = lvQuest.SelectedItem as Model.Question;
+                Core.Model.Question q = lvQuest.SelectedItem as Core.Model.Question;
                 q.Content = txtCauhoi.Text;
                 q.Opt1 = txtA.Text;
                 q.Opt2 = txtB.Text;
@@ -162,7 +149,7 @@ namespace Quiz.View
             string pass = txtPass.Password;
             d.write2File(url, false, pass);
             d.write2File(url, true, lvQuest.Items.Count.ToString());
-            foreach(Model.Question q in lvQuest.Items)
+            foreach (Core.Model.Question q in lvQuest.Items)
             {
                 d.write2File(url, true, q.Id.ToString());
                 d.write2File(url, true, q.SubId);
@@ -189,11 +176,11 @@ namespace Quiz.View
             o.InitialDirectory = System.AppDomain.CurrentDomain.BaseDirectory;
             if (o.ShowDialog() == true)
             {
-                list = (List<Model.Question>)d.readListFromFile(o.FileName);
-                
+                list = (List<Core.Model.Question>)d.readListFromFile(o.FileName);
+
                 lvQuest.ItemsSource = list;
                 string pass = d.readPassFromFile(o.FileName);
-                if(pass!="")
+                if (pass != "")
                 {
                     isUsePass.IsChecked = true;
                     txtPass.Password = pass;
@@ -227,8 +214,8 @@ namespace Quiz.View
             btnThem.IsEnabled = false;
             btnXoa.IsEnabled = true;
             btnLuu.IsEnabled = true;
-            Model.Question s = lvQuest.SelectedItem as Model.Question;
-            if(s!=null)
+            Core.Model.Question s = lvQuest.SelectedItem as Core.Model.Question;
+            if (s != null)
             {
                 gridChitiet.DataContext = s;
                 if (s.UserAdd != null) txtNguoilap.IsEnabled = false;
@@ -259,6 +246,6 @@ namespace Quiz.View
             refreshChitiet();
         }
 
-        
+
     }
 }

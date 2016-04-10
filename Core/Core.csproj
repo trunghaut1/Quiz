@@ -1,0 +1,172 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2D20C42A-5A8A-4FD4-9670-9B72076063D2}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Core</RootNamespace>
+    <AssemblyName>Core</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.Helpers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controller\AchievementHandle.cs" />
+    <Compile Include="Controller\DataFileController.cs" />
+    <Compile Include="Controller\DataHelper.cs" />
+    <Compile Include="Controller\FeedbackHandle.cs" />
+    <Compile Include="Controller\NewsHandle.cs" />
+    <Compile Include="Controller\QuestionHandle.cs" />
+    <Compile Include="Controller\ReleaseHandle.cs" />
+    <Compile Include="Controller\SubjectHandle.cs" />
+    <Compile Include="Controller\StaffHandle.cs" />
+    <Compile Include="Controller\UserHandle.cs" />
+    <Compile Include="Interface\IAchievement.cs" />
+    <Compile Include="Interface\IQuestion.cs" />
+    <Compile Include="Interface\IRelease.cs" />
+    <Compile Include="Interface\INews.cs" />
+    <Compile Include="Interface\IStaff.cs" />
+    <Compile Include="Interface\ISubject.cs" />
+    <Compile Include="Interface\IUser.cs" />
+    <Compile Include="Model\AspNetRole.cs">
+      <DependentUpon>QuizDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\AspNetUser.cs">
+      <DependentUpon>QuizDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\AspNetUserClaim.cs">
+      <DependentUpon>QuizDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\AspNetUserLogin.cs">
+      <DependentUpon>QuizDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Feedback.cs">
+      <DependentUpon>QuizDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\History.cs">
+      <DependentUpon>QuizDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Info.cs">
+      <DependentUpon>QuizDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\News.cs">
+      <DependentUpon>QuizDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\NewsType.cs">
+      <DependentUpon>QuizDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\PlatformApp.cs">
+      <DependentUpon>QuizDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Question.cs">
+      <DependentUpon>QuizDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\QuizDataModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QuizDataModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\QuizDataModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QuizDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\QuizDataModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QuizDataModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Release.cs">
+      <DependentUpon>QuizDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ReleaseType.cs">
+      <DependentUpon>QuizDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Staff.cs">
+      <DependentUpon>QuizDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\SubButton.cs">
+      <DependentUpon>QuizDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Subject.cs">
+      <DependentUpon>QuizDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Thongtindangnhap.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <EntityDeploy Include="Model\QuizDataModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>QuizDataModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Model\QuizDataModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>QuizDataModel.edmx</DependentUpon>
+      <LastGenOutput>QuizDataModel.Context.cs</LastGenOutput>
+    </None>
+    <None Include="Model\QuizDataModel.edmx.diagram">
+      <DependentUpon>QuizDataModel.edmx</DependentUpon>
+    </None>
+    <None Include="Model\QuizDataModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>QuizDataModel.edmx</DependentUpon>
+      <LastGenOutput>QuizDataModel.cs</LastGenOutput>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
