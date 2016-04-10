@@ -32,6 +32,7 @@ namespace QuizWebApp.Controllers
             return View();
         }
         [HttpPost]
+        [ValidateInput(false)]
         public ActionResult Create(Core.Model.News news, HttpPostedFileBase file)
         {
             if(ModelState.IsValid)
@@ -40,7 +41,7 @@ namespace QuizWebApp.Controllers
                 {
                     FileInfo fileInfo = new FileInfo(file.FileName);
                     string renderfilename = Guid.NewGuid().ToString("N") + fileInfo.Extension;
-                    file.SaveAs(Server.MapPath("~/Resources/NewsImages/") + renderfilename);
+                    file.SaveAs(Server.MapPath("~/Resources/NewsImages/images/") + renderfilename);
                     news.img_link = renderfilename;
                 }
                 Core.Controller.NewsHandle ctr = new Core.Controller.NewsHandle();

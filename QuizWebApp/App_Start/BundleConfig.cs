@@ -33,6 +33,10 @@ namespace QuizWebApp
                       "~/Scripts/jquery.magnific-popup.min.js",
                       "~/Scripts/fullby-script.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/ck").Include(
+                      "~/Content/ckfinder/ckfinder.js",
+                      "~/Content/ckeditor/ckeditor.js"));
+
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/style.css",
