@@ -18,6 +18,9 @@ namespace QuizWebApp
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));
 
+            bundles.Add(new ScriptBundle("~/bundles/wow").Include(
+                        "~/Scripts/wow.min.js"));
+
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
             // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
@@ -41,7 +44,9 @@ namespace QuizWebApp
                       "~/Content/bootstrap.css",
                       "~/Content/style.css",
                       "~/Content/magnific-popup.css",
-                      "~/Content/font-awesome.min.css"));
+                      "~/Content/font-awesome.min.css",
+                      "~/Content/animate.min.css",
+                      "~/Content/Preset/material.css"));
         }
     }
 }
