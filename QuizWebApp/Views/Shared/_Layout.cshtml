@@ -8,7 +8,7 @@
     <meta name="keywords" content="HTML5 Theme" />
     <meta name="description" content="QuizApplication">
     <meta name="author" content="quizonepro.com">
-
+    
     <!-- Mobile Metas -->
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
@@ -24,7 +24,7 @@
     @Styles.Render("~/Content/magnific-popup")
 
     @Scripts.Render("~/bundles/jquery")
-
+    
     @RenderSection("styles", false)
     <link rel="shortcut icon" href="~/favicon.ico" />
 </head>
@@ -50,12 +50,12 @@
     @Scripts.Render("~/Scripts/scrollbar")
 
     @Scripts.Render("~/Scripts/magnific-popup")
-
+    
     @Scripts.Render("~/Scripts/app")
     @Scripts.Render("~/Scripts/components")
     @RenderSection("scripts", false);
     <script>
-        $(document).ready(function () {
+$(document).ready(function () {
             $("script ~ div").css('display', 'none');
             $("center a").css('display', 'none');
         });
