@@ -14,8 +14,6 @@
         <EntityTypeShape EntityType="QuizDbModel1.News" Width="1.5" PointX="13" PointY="5.875" IsExpanded="true" />
         <EntityTypeShape EntityType="QuizDbModel1.NewsType" Width="1.5" PointX="10.75" PointY="6.375" IsExpanded="true" />
         <EntityTypeShape EntityType="QuizDbModel1.Question" Width="1.5" PointX="8.25" PointY="9.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="QuizDbModel1.Release" Width="1.5" PointX="11" PointY="1.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="QuizDbModel1.ReleaseType" Width="1.5" PointX="8.75" PointY="2.375" IsExpanded="true" />
         <EntityTypeShape EntityType="QuizDbModel1.SubButton" Width="1.5" PointX="8.25" PointY="13.875" IsExpanded="true" />
         <EntityTypeShape EntityType="QuizDbModel1.Subject" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
         <AssociationConnector Association="QuizDbModel1.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
@@ -25,11 +23,9 @@
         <AssociationConnector Association="QuizDbModel1.FK__Info__SubId__24927208" ManuallyRouted="false" />
         <AssociationConnector Association="QuizDbModel1.FK_News_NewsType" ManuallyRouted="false" />
         <AssociationConnector Association="QuizDbModel1.FK__Question__SubId__4222D4EF" ManuallyRouted="false" />
-        <AssociationConnector Association="QuizDbModel1.FK_Release_ReleaseType" ManuallyRouted="false" />
         <AssociationConnector Association="QuizDbModel1.FK__SubButton__SubId__30F848ED" ManuallyRouted="false" />
         <AssociationConnector Association="QuizDbModel1.AspNetUserRoles" ManuallyRouted="false" />
         <EntityTypeShape EntityType="QuizDbModel1.Staff" Width="1.5" PointX="0.75" PointY="0.75" />
-        <EntityTypeShape EntityType="QuizDbModel1.PlatformApp" Width="1.5" PointX="0.75" PointY="10.75" />
         <EntityTypeShape EntityType="QuizDbModel1.Feedback" Width="1.5" PointX="10.375" PointY="9.75" />
       </Diagram>
     </edmx:Diagrams>

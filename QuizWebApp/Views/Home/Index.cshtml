@@ -3,82 +3,45 @@
     ViewBag.Title = "Trang chủ";
 }
 
-   @Html.Action("RenderNews")
-
-@section featured{
-    @{List<Core.Model.PlatformApp> l = ViewData["Platform"] as List<Core.Model.PlatformApp>;
-      }
-<div class="row featured">
-    @for (int i = 0; i < 3; i++)
-    {
-        <div class="col-sm-4 col-md-4 item-featured">
-            @{
-        var action = "";
-        var control = "home";
-        var class_name = "yt-featured";
-        if (i == 0)
-        {
-            action = "releaseid/" + ViewData["id_desktop"];
-
-        }
-        else if (i == 1)
-        {
-            action = "";
-            control = "testing";
-        }
-        else
-        {
-            action = "releaseid/" + ViewData["id_android"];
-            class_name = "quad wp-post-image";
-        }
-            }
-            <a href="@Url.Action(action, control)">
-
-                <div class="caption">
-
-                    <div class="cat"><span>@l[i].title</span></div>
-
-                    <h2 class="title">@l[i].name</h2>
-
-                </div>
-
-
-                <img class="@class_name" src="@l[i].img_link" alt="Get for desktop">
-            </a>
-
-        </div>
-    }
-
-
-
-    <div class="second-button-mobile"> <div class="widget-bar-button"> <i class="fa fa-angle-up fa-3x"></i> </div></div>
-
-    <div class="widget-bar">
-
-        <div class="container-widget" style="margin-left: 0px;">
-            @foreach (Core.Model.Staff s in Model)
-            {
-                <div id="last1-2" class="box-widget widget_last1">
-                    <div class="box-widget-inside">
-                        <p class="featured-item">@s.title</p>
-                        <a href="#">
-
-                            <img src="@s.img_link" class="wg-quad">
-
-                            <h2 class="title">@s.name</h2>
-
-                        </a>
-
-
-
-
-                    </div>
-                </div>
-            }
-            
-            
-        </div>
-
-    </div><!--  end widget bar /-->
-</div>
+@section styles{
+    @Styles.Render("~/Content/rev-slider")
+    @Styles.Render("~/Content/cubeportfolio")
 }
+@section scripts{
+    @Scripts.Render("~/Scripts/rev-slider")
+    @Scripts.Render("~/Scripts/counter")
+    @Scripts.Render("~/Scripts/cubeportfolio")
+    @Scripts.Render("~/Scripts/validation")
+    @Scripts.Render("~/Scripts/portfolio")
+    @Scripts.Render("~/Scripts/components_index")
+}
+@Html.Partial("_Slide")
+@Html.Partial("_Platform")
+
+@*RenderAction platform*@
+
+@Html.Action("RenderNews")
+
+
+@*Counter*@
+@*Teammmm*@
+@*News*@
+
+
+
+<!-- HTML5 Video -->
+<div class="full-width-container">
+    <div class="html5-video-bg" style="width: 100%; height: 400px;"
+         data-vide-bg="mp4: ../Video/peugeot/peugeot, webm: ../Video/peugeot/peugeot, ogv: ../Video/peugeot/peugeot, poster: ../Video/peugeot/peugeot"
+         data-vide-options="{posterType: 'detect', resizing: true, position: 50% 50%, overlay: true}">
+    </div>
+    <div class="ver-center-aligned-block text-center">
+        <div class="parallax-content-v1 margin-b-50">
+            <h2 class="parallax-content-v1-title">We'll help Manage your Site</h2>
+            <p class="parallax-content-v1-subtitle">Who says the corporate based web page can't also be used as e-commerce, construction or even more.</p>
+        </div>
+        <button type="button" class="btn-white-brd btn-base-md radius-3 margin-r-10">View More</button>
+        <button type="button" class="btn-white-bg btn-base-md radius-3">Purchase</button>
+    </div>
+</div>
+<!-- End HTML5 Video -->

@@ -2,34 +2,37 @@
 @{
     ViewBag.Title = "Đăng kí";
 }
-<h2>@ViewBag.Title.</h2>
-<h3>Liên kết với tài khoản @ViewBag.LoginProvider của bạn.</h3>
+<div class="bg-color-sky-light">
+    <div class="content-md container">
+        <h2>@ViewBag.Title.</h2>
+        <h3>Liên kết với tài khoản @ViewBag.LoginProvider của bạn.</h3>
 
-@using (Html.BeginForm("ExternalLoginConfirmation", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-{
-    @Html.AntiForgeryToken()
+        @using (Html.BeginForm("ExternalLoginConfirmation", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+        {
+            @Html.AntiForgeryToken()
 
-    <h4>Association Form</h4>
-    <hr />
-    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-    <p class="text-info">
-        Chứng thực bằng <strong>@ViewBag.LoginProvider</strong> thành công.
-        Vui lòng điền tên đăng nhập vào phần bên dưới và nhấn nút đăng kí để hoàn tất quá trình đăng nhập.
-    </p>
-    <div class="form-group">
-        @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
-            @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
-        </div>
+            <h4>Association Form</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <p class="text-info">
+                Chứng thực bằng <strong>@ViewBag.LoginProvider</strong> thành công.
+                Vui lòng điền tên đăng nhập vào phần bên dưới và nhấn nút đăng kí để hoàn tất quá trình đăng nhập.
+            </p>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
+                <div class="col-md-10">
+                    @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" class="btn btn-default" value="Register" />
+                </div>
+            </div>
+        }
     </div>
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" class="btn btn-default" value="Register" />
-        </div>
-    </div>
-}
-
+</div>
 @section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/Scripts/validation")
 }

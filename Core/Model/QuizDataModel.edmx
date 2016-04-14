@@ -98,7 +98,6 @@
           <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="title" Type="nvarchar" MaxLength="128" Nullable="false" />
           <Property Name="type" Type="int" Nullable="false" />
-          <Property Name="video_link" Type="nvarchar" MaxLength="500" />
           <Property Name="img_link" Type="nvarchar" MaxLength="500" />
           <Property Name="text" Type="nvarchar(max)" />
           <Property Name="date" Type="datetime" Nullable="false" />
@@ -110,15 +109,6 @@
           </Key>
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
-        </EntityType>
-        <EntityType Name="PlatformApp">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
-          <Property Name="title" Type="nvarchar" MaxLength="50" />
-          <Property Name="name" Type="nvarchar" MaxLength="250" Nullable="false" />
-          <Property Name="img_link" Type="nvarchar" MaxLength="1000" />
         </EntityType>
         <EntityType Name="Question">
           <Key>
@@ -136,25 +126,6 @@
           <Property Name="UserAdd" Type="nvarchar" MaxLength="50" />
           <Property Name="Note" Type="nvarchar" MaxLength="1000" />
         </EntityType>
-        <EntityType Name="Release">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="title" Type="nvarchar" MaxLength="128" />
-          <Property Name="type" Type="int" Nullable="false" />
-          <Property Name="version" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="linkDownload" Type="nvarchar" MaxLength="500" Nullable="false" />
-          <Property Name="text" Type="nvarchar(max)" />
-          <Property Name="date" Type="datetime" Nullable="false" />
-        </EntityType>
-        <EntityType Name="ReleaseType">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
-        </EntityType>
         <EntityType Name="Staff">
           <Key>
             <PropertyRef Name="id" />
@@ -163,6 +134,8 @@
           <Property Name="title" Type="nvarchar" MaxLength="100" />
           <Property Name="name" Type="nvarchar" MaxLength="100" />
           <Property Name="img_link" Type="nvarchar" MaxLength="500" />
+          <Property Name="linkfb" Type="nvarchar" MaxLength="500" />
+          <Property Name="linkgoogle" Type="nvarchar" MaxLength="500" />
         </EntityType>
         <EntityType Name="SubButton">
           <Key>
@@ -319,18 +292,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Release_ReleaseType">
-          <End Role="ReleaseType" Type="Self.ReleaseType" Multiplicity="1" />
-          <End Role="Release" Type="Self.Release" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ReleaseType">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="Release">
-              <PropertyRef Name="type" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityContainer Name="QuizDbModel1StoreContainer">
           <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
@@ -342,10 +303,7 @@
           <EntitySet Name="Info" EntityType="Self.Info" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="News" EntityType="Self.News" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="NewsType" EntityType="Self.NewsType" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="PlatformApp" EntityType="Self.PlatformApp" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Question" EntityType="Self.Question" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Release" EntityType="Self.Release" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="ReleaseType" EntityType="Self.ReleaseType" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Staff" EntityType="Self.Staff" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SubButton" EntityType="Self.SubButton" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Subject" EntityType="Self.Subject" Schema="dbo" store:Type="Tables" />
@@ -388,10 +346,6 @@
           <AssociationSet Name="FK_News_NewsType" Association="Self.FK_News_NewsType">
             <End Role="NewsType" EntitySet="NewsType" />
             <End Role="News" EntitySet="News" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Release_ReleaseType" Association="Self.FK_Release_ReleaseType">
-            <End Role="ReleaseType" EntitySet="ReleaseType" />
-            <End Role="Release" EntitySet="Release" />
           </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -482,7 +436,6 @@
           <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="title" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="type" Type="Int32" Nullable="false" />
-          <Property Name="video_link" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Name="img_link" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Name="text" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="date" Type="DateTime" Nullable="false" Precision="3" />
@@ -513,27 +466,6 @@
           <Property Name="UserAdd" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Note" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Subject" Relationship="Self.FK__Question__SubId__4222D4EF" FromRole="Question" ToRole="Subject" />
-        </EntityType>
-        <EntityType Name="Release">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="title" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
-          <Property Name="type" Type="Int32" Nullable="false" />
-          <Property Name="version" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="linkDownload" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="text" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="date" Type="DateTime" Nullable="false" Precision="3" />
-          <NavigationProperty Name="ReleaseType" Relationship="Self.FK_Release_ReleaseType" FromRole="Release" ToRole="ReleaseType" />
-        </EntityType>
-        <EntityType Name="ReleaseType">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Releases" Relationship="Self.FK_Release_ReleaseType" FromRole="ReleaseType" ToRole="Release" />
         </EntityType>
         <EntityType Name="SubButton">
           <Key>
@@ -648,18 +580,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Release_ReleaseType">
-          <End Role="ReleaseType" Type="Self.ReleaseType" Multiplicity="1" />
-          <End Role="Release" Type="Self.Release" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ReleaseType">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="Release">
-              <PropertyRef Name="type" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK__SubButton__SubId__30F848ED">
           <End Role="Subject" Type="Self.Subject" Multiplicity="1">
             <OnDelete Action="Cascade" />
@@ -688,8 +608,6 @@
           <EntitySet Name="News" EntityType="Self.News" />
           <EntitySet Name="NewsTypes" EntityType="Self.NewsType" />
           <EntitySet Name="Questions" EntityType="Self.Question" />
-          <EntitySet Name="Releases" EntityType="Self.Release" />
-          <EntitySet Name="ReleaseTypes" EntityType="Self.ReleaseType" />
           <EntitySet Name="SubButtons" EntityType="Self.SubButton" />
           <EntitySet Name="Subjects" EntityType="Self.Subject" />
           <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
@@ -720,10 +638,6 @@
             <End Role="Subject" EntitySet="Subjects" />
             <End Role="Question" EntitySet="Questions" />
           </AssociationSet>
-          <AssociationSet Name="FK_Release_ReleaseType" Association="Self.FK_Release_ReleaseType">
-            <End Role="ReleaseType" EntitySet="ReleaseTypes" />
-            <End Role="Release" EntitySet="Releases" />
-          </AssociationSet>
           <AssociationSet Name="FK__SubButton__SubId__30F848ED" Association="Self.FK__SubButton__SubId__30F848ED">
             <End Role="Subject" EntitySet="Subjects" />
             <End Role="SubButton" EntitySet="SubButtons" />
@@ -733,7 +647,6 @@
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
           </AssociationSet>
           <EntitySet Name="Staffs" EntityType="QuizDbModel1.Staff" />
-          <EntitySet Name="PlatformApps" EntityType="QuizDbModel1.PlatformApp" />
           <EntitySet Name="Feedbacks" EntityType="QuizDbModel1.Feedback" />
         </EntityContainer>
         <EntityType Name="Staff">
@@ -744,15 +657,8 @@
           <Property Name="title" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="img_link" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <EntityType Name="PlatformApp">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
-          <Property Name="title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="name" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="img_link" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="linkfb" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="linkgoogle" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Feedback">
           <Key>
@@ -847,7 +753,6 @@
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="title" ColumnName="title" />
                 <ScalarProperty Name="type" ColumnName="type" />
-                <ScalarProperty Name="video_link" ColumnName="video_link" />
                 <ScalarProperty Name="img_link" ColumnName="img_link" />
                 <ScalarProperty Name="text" ColumnName="text" />
                 <ScalarProperty Name="date" ColumnName="date" />
@@ -877,27 +782,6 @@
                 <ScalarProperty Name="DateAdd" ColumnName="DateAdd" />
                 <ScalarProperty Name="UserAdd" ColumnName="UserAdd" />
                 <ScalarProperty Name="Note" ColumnName="Note" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Releases">
-            <EntityTypeMapping TypeName="QuizDbModel1.Release">
-              <MappingFragment StoreEntitySet="Release">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="title" ColumnName="title" />
-                <ScalarProperty Name="type" ColumnName="type" />
-                <ScalarProperty Name="version" ColumnName="version" />
-                <ScalarProperty Name="linkDownload" ColumnName="linkDownload" />
-                <ScalarProperty Name="text" ColumnName="text" />
-                <ScalarProperty Name="date" ColumnName="date" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="ReleaseTypes">
-            <EntityTypeMapping TypeName="QuizDbModel1.ReleaseType">
-              <MappingFragment StoreEntitySet="ReleaseType">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="name" ColumnName="name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -933,20 +817,12 @@
           <EntitySetMapping Name="Staffs">
             <EntityTypeMapping TypeName="QuizDbModel1.Staff">
               <MappingFragment StoreEntitySet="Staff">
+                <ScalarProperty Name="linkgoogle" ColumnName="linkgoogle" />
+                <ScalarProperty Name="linkfb" ColumnName="linkfb" />
                 <ScalarProperty Name="img_link" ColumnName="img_link" />
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="title" ColumnName="title" />
                 <ScalarProperty Name="id" ColumnName="id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="PlatformApps">
-            <EntityTypeMapping TypeName="QuizDbModel1.PlatformApp">
-              <MappingFragment StoreEntitySet="PlatformApp">
-                <ScalarProperty Name="img_link" ColumnName="img_link" />
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="title" ColumnName="title" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -17,7 +17,6 @@ namespace Core.Model
         public long id { get; set; }
         public string title { get; set; }
         public int type { get; set; }
-        public string video_link { get; set; }
         public string img_link { get; set; }
         public string text { get; set; }
         public System.DateTime date { get; set; }

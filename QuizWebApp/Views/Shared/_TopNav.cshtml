@@ -1,0 +1,139 @@
+﻿@{
+    string nameOfActionCallThisView = ViewContext.RouteData.GetRequiredString("action");
+    string nameOfControllerCallThisView = ViewContext.RouteData.GetRequiredString("controller");
+    string full = nameOfControllerCallThisView + "/" + nameOfActionCallThisView;
+}
+<header class="@{if (full.Equals("home/index", StringComparison.OrdinalIgnoreCase)){<text>header-center-aligned-transparent header-transparent-bb navbar-fixed-top</text>} else {<text>header-center-aligned header header-fixed</text>}} header-sticky">
+    <!-- Navbar -->
+    <nav class="navbar mega-menu" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="menu-container">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="toggle-icon"></span>
+                </button>
+
+                <!-- Navbar Actions -->
+                <div class="navbar-actions">
+                    <!-- Shopping Cart -->
+                    <!-- End Shopping Cart -->
+                    <!-- Search Fullscreen -->
+                    <div class="navbar-actions-shrink search-fullscreen @{if (full.Equals("home/index", StringComparison.OrdinalIgnoreCase)){<text>search-fullscreen-trigger-white</text>}}">
+                        <div class="search-fullscreen-trigger">
+                            <i class="search-fullscreen-trigger-icon fa fa-search"></i>
+                        </div>
+                        <div class="search-fullscreen-overlay">
+                            <div class="search-fullscreen-overlay-content">
+                                <div class="search-fullscreen-input-group">
+                                    <input type="text" class="form-control search-fullscreen-input" placeholder="Search for ...">
+                                    <button class="search-fullscreen-search" type="button"><i class="search-fullscreen-search-icon fa fa-search"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="search-fullscreen-bg-overlay">
+                            <div class="search-fullscreen-close">&times;</div>
+                        </div>
+                    </div>
+                    <!-- End Search Fullscreen -->
+                    <!-- Sidebar -->
+                    <a class="navbar-actions-shrink sidebar-trigger @{if (full.Equals("home/index", StringComparison.OrdinalIgnoreCase)){<text>sidebar-trigger-style-white</text>}}" href="javascript:void(0);">
+                        <span class="sidebar-trigger-icon"></span>
+                    </a>
+                    <!-- End Sidebar -->
+                </div>
+                <!-- End Navbar Actions -->
+                <!-- Logo -->
+                <div class="navbar-logo">
+                    <a class="navbar-logo-wrap" href="index.html">
+                        @if (full.Equals("home/index", StringComparison.OrdinalIgnoreCase))
+                        {
+                        <img class="navbar-logo-img navbar-logo-img-white" src="~/Images/logo-default-white.png" alt="Ark">
+                        <img class="navbar-logo-img navbar-logo-img-dark" src="~/Images/logo-default.png" alt="Ark">
+                        }
+                        else
+                        {
+                        <img class="navbar-logo-img" src="~/Images/logo-default.png" alt="Ark">
+                        }
+                    </a>
+                </div>
+
+                <!-- End Logo -->
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse nav-collapse">
+                <div class="menu-container">
+                    <ul class="nav navbar-nav navbar-nav-left">
+                        <!-- Home -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-item-child dropdown-toggle radius-3 active" href="javascript:void(0);" data-toggle="dropdown">
+                                Trang chủ
+                            </a>
+                            <ul class="dropdown-menu">
+                                <!-- Default -->
+                                <li class="dropdown-menu-item">
+                                    <a class="dropdown-menu-item-child active" href="index.html">Mặc định</a>
+                                </li>
+                                <li class="dropdown-menu-item">
+                                    <a class="dropdown-menu-item-child active" href="index.html">Slider</a>
+                                </li>
+                                <!-- End Default -->
+                            </ul>
+                        </li>
+                        <!-- End Home -->
+                        <!-- Pages -->
+                        <li class="nav-item dropdown mega-menu-fullwidth">
+                            <a class="nav-item-child dropdown-toggle radius-3" href="javascript:void(0);" data-toggle="dropdown">
+                                Trang
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="mega-menu-content">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <!-- About Pages -->
+                                            <ul class="list-unstyled mega-menu-list">
+                                                <li><span class="mega-menu-title">Tin tức</span></li>
+                                                <li class="mega-menu-item"><a class="mega-menu-child" href="page_about_us.html">Chia sẻ kiến thức</a></li>
+                                                <li class="mega-menu-item"><a class="mega-menu-child" href="page_about_us_classic.html">Thông báo</a></li>
+                                                <li class="mega-menu-item"><a class="mega-menu-child" href="page_about_us_modern.html">Tải về Android</a></li>
+                                                <li class="mega-menu-item"><a class="mega-menu-child" href="page_about_us_creative.html">Tải về Desktop</a></li>
+                                                <li class="mega-menu-item"><a class="mega-menu-child" href="page_about_me.html">Cẩm nang</a></li>
+                                            </ul>
+                                            <!-- End About Pages -->
+                                        </div>
+                                        <div class="col-md-4">
+                                            <!-- Business Pages -->
+                                            <ul class="list-unstyled mega-menu-list">
+                                                <li><span class="mega-menu-title">Làm bài test</span></li>
+                                                <li class="mega-menu-item"><a class="mega-menu-child" href="page_services.html">Trực tuyến</a></li>
+                                            </ul>
+                                            <!-- End Business Pages -->
+                                        </div>
+                                        <div class="col-md-4">
+                                            <!-- Utility Pages -->
+                                            <ul class="list-unstyled mega-menu-list">
+                                                <li><span class="mega-menu-title">Giao tiếp</span></li>
+                                                <li class="mega-menu-item"><a class="mega-menu-child" href="page_contacts.html">Contacts</a></li>
+                                                <li class="mega-menu-item"><a class="mega-menu-child" href="page_contacts_classic.html">Về chúng tôi</a></li>
+                                                <li class="mega-menu-item"><a class="mega-menu-child" href="page_faq.html">Góp ý</a></li>
+                                                <li class="mega-menu-item"><a class="mega-menu-child" href="page_faq_modern.html">Đóng góp câu hỏi</a></li>
+                                            </ul>
+                                            <!-- End Utility Pages -->
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                        <!-- End Pages -->
+
+                    </ul>
+                    @Html.Partial("_LoginPartial")
+                </div>
+            </div>
+            <!-- End Navbar Collapse -->
+        </div>
+        <!--// End Container-->
+    </nav>
+    <!-- Navbar -->
+</header>

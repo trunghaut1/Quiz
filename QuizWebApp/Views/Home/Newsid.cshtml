@@ -1,158 +1,141 @@
-﻿@model Core.Model.News
-<div class=" col-md-9  single-in">
-    @if (Model.img_link != null)
-    {
-        <img width="650" height="400" src="@Model.img_link" class="sing-cop wp-post-image" alt="@Model.title">
-    }
-    else if (Model.video_link != null)
-    {
-        <div class="videoWrapper">
+﻿@section scripts{
+    @Scripts.Render("~/Scripts/sharrre")
+    <script>
+        $('#facebook').sharrre({
+            share: {
+                facebook: true
+            },
+            enableHover: false,
+            enableTracking: true,
+            click: function (api, options) {
+                api.simulateClick();
+                api.openPopup('facebook');
+            }
+        });
+    </script>
 
-            <div class="video-container">
-                <iframe title="YouTube video player" width="400" height="275"
-                        @{ var url = @Model.video_link.Replace("watch?v=", "v/");}
-                        src="@url" frameborder="0" allowfullscreen=""></iframe>
-            </div>
+}
+@model Core.Model.News
 
+@section img{
+    <section class="breadcrumbs-v5 bg-position-fixed breadcrumbs-v5-bg-img-v4">
+        <div class="container">
+            <h2 class="breadcrumbs-v5-title">Single Standard</h2>
+            <span class="breadcrumbs-v5-subtitle">For all the things you want to do. For the things you love.</span>
         </div>
-    }
-    else
-    {
-        <div class="row spacer-sing"> </div>
-    }
-    
-    
-    <div class="sing-tit-cont">
+    </section>
+}
+<!--========== PAGE CONTENT ==========-->
+<div class="content-sm container">
+    <div class="row">
+        <div class="col-md-9 md-margin-b-50">
+            <!-- Blog Grid -->
+            <article class="blog-grid margin-b-30">
+                <!-- Image -->
+                @if (Model.img_link != null)
+                {
+                    <img class="img-responsive" src="@Model.img_link" alt="">
+                }
 
-        <p class="cat"> @Html.ActionLink(Model.NewsType.name, "cat", "home", new { id = 1, type = Model.type }, null)</p>
+                <!-- End Image -->
+                <!-- Blog Grid Content -->
+                <div class="blog-grid-content">
+                    <h2 class="blog-grid-title-lg">@Model.title</h2>
+                    <p class="cat"> @Html.ActionLink(Model.NewsType.name, "cat", "home", new { id = 1, type = Model.type }, null)</p>
+                    <p class="meta">
 
-        <h3 class="sing-tit">@Model.title</h3>
+                        <i class="fa fa-clock-o"></i> @Model.date  &nbsp;
+                    </p>
 
-        <p class="meta">
+                    @Html.Raw(Model.text)
 
-            <i class="fa fa-clock-o"></i> @Model.date  &nbsp;
+                    <!-- End Blog Grid Tags -->
+                    <div class="sharrre-container">
+                        @{string _url = HttpContext.Current.Request.Url.AbsoluteUri;}
 
-
-
-        </p>
-
-    </div>
-
-    <div class="sing-cont">
-
-        <div class="sing-spacer">
-            @Html.Raw(Model.text)
+                        <div id="facebook" data-url="@_url" data-text="Normal Post" data-title="Chia sẻ" class="sharrre"></div>
+                    </div>
+                </div>
+                <!-- End Blog Grid Content -->
+            </article>
+            <!--/.sharrre-container-->
 
 
-            <div class="sharrre-container">
-            @{string _url = HttpContext.Current.Request.Url.AbsoluteUri;}
-                
-                <div id="facebook" data-url="@_url" data-text="Normal Post" data-title="Chia sẻ" class="sharrre"></div>
-                <div id="googleplus" data-url="@_url" data-text="Normal Post" data-title="+1" class="sharrre"></div>
-                
-            </div><!--/.sharrre-container-->
-            
-            @Scripts.Render("~/bundles/sharrre")
-            <script>
-                $('#facebook').sharrre({
-                    share: {
-                        facebook: true
-                    },
-                    enableHover: false,
-                    enableTracking: true,
-                    click: function (api, options) {
-                        api.simulateClick();
-                        api.openPopup('facebook');
-                    }
-                });
-                $('#googleplus').sharrre({
-                    share: {
-                        googlePlus: true
-                    },
-                    enableHover: false,
-                    enableTracking: true,
-                    click: function (api, options) {
-                        api.simulateClick();
-                        api.openPopup('googlePlus');
-                    }
-                });
-            </script>
             <style type="text/css">
-
                 .sharrre {
                     margin: 55px 0 0 50px;
                     float: left;
                 }
 
-                .sharrre .box a:hover {
-                    text-decoration: none;
-                }
+                    .sharrre .box a:hover {
+                        text-decoration: none;
+                    }
 
-                .sharrre .count {
-                    color: #525b67;
-                    display: block;
-                    font-size: 18px;
-                    font-weight: bold;
-                    line-height: 40px;
-                    height: 40px;
-                    position: relative;
-                    text-align: center;
-                    width: 70px;
-                    -webkit-border-radius: 4px;
-                    -moz-border-radius: 4px;
-                    border-radius: 4px;
-                    border: 1px solid #b2c6cc;
-                    background: #fbfbfb; /* Old browsers */
-                    background: -moz-linear-gradient(top, #fbfbfb 0%, #f6f6f6 100%); /* FF3.6+ */
-                    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fbfbfb), color-stop(100%,#f6f6f6)); /* Chrome,Safari4+ */
-                    background: -webkit-linear-gradient(top, #fbfbfb 0%,#f6f6f6 100%); /* Chrome10+,Safari5.1+ */
-                    background: -o-linear-gradient(top, #fbfbfb 0%,#f6f6f6 100%); /* Opera 11.10+ */
-                    background: -ms-linear-gradient(top, #fbfbfb 0%,#f6f6f6 100%); /* IE10+ */
-                    background: linear-gradient(top, #fbfbfb 0%,#f6f6f6 100%); /* W3C */
-                    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fbfbfb', endColorstr='#f6f6f6',GradientType=0 ); /* IE6-9 */
-                }
-
-                    .sharrre .count:before, .sharrre .count:after {
-                        content: '';
+                    .sharrre .count {
+                        color: #525b67;
                         display: block;
-                        position: absolute;
-                        left: 49%;
-                        width: 0;
-                        height: 0;
+                        font-size: 18px;
+                        font-weight: bold;
+                        line-height: 40px;
+                        height: 40px;
+                        position: relative;
+                        text-align: center;
+                        width: 70px;
+                        -webkit-border-radius: 4px;
+                        -moz-border-radius: 4px;
+                        border-radius: 4px;
+                        border: 1px solid #b2c6cc;
+                        background: #fbfbfb; /* Old browsers */
+                        background: -moz-linear-gradient(top, #fbfbfb 0%, #f6f6f6 100%); /* FF3.6+ */
+                        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fbfbfb), color-stop(100%,#f6f6f6)); /* Chrome,Safari4+ */
+                        background: -webkit-linear-gradient(top, #fbfbfb 0%,#f6f6f6 100%); /* Chrome10+,Safari5.1+ */
+                        background: -o-linear-gradient(top, #fbfbfb 0%,#f6f6f6 100%); /* Opera 11.10+ */
+                        background: -ms-linear-gradient(top, #fbfbfb 0%,#f6f6f6 100%); /* IE10+ */
+                        background: linear-gradient(top, #fbfbfb 0%,#f6f6f6 100%); /* W3C */
+                        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fbfbfb', endColorstr='#f6f6f6',GradientType=0 ); /* IE6-9 */
                     }
 
-                    .sharrre .count:before {
-                        border: solid 7px transparent;
-                        border-top-color: #b2c6cc;
-                        margin-left: -7px;
-                        bottom: -14px;
+                        .sharrre .count:before, .sharrre .count:after {
+                            content: '';
+                            display: block;
+                            position: absolute;
+                            left: 49%;
+                            width: 0;
+                            height: 0;
+                        }
+
+                        .sharrre .count:before {
+                            border: solid 7px transparent;
+                            border-top-color: #b2c6cc;
+                            margin-left: -7px;
+                            bottom: -14px;
+                        }
+
+                        .sharrre .count:after {
+                            border: solid 6px transparent;
+                            margin-left: -6px;
+                            bottom: -12px;
+                            border-top-color: #fbfbfb;
+                        }
+
+                    .sharrre .share {
+                        color: #FFFFFF;
+                        display: block;
+                        font-size: 12px;
+                        font-weight: bold;
+                        height: 30px;
+                        line-height: 30px;
+                        margin-top: 8px;
+                        padding: 0;
+                        text-align: center;
+                        text-decoration: none;
+                        width: 70px;
+                        -webkit-border-radius: 4px;
+                        -moz-border-radius: 4px;
+                        border-radius: 4px;
                     }
 
-                    .sharrre .count:after {
-                        border: solid 6px transparent;
-                        margin-left: -6px;
-                        bottom: -12px;
-                        border-top-color: #fbfbfb;
-                    }
 
-                .sharrre .share {
-                    color: #FFFFFF;
-                    display: block;
-                    font-size: 12px;
-                    font-weight: bold;
-                    height: 30px;
-                    line-height: 30px;
-                    margin-top: 8px;
-                    padding: 0;
-                    text-align: center;
-                    text-decoration: none;
-                    width: 70px;
-                    -webkit-border-radius: 4px;
-                    -moz-border-radius: 4px;
-                    border-radius: 4px;
-                }
-
-                
                 #facebook .share {
                     text-shadow: 1px 0px 0px #26427e;
                     filter: dropshadow(color=#26427e, offx=1, offy=0);
@@ -183,77 +166,94 @@
                     box-shadow: 0 1px 4px #DDDDDD, 0 1px 0 #929292 inset;
                 }
             </style>
-            <div class="clear"></div>
-
-            <hr>
-
-            <!--<div id="comments">
-
-                <h3 id="comments">One Response </h3>
-                <div class="navigation">
-                    <div class="alignleft"></div>
-                    <div class="alignright"></div>
-                </div>
-                <ol class="commentlist">
-                    <li class="comment byuser comment-author-afmarchetti bypostauthor even thread-even depth-1" id="comment-43">
-                        <div id="div-comment-43" class="comment-body">
-                            <div class="comment-author vcard">
-                                <img alt="" src="http://0.gravatar.com/avatar/67d793dce9a1f1e4f58a6f22ba74d9b3?s=64&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D64&amp;r=G" class="avatar avatar-64 photo" height="64" width="64">			<cite class="fn">afmarchetti</cite> <span class="says">says:</span>
-                            </div>
-
-                            <div class="comment-meta commentmetadata">
-                                <a href="http://www.marchettidesign.net/fullby/demo/?p=18#comment-43">
-                                    March 2, 2014 at 11:51 am
-                                </a>
-                            </div>
-
-                            <p>test comment</p>
-
-                            <div class="reply">
-                                <a class="comment-reply-link" href="/fullby/demo/?p=18&amp;replytocom=43#respond" onclick="return addComment.moveForm(&quot;div-comment-43&quot;, &quot;43&quot;, &quot;respond&quot;, &quot;18&quot;)">Reply</a>
-                            </div>
-                        </div>
-                    </li>
-                </ol>
-                <div class="navigation">
-                    <div class="alignleft"></div>
-                    <div class="alignright"></div>
-                </div>
-                <div id="respond" class="comment-respond">
-                    <h3 id="reply-title" class="comment-reply-title">Leave a Reply <small><a rel="nofollow" id="cancel-comment-reply-link" href="/fullby/demo/?p=18#respond" style="display:none;">Cancel reply</a></small></h3>
-                    <form action="http://www.marchettidesign.net/fullby/demo/wp-comments-post.php" method="post" id="commentform" class="comment-form">
-                        <p class="comment-notes">Your email address will not be published. Required fields are marked <span class="required">*</span></p>							<p class="comment-form-author"><label for="author">Name <span class="required">*</span></label> <input id="author" name="author" type="text" value="" size="30" aria-required="true"></p>
-                        <p class="comment-form-email"><label for="email">Email <span class="required">*</span></label> <input id="email" name="email" type="text" value="" size="30" aria-required="true"></p>
-                        <p class="comment-form-url"><label for="url">Website</label> <input id="url" name="url" type="text" value="" size="30"></p>
-                        <p><textarea name="comment" id="comment" cols="58" rows="10" tabindex="4" aria-required="true"></textarea></p>												<p class="form-submit">
-                            <input name="submit" type="submit" id="submit" value="Submit Comment">
-                            <input type="hidden" name="comment_post_ID" value="18" id="comment_post_ID">
-                            <input type="hidden" name="comment_parent" id="comment_parent" value="0">
-                        </p>
-                        <p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="041c09403f"></p>
-                    </form>
-                </div>
-                <div class="comments_rss"><a href="http://www.marchettidesign.net/fullby/demo/?feed=rss2&amp;p=18">Comments RSS Feed</a></div>
-            </div>-->
-
+            <!-- End Blog Grid -->
         </div>
-        
+
+        <!--========== BLOG SIDEBAR ==========-->
+        <div class="col-md-3">
+            <!-- Blog Sidebar -->
+            <div class="blog-sidebar margin-b-30">
+                <div class="blog-sidebar-heading">
+                    <i class="blog-sidebar-heading-icon icon-book-open"></i>
+                    <h4 class="blog-sidebar-heading-title">Tutorials</h4>
+                </div>
+                <div class="blog-sidebar-content blog-sidebar-content-height scrollbar">
+                    <!-- Latest Tutorials -->
+                    <article class="latest-tuts">
+                        <div class="latest-tuts-media">
+                            <img class="latest-tuts-media-img radius-circle" src="assets/img/250x250/06.jpg" alt="">
+                        </div>
+                        <div class="latest-tuts-content">
+                            <h5 class="latest-tuts-content-title"><a href="#">Visual brand designing</a></h5>
+                            <small class="latest-tuts-content-time">35 minutes ago</small>
+                        </div>
+                    </article>
+                    <article class="latest-tuts">
+                        <div class="latest-tuts-media">
+                            <img class="latest-tuts-media-img radius-circle" src="assets/img/250x250/11.jpg" alt="">
+                        </div>
+                        <div class="latest-tuts-content">
+                            <h5 class="latest-tuts-content-title"><a href="#">Photoshop: Image Cropping</a></h5>
+                            <small class="latest-tuts-content-time">7 hours ago</small>
+                        </div>
+                    </article>
+                    <article class="latest-tuts">
+                        <div class="latest-tuts-media">
+                            <img class="latest-tuts-media-img radius-circle" src="assets/img/250x250/08.jpg" alt="">
+                        </div>
+                        <div class="latest-tuts-content">
+                            <h5 class="latest-tuts-content-title"><a href="#">Video editing</a></h5>
+                            <small class="latest-tuts-content-time">12 hours ago</small>
+                        </div>
+                    </article>
+                    <article class="latest-tuts">
+                        <div class="latest-tuts-media">
+                            <img class="latest-tuts-media-img radius-circle" src="assets/img/250x250/09.jpg" alt="">
+                        </div>
+                        <div class="latest-tuts-content">
+                            <h5 class="latest-tuts-content-title"><a href="#">Web development technologies</a></h5>
+                            <small class="latest-tuts-content-time">1 day ago</small>
+                        </div>
+                    </article>
+                    <article class="latest-tuts">
+                        <div class="latest-tuts-media">
+                            <img class="latest-tuts-media-img radius-circle" src="assets/img/250x250/10.jpg" alt="">
+                        </div>
+                        <div class="latest-tuts-content">
+                            <h5 class="latest-tuts-content-title"><a href="#">The section element - HTML</a></h5>
+                            <small class="latest-tuts-content-time">2 days ago</small>
+                        </div>
+                    </article>
+                    <article class="latest-tuts">
+                        <div class="latest-tuts-media">
+                            <img class="latest-tuts-media-img radius-circle" src="assets/img/250x250/07.jpg" alt="">
+                        </div>
+                        <div class="latest-tuts-content">
+                            <h5 class="latest-tuts-content-title"><a href="#">Creata a logo using Adobe Illustrator</a></h5>
+                            <small class="latest-tuts-content-time">3 days ago</small>
+                        </div>
+                    </article>
+                    <!-- End Latest Tutorials -->
+                </div>
+            </div>
+            <div class="sec-sidebar">
+                Banner quảng cáo
+            </div>
+            <div class="sec-sidebar">
+                Banner quảng cáo
+            </div>
+            <div class="sec-sidebar">
+                Banner quảng cáo
+            </div>
+            <div class="sec-sidebar">
+                Banner quảng cáo
+            </div>
+            <div class="sec-sidebar">
+                Banner quảng cáo
+            </div>
+        </div>
+        <!--========== END BLOG SIDEBAR ==========-->
     </div>
+    <!--// end row -->
 </div>
-<div class="col-md-3">
-    <div class="sec-sidebar">
-        Banner quảng cáo
-    </div>
-    <div class="sec-sidebar">
-        Banner quảng cáo
-    </div>
-    <div class="sec-sidebar">
-        Banner quảng cáo
-    </div>
-    <div class="sec-sidebar">
-        Banner quảng cáo
-    </div>
-    <div class="sec-sidebar">
-        Banner quảng cáo
-    </div>
-</div>
+<!--========== END PAGE CONTENT ==========-->

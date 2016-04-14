@@ -1,12 +1,15 @@
 ﻿@{
-    var items = (IEnumerable<SelectListItem>) ViewData["items"];
+    var items = (IEnumerable<SelectListItem>)ViewData["items"];
 }
-@{
-    using(Html.BeginForm("","testing",FormMethod.Post))
-    {
-        <label>Chọn môn: </label>
-        @Html.DropDownList("sub", items);
-        <input type="submit" value="Load câu hỏi" />
-    }
-}
-
+<div class="bg-color-sky-light">
+    <div class="content-md container">
+        @{
+            using (Html.BeginForm("", "testing", FormMethod.Post))
+            {
+                <label>Chọn môn: </label>
+                @Html.DropDownList("sub", items);
+            <input type="submit" value="Load câu hỏi" />
+            }
+        }
+    </div>
+</div>
