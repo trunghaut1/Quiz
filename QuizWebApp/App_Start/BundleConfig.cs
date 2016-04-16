@@ -10,12 +10,15 @@ namespace QuizWebApp
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                 "~/Scripts/plugins/jquery.js"));
+            bundles.Add(new ScriptBundle("~/Scripts/bootstrap").Include(
+                "~/Scripts/bootstrap/bootstrap.js"));
             bundles.Add(new ScriptBundle("~/Scripts/plugins").Include(
                         "~/Scripts/plugins/jquery.migrate.js",
                         "~/Scripts/bootstrap/bootstrap.js",
                         "~/Scripts/plugins/jquery.unobtrusive-ajax.js",
                       "~/Scripts/plugins/jquery.back-to-top.js",
-                      "~/Scripts/bootstrap/jquery.smooth-scroll.js",
+                      "~/Scripts/plugins/jquery.smooth-scroll.js",
+                      "~/Scripts/plugins/jquery.cubeportfolio.js",
                       "~/Scripts/plugins/jquery.animsition.js",
                       "~/Scripts/plugins/jquery.wow.js",
                       "~/Scripts/plugins/jquery.html5.video.vide.js",
@@ -53,7 +56,9 @@ namespace QuizWebApp
                       "~/Scripts/portfolio/portfolio-3-col-grid.js"));
             bundles.Add(new ScriptBundle("~/Scripts/sharrre").Include(
                 "~/Scripts/sharrre/jquery.sharrre.js"));
-
+            bundles.Add(new ScriptBundle("~/Content/ck").Include(
+                "~/Content/ckeditor/ckeditor.js",
+                "~/Content/ckfinder/ckfinder.js"));
 
             bundles.Add(new StyleBundle("~/Content/bootstrap").Include(
                       "~/Content/bootstrap/bootstrap.css"));
@@ -66,7 +71,8 @@ namespace QuizWebApp
             bundles.Add(new StyleBundle("~/Content/rev-slider").Include(
                       "~/Content/rev-slider/settings.css",
                       "~/Content/rev-slider/layers.css",
-                      "~/Content/rev-slider/navigation.css"));
+                      "~/Content/rev-slider/navigation.css",
+                      "~/Content/rev-slider/fonts/pe-icon-7-stroke.css"));
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/css/animate.css",
                       "~/Content/css/global.css",

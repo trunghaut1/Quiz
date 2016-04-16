@@ -45,15 +45,15 @@
                 <!-- End Navbar Actions -->
                 <!-- Logo -->
                 <div class="navbar-logo">
-                    <a class="navbar-logo-wrap" href="index.html">
+                    <a class="navbar-logo-wrap" href="home/index">
                         @if (full.Equals("home/index", StringComparison.OrdinalIgnoreCase))
                         {
-                        <img class="navbar-logo-img navbar-logo-img-white" src="~/Images/logo-default-white.png" alt="Ark">
-                        <img class="navbar-logo-img navbar-logo-img-dark" src="~/Images/logo-default.png" alt="Ark">
+                            <img class="navbar-logo-img navbar-logo-img-white" src="~/Images/logo-default-white.png" alt="Ark">
+                            <img class="navbar-logo-img navbar-logo-img-dark" src="~/Images/logo-default.png" alt="Ark">
                         }
                         else
                         {
-                        <img class="navbar-logo-img" src="~/Images/logo-default.png" alt="Ark">
+                            <img class="navbar-logo-img" src="~/Images/logo-default.png" alt="QuizApplication">
                         }
                     </a>
                 </div>
@@ -73,10 +73,10 @@
                             <ul class="dropdown-menu">
                                 <!-- Default -->
                                 <li class="dropdown-menu-item">
-                                    <a class="dropdown-menu-item-child active" href="index.html">Mặc định</a>
+                                    @Html.ActionLink("Mặc định", "index", "home", new { @class = "dropdown-menu-item-child active" })
                                 </li>
                                 <li class="dropdown-menu-item">
-                                    <a class="dropdown-menu-item-child active" href="index.html">Slider</a>
+                                    <a class="dropdown-menu-item-child" href="#">Slider</a>
                                 </li>
                                 <!-- End Default -->
                             </ul>
@@ -94,11 +94,11 @@
                                             <!-- About Pages -->
                                             <ul class="list-unstyled mega-menu-list">
                                                 <li><span class="mega-menu-title">Tin tức</span></li>
-                                                <li class="mega-menu-item"><a class="mega-menu-child" href="page_about_us.html">Chia sẻ kiến thức</a></li>
-                                                <li class="mega-menu-item"><a class="mega-menu-child" href="page_about_us_classic.html">Thông báo</a></li>
-                                                <li class="mega-menu-item"><a class="mega-menu-child" href="page_about_us_modern.html">Tải về Android</a></li>
-                                                <li class="mega-menu-item"><a class="mega-menu-child" href="page_about_us_creative.html">Tải về Desktop</a></li>
-                                                <li class="mega-menu-item"><a class="mega-menu-child" href="page_about_me.html">Cẩm nang</a></li>
+                                                <li class="mega-menu-item">@Html.ActionLink("Chia sẻ kiến thức", "cat", "home", new { id = 1, type = 1 }, new { @class = "mega-menu-child" })</li>
+                                                <li class="mega-menu-item">@Html.ActionLink("Thông báo", "cat", "home", new { id = 1, type = 2 }, new { @class = "mega-menu-child" })</li>
+                                                <li class="mega-menu-item">@Html.ActionLink("Tải về android", "cat", "home", new { id = 1, type = 3 }, new { @class = "mega-menu-child" })</li>
+                                                <li class="mega-menu-item">@Html.ActionLink("Tải về desktop", "cat", "home", new { id = 1, type = 4 }, new { @class = "mega-menu-child" })</li>
+                                                <li class="mega-menu-item">@Html.ActionLink("Cẩm nang", "cat", "home", new { id = 1, type = 5 }, new { @class = "mega-menu-child" })</li>
                                             </ul>
                                             <!-- End About Pages -->
                                         </div>
@@ -106,7 +106,7 @@
                                             <!-- Business Pages -->
                                             <ul class="list-unstyled mega-menu-list">
                                                 <li><span class="mega-menu-title">Làm bài test</span></li>
-                                                <li class="mega-menu-item"><a class="mega-menu-child" href="page_services.html">Trực tuyến</a></li>
+                                                <li class="mega-menu-item">@Html.ActionLink("Làm bài test", "index", "testing", null, new { @class = "mega-menu-child" })</li>
                                             </ul>
                                             <!-- End Business Pages -->
                                         </div>
@@ -114,10 +114,10 @@
                                             <!-- Utility Pages -->
                                             <ul class="list-unstyled mega-menu-list">
                                                 <li><span class="mega-menu-title">Giao tiếp</span></li>
-                                                <li class="mega-menu-item"><a class="mega-menu-child" href="page_contacts.html">Contacts</a></li>
-                                                <li class="mega-menu-item"><a class="mega-menu-child" href="page_contacts_classic.html">Về chúng tôi</a></li>
-                                                <li class="mega-menu-item"><a class="mega-menu-child" href="page_faq.html">Góp ý</a></li>
-                                                <li class="mega-menu-item"><a class="mega-menu-child" href="page_faq_modern.html">Đóng góp câu hỏi</a></li>
+                                                <li class="mega-menu-item"><a class="mega-menu-child" href="#">Contacts</a></li>
+                                                <li class="mega-menu-item"><a class="mega-menu-child" href="#">Về chúng tôi</a></li>
+                                                <li class="mega-menu-item"><a class="mega-menu-child" href="#">Góp ý</a></li>
+                                                <li class="mega-menu-item"><a class="mega-menu-child" href="#">Đóng góp câu hỏi</a></li>
                                             </ul>
                                             <!-- End Utility Pages -->
                                         </div>
@@ -125,6 +125,30 @@
                                 </li>
                             </ul>
                         </li>
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <li class="nav-item dropdown">
+                                <a class="nav-item-child dropdown-toggle radius-3" href="javascript:void(0);" data-toggle="dropdown">
+                                    Quản trị
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <!-- Default -->
+                                    <li class="dropdown-menu-item">
+                                        @Html.ActionLink("Quyền", "index", "roles", null, new { @class = "dropdown-menu-item-child" })
+                                    </li>
+                                    <li class="dropdown-menu-item">
+                                        @Html.ActionLink("Featured", "index", "featured", null, new { @class = "dropdown-menu-item-child" })
+                                    </li>
+                                    <li class="dropdown-menu-item">
+                                        @Html.ActionLink("Tin tức", "index", "news", null, new { @class = "dropdown-menu-item-child" })
+                                    </li>
+                                    <li class="dropdown-menu-item">
+                                        @Html.ActionLink("Staff", "index", "staff", null, new { @class = "dropdown-menu-item-child" })
+                                    </li>
+                                    <!-- End Default -->
+                                </ul>
+                            </li>
+                        }
                         <!-- End Pages -->
 
                     </ul>

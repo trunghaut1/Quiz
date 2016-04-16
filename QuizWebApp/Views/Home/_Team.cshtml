@@ -1,65 +1,37 @@
-﻿
-<div class="content-md container">
-    <!-- Heading v1 -->
-    <div class="heading-v1 text-center margin-b-80">
-        <h2 class="heading-v1-title">Meet the Talents with Ambitious</h2>
-        <p class="heading-v1-text">We're an ambitious workaholic, but apart from that, pretty simple persons.</p>
+﻿@model List<Core.Model.Staff>
+@if (Model.Count > 0)
+{
+    <div class="content-md container">
+        <!-- Heading v1 -->
+        <div class="heading-v1 text-center margin-b-80">
+            <h2 class="heading-v1-title">Gặp mặt những con người đầy đam mê</h2>
+            <p class="heading-v1-text">Chúng tôi là những con người đầy tham vọng, ngoài điều đó ra chúng tôi khá đơn giản =))</p>
+        </div>
+        <!-- End Heading v1 -->
+        <!-- Team v6 -->
+        <div class="row">
+            @foreach(Core.Model.Staff staff in Model)
+            {
+            <div class="col-sm-3 sm-margin-b-30">
+                <!-- Team v6 -->
+                <div class="team-v6">
+                    <div class="team-v6-img-gradient">
+                        <img class="full-width img-responsive" src="@staff.img_link" alt="@staff.img_link">
+                    </div>
+                    <div class="team-v6-info">
+                        <h2 class="team-v6-member">@staff.name</h2>
+                        <ul class="list-inline team-v6-socials ul-li-lr-3">
+                            <li class="theme-icons-wrap"><a href="@staff.linkfb"><i class="theme-icons theme-icons-white-hover theme-icons-md radius-circle margin-b-0 fa fa-facebook"></i></a></li>
+                            <li class="theme-icons-wrap"><a href="@staff.linkgoogle"><i class="theme-icons theme-icons-white-hover theme-icons-md radius-circle margin-b-0 fa fa-google"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- End Team v6 -->
+            </div>
+            }
+        </div>
+        <!--// end row -->
+        <!-- Team v6 -->
     </div>
-    <!-- End Heading v1 -->
-    <!-- Team v6 -->
-    <div class="row">
-        <div class="col-sm-4 sm-margin-b-30">
-            <!-- Team v6 -->
-            <div class="team-v6">
-                <div class="team-v6-img-gradient">
-                    <img class="full-width img-responsive" src="~/Images/members/08.jpg" alt="">
-                </div>
-                <div class="team-v6-info">
-                    <h2 class="team-v6-member">Sara Glaser</h2>
-                    <ul class="list-inline team-v6-socials ul-li-lr-3">
-                        <li class="theme-icons-wrap"><a href="#"><i class="theme-icons theme-icons-white-hover theme-icons-md radius-circle margin-b-0 fa fa-facebook"></i></a></li>
-                        <li class="theme-icons-wrap"><a href="#"><i class="theme-icons theme-icons-white-hover theme-icons-md radius-circle margin-b-0 fa fa-twitter"></i></a></li>
-                        <li class="theme-icons-wrap"><a href="#"><i class="theme-icons theme-icons-white-hover theme-icons-md radius-circle margin-b-0 fa fa-dribbble"></i></a></li>
-                    </ul>
-                </div>
-            </div>
-            <!-- End Team v6 -->
-        </div>
-        <div class="col-sm-4 sm-margin-b-30">
-            <!-- Team v6 -->
-            <div class="team-v6">
-                <div class="team-v6-img-gradient">
-                    <img class="full-width img-responsive" src="~/Images/members/05.jpg" alt="">
-                </div>
-                <div class="team-v6-info">
-                    <h2 class="team-v6-member">David Martin</h2>
-                    <ul class="list-inline team-v6-socials ul-li-lr-3">
-                        <li class="theme-icons-wrap"><a href="#"><i class="theme-icons theme-icons-white-hover theme-icons-md radius-circle margin-b-0 fa fa-facebook"></i></a></li>
-                        <li class="theme-icons-wrap"><a href="#"><i class="theme-icons theme-icons-white-hover theme-icons-md radius-circle margin-b-0 fa fa-twitter"></i></a></li>
-                        <li class="theme-icons-wrap"><a href="#"><i class="theme-icons theme-icons-white-hover theme-icons-md radius-circle margin-b-0 fa fa-dribbble"></i></a></li>
-                    </ul>
-                </div>
-            </div>
-            <!-- End Team v6 -->
-        </div>
-        <div class="col-sm-4">
-            <!-- Team v6 -->
-            <div class="team-v6">
-                <div class="team-v6-img-gradient">
-                    <img class="full-width img-responsive" src="~/Images/members/06.jpg" alt="">
-                </div>
-                <div class="team-v6-info">
-                    <h2 class="team-v6-member">Leyla Gomez</h2>
-                    <ul class="list-inline team-v6-socials ul-li-lr-3">
-                        <li class="theme-icons-wrap"><a href="#"><i class="theme-icons theme-icons-white-hover theme-icons-md radius-circle margin-b-0 fa fa-facebook"></i></a></li>
-                        <li class="theme-icons-wrap"><a href="#"><i class="theme-icons theme-icons-white-hover theme-icons-md radius-circle margin-b-0 fa fa-twitter"></i></a></li>
-                        <li class="theme-icons-wrap"><a href="#"><i class="theme-icons theme-icons-white-hover theme-icons-md radius-circle margin-b-0 fa fa-dribbble"></i></a></li>
-                    </ul>
-                </div>
-            </div>
-            <!-- End Team v6 -->
-        </div>
-    </div>
-    <!--// end row -->
-    <!-- Team v6 -->
-</div>
+
+}

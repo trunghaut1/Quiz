@@ -13,247 +13,180 @@
             }
         });
     </script>
+}
+@section styles{
+    <style type="text/css">
+        .sharrre {
+            margin: 55px 0 0 50px;
+        }
+
+            .sharrre .box a:hover {
+                text-decoration: none;
+            }
+
+            .sharrre .count {
+                color: #525b67;
+                display: block;
+                font-size: 18px;
+                font-weight: bold;
+                line-height: 40px;
+                height: 40px;
+                position: relative;
+                text-align: center;
+                width: 70px;
+                -webkit-border-radius: 4px;
+                -moz-border-radius: 4px;
+                border-radius: 4px;
+                border: 1px solid #b2c6cc;
+                background: #fbfbfb; /* Old browsers */
+                background: -moz-linear-gradient(top, #fbfbfb 0%, #f6f6f6 100%); /* FF3.6+ */
+                background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fbfbfb), color-stop(100%,#f6f6f6)); /* Chrome,Safari4+ */
+                background: -webkit-linear-gradient(top, #fbfbfb 0%,#f6f6f6 100%); /* Chrome10+,Safari5.1+ */
+                background: -o-linear-gradient(top, #fbfbfb 0%,#f6f6f6 100%); /* Opera 11.10+ */
+                background: -ms-linear-gradient(top, #fbfbfb 0%,#f6f6f6 100%); /* IE10+ */
+                background: linear-gradient(top, #fbfbfb 0%,#f6f6f6 100%); /* W3C */
+                filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fbfbfb', endColorstr='#f6f6f6',GradientType=0 ); /* IE6-9 */
+            }
+
+                .sharrre .count:before, .sharrre .count:after {
+                    content: '';
+                    display: block;
+                    position: absolute;
+                    left: 49%;
+                    width: 0;
+                    height: 0;
+                }
+
+                .sharrre .count:before {
+                    border: solid 7px transparent;
+                    border-top-color: #b2c6cc;
+                    margin-left: -7px;
+                    bottom: -14px;
+                }
+
+                .sharrre .count:after {
+                    border: solid 6px transparent;
+                    margin-left: -6px;
+                    bottom: -12px;
+                    border-top-color: #fbfbfb;
+                }
+
+            .sharrre .share {
+                color: #FFFFFF;
+                display: block;
+                font-size: 12px;
+                font-weight: bold;
+                height: 30px;
+                line-height: 30px;
+                margin-top: 8px;
+                padding: 0;
+                text-align: center;
+                text-decoration: none;
+                width: 70px;
+                -webkit-border-radius: 4px;
+                -moz-border-radius: 4px;
+                border-radius: 4px;
+            }
+
+
+        #facebook .share {
+            text-shadow: 1px 0px 0px #26427e;
+            filter: dropshadow(color=#26427e, offx=1, offy=0);
+            border: 1px solid #24417c;
+            background: #5582c9; /* Old browsers */
+            background: -moz-linear-gradient(top, #5582c9 0%, #33539a 100%); /* FF3.6+ */
+            background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#5582c9), color-stop(100%,#33539a)); /* Chrome,Safari4+ */
+            background: -webkit-linear-gradient(top, #5582c9 0%,#33539a 100%); /* Chrome10+,Safari5.1+ */
+            background: -o-linear-gradient(top, #5582c9 0%,#33539a 100%); /* Opera 11.10+ */
+            background: -ms-linear-gradient(top, #5582c9 0%,#33539a 100%); /* IE10+ */
+            background: linear-gradient(top, #5582c9 0%,#33539a 100%); /* W3C */
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#5582c9', endColorstr='#33539a',GradientType=0 ); /* IE6-9 */
+            box-shadow: 0 1px 4px #DDDDDD, 0 1px 0 #80a1d6 inset;
+        }
+
+        #googleplus .share {
+            text-shadow: 1px 0px 0px #222222;
+            filter: dropshadow(color=#222222, offx=1, offy=0);
+            border: 1px solid #262626;
+            background: #6d6d6d; /* Old browsers */
+            background: -moz-linear-gradient(top, #6d6d6d 0%, #434343 100%); /* FF3.6+ */
+            background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#6d6d6d), color-stop(100%,#434343)); /* Chrome,Safari4+ */
+            background: -webkit-linear-gradient(top, #6d6d6d 0%,#434343 100%); /* Chrome10+,Safari5.1+ */
+            background: -o-linear-gradient(top, #6d6d6d 0%,#434343 100%); /* Opera 11.10+ */
+            background: -ms-linear-gradient(top, #6d6d6d 0%,#434343 100%); /* IE10+ */
+            background: linear-gradient(top, #6d6d6d 0%,#434343 100%); /* W3C */
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6d6d6d', endColorstr='#434343',GradientType=0 ); /* IE6-9 */
+            box-shadow: 0 1px 4px #DDDDDD, 0 1px 0 #929292 inset;
+        }
+    </style>
 
 }
 @model Core.Model.News
-
-@section img{
-    <section class="breadcrumbs-v5 bg-position-fixed breadcrumbs-v5-bg-img-v4">
-        <div class="container">
-            <h2 class="breadcrumbs-v5-title">Single Standard</h2>
-            <span class="breadcrumbs-v5-subtitle">For all the things you want to do. For the things you love.</span>
-        </div>
-    </section>
-}
-<!--========== PAGE CONTENT ==========-->
-<div class="content-sm container">
-    <div class="row">
-        <div class="col-md-9 md-margin-b-50">
-            <!-- Blog Grid -->
-            <article class="blog-grid margin-b-30">
-                <!-- Image -->
-                @if (Model.img_link != null)
+    @section img{
+        <section class="breadcrumbs-v5 bg-position-fixed breadcrumbs-v5-bg-img-v4">
+            <div class="container">
+                <h2 class="breadcrumbs-v5-title">Tin tức</h2>
+                <span class="breadcrumbs-v5-subtitle">For all the things you want to do. For the things you love.</span>
+            </div>
+        </section>
+    }
+    <!--========== PAGE CONTENT ==========-->
+    @{ViewBag.Title = Model.title;}
+    <div class="content-sm container">
+        <div class="row">
+            <div class="col-md-9 md-margin-b-50">
+                <!-- Blog Grid -->
+                <article class="blog-grid margin-b-30">
+                    <!-- Image -->
+                    @if (Model.img_link != null)
                 {
-                    <img class="img-responsive" src="@Model.img_link" alt="">
+                        <img class="img-responsive" src="@Model.img_link" alt="">
                 }
 
-                <!-- End Image -->
-                <!-- Blog Grid Content -->
-                <div class="blog-grid-content">
-                    <h2 class="blog-grid-title-lg">@Model.title</h2>
-                    <p class="cat"> @Html.ActionLink(Model.NewsType.name, "cat", "home", new { id = 1, type = Model.type }, null)</p>
-                    <p class="meta">
+                    <!-- End Image -->
+                    <!-- Blog Grid Content -->
+                    <div class="blog-grid-content">
+                        <h2 class="blog-grid-title-lg">@Model.title</h2>
+                        <p class="cat"> @Html.ActionLink(Model.NewsType.name, "cat", "home", new { id = 1, type = Model.type }, null)</p>
+                        <p class="meta">
 
-                        <i class="fa fa-clock-o"></i> @Model.date  &nbsp;
-                    </p>
+                            <i class="fa fa-clock-o"></i> @Model.date  &nbsp;
+                        </p>
 
-                    @Html.Raw(Model.text)
+                        @Html.Raw(Model.text)
 
-                    <!-- End Blog Grid Tags -->
-                    <div class="sharrre-container">
-                        @{string _url = HttpContext.Current.Request.Url.AbsoluteUri;}
+                        <!-- End Blog Grid Tags -->
+                        <div class="sharrre-container">
+                            @{string _url = HttpContext.Current.Request.Url.AbsoluteUri;}
 
-                        <div id="facebook" data-url="@_url" data-text="Normal Post" data-title="Chia sẻ" class="sharrre"></div>
+                            <div id="facebook" data-url="@_url" data-text="Normal Post" data-title="Chia sẻ" class="sharrre"></div>
+                        </div>
                     </div>
-                </div>
-                <!-- End Blog Grid Content -->
-            </article>
-            <!--/.sharrre-container-->
-
-
-            <style type="text/css">
-                .sharrre {
-                    margin: 55px 0 0 50px;
-                    float: left;
-                }
-
-                    .sharrre .box a:hover {
-                        text-decoration: none;
-                    }
-
-                    .sharrre .count {
-                        color: #525b67;
-                        display: block;
-                        font-size: 18px;
-                        font-weight: bold;
-                        line-height: 40px;
-                        height: 40px;
-                        position: relative;
-                        text-align: center;
-                        width: 70px;
-                        -webkit-border-radius: 4px;
-                        -moz-border-radius: 4px;
-                        border-radius: 4px;
-                        border: 1px solid #b2c6cc;
-                        background: #fbfbfb; /* Old browsers */
-                        background: -moz-linear-gradient(top, #fbfbfb 0%, #f6f6f6 100%); /* FF3.6+ */
-                        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fbfbfb), color-stop(100%,#f6f6f6)); /* Chrome,Safari4+ */
-                        background: -webkit-linear-gradient(top, #fbfbfb 0%,#f6f6f6 100%); /* Chrome10+,Safari5.1+ */
-                        background: -o-linear-gradient(top, #fbfbfb 0%,#f6f6f6 100%); /* Opera 11.10+ */
-                        background: -ms-linear-gradient(top, #fbfbfb 0%,#f6f6f6 100%); /* IE10+ */
-                        background: linear-gradient(top, #fbfbfb 0%,#f6f6f6 100%); /* W3C */
-                        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fbfbfb', endColorstr='#f6f6f6',GradientType=0 ); /* IE6-9 */
-                    }
-
-                        .sharrre .count:before, .sharrre .count:after {
-                            content: '';
-                            display: block;
-                            position: absolute;
-                            left: 49%;
-                            width: 0;
-                            height: 0;
+                    <!-- End Blog Grid Content -->
+                </article>
+                <!--/.sharrre-container-->
+                <!-- End Blog Grid -->
+                @if (ViewData["listNews"] != null)
+            {
+                List<Core.Model.News> list = (List<Core.Model.News>) ViewData["listNews"];
+                    <hr />
+                    <div>
+                        <h3>Bài viết liên quan</h3>
+                        <ul>
+                            @foreach(Core.Model.News news in list)
+                        {
+                                <li>@Html.ActionLink(news.title,"newsid/"+news.id,"home")</li>
                         }
+                        </ul>
+                    </div>
+            }
 
-                        .sharrre .count:before {
-                            border: solid 7px transparent;
-                            border-top-color: #b2c6cc;
-                            margin-left: -7px;
-                            bottom: -14px;
-                        }
+            </div>
 
-                        .sharrre .count:after {
-                            border: solid 6px transparent;
-                            margin-left: -6px;
-                            bottom: -12px;
-                            border-top-color: #fbfbfb;
-                        }
-
-                    .sharrre .share {
-                        color: #FFFFFF;
-                        display: block;
-                        font-size: 12px;
-                        font-weight: bold;
-                        height: 30px;
-                        line-height: 30px;
-                        margin-top: 8px;
-                        padding: 0;
-                        text-align: center;
-                        text-decoration: none;
-                        width: 70px;
-                        -webkit-border-radius: 4px;
-                        -moz-border-radius: 4px;
-                        border-radius: 4px;
-                    }
-
-
-                #facebook .share {
-                    text-shadow: 1px 0px 0px #26427e;
-                    filter: dropshadow(color=#26427e, offx=1, offy=0);
-                    border: 1px solid #24417c;
-                    background: #5582c9; /* Old browsers */
-                    background: -moz-linear-gradient(top, #5582c9 0%, #33539a 100%); /* FF3.6+ */
-                    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#5582c9), color-stop(100%,#33539a)); /* Chrome,Safari4+ */
-                    background: -webkit-linear-gradient(top, #5582c9 0%,#33539a 100%); /* Chrome10+,Safari5.1+ */
-                    background: -o-linear-gradient(top, #5582c9 0%,#33539a 100%); /* Opera 11.10+ */
-                    background: -ms-linear-gradient(top, #5582c9 0%,#33539a 100%); /* IE10+ */
-                    background: linear-gradient(top, #5582c9 0%,#33539a 100%); /* W3C */
-                    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#5582c9', endColorstr='#33539a',GradientType=0 ); /* IE6-9 */
-                    box-shadow: 0 1px 4px #DDDDDD, 0 1px 0 #80a1d6 inset;
-                }
-
-                #googleplus .share {
-                    text-shadow: 1px 0px 0px #222222;
-                    filter: dropshadow(color=#222222, offx=1, offy=0);
-                    border: 1px solid #262626;
-                    background: #6d6d6d; /* Old browsers */
-                    background: -moz-linear-gradient(top, #6d6d6d 0%, #434343 100%); /* FF3.6+ */
-                    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#6d6d6d), color-stop(100%,#434343)); /* Chrome,Safari4+ */
-                    background: -webkit-linear-gradient(top, #6d6d6d 0%,#434343 100%); /* Chrome10+,Safari5.1+ */
-                    background: -o-linear-gradient(top, #6d6d6d 0%,#434343 100%); /* Opera 11.10+ */
-                    background: -ms-linear-gradient(top, #6d6d6d 0%,#434343 100%); /* IE10+ */
-                    background: linear-gradient(top, #6d6d6d 0%,#434343 100%); /* W3C */
-                    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6d6d6d', endColorstr='#434343',GradientType=0 ); /* IE6-9 */
-                    box-shadow: 0 1px 4px #DDDDDD, 0 1px 0 #929292 inset;
-                }
-            </style>
-            <!-- End Blog Grid -->
+            <!--========== BLOG SIDEBAR ==========-->
+            @Html.Action("LatestNews")
+            <!--========== END BLOG SIDEBAR ==========-->
         </div>
-
-        <!--========== BLOG SIDEBAR ==========-->
-        <div class="col-md-3">
-            <!-- Blog Sidebar -->
-            <div class="blog-sidebar margin-b-30">
-                <div class="blog-sidebar-heading">
-                    <i class="blog-sidebar-heading-icon icon-book-open"></i>
-                    <h4 class="blog-sidebar-heading-title">Tutorials</h4>
-                </div>
-                <div class="blog-sidebar-content blog-sidebar-content-height scrollbar">
-                    <!-- Latest Tutorials -->
-                    <article class="latest-tuts">
-                        <div class="latest-tuts-media">
-                            <img class="latest-tuts-media-img radius-circle" src="assets/img/250x250/06.jpg" alt="">
-                        </div>
-                        <div class="latest-tuts-content">
-                            <h5 class="latest-tuts-content-title"><a href="#">Visual brand designing</a></h5>
-                            <small class="latest-tuts-content-time">35 minutes ago</small>
-                        </div>
-                    </article>
-                    <article class="latest-tuts">
-                        <div class="latest-tuts-media">
-                            <img class="latest-tuts-media-img radius-circle" src="assets/img/250x250/11.jpg" alt="">
-                        </div>
-                        <div class="latest-tuts-content">
-                            <h5 class="latest-tuts-content-title"><a href="#">Photoshop: Image Cropping</a></h5>
-                            <small class="latest-tuts-content-time">7 hours ago</small>
-                        </div>
-                    </article>
-                    <article class="latest-tuts">
-                        <div class="latest-tuts-media">
-                            <img class="latest-tuts-media-img radius-circle" src="assets/img/250x250/08.jpg" alt="">
-                        </div>
-                        <div class="latest-tuts-content">
-                            <h5 class="latest-tuts-content-title"><a href="#">Video editing</a></h5>
-                            <small class="latest-tuts-content-time">12 hours ago</small>
-                        </div>
-                    </article>
-                    <article class="latest-tuts">
-                        <div class="latest-tuts-media">
-                            <img class="latest-tuts-media-img radius-circle" src="assets/img/250x250/09.jpg" alt="">
-                        </div>
-                        <div class="latest-tuts-content">
-                            <h5 class="latest-tuts-content-title"><a href="#">Web development technologies</a></h5>
-                            <small class="latest-tuts-content-time">1 day ago</small>
-                        </div>
-                    </article>
-                    <article class="latest-tuts">
-                        <div class="latest-tuts-media">
-                            <img class="latest-tuts-media-img radius-circle" src="assets/img/250x250/10.jpg" alt="">
-                        </div>
-                        <div class="latest-tuts-content">
-                            <h5 class="latest-tuts-content-title"><a href="#">The section element - HTML</a></h5>
-                            <small class="latest-tuts-content-time">2 days ago</small>
-                        </div>
-                    </article>
-                    <article class="latest-tuts">
-                        <div class="latest-tuts-media">
-                            <img class="latest-tuts-media-img radius-circle" src="assets/img/250x250/07.jpg" alt="">
-                        </div>
-                        <div class="latest-tuts-content">
-                            <h5 class="latest-tuts-content-title"><a href="#">Creata a logo using Adobe Illustrator</a></h5>
-                            <small class="latest-tuts-content-time">3 days ago</small>
-                        </div>
-                    </article>
-                    <!-- End Latest Tutorials -->
-                </div>
-            </div>
-            <div class="sec-sidebar">
-                Banner quảng cáo
-            </div>
-            <div class="sec-sidebar">
-                Banner quảng cáo
-            </div>
-            <div class="sec-sidebar">
-                Banner quảng cáo
-            </div>
-            <div class="sec-sidebar">
-                Banner quảng cáo
-            </div>
-            <div class="sec-sidebar">
-                Banner quảng cáo
-            </div>
-        </div>
-        <!--========== END BLOG SIDEBAR ==========-->
+        <!--// end row -->
     </div>
-    <!--// end row -->
-</div>
-<!--========== END PAGE CONTENT ==========-->
+    <!--========== END PAGE CONTENT ==========-->

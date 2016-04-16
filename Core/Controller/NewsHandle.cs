@@ -45,11 +45,18 @@ namespace Core.Controller
             return true;
         }
 
+        public List<News> GetAllNews()
+        {
+            return DataHelper<Entities, News>.GetAll().OrderByDescending(t => t.date).ToList();
+        }
         public List<News> Get4LastestNews()
         {
             return DataHelper<Entities, News>.GetAll().OrderByDescending(t => t.date).Take(4).ToList();
         }
-
+        public List<News> Get4LastestNewsByType(int type)
+        {
+            return DataHelper<Entities, News>.GetAll().Where(c=>c.type.Equals(type)).OrderByDescending(t => t.date).Take(4).ToList();
+        }
         public List<News> Get4TopNews()
         {
             return DataHelper<Entities, News>.GetAll().OrderByDescending(t => t.view_count).Take(4).ToList();
@@ -80,9 +87,13 @@ namespace Core.Controller
             return DataHelper<Entities, News>.FindBy(t => t.type.Equals(id)).Count();
         }
 
-        public List<News> Get10NewsByTypeAndPageIndex(int id, int index)
+        public News GetLastestNewsByType(int type)
         {
-            return DataHelper<Entities, News>.FindBy(t => t.type.Equals(id)).OrderByDescending(t => t.date).Skip((index - 1) * 10).Take(10).ToList();
+            return DataHelper<Entities, News>.FindBy(t => t.type.Equals(type)).OrderByDescending(t => t.date).FirstOrDefault();
+        }
+        public List<News> GetAllNewsByType(int id)
+        {
+            return DataHelper<Entities, News>.FindBy(t => t.type.Equals(id)).OrderByDescending(t => t.date).ToList();
         }
 
         public List<News> Get10NewsBySearchAndPageIndex(string key, int index)
@@ -108,6 +119,12 @@ namespace Core.Controller
                 n.view_count += 1;
             }
             DataHelper<Entities, News>.Edit(n);
+        }
+
+
+        public List<News> Get10NewsByTypeAndPageIndex(int id, int index)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }
