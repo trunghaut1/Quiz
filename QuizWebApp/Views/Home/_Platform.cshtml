@@ -1,0 +1,75 @@
+﻿<div class="bg-color-sky-light">
+    <div class="content-md container">
+        <!-- Heading v2 -->
+        <div class="heading-v2 margin-b-80">
+            <h2 class="heading-v2-title">Quiz Application</h2>
+            <p class="heading-v2-text">Ứng dụng kiểm tra trắc nghiệm</p>
+        </div>
+        <!-- End Heading v2 -->
+
+        <div class="row space-row-10">
+            <div class="col-md-4 md-margin-b-20">
+                <!-- Services v1 -->
+                <section class="services-v1">
+                    <div class="margin-b-50">
+                        <div class="services-v1-icon-wrap radius-circle">
+                            <img class="services-v1-icon" src="~/Images/icons/04.png" alt="">
+                        </div>
+                        <span class="services-v1-subtitle color-base">Trải nghiệm mới</span>
+                        <h3 class="services-v1-title">For Desktop</h3>
+                        <p class="services-v1-text">Tải về dùng trên desktop</p>
+                    </div>
+                    @if (ViewBag.idDesktop != null)
+                    {
+                        @Html.ActionLink("Tải về", "newsid", new { @id = ViewBag.idDesktop }, new { @class = "btn-base-bg btn-base-sm radius-3" })
+                    }
+                    else
+                    {
+                        <a href="#" class="btn-base-bg btn-base-sm radius-3">Tải về</a>
+                    }
+
+                </section>
+                <!-- End Services v1 -->
+            </div>
+            <div class="col-md-4 md-margin-b-20">
+                <!-- Services v1 -->
+                <section class="services-v1">
+                    <div class="margin-b-50">
+                        <div class="services-v1-icon-wrap radius-circle">
+                            <img class="services-v1-icon" src="~/Images/icons/03.png" alt="">
+                        </div>
+                        <span class="services-v1-subtitle color-red">Điều đặc biệt</span>
+                        <h3 class="services-v1-title">Trải nghiệm trực tuyến</h3>
+                        <p class="services-v1-text">Sử dụng mọi lúc mọi nơi :)</p>
+                    </div>
+                    <a href="/testing/index" class="btn-red-bg btn-base-sm radius-3">Thử ngay</a>
+                </section>
+                <!-- End Services v1 -->
+            </div>
+            <div class="col-md-4">
+                <!-- Services v1 -->
+                <section class="services-v1">
+                    <div class="margin-b-50">
+                        <div class="services-v1-icon-wrap radius-circle">
+                            <img class="services-v1-icon" src="~/Images/icons/02.png" alt="">
+                        </div>
+                        <span class="services-v1-subtitle color-teal">Đa nền tảng</span>
+                        <h3 class="services-v1-title">For Mobile</h3>
+                        <p class="services-v1-text">Trải nghiệm ngay trên điện thoại của mình</p>
+                    </div>
+                    @if (ViewBag.idAndroid != null)
+                    {
+                        @Html.ActionLink("Tải về", "newsid", new { @id = ViewBag.idAndroid }, new { @class = "btn-base-bg btn-base-sm radius-3" })
+                    }
+                    else
+                    {
+                        <a href="#" class="btn-base-bg btn-base-sm radius-3">Tải về</a>
+                    }
+
+                </section>
+                <!-- End Services v1 -->
+            </div>
+        </div>
+        <!--// end row -->
+    </div>
+</div>

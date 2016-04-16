@@ -1,72 +1,68 @@
-﻿@{
-    string Request_Url = Request.Url.PathAndQuery.ToLower();
-    if(Request_Url.Length>1)
-    { 
-        if (Request_Url.EndsWith("/"))
-        {
-            Request_Url = Request_Url.Substring(0, Request_Url.Length - 1);
-        }
-    }
-}
-<!DOCTYPE html>
-<html>
+﻿<!DOCTYPE html>
+<html lang="en" class="no-js">
+<!-- HEAD -->
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - Quiz Application</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>@ViewBag.Title - QuizApplication</title>
+    <meta name="keywords" content="HTML5 Theme" />
+    <meta name="description" content="QuizApplication">
+    <meta name="author" content="quizonepro.com">
+    
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link href="http://fonts.googleapis.com/css?family=Raleway:500,800" rel="stylesheet" property="stylesheet" type="text/css" media="all" />
+
+    <link href='https://fonts.googleapis.com/css?family=Roboto:100,400,700,500,300,300italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+    @Styles.Render("~/Content/bootstrap")
+    @Styles.Render("~/Content/font-awesome")
+    @Styles.Render("~/Content/et-line")
+
+    @Styles.Render("~/Content/scrollbar")
+
     @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/magnific-popup")
+
     @Scripts.Render("~/bundles/jquery")
-    @*Scripts.Render("~/bundles/modernizr")*@
     
+    @RenderSection("styles", false)
+    <link rel="shortcut icon" href="~/favicon.ico" />
 </head>
-<body class="home blog">
+<body>
 
-    <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="wrapper animsition">
+        @Html.Partial("_TopNav")
 
-        @Html.Partial("_Header")
-
-    </div>
-
-    
-    @RenderSection("featured",required:false)
-
-    @if (Request_Url != "/" && Request_Url != "/home/index" && Request_Url != "/home")
-    {<div class="row spacer"></div>}
-    <div class="navbar navbar-inverse navbar-sub">
-
-       @Html.Partial("_SubNav")
-
-    </div>
-
-    <div class="col-md-9  col-md-push-3  cont-grid">
-
-
-        @RenderBody()
-
-    </div>
-
-    <div class="col-md-3  col-md-pull-9  sidebar">
-        @*Html.Action("Sidebar", "Home")*@
         @Html.Partial("_Sidebar")
-    </div>
-
-    <div class="col-md-12 footer">
-
+        @RenderSection("img", false)
+            @RenderBody()
         @Html.Partial("_Footer")
 
     </div>
+    <!-- Sidebar Content Overlay -->
+    <div class="sidebar-content-overlay"></div>
+    <!-- End Sidebar Content Overlay -->
+    <!-- Back To Top -->
+    <a href="javascript:void(0);" class="js-back-to-top back-to-top-theme"></a>
+    <!-- End Back To Top -->
+    @Scripts.Render("~/Scripts/plugins")
 
+    @Scripts.Render("~/Scripts/scrollbar")
 
+    @Scripts.Render("~/Scripts/magnific-popup")
     
-    @Scripts.Render("~/bundles/bootstrap")
-    @Scripts.Render("~/bundles/fullby")
-    @Scripts.Render("~/bundles/wow")
-    @RenderSection("scripts", required: false)
+    @Scripts.Render("~/Scripts/app")
+    @Scripts.Render("~/Scripts/components")
+    @RenderSection("scripts", false);
     <script>
 $(document).ready(function () {
             $("script ~ div").css('display', 'none');
             $("center a").css('display', 'none');
         });
     </script>
+
 </body>
+<!-- END BODY -->
+
 </html>

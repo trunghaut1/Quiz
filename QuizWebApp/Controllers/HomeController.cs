@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using PagedList;
 
 namespace QuizWebApp.Controllers
 {
@@ -13,28 +14,24 @@ namespace QuizWebApp.Controllers
         public ActionResult Index()
         {
             Core.Controller.StaffHandle ctr = new Core.Controller.StaffHandle();
-            Core.Controller.ReleaseHandle cr = new Core.Controller.ReleaseHandle();
             List<Core.Model.Staff> s = new List<Core.Model.Staff>();
-            Entities db = new Entities();
-            ViewData["id_desktop"] = cr.GetIdLastestReleaseByType(4);
-            ViewData["id_android"] = cr.GetIdLastestReleaseByType(1);
-            ViewData["Platform"] = db.PlatformApps.ToList();
             s = ctr.getAllStaff();
             return View(s);
         }
-
-        public ActionResult About()
+        [ChildActionOnly]
+        public PartialViewResult Platform()
         {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
+            NewsHandle newsHandle = new NewsHandle();
+            News desktop = newsHandle.GetLastestNewsByType(5);
+            News android = newsHandle.GetLastestNewsByType(4);
+            
+            long? idDesktop = null;
+            long? idAndroid = null;
+            if (desktop != null) idDesktop = desktop.id;
+            if (android != null) idAndroid = android.id;
+            ViewBag.idDesktop = idDesktop;
+            ViewBag.idAndroid = idAndroid;
+            return PartialView("_Platform");
         }
         public ActionResult NewsId(int id)
         {
@@ -42,69 +39,45 @@ namespace QuizWebApp.Controllers
             Core.Controller.NewsHandle ctr = new Core.Controller.NewsHandle();
             news = ctr.GetNewsById(id);
             ctr.IncreaseViewCountNews(id);
+            List<News> listNews = ctr.Get4LastestNewsByType(news.type);
+            ViewData["listNews"] = listNews;
             return View(news);
         }
-        public ActionResult ReleaseId(int id)
-        {
-            Release r = new Release();
-            ReleaseHandle ctr = new ReleaseHandle();
-            r = ctr.GetReleaseById(id);
-            ViewData["Release"] = ctr.Get4LastedRelease();
-            return View(r);
-        }
-        public PartialViewResult RenderNews()
+
+        public ActionResult RenderNews(int? page)
         {
             List<Core.Model.News> _list = new List<Core.Model.News>();
             Core.Controller.NewsHandle ctr = new Core.Controller.NewsHandle();
-            _list = ctr.Get10NewsByPageIndex(1);
-            ViewBag.SumPage = (ctr.GetSumNews() / 10) + 1;
-            ViewBag.CurrentPage = 1;
-            ViewBag.Page = "rendernewspage";
-            return PartialView("RenderNews", _list);
+            _list = ctr.GetAllNews();
+            int pageSize = 10;
+            int pageNumber = (page ?? 1);
+            ViewBag.Action = "RenderNews";
+            if(!ControllerContext.IsChildAction)
+                return View("RenderNews", _list.ToPagedList(pageNumber, pageSize));
+            else
+                return PartialView("RenderNews", _list.ToPagedList(pageNumber, pageSize));
         }
 
-        public PartialViewResult RenderNewsPage(int id)
+        public ActionResult Cat(int? page, int type)
         {
             List<Core.Model.News> _list = new List<Core.Model.News>();
             Core.Controller.NewsHandle ctr = new Core.Controller.NewsHandle();
-            _list = ctr.Get10NewsByPageIndex(id);
-            ViewBag.SumPage = (ctr.GetSumNews() / 10) + 1;
-            ViewBag.CurrentPage = id;
-            ViewBag.Page = "rendernewspage";
-            return PartialView("RenderNews", _list);
+            _list = ctr.GetAllNewsByType(type);
+            int pageSize = 10;
+            int pageNumber = (page ?? 1);
+            ViewBag.Action = "cat";
+            return View("RenderNews", _list.ToPagedList(pageNumber, pageSize));
+
         }
 
-        public ActionResult RenderRelease()
-        {
-            ReleaseHandle ctr = new ReleaseHandle();
-            Release r = ctr.GetReleaseById(ctr.GetIdLastestRelease());
-            ViewBag.SumPage = (ctr.GetSumReleases() / 10) + 1;
-            ViewBag.Title = "Tải về";
-            ViewData["Release"] = ctr.Get4LastedRelease();
-            return View("releaseid", r);
-        }
-
-        public ActionResult Cat(int id, int type)
+        public ActionResult Search(int? page, string keyword)
         {
             List<Core.Model.News> _list = new List<Core.Model.News>();
             Core.Controller.NewsHandle ctr = new Core.Controller.NewsHandle();
-            _list = ctr.Get10NewsByTypeAndPageIndex(id, type);
-            ViewBag.SumPage = (ctr.GetSumNewsByCatalogue(id) / 10) + 1;
-            ViewBag.CurrentPage = id;
-            ViewBag.Page = "cat";
-            return View("RenderNews", _list);
-
-        }
-
-        public ActionResult Search(int id, string keyword)
-        {
-            List<Core.Model.News> _list = new List<Core.Model.News>();
-            Core.Controller.NewsHandle ctr = new Core.Controller.NewsHandle();
-            _list = ctr.Get10NewsBySearchAndPageIndex(keyword, id);
-            ViewBag.SumPage = (ctr.GetSumNewsBySearch(keyword) / 10) + 1;
-            ViewBag.CurrentPage = id;
-            ViewBag.Page = "search";
-            return View("RenderNews", _list);
+            int pageSize = 10;
+            int pageNumber = (page ?? 1);
+            ViewBag.Action = "search";
+            return View("RenderNews", _list.ToPagedList(pageNumber, pageSize));
 
         }
         [ChildActionOnly]
@@ -122,6 +95,14 @@ namespace QuizWebApp.Controllers
             Core.Controller.NewsHandle ctl = new Core.Controller.NewsHandle();
             _list = ctl.Get4TopNews();
             return PartialView("_TopNews", _list);
+        }
+        [ChildActionOnly]
+        public PartialViewResult Staff()
+        {
+            List<Core.Model.Staff> _list = new List<Core.Model.Staff>();
+            Core.Controller.StaffHandle ctl = new Core.Controller.StaffHandle();
+            _list = ctl.getAllStaff();
+            return PartialView("_Team", _list);
         }
     }
 }

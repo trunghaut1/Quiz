@@ -3,82 +3,29 @@
     ViewBag.Title = "Trang chủ";
 }
 
-   @Html.Action("RenderNews")
-
-@section featured{
-    @{List<Core.Model.PlatformApp> l = ViewData["Platform"] as List<Core.Model.PlatformApp>;
-      }
-<div class="row featured">
-    @for (int i = 0; i < 3; i++)
-    {
-        <div class="col-sm-4 col-md-4 item-featured">
-            @{
-        var action = "";
-        var control = "home";
-        var class_name = "yt-featured";
-        if (i == 0)
-        {
-            action = "releaseid/" + ViewData["id_desktop"];
-
-        }
-        else if (i == 1)
-        {
-            action = "";
-            control = "testing";
-        }
-        else
-        {
-            action = "releaseid/" + ViewData["id_android"];
-            class_name = "quad wp-post-image";
-        }
-            }
-            <a href="@Url.Action(action, control)">
-
-                <div class="caption">
-
-                    <div class="cat"><span>@l[i].title</span></div>
-
-                    <h2 class="title">@l[i].name</h2>
-
-                </div>
-
-
-                <img class="@class_name" src="@l[i].img_link" alt="Get for desktop">
-            </a>
-
-        </div>
-    }
-
-
-
-    <div class="second-button-mobile"> <div class="widget-bar-button"> <i class="fa fa-angle-up fa-3x"></i> </div></div>
-
-    <div class="widget-bar">
-
-        <div class="container-widget" style="margin-left: 0px;">
-            @foreach (Core.Model.Staff s in Model)
-            {
-                <div id="last1-2" class="box-widget widget_last1">
-                    <div class="box-widget-inside">
-                        <p class="featured-item">@s.title</p>
-                        <a href="#">
-
-                            <img src="@s.img_link" class="wg-quad">
-
-                            <h2 class="title">@s.name</h2>
-
-                        </a>
-
-
-
-
-                    </div>
-                </div>
-            }
-            
-            
-        </div>
-
-    </div><!--  end widget bar /-->
-</div>
+@section styles{
+    @Styles.Render("~/Content/rev-slider")
+    @Styles.Render("~/Content/cubeportfolio")
 }
+@section scripts{
+    @Scripts.Render("~/Scripts/rev-slider")
+    @Scripts.Render("~/Scripts/counter")
+    @Scripts.Render("~/Scripts/cubeportfolio")
+    @Scripts.Render("~/Scripts/validation")
+    @Scripts.Render("~/Scripts/portfolio")
+    @Scripts.Render("~/Scripts/components_index")
+}
+@Html.Partial("_Slide")
+
+<div class="theme-portfolio-v2" style="padding:0px; display:block;">
+    @Html.Action("Platform")
+
+    @*RenderAction platform*@
+
+    @Html.Action("RenderNews")
+
+    @Html.Action("Staff")
+    </div>
+    @*Counter*@
+    @*Teammmm*@
+    @*News*@

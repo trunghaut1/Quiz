@@ -25,16 +25,7 @@ namespace Core.Model
         public System.DateTime DateAdd { get; set; }
         public string UserAdd { get; set; }
         public string Note { get; set; }
-
-        public string Traloi { get; set; }
-        public bool IsCorrect
-        {
-            get
-            {
-                if (this.Traloi == null) return false;
-                else return this.Traloi.Equals(this.Answer);
-            }
-        }
+    
         public virtual Subject Subject { get; set; }
     }
 }

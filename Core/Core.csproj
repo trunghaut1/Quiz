@@ -58,13 +58,11 @@
     <Compile Include="Controller\FeedbackHandle.cs" />
     <Compile Include="Controller\NewsHandle.cs" />
     <Compile Include="Controller\QuestionHandle.cs" />
-    <Compile Include="Controller\ReleaseHandle.cs" />
     <Compile Include="Controller\SubjectHandle.cs" />
     <Compile Include="Controller\StaffHandle.cs" />
     <Compile Include="Controller\UserHandle.cs" />
     <Compile Include="Interface\IAchievement.cs" />
     <Compile Include="Interface\IQuestion.cs" />
-    <Compile Include="Interface\IRelease.cs" />
     <Compile Include="Interface\INews.cs" />
     <Compile Include="Interface\IStaff.cs" />
     <Compile Include="Interface\ISubject.cs" />
@@ -96,12 +94,10 @@
     <Compile Include="Model\NewsType.cs">
       <DependentUpon>QuizDataModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\PlatformApp.cs">
-      <DependentUpon>QuizDataModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Model\Question.cs">
       <DependentUpon>QuizDataModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\QuestionExtension.cs" />
     <Compile Include="Model\QuizDataModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -116,12 +112,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>QuizDataModel.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Model\Release.cs">
-      <DependentUpon>QuizDataModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\ReleaseType.cs">
-      <DependentUpon>QuizDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Staff.cs">
       <DependentUpon>QuizDataModel.tt</DependentUpon>

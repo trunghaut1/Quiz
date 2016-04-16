@@ -18,5 +18,7 @@ namespace Core.Model
         public string title { get; set; }
         public string name { get; set; }
         public string img_link { get; set; }
+        public string linkfb { get; set; }
+        public string linkgoogle { get; set; }
     }
 }
