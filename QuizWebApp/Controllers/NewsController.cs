@@ -73,6 +73,7 @@ namespace QuizWebApp.Controllers
             return View(news);
         }
         [HttpPost]
+        [ValidateInput(false)]
         public ActionResult Edit(Core.Model.News news)
         {
             Core.Controller.NewsHandle ctr = new Core.Controller.NewsHandle();

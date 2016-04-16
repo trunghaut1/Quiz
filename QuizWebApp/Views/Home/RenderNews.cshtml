@@ -1,140 +1,76 @@
-﻿@model List<Core.Model.News>
-
-@if(Model.Count>0)
-{
-    
+﻿@model PagedList.IPagedList<Core.Model.News>
+@using PagedList.Mvc;
+@{ViewBag.Title = "Tin tức";}
 <div class="bg-color-sky-light">
     <div class="content-md container">
+        @if (Model.Count > 0)
+        {
+
+
         <!-- Heading v1 -->
-        <div class="heading-v1 text-center margin-b-80">
-            <h2 class="heading-v1-title">Be Aware of News</h2>
-            <p class="heading-v1-text">Let's share the latest posts and best articles</p>
-        </div>
+            <div class="heading-v1 text-center margin-b-80">
+                <h2 class="heading-v1-title">Luôn Cập Nhật Thông Tin</h2>
+                <p class="heading-v1-text">Đây là những tin tức mới của chúng ta</p>
+            </div>
         <!-- End Heading v1 -->
         <!-- Masonry Grid -->
-        <div class="masonry-grid margin-b-40">
-            @foreach (Core.Model.News news in Model)
-            {
-                <div class="masonry-grid-item col-3">
-                    <!-- News v1 -->
-                    <article class="news-v1">
-                        <div class="news-v1-heading">
-                            @Html.ActionLink(@news.NewsType.name, "cat", "home", new { id = 1, type = news.type }, new { @class = "news-v1-heading-tag" })
-                            <span class="news-v1-element"><i class="news-v1-element-icon fa fa-circle"></i></span>
-                            <h3 class="news-v1-heading-title">@Html.ActionLink(@news.title, "newsid/" + news.id, "home")</h3>
-                        </div>
-                        <a class="image-popup-vertical-fit" href="@news.img_link" title="Image">
-                            <img class="img-responsive" src="@news.img_link" alt="">
-                        </a>
-                        <div class="news-v1-content">
-                            @{
-                                string display = "";
-                                if (news.text != null)
-                                {
-                                    if (news.text.Count() > 50)
+            <div class="masonry-grid margin-b-40">
+                @foreach (Core.Model.News news in Model)
+                {
+                    <div class="masonry-grid-item col-3">
+                        <!-- News v1 -->
+                        <article class="news-v1">
+                            <div class="news-v1-heading">
+                                @Html.ActionLink(@news.NewsType.name, "cat", "home", new { @page = 1, @type = news.type }, new { @class = "news-v1-heading-tag" })
+                                <span class="news-v1-element"><i class="news-v1-element-icon fa fa-circle"></i></span>
+                                <h3 class="news-v1-heading-title">@Html.ActionLink(@news.title, "newsid/"+news.id, "home")</h3>
+                            </div>
+                            <a class="image-popup-vertical-fit" href="@news.img_link" title="Image">
+                                <img class="img-responsive" src="@news.img_link" alt="">
+                            </a>
+                            <div class="news-v1-content">
+                                @{
+                                    string display = "";
+                                    if (news.text != null)
                                     {
-                                        display = news.text.Substring(0, 49);
-                                        display = display + "...";
-                                    }
-                                    else
-                                    {
-                                        display = news.text;
+                                        if (news.text.Count() > 70)
+                                        {
+                                            display = news.text.Substring(0, 69);
+                                            display = display + "...";
+                                        }
+                                        else
+                                        {
+                                            display = news.text;
+                                        }
                                     }
                                 }
-                            }
-                            <p class="news-v1-quote">@display</p>
-                        </div>
-                    </article>
-                    <!-- End News v1 -->
-                </div>
-            }
-        </div>
+                                <p class="news-v1-quote">@display</p>
+                            </div>
+                            <hr style="margin:0px;"/>
+                            <div class="news-v1-content">
+                                <ul class="list-inline news-v1-lists">
+                                    <li class="news-v1-lists-item"><i class="fa fa-times"></i>@news.date.ToString("dd-MM-yyyy")</li>
+                                    <li class="news-v1-lists-item"><a><i class="fa fa-eye"></i>@news.view_count</a></li>
+                                </ul>
+                            </div>
+                        </article>
+                        <!-- End News v1 -->
+                    </div>
+                    
+                }
+            </div>
         <!-- End Masonry Grid -->
         <!-- Button -->
-        <div class="center-block">
-            <a class="btn-white-bg btn-base-md radius-3" href="shortcodes_news.html">View More</a>
-        </div>
-        <div class="pagination">
-            @{
-            int totalpage = ViewBag.SumPage;
-            int currentpage = ViewBag.CurrentPage;
-            int range = 9;
-            int mid = 5;
-            int startpage, endpage;
-            if (totalpage < mid)
-            {
-                startpage = 1;
-                endpage = totalpage;
-            }
-            else
-            {
-                startpage = currentpage - mid + 1;
-                endpage = currentpage + mid - 1;
-                if (startpage < 1)
-                {
-                    startpage = 1;
-                    endpage = range;
-                }
-                else if (endpage > totalpage)
-                {
-                    endpage = totalpage;
-                    startpage = totalpage - range + 1;
-                }
-            }
-
-            if (startpage > 1)
-            {
-                if (ViewBag.Type != null)
-                {
-                    @Html.ActionLink("Đầu", (string)@ViewBag.Page, "home", new { id = 1, type = ViewBag.Type }, new { @class = "page-numbers" })
-                }
-                else
-                {
-                    <a class="next page-numbers" href="@Url.Action(@ViewBag.Page+"/1", "home")">« Đầu</a>
-                }
-            }
-
-            for (int i = startpage; i <= endpage; i++)
-            {
-                if (i == currentpage)
-                {
-                    <span class="page-numbers current">@i</span>
-                }
-                else
-                {
-                    if (ViewBag.Type != null)
-                    {
-                        @Html.ActionLink(i.ToString(), (string)@ViewBag.Page, "home", new { id = i, type = ViewBag.Type }, new { @class = "page-numbers" })
-                    }
-                    else
-                    {
-                        @Html.ActionLink(i.ToString(), (string)@ViewBag.Page + "/" + i, null, new { @class = "page-numbers" })
-                    }
-                }
-            }
-            if (endpage < totalpage)
-            {
-                if (ViewBag.Type != null)
-                {
-                    @Html.ActionLink((endpage + 1).ToString(), (string)@ViewBag.Page, "home", new { id = (endpage + 1), type = ViewBag.Type }, new { @class = "page-numbers" })
-
-                }
-                else
-                {
-                    <a class="next page-numbers" href="@Url.Action(@ViewBag.Page + "rendernewspage/" + @endpage + 1, "home")">Tới »</a>
-                }
-            }
-
-
-            }
-        </div>
+            <div class="center-block">
+                @Html.PagedListPager(Model, page => Url.Action(ViewBag.Action, new { page, type=ViewBag.type }))
+            </div>
+            
         <!-- Button -->
+
+        }
+        else
+        {
+            <p>Không tìm thấy yêu cầu truy vấn</p>
+        }
     </div>
 </div>
-}
-else
-{
-    <p>Không tìm thấy yêu cầu truy vấn</p>
-}
-
-

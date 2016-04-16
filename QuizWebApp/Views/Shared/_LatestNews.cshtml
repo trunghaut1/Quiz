@@ -1,23 +1,33 @@
 ﻿@model List<Core.Model.News>
-@{if (Model.Count > 0)
+@if (Model.Count > 0)
 {
-    foreach (Core.Model.News news in Model)
-    {
-        string src = "";
-        if (news.img_link != null)
-        {
-            src = news.img_link;
-        }
-        <a href="@Url.Action("newsid/"+news.id,"home")">
-            <img width="150" height="150" src="@src" class="thumbnail wp-post-image" alt="@news.title">
-
-            <h2 class="title">@news.title</h2>
-
-            <div class="date">
-                <i class="fa fa-clock-o"></i> @news.date &nbsp;
-                <i class="fa fa-eye"></i> @news.view_count &nbsp;
+    <div class="col-md-3">
+        <!-- Blog Sidebar -->
+        <div class="blog-sidebar margin-b-30">
+            <div class="blog-sidebar-heading">
+                <i class="blog-sidebar-heading-icon icon-book-open"></i>
+                <h4 class="blog-sidebar-heading-title">Bài viết gần đây</h4>
             </div>
-        </a>
-    }
-}
+            <div class="blog-sidebar-content blog-sidebar-content-height scrollbar">
+                <!-- Latest Tutorials -->
+                @foreach (Core.Model.News news in Model)
+                {
+                    string src = "";
+                    if (news.img_link != null)
+                    {
+                        src = news.img_link;
+                    }
+                    <article class="latest-tuts">
+                        <div class="latest-tuts-media">
+                            <img class="latest-tuts-media-img radius-circle" src="@src" alt="">
+                        </div>
+                        <div class="latest-tuts-content">
+                            <h5 class="latest-tuts-content-title"><a href="@Url.Action("newsid/"+news.id,"home")">@news.title</a></h5>
+                            <small class="latest-tuts-content-time">@news.date.ToString("dd-MM-yyyy")</small>
+                        </div>
+                    </article>
+                }
+            </div>
+        </div>
+    </div>
 }

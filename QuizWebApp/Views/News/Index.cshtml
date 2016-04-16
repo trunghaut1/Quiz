@@ -3,13 +3,10 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
+<table class="table table-striped table-responsive">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.title)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.video_link)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.img_link)
@@ -33,9 +30,6 @@
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.title)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.video_link)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.img_link)
