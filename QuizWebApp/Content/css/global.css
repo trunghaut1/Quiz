@@ -25565,13 +25565,13 @@ fieldset[disabled] .btn-ig-bg {
   outline: none;
 }
 
-.checkbox input[type="checkbox"]:checked + label:before,
+.checkbox input[type="checkbox"]:checked + input[type="hidden"] + label:before,
 .checkbox input[type="radio"]:checked + label:before {
   background: #00bcd4;
   border-color: #00bcd4;
 }
 
-.checkbox input[type="checkbox"]:checked + label:after,
+.checkbox input[type="checkbox"]:checked + input[type="hidden"] + label:after,
 .checkbox input[type="radio"]:checked + label:after {
   font-family: FontAwesome;
   color: #fff;
