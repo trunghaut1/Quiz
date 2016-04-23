@@ -15,7 +15,7 @@ namespace Core.Controller
                 origen.NumAnswer += info.NumAnswer;
                 origen.NumAnswerTrue += info.NumAnswerTrue;
                 origen.TimeUse += info.TimeUse;
-                DataHelper<Entities, Info>.Add(info);
+                DataHelper<Entities, Info>.AddOrUpdate(info);
                 return true;
             }
 
