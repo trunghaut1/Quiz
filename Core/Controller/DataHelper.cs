@@ -42,6 +42,7 @@ namespace Core.Controller
         public static void Edit(TEntity entity)
         {
             _context.Entry<TEntity>(entity).State = EntityState.Modified;
+            _context.SaveChanges();
         }
         public static IQueryable<TEntity> FindBy(System.Linq.Expressions.Expression<Func<TEntity, bool>> predicate)
         {

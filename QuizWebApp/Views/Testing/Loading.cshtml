@@ -77,7 +77,7 @@
         $("input[type=submit]").prop("disabled", true);
         $("input[type=radio]").prop("disabled", true);
         @*Trigger the modal with a button*@
-        $("#page-content").append('<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>');
+        $("#page-content").append('<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Xem điểm</button>');
         $("#page-content").append('<div id="myModal" class="modal fade" role="dialog">' +
                                     '<div class="modal-dialog">' +
                                         '<div class="modal-content">' +
@@ -94,6 +94,7 @@
                                         '</div>' +
                                     '</div>' +
                                 '</div>');
+        $('#myModal').modal('show');
     }
     function failure() {
         alert("lỗi rồi");
