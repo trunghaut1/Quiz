@@ -981,7 +981,7 @@ website:   	http://www.themepunch.com
 	border-style:none;
 	border-width:0;
 	color:rgba(230,207,163,1.00);
-	font-family:Raleway;
+	
 	font-size:160px;
 	font-style:normal;
 	font-weight:300;
@@ -1000,7 +1000,7 @@ website:   	http://www.themepunch.com
 	border-width:0;
 	box-shadow:rgba(0,0,0,0.1) 0 1px 3px;
 	color:rgba(230,207,163,1.00);
-	font-family:Raleway;
+	
 	font-size:20px;
 	font-style:normal;
 	font-weight:400;
@@ -1018,7 +1018,7 @@ website:   	http://www.themepunch.com
 	border-style:none;
 	border-width:0;
 	color:rgba(0,0,0,1.00);
-	font-family:Raleway;
+	
 	font-size:20px;
 	font-style:normal;
 	font-weight:700;
@@ -1037,7 +1037,7 @@ website:   	http://www.themepunch.com
 	border-style:none;
 	border-width:0;
 	color:rgba(0,0,0,1.00);
-	font-family:Raleway;
+	
 	font-size:17px;
 	font-style:normal;
 	font-weight:300;
@@ -1055,7 +1055,7 @@ website:   	http://www.themepunch.com
 	border-style:none;
 	border-width:0;
 	color:rgba(255,255,255,1.00);
-	font-family:Raleway;
+	
 	font-size:80px;
 	font-style:normal;
 	font-weight:900;
@@ -1072,7 +1072,7 @@ website:   	http://www.themepunch.com
 	border-style:none;
 	border-width:0;
 	color:rgba(255,255,255,1.00);
-	font-family:Raleway;
+	
 	font-size:30px;
 	font-style:normal;
 	font-weight:100;
@@ -1090,7 +1090,7 @@ website:   	http://www.themepunch.com
 	border-style:none;
 	border-width:0;
 	color:rgba(255,255,255,1.00);
-	font-family:Raleway;
+	
 	font-size:17px;
 	font-style:normal;
 	font-weight:300;
@@ -1108,7 +1108,7 @@ website:   	http://www.themepunch.com
 	border-style:none;
 	border-width:0;
 	color:rgba(255,255,255,1.00);
-	font-family:Raleway;
+	
 	font-size:12px;
 	font-style:normal;
 	font-weight:600;
@@ -1126,7 +1126,7 @@ website:   	http://www.themepunch.com
 	border-style:none;
 	border-width:0;
 	color:rgba(0,0,0,1.00);
-	font-family:Raleway;
+	
 	font-size:60px;
 	font-style:normal;
 	font-weight:900;
@@ -1144,7 +1144,7 @@ website:   	http://www.themepunch.com
 	border-style:none;
 	border-width:0;
 	color:rgba(0,0,0,1.00);
-	font-family:Raleway;
+	
 	font-size:20px;
 	font-style:normal;
 	font-weight:400;
@@ -1162,7 +1162,7 @@ website:   	http://www.themepunch.com
 	border-style:none;
 	border-width:0;
 	color:rgba(255,255,255,1.00);
-	font-family:Raleway;
+	
 	font-size:130px;
 	font-style:normal;
 	font-weight:100;
@@ -1180,7 +1180,7 @@ website:   	http://www.themepunch.com
 	border-style:none;
 	border-width:0;
 	color:rgba(255,255,255,1.00);
-	font-family:Raleway;
+	
 	font-size:130px;
 	font-style:normal;
 	font-weight:900;
@@ -1197,7 +1197,7 @@ website:   	http://www.themepunch.com
 	border-style:none;
 	border-width:0;
 	color:rgba(0,0,0,1.00);
-	font-family:Raleway;
+	
 	font-size:32px;
 	font-style:normal;
 	font-weight:400;
@@ -1277,7 +1277,7 @@ website:   	http://www.themepunch.com
 	border-style:none;
 	border-width:0;
 	color:rgba(255,255,255,1.00);
-	font-family:Raleway;
+	
 	font-size:80px;
 	font-style:normal;
 	font-weight:100;
@@ -1295,7 +1295,7 @@ website:   	http://www.themepunch.com
 	border-style:none;
 	border-width:0;
 	color:rgba(119,119,119,1.00);
-	font-family:Raleway;
+	
 	font-size:20px;
 	font-style:normal;
 	font-weight:300;
@@ -1340,7 +1340,7 @@ website:   	http://www.themepunch.com
 	border-style:none;
 	border-width:0;
 	color:rgba(255,255,255,1.00);
-	font-family:Raleway;
+	
 	font-size:20px;
 	font-style:normal;
 	font-weight:300;
@@ -1369,7 +1369,7 @@ website:   	http://www.themepunch.com
 	border-style:none;
 	border-width:0;
 	color:rgba(255,255,255,1.00);
-	font-family:Raleway;
+	
 	font-size:17px;
 	font-style:normal;
 	font-weight:300;
@@ -1387,7 +1387,7 @@ website:   	http://www.themepunch.com
 	border-style:none;
 	border-width:0;
 	color:rgba(255,255,255,0.35);
-	font-family:Raleway;
+	
 	font-size:20px;
 	font-style:normal;
 	font-weight:300;
@@ -1433,10 +1433,9 @@ website:   	http://www.themepunch.com
 	border-style:none;
 	border-width:0;
 	color:rgba(51,51,51,1.00);
-	font-family:Raleway;
 	font-size:90px;
 	font-style:normal;
-	font-weight:100;
+	font-weight:300;
 	line-height:90px;
 	padding:0;
 	text-decoration:none;
@@ -1450,7 +1449,6 @@ website:   	http://www.themepunch.com
 	border-style:none;
 	border-width:0;
 	color:rgba(153,153,153,1.00);
-	font-family:Raleway;
 	font-size:15px;
 	font-style:normal;
 	font-weight:400;
@@ -1467,7 +1465,6 @@ website:   	http://www.themepunch.com
 	border-style:none;
 	border-width:0;
 	color:rgba(153,153,153,1.00);
-	font-family:Raleway;
 	font-size:16px;
 	font-style:normal;
 	font-weight:600;
@@ -1484,7 +1481,6 @@ website:   	http://www.themepunch.com
 	border-style:none;
 	border-width:0;
 	color:rgba(255,255,255,1.00);
-	font-family:Raleway;
 	font-size:15px;
 	font-style:normal;
 	font-weight:500;
@@ -1514,7 +1510,6 @@ website:   	http://www.themepunch.com
 	border-style:none;
 	border-width:0;
 	color:rgba(255,255,255,1.00);
-	font-family:Raleway;
 	font-size:90px;
 	font-style:normal;
 	font-weight:100;
@@ -1532,7 +1527,6 @@ website:   	http://www.themepunch.com
 	border-style:none;
 	border-width:0;
 	color:rgba(255,255,255,0.35);
-	font-family:Raleway;
 	font-size:15px;
 	font-style:normal;
 	font-weight:400;
@@ -1550,7 +1544,6 @@ website:   	http://www.themepunch.com
 	border-style:none;
 	border-width:0;
 	color:rgba(255,255,255,0.65);
-	font-family:Raleway;
 	font-size:16px;
 	font-style:normal;
 	font-weight:600;
@@ -1568,7 +1561,6 @@ website:   	http://www.themepunch.com
 	border-style:none;
 	border-width:0;
 	color:rgba(255,255,255,1.00);
-	font-family:Raleway;
 	font-size:30px;
 	font-style:normal;
 	font-weight:900;
@@ -1598,7 +1590,6 @@ website:   	http://www.themepunch.com
 	border-style:none;
 	border-width:0;
 	color:rgba(255,255,255,1.00);
-	font-family:Raleway;
 	font-size:70px;
 	font-style:normal;
 	font-weight:800;
@@ -1615,7 +1606,7 @@ website:   	http://www.themepunch.com
 	border-style:none;
 	border-width:0;
 	color:rgba(255,255,255,1.00);
-	font-family:Raleway;
+	
 	font-size:13px;
 	font-style:normal;
 	font-weight:500;
@@ -1634,7 +1625,7 @@ website:   	http://www.themepunch.com
 	border-style:solid;
 	border-width:1px;
 	color:rgba(255,255,255,1.00);
-	font-family:Raleway;
+	
 	font-size:14px;
 	font-style:normal;
 	font-weight:500;
@@ -1664,7 +1655,7 @@ website:   	http://www.themepunch.com
 	border-style:solid;
 	border-width:0;
 	color:rgba(255,255,255,1.00);
-	font-family:Raleway;
+	
 	font-size:30px;
 	font-style:normal;
 	font-weight:400;
@@ -1683,7 +1674,7 @@ website:   	http://www.themepunch.com
 	border-style:solid;
 	border-width:1px;
 	color:rgba(255,255,255,1.00);
-	font-family:Raleway;
+	
 	font-size:14px;
 	font-style:normal;
 	font-weight:500;
@@ -1731,7 +1722,7 @@ website:   	http://www.themepunch.com
 	border-style:solid;
 	border-width:2px;
 	color:rgba(255,255,255,1.00);
-	font-family:Raleway;
+	
 	font-size:20px;
 	font-style:normal;
 	font-weight:300;
@@ -1845,7 +1836,7 @@ website:   	http://www.themepunch.com
 	border-style:solid;
 	border-width:1px;
 	color:rgba(255,255,255,1.00);
-	font-family:Raleway;
+	
 	font-size:14px;
 	font-style:normal;
 	font-weight:500;
@@ -1875,7 +1866,7 @@ website:   	http://www.themepunch.com
 	border-style:none;
 	border-width:0;
 	color:rgba(255,255,255,1.00);
-	font-family:Raleway;
+	
 	font-size:30px;
 	font-style:normal;
 	font-weight:900;
@@ -1893,7 +1884,7 @@ website:   	http://www.themepunch.com
 	border-style:none;
 	border-width:0;
 	color:rgba(255,255,255,1.00);
-	font-family:Raleway;
+	
 	font-size:12px;
 	font-style:normal;
 	font-weight:600;
@@ -1912,7 +1903,7 @@ website:   	http://www.themepunch.com
 	border-style:solid;
 	border-width:1px;
 	color:rgba(255,255,255,1.00);
-	font-family:Raleway;
+	
 	font-size:14px;
 	font-style:normal;
 	font-weight:500;
@@ -1942,7 +1933,7 @@ website:   	http://www.themepunch.com
 	border-style:solid;
 	border-width:1px;
 	color:rgba(255,255,255,1.00);
-	font-family:Raleway;
+	
 	font-size:14px;
 	font-style:normal;
 	font-weight:500;
@@ -1972,7 +1963,7 @@ website:   	http://www.themepunch.com
 	border-style:none;
 	border-width:2px;
 	color:rgba(255,255,255,1.00);
-	font-family:Raleway;
+	
 	font-size:16px;
 	font-style:normal;
 	font-weight:600;
@@ -2032,7 +2023,7 @@ website:   	http://www.themepunch.com
 	border-style:solid;
 	border-width:0;
 	color:rgba(255,255,255,1.00);
-	font-family:Raleway;
+	
 	font-size:15px;
 	font-style:normal;
 	font-weight:600;
@@ -2062,7 +2053,7 @@ website:   	http://www.themepunch.com
 	border-style:solid;
 	border-width:2px;
 	color:rgba(255,255,255,1.00);
-	font-family:Raleway;
+	
 	font-size:15px;
 	font-style:normal;
 	font-weight:600;
@@ -2091,7 +2082,7 @@ website:   	http://www.themepunch.com
 	border-style:solid;
 	border-width:2px;
 	color:rgba(255,255,255,1.00);
-	font-family:Raleway;
+	
 	font-size:17px;
 	font-style:normal;
 	font-weight:600;
@@ -2121,7 +2112,7 @@ website:   	http://www.themepunch.com
 	border-style:solid;
 	border-width:2px;
 	color:rgba(255,255,255,1.00);
-	font-family:Raleway;
+	
 	font-size:17px;
 	font-style:normal;
 	font-weight:600;
@@ -2151,7 +2142,7 @@ website:   	http://www.themepunch.com
 	border-style:solid;
 	border-width:1px;
 	color:rgba(255,255,255,1.00);
-	font-family:Raleway;
+	
 	font-size:15px;
 	font-style:normal;
 	font-weight:600;
@@ -2538,7 +2529,7 @@ website:   	http://www.themepunch.com
     line-height: 100px;
     font-weight: 800;
     font-style: normal;
-    font-family: Raleway;
+    
     padding: 10px 0px 10px 0;
     text-decoration: none;
     background-color: transparent;
@@ -2555,7 +2546,7 @@ website:   	http://www.themepunch.com
     line-height: 24px;
     font-weight: 500;
     font-style: normal;
-    font-family: Raleway;
+    
     padding: 0 0 0 0px;
     text-decoration: none;
     background-color: transparent;
@@ -2573,7 +2564,7 @@ website:   	http://www.themepunch.com
     line-height: 13px;
     font-weight: 500;
     font-style: normal;
-    font-family: Raleway;
+    
     padding: 15px 50px 15px 50px;
     text-decoration: none;
     background-color: rgba(0, 0, 0, 0);
@@ -2601,7 +2592,7 @@ website:   	http://www.themepunch.com
     line-height: 28px;
     font-weight: 500;
     font-style: normal;
-    font-family: Raleway;
+    
     padding: 30px 30px 30px 30px;
     text-decoration: none;
     background-color: rgba(255, 255, 255, 1.00);
@@ -2618,7 +2609,7 @@ website:   	http://www.themepunch.com
     line-height: 13px;
     font-weight: 700;
     font-style: normal;
-    font-family: Raleway;
+    
     padding: 15px 70px 15px 50px;
     text-decoration: none;
     background-color: rgba(255, 255, 255, 1.00);
@@ -2646,7 +2637,7 @@ website:   	http://www.themepunch.com
     line-height: 20px;
     font-weight: 700;
     font-style: normal;
-    font-family: Raleway;
+    
     padding: 14px 14px 14px 16px;
     text-decoration: none;
     background-color: rgba(0, 0, 0, 0);
@@ -2674,7 +2665,7 @@ website:   	http://www.themepunch.com
     line-height: 12px;
     font-weight: 600;
     font-style: normal;
-    font-family: Raleway;
+    
     padding: 5px 5px 5px 5px;
     text-decoration: none;
     background-color: rgba(0, 0, 0, 0.35);
@@ -2692,7 +2683,7 @@ website:   	http://www.themepunch.com
     line-height: 30px;
     font-weight: 900;
     font-style: normal;
-    font-family: Raleway;
+    
     padding: 5px 5px 5px 5px;
     text-decoration: none;
     background-color: rgba(0, 0, 0, 1.00);
@@ -2773,7 +2764,7 @@ website:   	http://www.themepunch.com
     line-height: 70px;
     font-weight: 800;
     font-style: normal;
-    font-family: Raleway;
+    
     padding: 0px 0px 0px 0;
     text-decoration: none;
     background-color: transparent;
@@ -2790,7 +2781,7 @@ website:   	http://www.themepunch.com
     line-height: 20px;
     font-weight: 700;
     font-style: normal;
-    font-family: Raleway;
+    
     padding: 20px 50px 20px 50px;
     text-decoration: none;
     background-color: rgba(0, 0, 0, 0);
@@ -2818,7 +2809,7 @@ website:   	http://www.themepunch.com
     line-height: 20px;
     font-weight: 400;
     font-style: normal;
-    font-family: Raleway;
+    
     padding: 0 0 0 0px;
     text-decoration: none;
     background-color: transparent;
@@ -2840,7 +2831,7 @@ website:   	http://www.themepunch.com
     line-height: 45px;
     font-weight: 600;
     font-style: normal;
-    font-family: Raleway;
+    
     padding: 0 0 0 0px;
     text-decoration: none;
     background-color: transparent;
@@ -2857,7 +2848,7 @@ website:   	http://www.themepunch.com
     line-height: 24px;
     font-weight: 600;
     font-style: normal;
-    font-family: Raleway;
+    
     padding: 0 0 0 0px;
     text-decoration: none;
     background-color: transparent;
@@ -2874,7 +2865,7 @@ website:   	http://www.themepunch.com
     line-height: 20px;
     font-weight: 400;
     font-style: normal;
-    font-family: Raleway;
+    
     padding: 10px 10px 10px 10px;
     text-decoration: none;
     background-color: transparent;
@@ -2901,7 +2892,7 @@ website:   	http://www.themepunch.com
     line-height: 70px;
     font-weight: 500;
     font-style: normal;
-    font-family: Raleway;
+    
     padding: 0 0 0 0px;
     text-decoration: none;
     background-color: transparent;
@@ -2918,7 +2909,7 @@ website:   	http://www.themepunch.com
     line-height: 25px;
     font-weight: 500;
     font-style: normal;
-    font-family: Raleway;
+    
     padding: 0 0 0 0px;
     text-decoration: none;
     background-color: transparent;
@@ -2935,7 +2926,7 @@ website:   	http://www.themepunch.com
     line-height: 28px;
     font-weight: 500;
     font-style: normal;
-    font-family: Raleway;
+    
     padding: 0 0 0 0px;
     text-decoration: none;
     background-color: transparent;
@@ -2952,7 +2943,7 @@ website:   	http://www.themepunch.com
     line-height: 13px;
     font-weight: 700;
     font-style: normal;
-    font-family: Raleway;
+    
     padding: 15px 50px 15px 50px;
     text-decoration: none;
     background-color: rgba(0, 0, 0, 0);
@@ -2980,7 +2971,7 @@ website:   	http://www.themepunch.com
     line-height: 13px;
     font-weight: 700;
     font-style: normal;
-    font-family: Raleway;
+    
     padding: 14px 14px 14px 16px;
     text-decoration: none;
     background-color: rgba(0, 0, 0, 0);
@@ -3734,7 +3725,7 @@ website:   	http://www.themepunch.com
         line-height: 20px;
         font-weight: 400;
         font-style: normal;
-        font-family: Raleway;
+        
         padding: 11px 8px 11px 12px;
         text-decoration: none;
         text-align: left;

@@ -45,7 +45,7 @@
                 <!-- End Navbar Actions -->
                 <!-- Logo -->
                 <div class="navbar-logo">
-                    <a class="navbar-logo-wrap" href="home/index">
+                    <a class="navbar-logo-wrap" href="~/">
                         @if (full.Equals("home/index", StringComparison.OrdinalIgnoreCase))
                         {
                             <img class="navbar-logo-img navbar-logo-img-white" src="~/Images/logo-default-white.png" alt="Ark">
@@ -73,7 +73,7 @@
                             <ul class="dropdown-menu">
                                 <!-- Default -->
                                 <li class="dropdown-menu-item">
-                                    @Html.ActionLink("Mặc định", "index", "home", new { @class = "dropdown-menu-item-child active" })
+                                    <a class="dropdown-menu-item-child" href="~/">Mặc định</a>
                                 </li>
                                 <li class="dropdown-menu-item">
                                     <a class="dropdown-menu-item-child" href="#">Slider</a>
