@@ -1,20 +1,22 @@
 ﻿@model List<Core.Model.Staff>
 @if (Model.Count > 0)
 {
-    <div class="content-md container">
-        <!-- Heading v1 -->
-        <div class="heading-v1 text-center margin-b-80">
-            <h2 class="heading-v1-title">Gặp mặt những con người đầy đam mê</h2>
-            <p class="heading-v1-text">Chúng tôi là những con người đầy tham vọng, ngoài điều đó ra chúng tôi khá đơn giản =))</p>
+    <div class="banner-img-v3-6 bg-position-fixed">
+        <div class="content-sm container">
+            <div class="heading-v2 text-center">
+                <h2 class="heading-v2-title text-white">Gặp mặt những con người đầy đam mê</h2>
+                <p class="heading-v2-text text-white">Chúng tôi là những con người đầy tham vọng, ngoài điều đó ra chúng tôi khá đơn giản =))</p>
+            </div>
         </div>
-        <!-- End Heading v1 -->
+    </div>
+    <div class="content-md container">
         <!-- Team v6 -->
         <div class="row">
             @foreach(Core.Model.Staff staff in Model)
             {
             <div class="col-sm-3 sm-margin-b-30">
                 <!-- Team v6 -->
-                <div class="team-v6">
+                <div class="team-v6 wow zoomInDown animated">
                     <div class="team-v6-img-gradient">
                         <img class="full-width img-responsive" src="@staff.img_link" alt="@staff.img_link">
                     </div>

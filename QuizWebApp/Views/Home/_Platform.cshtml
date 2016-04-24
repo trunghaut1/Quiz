@@ -10,14 +10,14 @@
         <div class="row space-row-10">
             <div class="col-md-4 md-margin-b-20">
                 <!-- Services v1 -->
-                <section class="services-v1">
+                <section class="services-v1 wow fadeInUp animated" data-wow-delay=".3s">
                     <div class="margin-b-50">
                         <div class="services-v1-icon-wrap radius-circle">
-                            <img class="services-v1-icon" src="~/Images/icons/04.png" alt="">
+                            <img class="services-v1-icon" src="~/Images/icons/01.png" alt="">
                         </div>
                         <span class="services-v1-subtitle color-base">Trải nghiệm mới</span>
-                        <h3 class="services-v1-title">For Desktop</h3>
-                        <p class="services-v1-text">Tải về dùng trên desktop</p>
+                        <h3 class="services-v1-title">Phiên bản Desktop</h3>
+                        <p class="services-v1-text">Ứng dụng chạy trên hệ điều hành Windows, giao diện trực quan, gọn nhẹ</p>
                     </div>
                     @if (ViewBag.idDesktop != null)
                     {
@@ -33,14 +33,14 @@
             </div>
             <div class="col-md-4 md-margin-b-20">
                 <!-- Services v1 -->
-                <section class="services-v1">
+                <section class="services-v1 wow fadeInUp animated" data-wow-delay=".6s">
                     <div class="margin-b-50">
                         <div class="services-v1-icon-wrap radius-circle">
-                            <img class="services-v1-icon" src="~/Images/icons/03.png" alt="">
+                            <img class="services-v1-icon" src="~/Images/icons/02.png" alt="">
                         </div>
                         <span class="services-v1-subtitle color-red">Điều đặc biệt</span>
                         <h3 class="services-v1-title">Trải nghiệm trực tuyến</h3>
-                        <p class="services-v1-text">Sử dụng mọi lúc mọi nơi :)</p>
+                        <p class="services-v1-text">Ứng dụng trên nền web, sử dụng mọi lúc mọi nơi</p>
                     </div>
                     <a href="/testing/index" class="btn-red-bg btn-base-sm radius-3">Thử ngay</a>
                 </section>
@@ -48,22 +48,22 @@
             </div>
             <div class="col-md-4">
                 <!-- Services v1 -->
-                <section class="services-v1">
+                <section class="services-v1 wow fadeInUp animated" data-wow-delay=".9s">
                     <div class="margin-b-50">
                         <div class="services-v1-icon-wrap radius-circle">
-                            <img class="services-v1-icon" src="~/Images/icons/02.png" alt="">
+                            <img class="services-v1-icon" src="~/Images/icons/03.png" alt="">
                         </div>
                         <span class="services-v1-subtitle color-teal">Đa nền tảng</span>
-                        <h3 class="services-v1-title">For Mobile</h3>
-                        <p class="services-v1-text">Trải nghiệm ngay trên điện thoại của mình</p>
+                        <h3 class="services-v1-title">Phiên bản Mobile</h3>
+                        <p class="services-v1-text">Ứng dụng cho Android, trải nghiệm ngay trên điện thoại của mình</p>
                     </div>
                     @if (ViewBag.idAndroid != null)
                     {
-                        @Html.ActionLink("Tải về", "newsid", new { @id = ViewBag.idAndroid }, new { @class = "btn-base-bg btn-base-sm radius-3" })
+                        @Html.ActionLink("Tải về", "newsid", new { @id = ViewBag.idAndroid }, new { @class = "btn-teal-bg btn-base-sm radius-3" })
                     }
                     else
                     {
-                        <a href="#" class="btn-base-bg btn-base-sm radius-3">Tải về</a>
+                        <a href="#" class="btn-teal-bg btn-base-sm radius-3">Tải về</a>
                     }
 
                 </section>

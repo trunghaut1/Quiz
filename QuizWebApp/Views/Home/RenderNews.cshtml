@@ -1,23 +1,23 @@
 ﻿@model PagedList.IPagedList<Core.Model.News>
 @using PagedList.Mvc;
 @{ViewBag.Title = "Tin tức";}
+<div class="banner-img-v3 bg-position-fixed">
+    <div class="content-sm container">
+        <div class="heading-v2 text-center">
+            <h2 class="heading-v2-title text-white">Tin tức</h2>
+            <p class="heading-v2-text text-white">Đừng bỏ lỡ những thông tin cập nhật quan trọng</p>
+        </div>
+    </div>
+    </div>
 <div class="bg-color-sky-light">
     <div class="content-md container">
         @if (Model.Count > 0)
         {
-
-
-        <!-- Heading v1 -->
-            <div class="heading-v1 text-center margin-b-80">
-                <h2 class="heading-v1-title">Luôn Cập Nhật Thông Tin</h2>
-                <p class="heading-v1-text">Đây là những tin tức mới của chúng ta</p>
-            </div>
-        <!-- End Heading v1 -->
         <!-- Masonry Grid -->
             <div class="masonry-grid margin-b-40">
                 @foreach (Core.Model.News news in Model)
                 {
-                    <div class="masonry-grid-item col-3">
+                    <div class="masonry-grid-item col-3 wow zoomIn animated">
                         <!-- News v1 -->
                         <article class="news-v1">
                             <div class="news-v1-heading">

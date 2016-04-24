@@ -12874,6 +12874,25 @@ fieldset[disabled] .btn-ig-bg {
   content: " ";
 }
 
+.banner-img-v3-6 {
+  position: relative;
+  z-index: 1;
+  background: url(../../../../Images/1920x1080/06.jpg) no-repeat;
+  background-size: cover;
+  background-position: 50% 0;
+}
+
+.banner-img-v3-6:before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  background: rgba(52, 52, 60, 0.3);
+  content: " ";
+}
+
 /*------------------------------------------------------------------
     [Banner Image v4]
 ------------------------------------------------------------------*/
@@ -29337,4 +29356,8 @@ fieldset[disabled] .btn-ig-bg {
 
 .radius-circle {
   border-radius: 50% !important;
+}
+
+.text-white {
+    color: white;
 }
