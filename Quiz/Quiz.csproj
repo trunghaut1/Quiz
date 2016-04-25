@@ -236,7 +236,6 @@
     <Resource Include="Images\bookmark.png" />
     <Resource Include="Images\bronze.png" />
     <Resource Include="Images\choice.jpg" />
-    <Resource Include="Images\cnpm.jpg" />
     <Resource Include="Images\credits.gif" />
     <Resource Include="Images\diamond.png" />
     <Resource Include="Images\edit.png" />
@@ -250,12 +249,10 @@
     <Resource Include="Images\next.png" />
     <Resource Include="Images\platium.png" />
     <Resource Include="Images\previous.png" />
-    <Resource Include="Images\qtm.jpg" />
     <Resource Include="Images\sgu.jpg" />
     <Resource Include="Images\sgu3.jpg" />
     <Resource Include="Images\sliver.png" />
     <Resource Include="Images\start.png" />
-    <Resource Include="Images\testing.png" />
     <Resource Include="Images\tinhdiem.jpg" />
     <Resource Include="Images\tinhdiem1.jpg" />
   </ItemGroup>
@@ -315,14 +312,10 @@
     <Resource Include="favicon.ico" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\opensouce.gif" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Images\anninhmang.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\background_subject.jpg" />
-    <Resource Include="Images\ecommerce.jpg" />
     <Resource Include="Images\loading.gif" />
     <Resource Include="Images\maclennin.jpg" />
     <Resource Include="Images\nhapmonmaytinh.jpg" />
@@ -334,6 +327,15 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\LogoSGU.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\subject\cnpm.jpg" />
+    <Resource Include="Images\subject\opensource.jpg" />
+    <Resource Include="Images\subject\qtm.jpg" />
+    <Resource Include="Images\subject\testing.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\subject\tmdt.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
