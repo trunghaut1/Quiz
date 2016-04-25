@@ -1,11 +1,18 @@
 ﻿@model PagedList.IPagedList<Core.Model.News>
 @using PagedList.Mvc;
 @{ViewBag.Title = "Tin tức";}
+@{ 
+    string nameOfActionCallThisView = ViewContext.RouteData.GetRequiredString("action");
+    string nameOfControllerCallThisView = ViewContext.RouteData.GetRequiredString("controller");
+    string full = nameOfControllerCallThisView + "/" + nameOfActionCallThisView;
+    string head;
+    if(full.Equals("home/cat", StringComparison.OrdinalIgnoreCase)) { head = "lg"; } else { head = "sm"; }
+}
 <div class="banner-img-v3 bg-position-fixed">
-    <div class="content-sm container">
+    <div class="content-@head container">
         <div class="heading-v2 text-center">
-            <h2 class="heading-v2-title text-white">Tin tức</h2>
-            <p class="heading-v2-text text-white">Đừng bỏ lỡ những thông tin cập nhật quan trọng</p>
+            <h2 class="heading-v2-title text-white wow fadeInUp animated">Tin tức</h2>
+            <p class="heading-v2-text text-white wow flipInY animated">Đừng bỏ lỡ những thông tin cập nhật quan trọng</p>
         </div>
     </div>
     </div>

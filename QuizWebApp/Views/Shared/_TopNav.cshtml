@@ -3,7 +3,7 @@
     string nameOfControllerCallThisView = ViewContext.RouteData.GetRequiredString("controller");
     string full = nameOfControllerCallThisView + "/" + nameOfActionCallThisView;
 }
-<header class="@{if (full.Equals("home/index", StringComparison.OrdinalIgnoreCase)){<text>header-center-aligned-transparent header-transparent-bb navbar-fixed-top</text>} else {<text>header-center-aligned header header-fixed</text>}} header-sticky">
+<header class="header-center-aligned-transparent navbar-fixed-top header-sticky">
     <!-- Navbar -->
     <nav class="navbar mega-menu" role="navigation">
         <div class="container">

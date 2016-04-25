@@ -15,6 +15,7 @@ namespace QuizWebApp.Controllers
         {
             Core.Controller.SubjectHandle ctr = new Core.Controller.SubjectHandle();
             List<Core.Model.Subject> _list = ctr.GetAllSubject();
+            List<Core.Model.SubButton> _btn = ctr.GetAllSubjectButton();
             IEnumerable<SelectListItem> items = from c in _list
                                                 select new SelectListItem
                                                 {
@@ -22,7 +23,7 @@ namespace QuizWebApp.Controllers
                                                     Text = c.SubName
                                                 };
             ViewData["items"] = items;
-            return View();
+            return View(_btn);
         }
         [Authorize]
         [HttpPost]

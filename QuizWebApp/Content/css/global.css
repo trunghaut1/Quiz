@@ -3217,7 +3217,7 @@ h1 > a:focus, h2 > a:focus, h3 > a:focus, h4 > a:focus, h5 > a:focus, h6 > a:foc
   background: url(../../Images/1920x1080/48.jpg) no-repeat;
   background-size: cover;
   background-position: 50% 20%;
-  padding: 170px 0 100px;
+  padding: 150px 0 80px;
 }
 
 .breadcrumbs-v5:before {
@@ -12864,25 +12864,6 @@ fieldset[disabled] .btn-ig-bg {
 }
 
 .banner-img-v3:before {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1;
-  width: 100%;
-  height: 100%;
-  background: rgba(52, 52, 60, 0.3);
-  content: " ";
-}
-
-.banner-img-v3-6 {
-  position: relative;
-  z-index: 1;
-  background: url(../../../../Images/1920x1080/06.jpg) no-repeat;
-  background-size: cover;
-  background-position: 50% 0;
-}
-
-.banner-img-v3-6:before {
   position: absolute;
   top: 0;
   left: 0;
@@ -25597,6 +25578,74 @@ fieldset[disabled] .btn-ig-bg {
   content: "\f00c";
 }
 
+/**/
+.radio {
+  padding-left: 21px;
+  text-align: left;
+  margin: 10px 0px;
+}
+
+.radio label {
+  display: inline-block;
+  font-size: 15px;
+  font-weight: 300;
+  vertical-align: middle;
+  position: relative;
+  padding-left: 5px;
+}
+
+.radio label:before {
+  position: absolute;
+  left: 0;
+  width: 17px;
+  height: 17px;
+  display: inline-block;
+  background: #fff;
+  border: 1px solid #e0e5f1;
+  border-radius: 8px;
+  content: " ";
+  margin-left: -20px;
+  transition-duration: 200ms;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.7, 1, 0.7, 1);
+}
+
+.radio label:after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  font-size: 11px;
+  color: #606060;
+  margin-left: -16px;
+  padding-top: 1px;
+}
+
+.radio input[type="radio"] {
+  z-index: 1;
+  opacity: 0;
+  cursor: pointer;
+  margin-left: -18px;
+  margin-top: 2px;
+}
+
+.radio input[type="radio"]:focus + label:before {
+  outline: none;
+}
+
+.radio input[type="radio"]:checked + label:before {
+  background: #00bcd4;
+  border-color: #00bcd4;
+}
+
+.radio input[type="radio"]:checked + label:after {
+  font-family: FontAwesome;
+  color: #fff;
+  content: "\f111";
+}
+
 /*------------------------------------------------------------------
     [Form Control]
 ------------------------------------------------------------------*/
@@ -29360,4 +29409,14 @@ fieldset[disabled] .btn-ig-bg {
 
 .text-white {
     color: white;
+}
+
+@-webkit-keyframes hue  {
+  from {
+    -webkit-filter: hue-rotate(0deg);
+  }
+
+  to {
+    -webkit-filter: hue-rotate(-360deg);
+  }
 }
