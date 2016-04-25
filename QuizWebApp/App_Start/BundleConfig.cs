@@ -59,6 +59,8 @@ namespace QuizWebApp
             bundles.Add(new ScriptBundle("~/Content/ck").Include(
                 "~/Content/ckeditor/ckeditor.js",
                 "~/Content/ckfinder/ckfinder.js"));
+            bundles.Add(new ScriptBundle("~/Scripts/areyousure").Include(
+                      "~/Scripts/areyousure/areyousure.js"));
 
             bundles.Add(new StyleBundle("~/Content/bootstrap").Include(
                       "~/Content/bootstrap/bootstrap.css"));
