@@ -32,8 +32,13 @@
                                 <span class="news-v1-element"><i class="news-v1-element-icon fa fa-circle"></i></span>
                                 <h3 class="news-v1-heading-title">@Html.ActionLink(@news.title, "newsid/"+news.id, "home")</h3>
                             </div>
-                            <a class="image-popup-vertical-fit" href="@news.img_link" title="Image">
-                                <img class="img-responsive" src="@news.img_link" alt="">
+                            @{
+                                String img_link = "";
+                                if(news.img_link == null) {img_link = "../../Images/news_noimage.png";}
+                                else {img_link = news.img_link;}
+                            }
+                            <a class="image-popup-vertical-fit" href="@img_link" title="Image">
+                                <img class="img-responsive" src="@img_link" alt="QuizOne News @img_link">
                             </a>
                             <div class="news-v1-content">
                                 @{
