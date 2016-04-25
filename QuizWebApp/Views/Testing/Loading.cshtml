@@ -197,20 +197,20 @@
                                 <div class="divider-v1" style="margin: 0px;"><div class="divider-v1-element divider-v1-element-bg radius-50">Câu @(i + 1)</div></div>
                                 <p>@Html.DisplayFor(t => t[i].Content)</p>
                                 <div class="radio">
-                                    @Html.RadioButtonFor(t => t[i].Traloi, @Model[i].Opt1)
-                                    <label>Câu A. @Html.DisplayFor(t => t[i].Opt1)</label>
+                                    @Html.RadioButtonFor(t => t[i].Traloi, @Model[i].Opt1, new { @id = "ans_" + i + "A" })
+                                    <label for="ans_@(i)A">Câu A. @Html.DisplayFor(t => t[i].Opt1)</label>
                                 </div>
                                 <div class="radio">
-                                    @Html.RadioButtonFor(t => t[i].Traloi, @Model[i].Opt2)
-                                    <label>Câu B. @Html.DisplayFor(t => t[i].Opt2)</label>
+                                    @Html.RadioButtonFor(t => t[i].Traloi, @Model[i].Opt2, new { @id = "ans_" + i + "B" })
+                                    <label for="ans_@(i)B">Câu B. @Html.DisplayFor(t => t[i].Opt2)</label>
                                 </div>
                                 <div class="radio">
-                                    @Html.RadioButtonFor(t => t[i].Traloi, @Model[i].Opt3)
-                                    <label>Câu C. @Html.DisplayFor(t => t[i].Opt3)</label>
+                                    @Html.RadioButtonFor(t => t[i].Traloi, @Model[i].Opt3, new { @id = "ans_" + i + "C" })
+                                    <label for="ans_@(i)C">Câu C. @Html.DisplayFor(t => t[i].Opt3)</label>
                                 </div>
                                 <div class="radio">
-                                    @Html.RadioButtonFor(t => t[i].Traloi, @Model[i].Opt4)
-                                    <label>Câu D. @Html.DisplayFor(t => t[i].Opt4)</label>
+                                    @Html.RadioButtonFor(t => t[i].Traloi, @Model[i].Opt4, new { @id = "ans_" + i + "D" })
+                                    <label for="ans_@(i)D">Câu D. @Html.DisplayFor(t => t[i].Opt4)</label>
                                 </div>
                                 @Html.HiddenFor(t => t[i].Id, new { @Value = "" + Model[i].Id })
                                 @Html.HiddenFor(t => t[i].SubId, new { @Value = "" + Model[i].SubId })
