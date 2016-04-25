@@ -3,7 +3,7 @@
         <!-- Heading v2 -->
         <div class="heading-v2 margin-b-80">
             <h2 class="heading-v2-title wow fadeInUp animated">Quiz Application</h2>
-            <p class="heading-v2-text wow flipInY animated">Ứng dụng kiểm tra trắc nghiệm</p>
+            <p class="heading-v2-text wow flipInY animated">Ứng dụng kiểm tra trắc nghiệm đa nền tảng, được viết cho: Desktop, Web và Mobile. Với hệ thống câu hỏi từ ngân hàng đề thi và được người dùng chia sẻ.</p>
         </div>
         <!-- End Heading v2 -->
 
@@ -17,15 +17,15 @@
                         </div>
                         <span class="services-v1-subtitle color-base">Trải nghiệm mới</span>
                         <h3 class="services-v1-title">Phiên bản Desktop</h3>
-                        <p class="services-v1-text">Ứng dụng chạy trên hệ điều hành Windows, giao diện trực quan, gọn nhẹ</p>
+                        <p class="services-v1-text">Ứng dụng chạy trên hệ điều hành Windows, giao diện trực quan, gọn nhẹ. Dữ liệu được đồng bộ trực tuyến. Ứng dụng đang trong giai đoạn thử nghiệm.</p>
                     </div>
                     @if (ViewBag.idDesktop != null)
                     {
-                        @Html.ActionLink("Tải về", "newsid", new { @id = ViewBag.idDesktop }, new { @class = "btn-base-bg btn-base-sm radius-3" })
+                        @Html.ActionLink("Tải về (Alpha)", "newsid", new { @id = ViewBag.idDesktop }, new { @class = "btn-base-bg btn-base-sm radius-3" })
                     }
                     else
                     {
-                        <a href="#" class="btn-base-bg btn-base-sm radius-3">Tải về</a>
+                        <a href="#" class="btn-base-bg btn-base-sm radius-3">Chưa phát hành</a>
                     }
 
                 </section>
@@ -40,7 +40,7 @@
                         </div>
                         <span class="services-v1-subtitle color-red">Điều đặc biệt</span>
                         <h3 class="services-v1-title">Trải nghiệm trực tuyến</h3>
-                        <p class="services-v1-text">Ứng dụng trên nền web, sử dụng mọi lúc mọi nơi</p>
+                        <p class="services-v1-text">Ứng dụng trên nền web, sử dụng mọi lúc mọi nơi, trên mọi nền tảng hệ điều hành. Trang làm bài đang trong giai đoạn phát triển và sửa lỗi.</p>
                     </div>
                     <a href="/testing/index" class="btn-red-bg btn-base-sm radius-3">Thử ngay</a>
                 </section>
@@ -55,15 +55,15 @@
                         </div>
                         <span class="services-v1-subtitle color-teal">Đa nền tảng</span>
                         <h3 class="services-v1-title">Phiên bản Mobile</h3>
-                        <p class="services-v1-text">Ứng dụng cho Android, trải nghiệm ngay trên điện thoại của mình</p>
+                        <p class="services-v1-text">Ứng dụng cho Android, trải nghiệm ngay trên điện thoại. Giao diện xu hướng, tương thích với nhiều phiên bản. Ứng dụng đang được kiểm tra lỗi và đưa ra bản Alpha.</p>
                     </div>
                     @if (ViewBag.idAndroid != null)
                     {
-                        @Html.ActionLink("Tải về", "newsid", new { @id = ViewBag.idAndroid }, new { @class = "btn-teal-bg btn-base-sm radius-3" })
+                        @Html.ActionLink("Tải về (Alpha)", "newsid", new { @id = ViewBag.idAndroid }, new { @class = "btn-teal-bg btn-base-sm radius-3" })
                     }
                     else
                     {
-                        <a href="#" class="btn-teal-bg btn-base-sm radius-3">Tải về</a>
+                        <a href="#" class="btn-teal-bg btn-base-sm radius-3">Chưa phát hành</a>
                     }
 
                 </section>
