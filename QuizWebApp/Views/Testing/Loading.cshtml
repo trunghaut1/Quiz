@@ -46,7 +46,9 @@
 </style>
 }
 @section scripts{
+    @Scripts.Render("~/Scripts/areyousure")
 <script>
+    $("#submit").areYouSure();
     function sucess(data) {
         var diem = 0;
         var count = 0;

@@ -1475,6 +1475,7 @@
     <Content Include="Images\widgets\world-map.png" />
     <Content Include="Scripts\app.js" />
     <Content Include="Scripts\app.min.js" />
+    <Content Include="Scripts\areyousure\areyousure.js" />
     <Content Include="Scripts\bootstrap\bootstrap.js" />
     <Content Include="Scripts\bootstrap\npm.js" />
     <Content Include="Scripts\components\animated-headline.js" />
