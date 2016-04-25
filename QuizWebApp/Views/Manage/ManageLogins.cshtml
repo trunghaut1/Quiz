@@ -1,11 +1,19 @@
 ﻿@model QuizWebApp.Models.ManageLoginsViewModel
 @using Microsoft.Owin.Security
 @{
-    ViewBag.Title = "Manage your external logins";
+    ViewBag.Title = "Quản lý tài khoản đăng nhập bên ngoài";
 }
+<div class="banner-img-v3 bg-position-fixed">
+    <div class="content-lg container">
+        <div class="heading-v2 text-center">
+            <h2 class="heading-v2-title text-white wow fadeInUp animated">Quản lý tài khoản đăng nhập bên ngoài</h2>
+            <p class="heading-v2-text text-white wow flipInY animated">Quản lý các tài khoản bên ngoài dùng đăng nhập vào dịch vụ QuizApp</p>
+        </div>
+    </div>
+</div>
 <div class="bg-color-sky-light">
-    <div class="content-md container">
-        <h2>@ViewBag.Title.</h2>
+    <div class="content-md container wow fadeInUp animated">
+        <h2>Danh sách tài khoản</h2>
 
         <p class="text-success">@ViewBag.StatusMessage</p>
         @{
@@ -62,7 +70,9 @@
                             <p>
                                 @foreach (AuthenticationDescription p in Model.OtherLogins)
                                 {
-                                    <button type="submit" class="btn btn-default" id="@p.AuthenticationType" name="provider" value="@p.AuthenticationType" title="Log in using your @p.Caption account">@p.AuthenticationType</button>
+                                    <button type="submit" class="btn-tw-bg btn-base-animate-to-top btn-base-md" id="@p.AuthenticationType" name="provider" value="@p.AuthenticationType" title="Đăng nhập sử dụng tài khoản @p.Caption">@p.AuthenticationType
+                                    <span class="btn-base-element-md"><i class="btn-base-element-icon fa fa-@p.Caption.ToLower()"></i></span>
+                                </button>
                                 }
                             </p>
                         </div>

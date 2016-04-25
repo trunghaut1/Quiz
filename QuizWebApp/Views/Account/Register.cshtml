@@ -2,14 +2,20 @@
 @{
     ViewBag.Title = "Đăng ký";
 }
+<div class="banner-img-v3 bg-position-fixed">
+    <div class="content-lg container">
+        <div class="heading-v2 text-center">
+            <h2 class="heading-v2-title text-white wow fadeInUp animated">Đăng ký</h2>
+            <p class="heading-v2-text text-white wow flipInY animated">Đăng ký tài khoản mới và tiến hành sử dụng các dịch vụ kiểm tra trực tuyến</p>
+        </div>
+    </div>
+</div>
 <div class="bg-color-sky-light">
-    <div class="content-md container">
-        <h2>@ViewBag.Title.</h2>
-
+    <div class="content-md container wow fadeInUp animated">
         @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
         {
             @Html.AntiForgeryToken()
-            <h4>Đăng ký tài khoản mới.</h4>
+            <h4>Điền thông tin vào mẫu bên dưới để đăng ký tài khoản mới.</h4>
             <hr />
             @Html.ValidationSummary("", new { @class = "text-danger" })
             <div class="form-group">

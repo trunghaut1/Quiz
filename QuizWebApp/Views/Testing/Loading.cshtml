@@ -13,12 +13,14 @@
     }
 
     .button-item {
+        margin-top: 5px;
     }
 
     .info {
         text-align: center;
         padding: 15px 15px 15px 15px;
-        border: 1px solid red;
+        border: 1px solid #03A9F4;
+        -webkit-animation: hue 60s infinite linear;
     }
 
     .time {
@@ -36,9 +38,10 @@
     }
 
     .item-question {
-        padding: 10px 10px 10px 10px;
-        border-bottom: dashed 1px red;
         display: none;
+    }
+    .item-question > p {
+        margin-top: 5px;
     }
 </style>
 }
@@ -76,8 +79,9 @@
 
         $("input[type=submit]").prop("disabled", true);
         $("input[type=radio]").prop("disabled", true);
+        $("#btnSubmit").prop("disabled", true);
         @*Trigger the modal with a button*@
-        $("#page-content").append('<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Xem điểm</button>');
+        $("#page-content").append('<button type="button" class="btn-pink-bg btn-base-animate-to-top btn-base-md" data-toggle="modal" data-target="#myModal">Xem điểm<span class="btn-base-element-md"><i class="btn-base-element-icon fa fa-bar-chart"></i></span></button>');
         $("#page-content").append('<div id="myModal" class="modal fade" role="dialog">' +
                                     '<div class="modal-dialog">' +
                                         '<div class="modal-content">' +
@@ -89,7 +93,7 @@
                                                 '<p>Bạn đạt được ' + diem + ' điểm </p>' +
                                             '</div>' +
                                             '<div class="modal-footer">' +
-                                                '<button type="button" class="btn btn-default" data-dismiss="modal">Đóng lại</button>' +
+                                                '<button type="button" class="btn-base-brd btn-base-sm" data-dismiss="modal">Đóng lại</button>' +
                                             '</div>' +
                                         '</div>' +
                                     '</div>' +
@@ -157,9 +161,16 @@
 </script>
 
 }
-
+<div class="banner-img-v3 bg-position-fixed">
+    <div class="content-lg container">
+        <div class="heading-v2 text-center">
+            <h2 class="heading-v2-title text-white wow fadeInUp animated">@Model[0].Subject.SubName</h2>
+            <p class="heading-v2-text text-white wow flipInY animated">@Model[0].Subject.SubId</p>
+        </div>
+    </div>
+</div>
 <div class="bg-color-sky-light">
-    <div class="content-md container">
+    <div class="content-sm container">
         <div class="col-md-3">
             <div class="info">
                 <div class="time">
@@ -169,7 +180,7 @@
                     @for (int i = 0; i < Model.Count; i++)
                     {
                         string btnid = "btn" + i;
-                        <button id="@btnid" class="button-item">@(i + 1)</button>
+                        <button id="@btnid" class="btn-base-bg button-item text-center">@(i + 1)</button>
                     }
                 </div>
             </div>
@@ -177,31 +188,46 @@
         </div>
         <div class="col-md-9">
             <div class="">
-                <div class="question">
-                    <span>@Model[0].Subject.SubName.ToUpper()</span>
-                </div>
                 @using (Ajax.BeginForm("domark", "testing", new AjaxOptions { HttpMethod = "POST", OnSuccess = "sucess", OnFailure = "failure" }, new { @id = "submit" }))
                 {
                     <div class="content-question">
                         @for (int i = 0; i < Model.Count; i++)
                         {
                             <div class="item-question" id="@i">
-                                <p><strong>Câu @(i + 1):</strong>@Html.DisplayFor(t => t[i].Content)</p>
-                                <label>@Html.RadioButtonFor(t => t[i].Traloi, @Model[i].Opt1)Câu A. @Html.DisplayFor(t => t[i].Opt1)</label>
-                                <label>@Html.RadioButtonFor(t => t[i].Traloi, @Model[i].Opt2)Câu B. @Html.DisplayFor(t => t[i].Opt2)</label>
-                                <label>@Html.RadioButtonFor(t => t[i].Traloi, @Model[i].Opt3)Câu C. @Html.DisplayFor(t => t[i].Opt3)</label>
-                                <label>@Html.RadioButtonFor(t => t[i].Traloi, @Model[i].Opt4)Câu D. @Html.DisplayFor(t => t[i].Opt4)</label>
+                                <div class="divider-v1" style="margin: 0px;"><div class="divider-v1-element divider-v1-element-bg radius-50">Câu @(i + 1)</div></div>
+                                <p>@Html.DisplayFor(t => t[i].Content)</p>
+                                <div class="radio">
+                                    @Html.RadioButtonFor(t => t[i].Traloi, @Model[i].Opt1)
+                                    <label>Câu A. @Html.DisplayFor(t => t[i].Opt1)</label>
+                                </div>
+                                <div class="radio">
+                                    @Html.RadioButtonFor(t => t[i].Traloi, @Model[i].Opt2)
+                                    <label>Câu B. @Html.DisplayFor(t => t[i].Opt2)</label>
+                                </div>
+                                <div class="radio">
+                                    @Html.RadioButtonFor(t => t[i].Traloi, @Model[i].Opt3)
+                                    <label>Câu C. @Html.DisplayFor(t => t[i].Opt3)</label>
+                                </div>
+                                <div class="radio">
+                                    @Html.RadioButtonFor(t => t[i].Traloi, @Model[i].Opt4)
+                                    <label>Câu D. @Html.DisplayFor(t => t[i].Opt4)</label>
+                                </div>
                                 @Html.HiddenFor(t => t[i].Id, new { @Value = "" + Model[i].Id })
                                 @Html.HiddenFor(t => t[i].SubId, new { @Value = "" + Model[i].SubId })
                             </div>
                         }
                         @Html.Hidden("timer", 0, new { @id = "timer" })
-                        <input type="submit" value="Nộp" />
+                        <div class="center-block margin-t-20">
+                            <button id="btnSubmit" type="submit" class="btn-base-bg btn-base-animate-to-top btn-base-md">
+                                Nộp bài
+                                <span class="btn-base-element-md"><i class="btn-base-element-icon fa fa-check"></i></span>
+                            </button>
+                        </div>
                     </div>
                 }
 
             </div>
-            <div class="pagination">
+            <div class="pagination center-block">
                 <ul id="pagination" class="pagination-sm pagination"></ul>
                 <script>
                     var sum = parseInt($('.item-question').length / 5);
@@ -211,7 +237,7 @@
                 </script>
 
             </div>
-            <div id="page-content"></div>
+            <div id="page-content" class="center-block"></div>
 
         </div>
     </div>

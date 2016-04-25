@@ -1,11 +1,11 @@
 ﻿@model List<Core.Model.Staff>
 @if (Model.Count > 0)
 {
-    <div class="banner-img-v3-6 bg-position-fixed">
+    <div class="banner-img-v3 bg-position-fixed" style="background: url(../../Images/1920x1080/06.jpg) no-repeat;">
         <div class="content-sm container">
             <div class="heading-v2 text-center">
-                <h2 class="heading-v2-title text-white">Gặp mặt những con người đầy đam mê</h2>
-                <p class="heading-v2-text text-white">Chúng tôi là những con người đầy tham vọng, ngoài điều đó ra chúng tôi khá đơn giản =))</p>
+                <h2 class="heading-v2-title text-white wow fadeInUp animated">Gặp mặt những con người đầy đam mê</h2>
+                <p class="heading-v2-text text-white wow flipInY animated">Chúng tôi là những con người đầy tham vọng, ngoài điều đó ra chúng tôi khá đơn giản =))</p>
             </div>
         </div>
     </div>
@@ -16,7 +16,7 @@
             {
             <div class="col-sm-3 sm-margin-b-30">
                 <!-- Team v6 -->
-                <div class="team-v6 wow zoomInDown animated">
+                <div class="team-v6 wow flipInY animated">
                     <div class="team-v6-img-gradient">
                         <img class="full-width img-responsive" src="@staff.img_link" alt="@staff.img_link">
                     </div>

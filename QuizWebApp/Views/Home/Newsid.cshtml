@@ -125,8 +125,9 @@
     @section img{
         <section class="breadcrumbs-v5 bg-position-fixed breadcrumbs-v5-bg-img-v4">
             <div class="container">
-                <h2 class="breadcrumbs-v5-title">Tin tức</h2>
-                <span class="breadcrumbs-v5-subtitle">For all the things you want to do. For the things you love.</span>
+                <h2 class="breadcrumbs-v5-title">@Model.title</h2>
+                <span class="breadcrumbs-v5-subtitle margin-t-10">Tin tức > @Html.ActionLink(Model.NewsType.name, "cat", "home", new { id = 1, type = Model.type }, null)</span>
+                <span class="breadcrumbs-v5-subtitle"><i class="fa fa-clock-o"></i> @Model.date</span>
             </div>
         </section>
     }
@@ -146,11 +147,9 @@
                     <!-- End Image -->
                     <!-- Blog Grid Content -->
                     <div class="blog-grid-content">
-                        <h2 class="blog-grid-title-lg">@Model.title</h2>
-                        <p class="cat"> @Html.ActionLink(Model.NewsType.name, "cat", "home", new { id = 1, type = Model.type }, null)</p>
+                        <h2 class="blog-grid-title-lg"></h2>
+                        <p class="cat"></p>
                         <p class="meta">
-
-                            <i class="fa fa-clock-o"></i> @Model.date  &nbsp;
                         </p>
 
                         @Html.Raw(Model.text)
