@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title - QuizOne</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no" />
+    <link rel="apple-touch-icon" href="~/Images/ico/60.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="~/Images/ico/76.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="~/Images/ico/120.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="~/Images/ico/152.png">
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta content="QuizOne - Ứng dụng trắc nghiệm đa nền tảng" name="description" />
+    <meta content="quizone, quizapp, quizonepro, quiztest, quiz, quiz one, quiz app, quiz test, trắc nghiệm" name="keywords"/>
+    <meta content="quizonepro.com" name="author" />
+    @Styles.Render("~/Content/plugins")
+    @Styles.Render("~/Content/pages")
+    <!--[if lte IE 9]>
+    <link href="assets/plugins/codrops-dialogFx/dialog.ie.css" rel="stylesheet" type="text/css" media="screen" />
+    <![endif]-->
+</head>
+<body class="fixed-header dashboard menu-behind">
+    <!-- BEGIN SIDEBPANEL-->
+    @Html.Partial("_Sidebar")
+    <!-- END SIDEBAR -->
+    <!-- END SIDEBPANEL-->
+    <!-- START PAGE-CONTAINER -->
+    <div class="page-container ">
+        <!-- START HEADER -->
+        @Html.Partial("_Header")
+        <!-- END HEADER -->
+        <!-- START PAGE CONTENT WRAPPER -->
+        <div class="page-content-wrapper ">
+            <!-- START PAGE CONTENT -->
+            @RenderBody()
+            <!-- END PAGE CONTENT -->
+            <!-- START COPYRIGHT -->
+            <!-- START CONTAINER FLUID -->
+            <!-- START CONTAINER FLUID -->
+            @Html.Partial("_Footer")
+            <!-- END COPYRIGHT -->
+        </div>
+        <!-- END PAGE CONTENT WRAPPER -->
+    </div>
+    <!-- END PAGE CONTAINER -->
+    <!--START QUICKVIEW -->
+    @Html.Partial("_Quickview")
+    <!-- END QUICKVIEW-->
+    <!-- START OVERLAY -->
+    @Html.Partial("_Search")
+    <!-- END OVERLAY -->
+    <!-- BEGIN VENDOR JS -->
+    @Scripts.Render("~/bundles/plugins/pace")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery-ui")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/plugins-jquery")
+    @Scripts.Render("~/bundles/bootstrap-select2")
+    @Scripts.Render("~/bundles/classie")
+    @Scripts.Render("~/bundles/switchery")
+    @Scripts.Render("~/bundles/nvd3")
+    @Scripts.Render("~/bundles/mapplic")
+    @Scripts.Render("~/bundles/rickshaw")
+    @Scripts.Render("~/bundles/skycons")
+    @Scripts.Render("~/bundles/bootstrap-datepicker")
+    <!-- END VENDOR JS -->
+    <!-- BEGIN CORE TEMPLATE JS -->
+    @Scripts.Render("~/bundles/pages")
+    <!-- END CORE TEMPLATE JS -->
+</body>
+</html>
