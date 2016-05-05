@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.40629.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Quiz", "Quiz\Quiz.csproj", "{F77DAAE6-0093-4F3D-BD56-8F5A6BB09B34}"
 EndProject
@@ -12,6 +12,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "Core\Core.csproj", "{2D20C42A-5A8A-4FD4-9670-9B72076063D2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuizWebApp", "QuizWebApp\QuizWebApp.csproj", "{6A935E36-C6E1-4DD0-853E-B7620932A594}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuizWeb.Admin", "QuizWeb.Admin\QuizWeb.Admin.csproj", "{D4344D1A-4421-4F90-B3E7-063C0E087DB9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -72,6 +74,16 @@ Global
 		{6A935E36-C6E1-4DD0-853E-B7620932A594}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6A935E36-C6E1-4DD0-853E-B7620932A594}.SingleImage|Any CPU.ActiveCfg = Release|Any CPU
 		{6A935E36-C6E1-4DD0-853E-B7620932A594}.SingleImage|Any CPU.Build.0 = Release|Any CPU
+		{D4344D1A-4421-4F90-B3E7-063C0E087DB9}.CD_ROM|Any CPU.ActiveCfg = Release|Any CPU
+		{D4344D1A-4421-4F90-B3E7-063C0E087DB9}.CD_ROM|Any CPU.Build.0 = Release|Any CPU
+		{D4344D1A-4421-4F90-B3E7-063C0E087DB9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D4344D1A-4421-4F90-B3E7-063C0E087DB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D4344D1A-4421-4F90-B3E7-063C0E087DB9}.DVD-5|Any CPU.ActiveCfg = Debug|Any CPU
+		{D4344D1A-4421-4F90-B3E7-063C0E087DB9}.DVD-5|Any CPU.Build.0 = Debug|Any CPU
+		{D4344D1A-4421-4F90-B3E7-063C0E087DB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D4344D1A-4421-4F90-B3E7-063C0E087DB9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D4344D1A-4421-4F90-B3E7-063C0E087DB9}.SingleImage|Any CPU.ActiveCfg = Release|Any CPU
+		{D4344D1A-4421-4F90-B3E7-063C0E087DB9}.SingleImage|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
