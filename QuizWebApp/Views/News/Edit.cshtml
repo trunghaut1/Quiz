@@ -37,7 +37,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.text, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.text, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.TextAreaFor(model => model.text)
                 @Html.ValidationMessageFor(model => model.text, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -69,3 +69,14 @@
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
+@section scripts{
+    @Scripts.Render("~/Content/ck")
+    <script>
+    var editor = CKEDITOR.instances['text'];
+    if (editor) { editor.destroy(true); }
+    CKEDITOR.replace('text', {
+        enterMode: CKEDITOR.ENTER_BR
+    });
+    CKFinder.setupCKEditor(null, '@Url.Content("~/Content/ckfinder/")');
+    </script>
+}

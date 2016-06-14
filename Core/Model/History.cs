@@ -9,9 +9,11 @@
 
 namespace Core.Model
 {
+    using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
-    
+    using System.Runtime.Serialization;
+
     public partial class History
     {
         public int Id { get; set; }
@@ -22,6 +24,6 @@ namespace Core.Model
         public Nullable<int> NumberCorrect { get; set; }
         public System.DateTime DateTime { get; set; }
     
-        public virtual AspNetUser AspNetUser { get; set; }
+        public AspNetUser AspNetUser { get; set; }
     }
 }

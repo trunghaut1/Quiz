@@ -25,9 +25,9 @@ namespace Core.Model
         public string SubName { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Info> Infoes { get; set; }
+        public ICollection<Info> Infoes { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Question> Questions { get; set; }
+        public ICollection<Question> Questions { get; set; }
         public virtual SubButton SubButton { get; set; }
     }
 }

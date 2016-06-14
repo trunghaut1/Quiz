@@ -19,6 +19,6 @@ namespace Core.Model
         public string ClaimType { get; set; }
         public string ClaimValue { get; set; }
     
-        public virtual AspNetUser AspNetUser { get; set; }
+        public AspNetUser AspNetUser { get; set; }
     }
 }

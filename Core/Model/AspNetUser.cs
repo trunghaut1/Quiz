@@ -9,19 +9,21 @@
 
 namespace Core.Model
 {
+    using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
+    using System.Runtime.Serialization;
     
     public partial class AspNetUser
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public AspNetUser()
         {
-            this.AspNetUserClaims = new HashSet<AspNetUserClaim>();
+            /*this.AspNetUserClaims = new HashSet<AspNetUserClaim>();
             this.AspNetUserLogins = new HashSet<AspNetUserLogin>();
             this.Histories = new HashSet<History>();
             this.Infoes = new HashSet<Info>();
-            this.AspNetRoles = new HashSet<AspNetRole>();
+            this.AspNetRoles = new HashSet<AspNetRole>();*/
         }
     
         public string Id { get; set; }
@@ -36,15 +38,25 @@ namespace Core.Model
         public bool LockoutEnabled { get; set; }
         public int AccessFailedCount { get; set; }
         public string UserName { get; set; }
-    
+
+        [JsonIgnore] 
+        [IgnoreDataMember] 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<AspNetUserClaim> AspNetUserClaims { get; set; }
+        public virtual List<AspNetUserClaim> AspNetUserClaims { get; set; }
+        [JsonIgnore] 
+        [IgnoreDataMember] 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<AspNetUserLogin> AspNetUserLogins { get; set; }
+        [JsonIgnore] 
+        [IgnoreDataMember] 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<History> Histories { get; set; }
+        public ICollection<History> Histories { get; set; }
+        [JsonIgnore] 
+        [IgnoreDataMember] 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Info> Infoes { get; set; }
+        public ICollection<Info> Infoes { get; set; }
+        [JsonIgnore] 
+        [IgnoreDataMember] 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<AspNetRole> AspNetRoles { get; set; }
     }

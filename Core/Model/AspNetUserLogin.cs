@@ -18,6 +18,6 @@ namespace Core.Model
         public string ProviderKey { get; set; }
         public string UserId { get; set; }
     
-        public virtual AspNetUser AspNetUser { get; set; }
+        public AspNetUser AspNetUser { get; set; }
     }
 }

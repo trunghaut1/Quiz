@@ -20,7 +20,7 @@ namespace Core.Model
         public int NumAnswerTrue { get; set; }
         public int TimeUse { get; set; }
     
-        public virtual AspNetUser AspNetUser { get; set; }
-        public virtual Subject Subject { get; set; }
+        public AspNetUser AspNetUser { get; set; }
+        public Subject Subject { get; set; }
     }
 }

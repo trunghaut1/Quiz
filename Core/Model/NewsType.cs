@@ -9,8 +9,10 @@
 
 namespace Core.Model
 {
+    using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
+    using System.Runtime.Serialization;
     
     public partial class NewsType
     {
@@ -22,8 +24,10 @@ namespace Core.Model
     
         public int id { get; set; }
         public string name { get; set; }
-    
+
+        [JsonIgnore]
+        [IgnoreDataMember] 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<News> News { get; set; }
+        public ICollection<News> News { get; set; }
     }
 }

@@ -26,6 +26,6 @@ namespace Core.Model
         public string UserAdd { get; set; }
         public string Note { get; set; }
     
-        public virtual Subject Subject { get; set; }
+        public Subject Subject { get; set; }
     }
 }
