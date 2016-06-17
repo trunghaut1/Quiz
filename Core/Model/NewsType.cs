@@ -26,8 +26,6 @@ namespace Core.Model
         public string name { get; set; }
 
         [JsonIgnore]
-        [IgnoreDataMember] 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public ICollection<News> News { get; set; }
     }
 }

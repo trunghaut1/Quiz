@@ -23,7 +23,8 @@ namespace Core.Model
         public Nullable<int> NumberAns { get; set; }
         public Nullable<int> NumberCorrect { get; set; }
         public System.DateTime DateTime { get; set; }
-    
+
+        [JsonIgnore]
         public AspNetUser AspNetUser { get; set; }
     }
 }

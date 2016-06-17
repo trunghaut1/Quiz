@@ -16,18 +16,15 @@ namespace Core.Model
 
     public partial class AspNetRole
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public AspNetRole()
         {
-            this.AspNetUsers = new HashSet<AspNetUser>();
+            /*this.AspNetUsers = new HashSet<AspNetUser>();*/
         }
     
         public string Id { get; set; }
         public string Name { get; set; }
     
-        [JsonIgnore] 
-        [IgnoreDataMember] 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        [JsonIgnore]
         public ICollection<AspNetUser> AspNetUsers { get; set; }
     }
 }

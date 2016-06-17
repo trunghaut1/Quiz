@@ -9,6 +9,7 @@
 
 namespace Core.Model
 {
+    using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
     
@@ -21,7 +22,8 @@ namespace Core.Model
         public string ImgUrl { get; set; }
         public int Width { get; set; }
         public int Height { get; set; }
-    
+
+        [JsonIgnore]
         public virtual Subject Subject { get; set; }
     }
 }

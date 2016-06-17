@@ -9,6 +9,7 @@
 
 namespace Core.Model
 {
+    using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
     
@@ -25,7 +26,8 @@ namespace Core.Model
         public System.DateTime DateAdd { get; set; }
         public string UserAdd { get; set; }
         public string Note { get; set; }
-    
+
+        [JsonIgnore]
         public Subject Subject { get; set; }
     }
 }

@@ -9,6 +9,7 @@
 
 namespace Core.Model
 {
+    using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
     
@@ -18,7 +19,8 @@ namespace Core.Model
         public string UserId { get; set; }
         public string ClaimType { get; set; }
         public string ClaimValue { get; set; }
-    
+
+        [JsonIgnore]
         public AspNetUser AspNetUser { get; set; }
     }
 }

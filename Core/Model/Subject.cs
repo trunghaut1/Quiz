@@ -9,6 +9,7 @@
 
 namespace Core.Model
 {
+    using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
     
@@ -23,11 +24,12 @@ namespace Core.Model
     
         public string SubId { get; set; }
         public string SubName { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+
+        [JsonIgnore]
         public ICollection<Info> Infoes { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        [JsonIgnore]
         public ICollection<Question> Questions { get; set; }
+        [JsonIgnore]
         public virtual SubButton SubButton { get; set; }
     }
 }

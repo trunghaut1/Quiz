@@ -40,24 +40,14 @@ namespace Core.Model
         public string UserName { get; set; }
 
         [JsonIgnore] 
-        [IgnoreDataMember] 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual List<AspNetUserClaim> AspNetUserClaims { get; set; }
         [JsonIgnore] 
-        [IgnoreDataMember] 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<AspNetUserLogin> AspNetUserLogins { get; set; }
         [JsonIgnore] 
-        [IgnoreDataMember] 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public ICollection<History> Histories { get; set; }
         [JsonIgnore] 
-        [IgnoreDataMember] 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public ICollection<Info> Infoes { get; set; }
         [JsonIgnore] 
-        [IgnoreDataMember] 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<AspNetRole> AspNetRoles { get; set; }
     }
 }

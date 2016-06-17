@@ -194,7 +194,10 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Services\UserController.cs" />
+    <Compile Include="Controllers\FacebookAppController.cs" />
+    <Compile Include="Services\HistoryAPIController.cs" />
+    <Compile Include="Services\QuestionAPIController.cs" />
+    <Compile Include="Services\UserAPIController.cs" />
     <Compile Include="Controllers\FeaturedController.cs" />
     <Compile Include="Controllers\NewsController.cs" />
     <Compile Include="Controllers\RolesController.cs" />
@@ -1650,6 +1653,7 @@
     <Content Include="Views\Home\_Slide.cshtml" />
     <Content Include="Views\Home\Counter.cshtml" />
     <Content Include="Views\Home\_Team.cshtml" />
+    <Content Include="Views\FacebookApp\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
