@@ -1,0 +1,163 @@
+﻿@{
+    Layout = null;
+}
+<html>
+<body onload="doOnload()">
+    <div id="fb-root"></div>
+    <script>
+        var appId = "1621596394835268";
+        window.fbAsyncInit = function () {
+            FB.init({
+                appId: '195256270875203', // Set YOUR APP ID
+                //channelUrl : 'http://hayageek.com/examples/oauth/facebook/oauth-javascript/channel.html', // Channel File
+                status: true, // check login status
+                cookie: true, // enable cookies to allow the server to access the session
+                xfbml: true  // parse XFBML
+            });
+
+            FB.Event.subscribe('auth.authResponseChange', function (response) {
+                if (response.status === 'connected') {
+                    document.getElementById("message").innerHTML += "<br>Connected to Facebook";
+                    getUserInfo();
+                    //SUCCESS
+
+                }
+                else if (response.status === 'not_authorized') {
+                    document.getElementById("message").innerHTML += "<br>Failed to Connect";
+
+                    //FAILED
+                }
+            });
+            
+        };
+
+        function doOnload() {
+            // In your onload handler
+            FB.Event.subscribe('edge.create', page_like_or_unlike_callback);
+            FB.Event.subscribe('edge.remove', page_like_or_unlike_callback);
+        }
+        function Login() {
+
+            FB.login(function (response) {
+                if (response.authResponse) {
+
+                    getUserInfo();
+                } else {
+                    console.log('User cancelled login or did not fully authorize.');
+                }
+            }, { scope: 'email,user_photos,user_videos,user_education_history,', enable_profile_selector: true, profile_selector_ids: ",", return_scopes: true });
+
+        }
+
+        function getUserInfo() {
+            FB.api('/me?fields=name,link,email,about,education', function (response) {
+
+                var str = "<b>Name</b> : " + response.name + "<br>";
+                str += "<b>Link: </b>" + response.link + "<br>";
+                str += "<b>Username:</b> " + response.username + "<br>";
+                str += "<b>id: </b>" + response.id + "<br>";
+                str += "<b>Email:</b> " + response.email + "<br>";
+                str += "<b>About:</b> " + response.about + "<br>";
+                str += "<b>Education:</b> " + response.education + "<br>";
+                str += "<input type='button' value='Get Photo' onclick='getPhoto();'/>";
+                str += "<input type='button' value='Logout' onclick='Logout();'/>";
+                document.getElementById("status").innerHTML = str;
+
+            });
+        }
+        function getPhoto() {
+            FB.api('/me/picture?type=normal', function (response) {
+
+                var str = "<br/><b>Pic</b> : <img src='" + response.data.url + "'/>";
+                document.getElementById("status").innerHTML += str;
+
+            });
+
+        }
+
+        function postSomethingtoWall() {
+            FB.api('me/feed', 'post', { message: 'test api facebook' }, function (response) {
+                if (!response || response.error) {
+                    alert("Error");
+                }
+                else {
+                    alert(response.id);
+                }
+
+            });
+        }
+
+        function DoCountMessage() {
+            FB.api('/me/inbox?fields=comments.limit(1)', function (response) {
+                var data = JSON.stringify(response);
+                document.getElementById('message_count').innerHTML = data;
+            })
+            /*FB.api('/fql?q=SELECT message_count,recipients,snippet FROM thread WHERE folder_id = 0 order by message_count desc limit 1000', 'get', function (response) {
+                var data = JSON.stringify(response);
+                document.getElementById('message_count').innerHTML = data;
+            });*/
+        }
+
+        function Logout() {
+            FB.logout(function () { document.location.reload(); });
+        }
+
+        function getAllPostOfPage() {
+            FB.api(appId + '/feed', 'get', function (response) {
+                var data = JSON.stringify(response);
+                document.getElementById('post').innerHTML = data;
+            })
+        }
+
+        var page_like_or_unlike_callback = function (url, html_element) {
+            console.log("page_like_or_unlike_callback");
+            console.log(url);
+            console.log(html_element);
+            alert(url + html_element);
+                FB.api(appId+'/feed', 'post', { message: 'Like or unlike facebook' }, function (response) {
+                    if (!response || response.error) {
+                        alert("Error");
+                    }
+                    else {
+                        alert(response.id);
+                    }
+
+                });
+        }
+
+        
+
+        // Load the SDK asynchronously
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) { return; }
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/en_US/all.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+
+    </script>
+    <div align="center">
+        <h2>Facebook OAuth Javascript Demo</h2>
+
+        <div id="status">
+            Click on Below Image to start the demo: <br />
+            <img src="http://hayageek.com/examples/oauth/facebook/oauth-javascript/LoginWithFacebook.png" style="cursor:pointer;" onclick="Login()" />
+        </div>
+
+        <br /><br /><br /><br /><br />
+
+        <div id="message">
+            Logs:<br />
+        </div>
+        <br />
+        <button onclick="postSomethingtoWall()">Post kakakakak</button>
+        <br />
+        <button onclick="DoCountMessage()">Do count</button>
+        <div id="message_count"></div>
+
+        <button onclick="getAllPostOfPage()">Get All Post Of Page</button>
+        <div id="post"></div>
+    </div>
+</body>
+</html>

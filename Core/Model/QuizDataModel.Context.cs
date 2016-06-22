@@ -18,6 +18,7 @@ namespace Core.Model
         public Entities()
             : base("name=Entities")
         {
+            /*Configuration.ProxyCreationEnabled = false; disable proxy*/
         }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

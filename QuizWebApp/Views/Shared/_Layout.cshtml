@@ -1,7 +1,8 @@
 ﻿<!DOCTYPE html>
-<html lang="vi" class="no-js">
+<html lang="vi" class="no-js" xmlns:fb="http://ogp.me/ns/fb#">
 <!-- HEAD -->
 <head>
+    <meta property="fb:app_id" content="255099698154504" />
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>@ViewBag.Title - QuizOne</title>
@@ -21,7 +22,7 @@
     @Styles.Render("~/Content/magnific-popup")
 
     @Scripts.Render("~/bundles/jquery")
-    
+
     @RenderSection("styles", false)
     <link rel="shortcut icon" href="~/favicon.ico" />
 </head>
@@ -31,12 +32,15 @@
 
         @Html.Partial("_Sidebar")
         @RenderSection("img", false)
-            @RenderBody()
+        @RenderBody()
         @Html.Partial("_Footer")
 
     </div>
     <!-- Sidebar Content Overlay -->
     <div class="sidebar-content-overlay"></div>
+    <div id="loading" style="display:none;z-index:99000;width:100%;height:100%;position:fixed;left:0;top:0;background-color:#f1f1f1;opacity:0.5;">
+        <img src="~/Resources/images/loading.gif" style="left:20%;top:25%;position:absolute" />
+    </div>
     <!-- End Sidebar Content Overlay -->
     <!-- Back To Top -->
     <a href="javascript:void(0);" class="js-back-to-top back-to-top-theme"></a>
@@ -46,17 +50,27 @@
     @Scripts.Render("~/Scripts/scrollbar")
 
     @Scripts.Render("~/Scripts/magnific-popup")
-    
+
     @Scripts.Render("~/Scripts/app")
     @Scripts.Render("~/Scripts/components")
     @RenderSection("scripts", false)
     <script>
-$(document).ready(function () {
+        $(document).ready(function () {
             $("script ~ div").css('display', 'none');
             $("center a").css('display', 'none');
         });
     </script>
+    <script>
+        $('#loading').bind('ajaxStart', function () {
+            $(this).show();
+        }).bind('ajaxStop', function () {
+            $(this).hide();
+        });
+    </script>
 
+
+    <!--Code chat facebook-->
+    
 </body>
 <!-- END BODY -->
 

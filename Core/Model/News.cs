@@ -9,6 +9,7 @@
 
 namespace Core.Model
 {
+    using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
     
@@ -21,7 +22,8 @@ namespace Core.Model
         public string text { get; set; }
         public System.DateTime date { get; set; }
         public long view_count { get; set; }
-    
+        
+        [JsonIgnore]
         public virtual NewsType NewsType { get; set; }
     }
 }

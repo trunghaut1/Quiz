@@ -27,6 +27,17 @@ namespace Core.Controller
             return true;
         }
 
+        public bool Authenticate(string username, string password)
+        {
+            AspNetUser r = DataHelper<Entities, AspNetUser>.FindBy(t => t.Email.Equals(username)).SingleOrDefault();
+            if (r != null)
+            {
+                if (ValidateCredentials(r.PasswordHash, password))
+                    return true;
+
+            }
+            return false;
+        }
 
         public bool AuthenticateLogin(string username, string password)
         {

@@ -37,6 +37,7 @@
     <Reference Include="EntityFramework.SqlServer">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -60,6 +61,7 @@
     <Compile Include="Controller\QuestionHandle.cs" />
     <Compile Include="Controller\SubjectHandle.cs" />
     <Compile Include="Controller\StaffHandle.cs" />
+    <Compile Include="Controller\Ultities.cs" />
     <Compile Include="Controller\UserHandle.cs" />
     <Compile Include="Interface\IAchievement.cs" />
     <Compile Include="Interface\IQuestion.cs" />

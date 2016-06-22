@@ -9,6 +9,7 @@
 
 namespace Core.Model
 {
+    using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
     
@@ -19,8 +20,10 @@ namespace Core.Model
         public int NumAnswer { get; set; }
         public int NumAnswerTrue { get; set; }
         public int TimeUse { get; set; }
-    
-        public virtual AspNetUser AspNetUser { get; set; }
-        public virtual Subject Subject { get; set; }
+
+        [JsonIgnore]
+        public AspNetUser AspNetUser { get; set; }
+        [JsonIgnore]
+        public Subject Subject { get; set; }
     }
 }
