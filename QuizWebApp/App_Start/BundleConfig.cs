@@ -64,6 +64,8 @@ namespace QuizWebApp
 
             bundles.Add(new StyleBundle("~/Content/bootstrap").Include(
                       "~/Content/bootstrap/bootstrap.css"));
+            bundles.Add(new StyleBundle("~/Content/style").Include(
+                      "~/Content/css/style.css"));
             bundles.Add(new StyleBundle("~/Content/font-awesome").Include(
                       "~/Content/font-awesome/font-awesome.css"));
             bundles.Add(new StyleBundle("~/Content/et-line").Include(
