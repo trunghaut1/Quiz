@@ -1254,6 +1254,7 @@
     <Content Include="Content\css\animate.css" />
     <Content Include="Content\css\global.css" />
     <Content Include="Content\css\global.min.css" />
+    <Content Include="Content\css\style.css" />
     <Content Include="Content\css\theme\base-rtl-rtl-rtl.css" />
     <Content Include="Content\css\theme\base-rtl-rtl.css" />
     <Content Include="Content\css\theme\base-rtl.css" />
