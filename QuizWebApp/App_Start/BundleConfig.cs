@@ -39,7 +39,7 @@ namespace QuizWebApp
             bundles.Add(new ScriptBundle("~/Scripts/validation").Include(
                       "~/Scripts/validation/*.js"));
             bundles.Add(new ScriptBundle("~/Scripts/app").Include(
-                      "~/Scripts/app.js"));
+                      "~/Scripts/app.min.js"));
             bundles.Add(new ScriptBundle("~/Scripts/components").Include(
                       "~/Scripts/components/header-sticky.js",
                       "~/Scripts/components/animsition.js",
@@ -79,7 +79,7 @@ namespace QuizWebApp
                       "~/Content/rev-slider/fonts/pe-icon-7-stroke.css"));
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/css/animate.css",
-                      "~/Content/css/global.css",
+                      "~/Content/css/global.min.css",
                       "~/Content/css/theme/dark.css",
                       "~/Content/css/theme/base.css"));
             bundles.Add(new StyleBundle("~/Content/magnific-popup").Include(
