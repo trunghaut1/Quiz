@@ -22,8 +22,8 @@ namespace Core.Model
         public int TimeUse { get; set; }
 
         [JsonIgnore]
-        public AspNetUser AspNetUser { get; set; }
+        public virtual AspNetUser AspNetUser { get; set; }
         [JsonIgnore]
-        public Subject Subject { get; set; }
+        public virtual Subject Subject { get; set; }
     }
 }

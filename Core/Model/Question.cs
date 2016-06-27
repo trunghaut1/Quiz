@@ -28,6 +28,6 @@ namespace Core.Model
         public string Note { get; set; }
 
         [JsonIgnore]
-        public Subject Subject { get; set; }
+        public virtual Subject Subject { get; set; }
     }
 }

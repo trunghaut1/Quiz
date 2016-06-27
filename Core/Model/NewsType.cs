@@ -26,6 +26,6 @@ namespace Core.Model
         public string name { get; set; }
 
         [JsonIgnore]
-        public ICollection<News> News { get; set; }
+        public virtual ICollection<News> News { get; set; }
     }
 }

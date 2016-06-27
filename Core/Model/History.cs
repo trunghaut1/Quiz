@@ -25,6 +25,6 @@ namespace Core.Model
         public System.DateTime DateTime { get; set; }
 
         [JsonIgnore]
-        public AspNetUser AspNetUser { get; set; }
+        public virtual AspNetUser AspNetUser { get; set; }
     }
 }

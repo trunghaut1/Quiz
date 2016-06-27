@@ -44,9 +44,9 @@ namespace Core.Model
         [JsonIgnore] 
         public virtual ICollection<AspNetUserLogin> AspNetUserLogins { get; set; }
         [JsonIgnore] 
-        public ICollection<History> Histories { get; set; }
-        [JsonIgnore] 
-        public ICollection<Info> Infoes { get; set; }
+        public virtual ICollection<History> Histories { get; set; }
+        [JsonIgnore]
+        public virtual ICollection<Info> Infoes { get; set; }
         [JsonIgnore] 
         public virtual ICollection<AspNetRole> AspNetRoles { get; set; }
     }

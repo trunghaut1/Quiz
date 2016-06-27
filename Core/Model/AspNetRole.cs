@@ -25,6 +25,6 @@ namespace Core.Model
         public string Name { get; set; }
     
         [JsonIgnore]
-        public ICollection<AspNetUser> AspNetUsers { get; set; }
+        public virtual ICollection<AspNetUser> AspNetUsers { get; set; }
     }
 }

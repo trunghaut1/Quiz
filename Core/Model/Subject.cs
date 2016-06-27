@@ -26,9 +26,9 @@ namespace Core.Model
         public string SubName { get; set; }
 
         [JsonIgnore]
-        public ICollection<Info> Infoes { get; set; }
+        public virtual ICollection<Info> Infoes { get; set; }
         [JsonIgnore]
-        public ICollection<Question> Questions { get; set; }
+        public virtual ICollection<Question> Questions { get; set; }
         [JsonIgnore]
         public virtual SubButton SubButton { get; set; }
     }

@@ -21,6 +21,6 @@ namespace Core.Model
         public string ClaimValue { get; set; }
 
         [JsonIgnore]
-        public AspNetUser AspNetUser { get; set; }
+        public virtual AspNetUser AspNetUser { get; set; }
     }
 }
