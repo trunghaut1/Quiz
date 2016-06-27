@@ -19,10 +19,11 @@ namespace QuizWebApp
             bundles.Add(new ScriptBundle("~/Scripts/PagePluginScript").Include(
                 "~/Scripts/plugins/jquery.back-to-top.js",
                 "~/Scripts/plugins/jquery.smooth-scroll.js",
-                "~/Scripts/plugins/jquery.animsition.js",
+                "~/Scripts/plugins/jquery.animsition.min.js",
                 "~/Content/plugins/scrollbar/jquery.mCustomScrollbar.concat.js",
                 "~/Scripts/plugins/jquery.wow.js",
-                "~/Content/plugins/magnific-popup/jquery.magnific-popup.min.js"));
+                "~/Content/plugins/magnific-popup/jquery.magnific-popup.min.js",
+                "~/Scripts/plugins/jquery.footer-reveal.js"));
 
             bundles.Add(new ScriptBundle("~/Scripts/PageScript").Include(
                 "~/Scripts/app.min.js",
@@ -32,7 +33,8 @@ namespace QuizWebApp
                 "~/Scripts/components/scrollbar.js",
                 "~/Scripts/components/form-modal.js",
                 "~/Scripts/components/wow.js",
-                "~/Scripts/components/magnific-popup.js"));
+                "~/Scripts/components/magnific-popup.js",
+                "~/Scripts/components/footer-reveal.js"));
 
             bundles.Add(new ScriptBundle("~/Scripts/rev-slider").Include(
                       "~/Scripts/rev-slider/jquery.themepunch.tools.js",

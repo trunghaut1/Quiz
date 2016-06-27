@@ -9,31 +9,55 @@
             </div>
         </div>
     </div>
-    <div class="content-md container">
-        <!-- Team v6 -->
-        <div class="row">
-            @foreach(Core.Model.Staff staff in Model)
-            {
-            <div class="col-sm-3 sm-margin-b-30">
-                <!-- Team v6 -->
-                <div class="team-v6 wow flipInY animated">
-                    <div class="team-v6-img-gradient">
-                        <img class="full-width img-responsive" src="@staff.img_link" alt="@staff.img_link">
+    <div class="bg-color-white">
+        <section class="content-md container">
+            <div class="row">
+                @foreach (Core.Model.Staff staff in Model)
+                {
+                <div class="col-sm-4 sm-margin-b-30 wow flipInY animated">
+                    <!-- Team v10 -->
+                    <div class="team-v10">
+                        <div class="team-preview team-v10-img-effect team-v10-img-effect-two" style="background-image:url(@staff.img_link);">
+                            
+                        </div>
+                        <div class="row margin-b-20">
+                            <div class="col-md-6 md-margin-b-10">
+                                <h4 class="team-v10-name">@staff.name</h4>
+                                <span class="team-v10-position">Designer</span>
+                            </div>
+                            <div class="col-md-6 text-right md-text-left">
+                                <!-- Theme Icons Dark Background -->
+                                <ul class="list-inline ul-li-lr-2">
+                                    <li class="animate-icon">
+                                        <a href="@staff.linkfb" class="animate-icon-wrap animate-icon-sm color-white bg-color-fb bg-color-fb-hover radius-3">
+                                            <i class="animate-icon-item fa fa-facebook"></i>
+                                            <i class="animate-icon-item fa fa-facebook"></i>
+                                        </a>
+                                    </li>
+                                    <li class="animate-icon" style="display:none;">
+                                        <a href="#" class="animate-icon-wrap animate-icon-sm color-white bg-color-tw bg-color-tw-hover radius-3">
+                                            <i class="animate-icon-item fa fa-twitter"></i>
+                                            <i class="animate-icon-item fa fa-twitter"></i>
+                                        </a>
+                                    </li>
+                                    <li class="animate-icon">
+                                        <a href="@staff.linkgoogle" class="animate-icon-wrap animate-icon-sm color-white bg-color-red-light bg-color-red-light-hover radius-3">
+                                            <i class="animate-icon-item fa fa-google"></i>
+                                            <i class="animate-icon-item fa fa-google"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                                <!-- End Theme Icons Dark Background -->
+                            </div>
+                        </div>
+                        <p>I'm an ambitious workaholic and web designer based in New York. I have a passion for web design and love to create for web and mobile devices.</p>
                     </div>
-                    <div class="team-v6-info">
-                        <h2 class="team-v6-member">@staff.name</h2>
-                        <ul class="list-inline team-v6-socials ul-li-lr-3">
-                            <li class="theme-icons-wrap"><a href="@staff.linkfb"><i class="theme-icons theme-icons-white-hover theme-icons-md radius-circle margin-b-0 fa fa-facebook"></i></a></li>
-                            <li class="theme-icons-wrap"><a href="@staff.linkgoogle"><i class="theme-icons theme-icons-white-hover theme-icons-md radius-circle margin-b-0 fa fa-google"></i></a></li>
-                        </ul>
-                    </div>
+                    <!-- End Team v10 -->
                 </div>
-                <!-- End Team v6 -->
+                }
             </div>
-            }
-        </div>
-        <!--// end row -->
-        <!-- Team v6 -->
+            <!--// end row -->
+        </section>
     </div>
-
+    
 }
