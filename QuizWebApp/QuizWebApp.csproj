@@ -1457,6 +1457,7 @@
     <Content Include="Scripts\components\comment-form.js" />
     <Content Include="Scripts\components\counters.js" />
     <Content Include="Scripts\components\equal-height.js" />
+    <Content Include="Scripts\components\footer-reveal.js" />
     <Content Include="Scripts\components\form-modal.js" />
     <Content Include="Scripts\components\google-map.js" />
     <Content Include="Scripts\components\header-fullscreen.js" />
@@ -1482,6 +1483,7 @@
     <Content Include="Scripts\plugins\jquery.cubeportfolio.js" />
     <Content Include="Scripts\plugins\jquery.easing.js" />
     <Content Include="Scripts\plugins\jquery.equal-height.js" />
+    <Content Include="Scripts\plugins\jquery.footer-reveal.js" />
     <Content Include="Scripts\plugins\jquery.html5.video.vide.js" />
     <Content Include="Scripts\plugins\jquery.imagesloaded.pkgd.js" />
     <Content Include="Scripts\plugins\jquery.js" />

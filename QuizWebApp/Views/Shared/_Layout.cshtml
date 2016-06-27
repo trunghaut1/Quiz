@@ -12,7 +12,7 @@
 
     <!-- Mobile Metas -->
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    
+
     <!-- GLOBAL MANDATORY STYLES -->
     <link href='https://fonts.googleapis.com/css?family=Roboto:100,400,700,500,300,300italic' rel='stylesheet' type='text/css'>
     @Styles.Render("~/Content/GlobalStyle")
@@ -37,29 +37,41 @@
     <!-- ADD -->
     @RenderSection("styles", false)
     <!-- END ADD -->
-    
+
+    <!-- FAVICON -->
     <link rel="shortcut icon" href="~/favicon.ico" />
+    <!-- END FAVICON -->
 </head>
-<body>
-    <div class="wrapper animsition">
+<!-- END HEAD -->
+<!-- BODY -->
+<body class="animsition">
+    <!-- WRAPPER -->
+    <div class="wrapper">
+        <!--========== HEADER CENTER ALIGNED TRANSPARENT ==========-->
         @Html.Partial("_TopNav")
+        <!--========== END HEADER CENTER ALIGNED TRANSPARENT ==========-->
+        <!--========== SIDEBAR ==========-->
         @Html.Partial("_Sidebar")
+        <!--========== END SIDEBAR ==========-->
         @RenderSection("img", false)
+        <!--========== PAGE CONTENT ==========-->
         @RenderBody()
+        <!--========== END PAGE CONTENT ==========-->
+        <!--========== FOOTER ==========-->
         @Html.Partial("_Footer")
+        <!--========== END FOOTER ==========-->
     </div>
+    <!-- END WRAPPER -->
     <!-- Sidebar Content Overlay -->
     <div class="sidebar-content-overlay"></div>
+    <!-- End Sidebar Content Overlay -->
     <div id="loading" style="display:none;z-index:99000;width:100%;height:100%;position:fixed;left:0;top:0;background-color:#f1f1f1;opacity:0.5;">
         <img src="~/Resources/images/loading.gif" style="left:20%;top:25%;position:absolute" />
     </div>
-    <!-- End Sidebar Content Overlay -->
-
     <!-- Back To Top -->
     <a href="javascript:void(0);" class="js-back-to-top back-to-top-theme"></a>
     <!-- End Back To Top -->
-
-<!--========== JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) ==========-->
+    <!--========== JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) ==========-->
     <!-- CORE PLUGINS -->
     <!--[if lt IE 9]>
     <script src="assets/plugins/html5shiv.js"></script>
@@ -67,20 +79,16 @@
     <![endif]-->
     @Scripts.Render("~/Scripts/CoreScript")
     <!-- END CORE PLUGINS -->
-
     <!-- PAGE LEVEL PLUGINS -->
     @Scripts.Render("~/Scripts/PagePluginScript")
     <!-- END PAGE LEVEL PLUGINS -->
-
     <!-- PAGE LEVEL SCRIPTS -->
     @Scripts.Render("~/Scripts/PageScript")
     <!-- END PAGE LEVEL SCRIPTS -->
-
+    <!--========== END JAVASCRIPTS ==========-->
     <!-- ADD -->
     @RenderSection("scripts", false)
     <!-- END ADD -->
-<!--========== END JAVASCRIPTS ==========-->
-
     <script>
         $('#loading').bind('ajaxStart', function () {
             $(this).show();
@@ -88,9 +96,6 @@
             $(this).hide();
         });
     </script>
-    <!--Code chat facebook-->
-    
 </body>
 <!-- END BODY -->
-
 </html>

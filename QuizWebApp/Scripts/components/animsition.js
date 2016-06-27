@@ -11,7 +11,7 @@ var Animsition = function() {
                 inDuration: 1500,
                 outDuration: 800,
                 loading: true,
-                loadingParentElement: 'body',
+                loadingParentElement: 'html',
                 loadingClass: 'animsition-loading',
                 // loadingInner: '', // e.g '<img src="loading.svg" />'
                 timeout: false,
@@ -25,7 +25,7 @@ var Animsition = function() {
                     ],
                 overlay: false,
                 overlayClass: 'animsition-overlay-slide',
-                overlayParentElement: 'body',
+                overlayParentElement: 'html',
                 transition: function(url){ window.location.href = url; }
             });
         });
