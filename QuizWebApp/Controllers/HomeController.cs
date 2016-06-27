@@ -49,7 +49,7 @@ namespace QuizWebApp.Controllers
             List<Core.Model.News> _list = new List<Core.Model.News>();
             Core.Controller.NewsHandle ctr = new Core.Controller.NewsHandle();
             _list = ctr.GetAllNews();
-            int pageSize = 10;
+            int pageSize = 9;
             int pageNumber = (page ?? 1);
             ViewBag.Action = "RenderNews";
             if(!ControllerContext.IsChildAction)
@@ -63,7 +63,7 @@ namespace QuizWebApp.Controllers
             List<Core.Model.News> _list = new List<Core.Model.News>();
             Core.Controller.NewsHandle ctr = new Core.Controller.NewsHandle();
             _list = ctr.GetAllNewsByType(type);
-            int pageSize = 10;
+            int pageSize = 9;
             int pageNumber = (page ?? 1);
             ViewBag.Action = "cat";
             return View("RenderNews", _list.ToPagedList(pageNumber, pageSize));
