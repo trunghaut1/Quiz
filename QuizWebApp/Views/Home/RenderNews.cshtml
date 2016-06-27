@@ -11,8 +11,8 @@
 <div class="banner-img-v3 bg-position-fixed">
     <div class="content-@head container">
         <div class="heading-v2 text-center">
-            <h2 class="heading-v2-title text-white wow fadeInUp animated">Tin tức</h2>
-            <p class="heading-v2-text text-white wow flipInY animated">Đừng bỏ lỡ những thông tin cập nhật quan trọng</p>
+            <h2 class="heading-v2-title text-white">Tin tức</h2>
+            <p class="heading-v2-text text-white">Đừng bỏ lỡ những thông tin cập nhật quan trọng</p>
         </div>
     </div>
     </div>
@@ -24,7 +24,7 @@
             <div class="masonry-grid margin-b-40">
                 @foreach (Core.Model.News news in Model)
                 {
-                    <div class="masonry-grid-item col-3 wow zoomIn animated">
+                    <div class="masonry-grid-item col-3 wow zoomIn animated" data-wow-duration="600ms">
                         <!-- News v1 -->
                         <article class="news-v1">
                             <div class="news-v1-heading">
@@ -38,7 +38,9 @@
                                 else {img_link = news.img_link;}
                             }
                             <a class="image-popup-vertical-fit" href="@img_link" title="Image">
-                                <img class="img-responsive" src="@img_link" alt="QuizOne News @img_link">
+                                <div class="img-news-thumb">
+                                    <img class="img-responsive" src="@img_link" alt="QuizOne News @img_link">
+                                </div>
                             </a>
                             <div class="news-v1-content">
                                 @{
