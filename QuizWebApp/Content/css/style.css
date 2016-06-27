@@ -2,3 +2,117 @@
     height: 240px; 
     overflow: hidden; 
 }
+.heading-v1 .heading-v1-subtitle, .heading-v1 .heading-v1-title, .heading-v2 .heading-v2-text, .heading-v3 .heading-v3-text, .heading-v4 .heading-v4-subtitle {
+    font-family: Roboto,sans-serif;
+}
+.services-v1 .services-v1-subtitle {
+    font-family: Roboto,sans-serif;
+}
+.news-v1 .news-v1-heading .news-v1-heading-title > a {
+    font-family: Roboto,sans-serif;
+}
+.news-v1 .news-v1-quote {
+    overflow:hidden;
+}
+.news-v1 .news-v1-lists .news-v1-lists-item:before {
+    left: -20px;
+}
+
+.checkbox input[type="checkbox"]:checked + input[type="hidden"] + label:before,
+.checkbox input[type="radio"]:checked + label:before {
+  background: #00bcd4;
+  border-color: #00bcd4;
+}
+
+.checkbox input[type="checkbox"]:checked + input[type="hidden"] + label:after,
+.checkbox input[type="radio"]:checked + label:after {
+  font-family: FontAwesome;
+  color: #fff;
+  content: "\f00c";
+}
+.breadcrumbs-v5 .breadcrumbs-v5-subtitle {
+    font-family: Roboto,sans-serif;
+}
+.blog-classic .blog-classic-subtitle {
+    font-family: Roboto,sans-serif;
+}
+.radio {
+  padding-left: 21px;
+  text-align: left;
+  margin: 10px 0px;
+}
+
+.radio label {
+  display: inline-block;
+  font-size: 15px;
+  font-weight: 300;
+  vertical-align: middle;
+  position: relative;
+  padding-left: 5px;
+}
+
+.radio label:before {
+  position: absolute;
+  left: 0;
+  width: 17px;
+  height: 17px;
+  display: inline-block;
+  background: #fff;
+  border: 1px solid #e0e5f1;
+  border-radius: 8px;
+  content: " ";
+  margin-left: -20px;
+  transition-duration: 200ms;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.7, 1, 0.7, 1);
+}
+
+.radio label:after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  font-size: 11px;
+  color: #606060;
+  margin-left: -16px;
+  padding-top: 1px;
+}
+
+.radio input[type="radio"] {
+  z-index: 1;
+  opacity: 0;
+  cursor: pointer;
+  margin-left: -18px;
+  margin-top: 2px;
+}
+
+.radio input[type="radio"]:focus + label:before {
+  outline: none;
+}
+
+.radio input[type="radio"]:checked + label:before {
+  background: #00bcd4;
+  border-color: #00bcd4;
+}
+
+.radio input[type="radio"]:checked + label:after {
+  font-family: FontAwesome;
+  color: #fff;
+  content: "\f111";
+}
+@-webkit-keyframes hue  {
+  from {
+    -webkit-filter: hue-rotate(0deg);
+  }
+
+  to {
+    -webkit-filter: hue-rotate(-360deg);
+  }
+}
+
+.btn-base-bg .btn-base-element-md {
+    padding: 12px 13px;
+}
+

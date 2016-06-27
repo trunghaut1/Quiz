@@ -26,7 +26,7 @@
                         <div class="search-fullscreen-overlay">
                             <div class="search-fullscreen-overlay-content">
                                 <div class="search-fullscreen-input-group">
-                                    <input type="text" class="form-control search-fullscreen-input" placeholder="Search for ...">
+                                    <input type="text" class="form-control search-fullscreen-input" placeholder="Tìm kiếm">
                                     <button class="search-fullscreen-search" type="button"><i class="search-fullscreen-search-icon fa fa-search"></i></button>
                                 </div>
                             </div>
@@ -48,12 +48,12 @@
                     <a class="navbar-logo-wrap" href="~/">
                         @if (full.Equals("home/index", StringComparison.OrdinalIgnoreCase))
                         {
-                            <img class="navbar-logo-img navbar-logo-img-white" src="~/Images/logo-default-white.png" alt="Ark">
-                            <img class="navbar-logo-img navbar-logo-img-dark" src="~/Images/logo-default.png" alt="Ark">
+                            <img class="navbar-logo-img navbar-logo-img-white" src="~/Images/logo-default-white.png" alt="QuizOne">
+                            <img class="navbar-logo-img navbar-logo-img-dark" src="~/Images/logo-default.png" alt="QuizOne">
                         }
                         else
                         {
-                            <img class="navbar-logo-img" src="~/Images/logo-default.png" alt="QuizApplication">
+                            <img class="navbar-logo-img" src="~/Images/logo-default.png" alt="QuizOne">
                         }
                     </a>
                 </div>
@@ -73,49 +73,30 @@
                         </li>
                         <!-- End Home -->
                         <!-- Pages -->
-                        <li class="nav-item dropdown mega-menu-fullwidth">
+                        <li class="nav-item dropdown">
                             <a class="nav-item-child dropdown-toggle radius-3" href="javascript:void(0);" data-toggle="dropdown">
-                                Trang
+                                Tin tức
                             </a>
                             <ul class="dropdown-menu">
-                                <li class="mega-menu-content">
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <!-- About Pages -->
-                                            <ul class="list-unstyled mega-menu-list">
-                                                <li><span class="mega-menu-title">Tin tức</span></li>
-                                                <li class="mega-menu-item">@Html.ActionLink("Chia sẻ kiến thức", "cat", "home", new { id = 1, type = 1 }, new { @class = "mega-menu-child" })</li>
-                                                <li class="mega-menu-item">@Html.ActionLink("Thông báo", "cat", "home", new { id = 1, type = 2 }, new { @class = "mega-menu-child" })</li>
-                                                <li class="mega-menu-item">@Html.ActionLink("Cẩm nang", "cat", "home", new { id = 1, type = 3 }, new { @class = "mega-menu-child" })</li>
-                                                <li class="mega-menu-item">@Html.ActionLink("Tải về android", "cat", "home", new { id = 1, type = 4 }, new { @class = "mega-menu-child" })</li>
-                                                <li class="mega-menu-item">@Html.ActionLink("Tải về desktop", "cat", "home", new { id = 1, type = 5 }, new { @class = "mega-menu-child" })</li>
-                                            </ul>
-                                            <!-- End About Pages -->
-                                        </div>
-                                        <div class="col-md-4">
-                                            <!-- Business Pages -->
-                                            <ul class="list-unstyled mega-menu-list">
-                                                <li><span class="mega-menu-title">Đóng góp</span></li>
-                                                <li class="mega-menu-item"><a class="mega-menu-child" href="#">Đóng góp câu hỏi</a></li>
-                                                <li class="mega-menu-item"><a class="mega-menu-child" href="#">Góp ý</a></li>
-                                            </ul>
-                                            <!-- End Business Pages -->
-                                        </div>
-                                        <div class="col-md-4">
-                                            <!-- Utility Pages -->
-                                            <ul class="list-unstyled mega-menu-list">
-                                                <li><span class="mega-menu-title">Liên hệ</span></li>
-                                                <li class="mega-menu-item"><a class="mega-menu-child" href="#">Contacts</a></li>
-                                                <li class="mega-menu-item"><a class="mega-menu-child" href="#">Về chúng tôi</a></li>
-                                            </ul>
-                                            <!-- End Utility Pages -->
-                                        </div>
-                                    </div>
-                                </li>
+                                <li class="dropdown-menu-item">@Html.ActionLink("Chia sẻ kiến thức", "cat", "home", new { id = 1, type = 1 }, new { @class = "dropdown-menu-item-child" })</li>
+                                <li class="dropdown-menu-item">@Html.ActionLink("Thông báo", "cat", "home", new { id = 1, type = 2 }, new { @class = "dropdown-menu-item-child" })</li>
+                                <li class="dropdown-menu-item">@Html.ActionLink("Cẩm nang", "cat", "home", new { id = 1, type = 3 }, new { @class = "dropdown-menu-item-child" })</li>
+                                <li class="dropdown-menu-item">@Html.ActionLink("Tải về android", "cat", "home", new { id = 1, type = 4 }, new { @class = "dropdown-menu-item-child" })</li>
+                                <li class="dropdown-menu-item">@Html.ActionLink("Tải về desktop", "cat", "home", new { id = 1, type = 5 }, new { @class = "dropdown-menu-item-child" })</li>
                             </ul>
                         </li>
+                        <li class="nav-item">@Html.ActionLink("Đề thi", "cat", "home", new { id = 1, type = 6 }, new { @class = "nav-item-child dropdown-toggle radius-3" })</li>
                         <li class="nav-item nav-item-bg form-modal-nav radius-3">
                             @Html.ActionLink("Làm bài", "index", "testing", null, new { @class = "nav-item-child form-modal-login radius-3" })
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-item-child dropdown-toggle radius-3" href="javascript:void(0);" data-toggle="dropdown">
+                                Liên hệ
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="dropdown-menu-item"><a class="dropdown-menu-item-child" href="#">Thông tin liên hệ</a></li>
+                                <li class="dropdown-menu-item"><a class="dropdown-menu-item-child" href="#">Đóng góp ý kiến</a></li>
+                            </ul>
                         </li>
                         @if (User.IsInRole("Admin"))
                         {

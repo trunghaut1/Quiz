@@ -2,17 +2,13 @@
 @{
     ViewBag.Title = "Trang chủ";
 }
-
 @section styles{
     @Styles.Render("~/Content/rev-slider")
-    @Styles.Render("~/Content/cubeportfolio")
 }
 @section scripts{
     @Scripts.Render("~/Scripts/rev-slider")
-    @Scripts.Render("~/Scripts/counter")
-    @Scripts.Render("~/Scripts/cubeportfolio")
     @Scripts.Render("~/Scripts/validation")
-    @Scripts.Render("~/Scripts/portfolio")
+    @Scripts.Render("~/Scripts/masonry")
     @Scripts.Render("~/Scripts/components_index")
 }
 @Html.Partial("_Slide")
@@ -20,12 +16,7 @@
 <div class="theme-portfolio-v2" style="padding:0px; display:block;">
     @Html.Action("Platform")
 
-    @*RenderAction platform*@
-
     @Html.Action("RenderNews")
 
     @Html.Action("Staff")
-    </div>
-    @*Counter*@
-    @*Teammmm*@
-    @*News*@
+</div>

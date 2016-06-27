@@ -8,20 +8,23 @@
     string head;
     if(full.Equals("home/cat", StringComparison.OrdinalIgnoreCase)) { head = "lg"; } else { head = "sm"; }
 }
+@section scripts{
+    @Scripts.Render("~/Scripts/masonry")
+}
 <div class="banner-img-v3 bg-position-fixed">
     <div class="content-@head container">
         <div class="heading-v2 text-center">
-            <h2 class="heading-v2-title text-white">Tin tức</h2>
-            <p class="heading-v2-text text-white">Đừng bỏ lỡ những thông tin cập nhật quan trọng</p>
+            <h2 class="heading-v2-title color-white">Tin tức</h2>
+            <p class="heading-v2-text color-white">Đừng bỏ lỡ những thông tin cập nhật quan trọng</p>
         </div>
     </div>
     </div>
 <div class="bg-color-sky-light">
-    <div class="content-md container">
+    <div class="content-sm container">
         @if (Model.Count > 0)
         {
         <!-- Masonry Grid -->
-            <div class="masonry-grid margin-b-40">
+            <div class="masonry-grid margin-b-20">
                 @foreach (Core.Model.News news in Model)
                 {
                     <div class="masonry-grid-item col-3 wow zoomIn animated" data-wow-duration="600ms">

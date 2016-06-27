@@ -15,31 +15,38 @@
     
     <!-- GLOBAL MANDATORY STYLES -->
     <link href='https://fonts.googleapis.com/css?family=Roboto:100,400,700,500,300,300italic' rel='stylesheet' type='text/css'>
+    @Styles.Render("~/Content/GlobalStyle")
     <!-- END GLOBAL MANDATORY STYLES -->
-    @Styles.Render("~/Content/bootstrap")
-    @Styles.Render("~/Content/font-awesome")
-    @Styles.Render("~/Content/et-line")
 
-    @Styles.Render("~/Content/scrollbar")
+    <!-- BEGIN THEME PLUGINS STYLE -->
+    @Styles.Render("~/Content/ThemePluginStyle")
+    <!-- END THEME PLUGINS STYLE -->
 
-    @Styles.Render("~/Content/css")
-    @Styles.Render("~/Content/magnific-popup")
-    @Styles.Render("~/Content/style")
+    <!-- THEME STYLES -->
+    @Styles.Render("~/Content/ThemeStyle")
+    <!-- END THEME STYLES -->
 
+    <!-- CUSTOM STYLES -->
+    @Styles.Render("~/Content/CustomStyle")
+    <!-- END CUSTOM STYLES -->
+
+    <!-- BEGIN JQUERY -->
     @Scripts.Render("~/bundles/jquery")
+    <!-- END JQUERY -->
 
+    <!-- ADD -->
     @RenderSection("styles", false)
+    <!-- END ADD -->
+    
     <link rel="shortcut icon" href="~/favicon.ico" />
 </head>
 <body>
     <div class="wrapper animsition">
         @Html.Partial("_TopNav")
-
         @Html.Partial("_Sidebar")
         @RenderSection("img", false)
         @RenderBody()
         @Html.Partial("_Footer")
-
     </div>
     <!-- Sidebar Content Overlay -->
     <div class="sidebar-content-overlay"></div>
@@ -47,24 +54,33 @@
         <img src="~/Resources/images/loading.gif" style="left:20%;top:25%;position:absolute" />
     </div>
     <!-- End Sidebar Content Overlay -->
+
     <!-- Back To Top -->
     <a href="javascript:void(0);" class="js-back-to-top back-to-top-theme"></a>
     <!-- End Back To Top -->
-    @Scripts.Render("~/Scripts/plugins")
 
-    @Scripts.Render("~/Scripts/scrollbar")
+<!--========== JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) ==========-->
+    <!-- CORE PLUGINS -->
+    <!--[if lt IE 9]>
+    <script src="assets/plugins/html5shiv.js"></script>
+    <script src="assets/plugins/respond.min.js"></script>
+    <![endif]-->
+    @Scripts.Render("~/Scripts/CoreScript")
+    <!-- END CORE PLUGINS -->
 
-    @Scripts.Render("~/Scripts/magnific-popup")
+    <!-- PAGE LEVEL PLUGINS -->
+    @Scripts.Render("~/Scripts/PagePluginScript")
+    <!-- END PAGE LEVEL PLUGINS -->
 
-    @Scripts.Render("~/Scripts/app")
-    @Scripts.Render("~/Scripts/components")
+    <!-- PAGE LEVEL SCRIPTS -->
+    @Scripts.Render("~/Scripts/PageScript")
+    <!-- END PAGE LEVEL SCRIPTS -->
+
+    <!-- ADD -->
     @RenderSection("scripts", false)
-    <script>
-        $(document).ready(function () {
-            $("script ~ div").css('display', 'none');
-            $("center a").css('display', 'none');
-        });
-    </script>
+    <!-- END ADD -->
+<!--========== END JAVASCRIPTS ==========-->
+
     <script>
         $('#loading').bind('ajaxStart', function () {
             $(this).show();
@@ -72,8 +88,6 @@
             $(this).hide();
         });
     </script>
-
-
     <!--Code chat facebook-->
     
 </body>
