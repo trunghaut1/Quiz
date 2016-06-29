@@ -106,6 +106,18 @@ namespace Core.Controller
             return DataHelper<Entities, News>.FindBy(t => t.title.Contains(key)).Count();
         }
 
+        public List<News> GetNewsByKeyword(string keyword)
+        {
+            return DataHelper<Entities, News>.GetAll().ToList().FindAll(
+                delegate(News news)
+                {
+                    if (keyword != "" || keyword != null)
+                        return Ultities.Convert2NotUnicode(news.title).Contains(keyword);
+                    else
+                        return true;
+                });
+        }
+
         public List<NewsType> GetNewsType()
         {
             return DataHelper<Entities, NewsType>.GetAll();

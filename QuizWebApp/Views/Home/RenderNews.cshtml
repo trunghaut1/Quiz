@@ -31,7 +31,7 @@
                         <!-- News v1 -->
                         <article class="news-v1">
                             <div class="news-v1-heading">
-                                @Html.ActionLink(@news.NewsType.name, "cat", "home", new { @page = 1, @type = news.type }, new { @class = "news-v1-heading-tag" })
+                                @Html.ActionLink(@news.NewsType.name, "category", "home", new { @type = news.type, @page = 1 }, new { @class = "news-v1-heading-tag" })
                                 <span class="news-v1-element"><i class="news-v1-element-icon fa fa-circle"></i></span>
                                 <h3 class="news-v1-heading-title">@Html.ActionLink(@news.title, "newsid/"+news.id, "home")</h3>
                             </div>
@@ -79,7 +79,7 @@
         <!-- End Masonry Grid -->
         <!-- Button -->
             <div class="center-block">
-                @Html.PagedListPager(Model, page => Url.Action(ViewBag.Action, new { page, type=ViewBag.type }))
+                @Html.PagedListPager(Model, page => Url.Action(ViewBag.Action, new { type = ViewBag.type, keyword = ViewBag.keyword, page }))
             </div>
             
         <!-- Button -->
