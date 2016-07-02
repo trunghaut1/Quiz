@@ -6,7 +6,7 @@
     string nameOfControllerCallThisView = ViewContext.RouteData.GetRequiredString("controller");
     string full = nameOfControllerCallThisView + "/" + nameOfActionCallThisView;
     string head;
-    if(full.Equals("home/cat", StringComparison.OrdinalIgnoreCase)) { head = "lg"; } else { head = "sm"; }
+    if(full.Equals("home/category", StringComparison.OrdinalIgnoreCase)) { head = "lg"; } else { head = "sm"; }
 }
 @section scripts{
     @Scripts.Render("~/Scripts/masonry")

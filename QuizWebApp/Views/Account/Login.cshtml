@@ -36,17 +36,19 @@
                                 @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
                             </div>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group fuelux">
                             <div class="col-md-offset-2 col-md-10">
-                                <div class="checkbox">
-                                    @Html.CheckBoxFor(m => m.RememberMe)
-                                    @Html.LabelFor(m => m.RememberMe)
+                                <div class="radio-checkbox radio-checkbox-sm margin-b-10">
+                                    <label class="radio-checkbox-btn radio-checkbox-bg-icon radius-b-3" data-initialize="checkbox">
+                                        @Html.CheckBoxFor(m => m.RememberMe, new { @class = "sr-only" })
+                                        <span class="radio-checkbox-label">Ghi nhớ</span>
+                                    </label>
                                 </div>
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-md-offset-2 col-md-10">
-                                <input type="submit" value="Đăng nhập" class="btn-base-bg btn-base-sm"/>
+                                <button type="submit" class="btn-base-bg-slide btn-slide btn-slide-center-v1 btn-base-md">Đăng nhập</button>
                             </div>
                         </div>
                         <p>
