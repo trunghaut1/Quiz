@@ -26,8 +26,11 @@
                         <div class="search-fullscreen-overlay">
                             <div class="search-fullscreen-overlay-content">
                                 <div class="search-fullscreen-input-group">
-                                    <input type="text" class="form-control search-fullscreen-input" placeholder="Tìm kiếm">
-                                    <button class="search-fullscreen-search" type="button"><i class="search-fullscreen-search-icon fa fa-search"></i></button>
+                                    @using (Html.BeginForm("search", "home", FormMethod.Get))
+                                    {
+                                        <input name="keyword" type="text" class="form-control search-fullscreen-input" placeholder="Tìm kiếm">
+                                        <button class="search-fullscreen-search" type="submit"><i class="search-fullscreen-search-icon fa fa-search"></i></button>
+                                    }
                                 </div>
                             </div>
                         </div>
@@ -78,11 +81,11 @@
                                 Tin tức
                             </a>
                             <ul class="dropdown-menu">
-                                <li class="dropdown-menu-item">@Html.ActionLink("Chia sẻ kiến thức", "cat", "home", new { id = 1, type = 1 }, new { @class = "dropdown-menu-item-child" })</li>
-                                <li class="dropdown-menu-item">@Html.ActionLink("Thông báo", "cat", "home", new { id = 1, type = 2 }, new { @class = "dropdown-menu-item-child" })</li>
-                                <li class="dropdown-menu-item">@Html.ActionLink("Cẩm nang", "cat", "home", new { id = 1, type = 3 }, new { @class = "dropdown-menu-item-child" })</li>
-                                <li class="dropdown-menu-item">@Html.ActionLink("Tải về android", "cat", "home", new { id = 1, type = 4 }, new { @class = "dropdown-menu-item-child" })</li>
-                                <li class="dropdown-menu-item">@Html.ActionLink("Tải về desktop", "cat", "home", new { id = 1, type = 5 }, new { @class = "dropdown-menu-item-child" })</li>
+                                <li class="dropdown-menu-item">@Html.ActionLink("Chia sẻ kiến thức", "category", "home", new { type = 1 }, new { @class = "dropdown-menu-item-child" })</li>
+                                <li class="dropdown-menu-item">@Html.ActionLink("Thông báo", "category", "home", new { type = 2 }, new { @class = "dropdown-menu-item-child" })</li>
+                                <li class="dropdown-menu-item">@Html.ActionLink("Cẩm nang", "category", "home", new { type = 3 }, new { @class = "dropdown-menu-item-child" })</li>
+                                <li class="dropdown-menu-item">@Html.ActionLink("Tải về android", "category", "home", new { type = 4 }, new { @class = "dropdown-menu-item-child" })</li>
+                                <li class="dropdown-menu-item">@Html.ActionLink("Tải về desktop", "category", "home", new { type = 5 }, new { @class = "dropdown-menu-item-child" })</li>
                             </ul>
                         </li>
                         <li class="nav-item">@Html.ActionLink("Đề thi", "cat", "home", new { id = 1, type = 6 }, new { @class = "nav-item-child dropdown-toggle radius-3" })</li>

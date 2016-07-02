@@ -58,25 +58,26 @@ namespace QuizWebApp.Controllers
                 return PartialView("RenderNews", _list.ToPagedList(pageNumber, pageSize));
         }
 
-        public ActionResult Cat(int? page, int type)
+        public ActionResult Category(int type, int page = 1)
         {
             List<Core.Model.News> _list = new List<Core.Model.News>();
             Core.Controller.NewsHandle ctr = new Core.Controller.NewsHandle();
             _list = ctr.GetAllNewsByType(type);
             int pageSize = 9;
-            int pageNumber = (page ?? 1);
-            ViewBag.Action = "cat";
+            int pageNumber = page;
+            ViewBag.Action = "category";
+            ViewBag.type = type;
             return View("RenderNews", _list.ToPagedList(pageNumber, pageSize));
 
         }
 
-        public ActionResult Search(int? page, string keyword)
+        public ActionResult Search(string keyword, int page = 1)
         {
-            List<Core.Model.News> _list = new List<Core.Model.News>();
-            Core.Controller.NewsHandle ctr = new Core.Controller.NewsHandle();
-            int pageSize = 10;
-            int pageNumber = (page ?? 1);
+            List<Core.Model.News> _list = new NewsHandle().GetNewsByKeyword(keyword);
+            int pageSize = 9;
+            int pageNumber = page;
             ViewBag.Action = "search";
+            ViewBag.keyword = keyword;
             return View("RenderNews", _list.ToPagedList(pageNumber, pageSize));
 
         }
