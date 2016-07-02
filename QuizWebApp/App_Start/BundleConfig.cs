@@ -23,7 +23,8 @@ namespace QuizWebApp
                 "~/Content/plugins/scrollbar/jquery.mCustomScrollbar.concat.js",
                 "~/Scripts/plugins/jquery.wow.js",
                 "~/Content/plugins/magnific-popup/jquery.magnific-popup.min.js",
-                "~/Scripts/plugins/jquery.footer-reveal.js"));
+                "~/Scripts/plugins/jquery.footer-reveal.js",
+                "~/Scripts/plugins/fuelux.js"));
 
             bundles.Add(new ScriptBundle("~/Scripts/PageScript").Include(
                 "~/Scripts/app.min.js",
@@ -34,7 +35,8 @@ namespace QuizWebApp
                 "~/Scripts/components/form-modal.js",
                 "~/Scripts/components/wow.js",
                 "~/Scripts/components/magnific-popup.js",
-                "~/Scripts/components/footer-reveal.js"));
+                "~/Scripts/components/footer-reveal.js",
+                "~/Scripts/components/fuelux.js"));
 
             bundles.Add(new ScriptBundle("~/Scripts/rev-slider").Include(
                       "~/Scripts/rev-slider/jquery.themepunch.tools.js",

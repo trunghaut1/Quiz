@@ -191,27 +191,35 @@
             <div class="">
                 @using (Ajax.BeginForm("domark", "testing", new AjaxOptions { HttpMethod = "POST", OnSuccess = "sucess", OnFailure = "failure" }, new { @id = "submit" }))
                 {
-                    <div class="content-question">
+                    <div class="content-question fuelux">
                         @for (int i = 0; i < Model.Count; i++)
                         {
                             <div class="item-question" id="@i">
                                 <div class="divider-v1" style="margin: 0px;"><div class="divider-v1-element divider-v1-element-bg radius-50">Câu @(i + 1)</div></div>
                                 <p>@Html.DisplayFor(t => t[i].Content)</p>
-                                <div class="radio">
-                                    @Html.RadioButtonFor(t => t[i].Traloi, @Model[i].Opt1, new { @id = "ans_" + i + "A" })
-                                    <label for="ans_@(i)A">Câu A. @Html.DisplayFor(t => t[i].Opt1)</label>
+                                <div class="radio-checkbox radio-checkbox-sm margin-b-10">
+                                    <label class="radio-checkbox-btn radio-checkbox-bg-color radius-b-circle" data-initialize="radio">
+                                        @Html.RadioButtonFor(t => t[i].Traloi, @Model[i].Opt1, new { @class = "sr-only" })
+                                        <span class="radio-checkbox-label">@Html.DisplayFor(t => t[i].Opt1)</span>
+                                    </label>
                                 </div>
-                                <div class="radio">
-                                    @Html.RadioButtonFor(t => t[i].Traloi, @Model[i].Opt2, new { @id = "ans_" + i + "B" })
-                                    <label for="ans_@(i)B">Câu B. @Html.DisplayFor(t => t[i].Opt2)</label>
+                                <div class="radio-checkbox radio-checkbox-sm margin-b-10">
+                                    <label class="radio-checkbox-btn radio-checkbox-bg-color radius-b-circle" data-initialize="radio">
+                                        @Html.RadioButtonFor(t => t[i].Traloi, @Model[i].Opt2, new { @class = "sr-only" })
+                                        <span class="radio-checkbox-label">@Html.DisplayFor(t => t[i].Opt2)</span>
+                                    </label>
                                 </div>
-                                <div class="radio">
-                                    @Html.RadioButtonFor(t => t[i].Traloi, @Model[i].Opt3, new { @id = "ans_" + i + "C" })
-                                    <label for="ans_@(i)C">Câu C. @Html.DisplayFor(t => t[i].Opt3)</label>
+                                <div class="radio-checkbox radio-checkbox-sm margin-b-10">
+                                    <label class="radio-checkbox-btn radio-checkbox-bg-color radius-b-circle" data-initialize="radio">
+                                        @Html.RadioButtonFor(t => t[i].Traloi, @Model[i].Opt3, new { @class = "sr-only" })
+                                        <span class="radio-checkbox-label">@Html.DisplayFor(t => t[i].Opt3)</span>
+                                    </label>
                                 </div>
-                                <div class="radio">
-                                    @Html.RadioButtonFor(t => t[i].Traloi, @Model[i].Opt4, new { @id = "ans_" + i + "D" })
-                                    <label for="ans_@(i)D">Câu D. @Html.DisplayFor(t => t[i].Opt4)</label>
+                                <div class="radio-checkbox radio-checkbox-sm margin-b-10">
+                                    <label class="radio-checkbox-btn radio-checkbox-bg-color radius-b-circle" data-initialize="radio">
+                                        @Html.RadioButtonFor(t => t[i].Traloi, @Model[i].Opt4, new { @class = "sr-only" })
+                                        <span class="radio-checkbox-label">@Html.DisplayFor(t => t[i].Opt4)</span>
+                                    </label>
                                 </div>
                                 @Html.HiddenFor(t => t[i].Id, new { @Value = "" + Model[i].Id })
                                 @Html.HiddenFor(t => t[i].SubId, new { @Value = "" + Model[i].SubId })

@@ -1459,6 +1459,7 @@
     <Content Include="Scripts\components\equal-height.js" />
     <Content Include="Scripts\components\footer-reveal.js" />
     <Content Include="Scripts\components\form-modal.js" />
+    <Content Include="Scripts\components\fuelux.js" />
     <Content Include="Scripts\components\google-map.js" />
     <Content Include="Scripts\components\header-fullscreen.js" />
     <Content Include="Scripts\components\header-section-scroll.js" />
@@ -1475,8 +1476,9 @@
     <Content Include="Scripts\components\scrollbar.js" />
     <Content Include="Scripts\components\theme-dropdown.js" />
     <Content Include="Scripts\components\wow.js" />
+    <Content Include="Scripts\plugins\fuelux.js" />
     <Content Include="Scripts\plugins\html5shiv.js" />
-    <Content Include="Scripts\plugins\jquery.animsition.js" />
+    <Content Include="Scripts\plugins\jquery.animsition.min.js" />
     <Content Include="Scripts\plugins\jquery.appear.js" />
     <Content Include="Scripts\plugins\jquery.back-to-top.js" />
     <Content Include="Scripts\plugins\jquery.backstretch.js" />

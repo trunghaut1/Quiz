@@ -18,7 +18,7 @@
             <div id="socialLoginList">
                 <p>
                     @foreach (AuthenticationDescription p in loginProviders) {
-                        <button type="submit" class="btn-tw-bg btn-base-animate-to-top btn-base-md" id="@p.AuthenticationType" name="provider" value="@p.AuthenticationType" title="Log in using your @p.Caption account">@p.AuthenticationType
+                        <button type="submit" class="btn-base-bg btn-base-animate-to-top btn-base-md" id="@p.AuthenticationType" name="provider" value="@p.AuthenticationType" title="Log in using your @p.Caption account">@p.AuthenticationType
                         <span class="btn-base-element-md"><i class="btn-base-element-icon fa fa-facebook"></i></span>
                     </button>
                     }
